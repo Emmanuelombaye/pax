@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/logo.png",
+      "source": "/logo.webp",
       "headers": [
         {
           "key": "Cache-Control",
@@ -24,6 +24,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
         }
       ]
     }
