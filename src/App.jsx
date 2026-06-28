@@ -334,7 +334,7 @@ function App() {
               <div className="container">
                 <div className="eligibility-grid">
                   <div className="eligibility-image">
-                    <img src="/images/telehealth-consultation.png" alt="Telehealth Consultation Screen" />
+                    <img src="/images/telehealth-consultation.png" alt="Telehealth Consultation Screen" loading="lazy" />
                   </div>
                   <div className="eligibility-content">
                     <span className="section-label">Safe & Transparent Care</span>
@@ -448,7 +448,7 @@ function App() {
 
                 <div className="testimonial-wrap" style={{ marginTop: 'var(--space-3xl)' }}>
                   <div className="testimonial-player">
-                    <img src="/images/sermorelin-recovery.png" alt="Patient stretching on Miami beach" />
+                    <img src="/images/sermorelin-recovery.png" alt="Patient stretching on Miami beach" loading="lazy" />
                   </div>
                   <div className="testimonial-copy-side">
                     <span className="section-label">Aspirational Living</span>
@@ -481,7 +481,7 @@ function App() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-content-grid">
                         <div className="timeline-image-frame">
-                          <img src="/images/milestone-2022.png" alt="Genesis of Pax" />
+                          <img src="/images/milestone-2022.png" alt="Genesis of Pax" loading="lazy" />
                         </div>
                         <div>
                           <span className="timeline-year">2022</span>
@@ -498,7 +498,7 @@ function App() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-content-grid">
                         <div className="timeline-image-frame">
-                          <img src="/images/milestone-2023.png" alt="Cellular Therapy Rollout" />
+                          <img src="/images/milestone-2023.png" alt="Cellular Therapy Rollout" loading="lazy" />
                         </div>
                         <div>
                           <span className="timeline-year">2023</span>
@@ -515,7 +515,7 @@ function App() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-content-grid">
                         <div className="timeline-image-frame">
-                          <img src="/images/milestone-2024.png" alt="HIPAA-Compliant Telehealth Platform" />
+                          <img src="/images/milestone-2024.png" alt="HIPAA-Compliant Telehealth Platform" loading="lazy" />
                         </div>
                         <div>
                           <span className="timeline-year">2024</span>
@@ -532,7 +532,7 @@ function App() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-content-grid">
                         <div className="timeline-image-frame">
-                          <img src="/images/milestone-2025.png" alt="Precision Genome Auditing" />
+                          <img src="/images/milestone-2025.png" alt="Precision Genome Auditing" loading="lazy" />
                         </div>
                         <div>
                           <span className="timeline-year">2025</span>
@@ -569,7 +569,7 @@ function App() {
                   {/* Threat 1 */}
                   <div className="threat-card">
                     <div className="threat-image-wrap shape-hexagon">
-                      <img src="/images/threat-cardio.png" alt="Cardiovascular Optimization" />
+                      <img src="/images/threat-cardio.png" alt="Cardiovascular Optimization" loading="lazy" />
                     </div>
                     <span className="threat-num">01</span>
                     <h3 className="threat-title">Cardiovascular Health</h3>
@@ -578,7 +578,7 @@ function App() {
                   {/* Threat 2 */}
                   <div className="threat-card">
                     <div className="threat-image-wrap shape-teardrop">
-                      <img src="/images/threat-metabolic.png" alt="Metabolic Integrity" />
+                      <img src="/images/threat-metabolic.png" alt="Metabolic Integrity" loading="lazy" />
                     </div>
                     <span className="threat-num">02</span>
                     <h3 className="threat-title">Metabolic Integrity</h3>
@@ -587,7 +587,7 @@ function App() {
                   {/* Threat 3 */}
                   <div className="threat-card">
                     <div className="threat-image-wrap shape-blob">
-                      <img src="/images/threat-neuro.png" alt="Neurodegenerative Markers" />
+                      <img src="/images/threat-neuro.png" alt="Neurodegenerative Markers" loading="lazy" />
                     </div>
                     <span className="threat-num">03</span>
                     <h3 className="threat-title">Neurodegenerative Markers</h3>
@@ -596,7 +596,7 @@ function App() {
                   {/* Threat 4 */}
                   <div className="threat-card">
                     <div className="threat-image-wrap shape-shield">
-                      <img src="/images/threat-cancer.png" alt="Oncological Interception" />
+                      <img src="/images/threat-cancer.png" alt="Oncological Interception" loading="lazy" />
                     </div>
                     <span className="threat-num">04</span>
                     <h3 className="threat-title">Oncological Interception</h3>
@@ -663,7 +663,7 @@ function App() {
                   {/* Semaglutide/Tirzepatide Weight Loss */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/semaglutide-treatment.png" alt="Semaglutide Weight Management" />
+                      <img src="/images/semaglutide-treatment.png" alt="Semaglutide Weight Management" loading="lazy" />
                       <span className="treatment-badge">Weight Loss</span>
                     </div>
                     <div className="treatment-body">
@@ -690,7 +690,7 @@ function App() {
                   {/* NAD+ Cellular Energy */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/nad-longevity.png" alt="NAD+ Longevity Peptides" />
+                      <img src="/images/nad-longevity.png" alt="NAD+ Longevity Peptides" loading="lazy" />
                       <span className="treatment-badge">Cellular Health</span>
                     </div>
                     <div className="treatment-body">
@@ -717,7 +717,7 @@ function App() {
                   {/* Sermorelin Recovery */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/sermorelin-recovery.png" alt="Sermorelin Recovery Treatment" />
+                      <img src="/images/sermorelin-recovery.png" alt="Sermorelin Recovery Treatment" loading="lazy" />
                       <span className="treatment-badge">Vitality</span>
                     </div>
                     <div className="treatment-body">
@@ -762,7 +762,7 @@ function App() {
                 <div className="sab-grid">
                   <div className="sab-member">
                     <div className="sab-photo-wrap">
-                      <img src="/images/telehealth-consultation.png" alt="Dr. Elena Vance" />
+                      <img src="/images/telehealth-consultation.png" alt="Dr. Elena Vance" loading="lazy" />
                     </div>
                     <p className="sab-name">Dr. Elena Vance</p>
                     <p className="sab-role">Scientific Director</p>
@@ -770,7 +770,7 @@ function App() {
                   </div>
                   <div className="sab-member">
                     <div className="sab-photo-wrap">
-                      <img src="/images/milestone-2024.png" alt="Dr. Marcus Brody" />
+                      <img src="/images/milestone-2024.png" alt="Dr. Marcus Brody" loading="lazy" />
                     </div>
                     <p className="sab-name">Dr. Marcus Brody</p>
                     <p className="sab-role">Metabolic Science Advisor</p>
@@ -778,7 +778,7 @@ function App() {
                   </div>
                   <div className="sab-member">
                     <div className="sab-photo-wrap">
-                      <img src="/images/wellness-therapy.png" alt="Dr. Alan Chen" />
+                      <img src="/images/wellness-therapy.png" alt="Dr. Alan Chen" loading="lazy" />
                     </div>
                     <p className="sab-name">Dr. Alan Chen</p>
                     <p className="sab-role">Cardiovascular Advisor</p>
@@ -853,7 +853,7 @@ function App() {
                     {/* Featured 1 */}
                     <div className="webinar-featured-card card-dark" onClick={() => playWebinar('https://www.youtube.com/embed/pQZr6SqQsbQ', 'Preventing Disease Before Symptoms Appear')}>
                       <div className="webinar-image-wrap">
-                        <img src="/images/genomics_lab_classic.png" alt="Genomics lab" />
+                        <img src="/images/genomics_lab_classic.png" alt="Genomics lab" loading="lazy" />
                         <div className="webinar-play-overlay">
                           <span className="webinar-play-btn">▶</span>
                         </div>
@@ -880,7 +880,7 @@ function App() {
                     {/* Featured 2 */}
                     <div className="webinar-featured-card" onClick={() => playWebinar('https://www.youtube.com/embed/88jwr3-Ej0I', 'A Guide to Pancreatic Cancer Treatment')}>
                       <div className="webinar-image-wrap">
-                        <img src="/images/metabolic_cellular_classic.png" alt="Cellular mitochondria" />
+                        <img src="/images/metabolic_cellular_classic.png" alt="Cellular mitochondria" loading="lazy" />
                         <div className="webinar-play-overlay">
                           <span className="webinar-play-btn">▶</span>
                         </div>
@@ -910,7 +910,7 @@ function App() {
                     {/* Webinar Card 1 */}
                     <div className="webinar-small-card" onClick={() => playWebinar('https://www.youtube.com/embed/-IR3Dy6Lxkc', 'Sleep Hygiene & Glymphatic Brain Clearance')}>
                       <div className="webinar-small-image">
-                        <img src="/images/sleep_brain_classic.png" alt="Brain sleep sleep science" />
+                        <img src="/images/sleep_brain_classic.png" alt="Brain sleep sleep science" loading="lazy" />
                         <span className="webinar-duration">18 mins</span>
                       </div>
                       <div className="webinar-small-content">
@@ -923,7 +923,7 @@ function App() {
                     {/* Webinar Card 2 */}
                     <div className="webinar-small-card" onClick={() => playWebinar('https://www.youtube.com/embed/e1h3mdZDGSI', 'APOE Status & Early Plaque Interception')}>
                       <div className="webinar-small-image">
-                        <img src="/images/threat-cardio.png" alt="Biomarker graphics" />
+                        <img src="/images/threat-cardio.png" alt="Biomarker graphics" loading="lazy" />
                         <span className="webinar-duration">22 mins</span>
                       </div>
                       <div className="webinar-small-content">
@@ -936,7 +936,7 @@ function App() {
                     {/* Webinar Card 3 */}
                     <div className="webinar-small-card" onClick={() => playWebinar('https://www.youtube.com/embed/Erstue61B3Q', 'GLP-1 Compounding and Insulin Management')}>
                       <div className="webinar-small-image">
-                        <img src="/images/threat-metabolic.png" alt="Cellular lab tests" />
+                        <img src="/images/threat-metabolic.png" alt="Cellular lab tests" loading="lazy" />
                         <span className="webinar-duration">15 mins</span>
                       </div>
                       <div className="webinar-small-content">
@@ -949,7 +949,7 @@ function App() {
                     {/* Webinar Card 4 */}
                     <div className="webinar-small-card" onClick={() => playWebinar('https://www.youtube.com/embed/Bmtj91tNUYc', 'Active Wellness: The Coastal Longevity Factor')}>
                       <div className="webinar-small-image">
-                        <img src="/images/coastal_running_classic.png" alt="Coastal jogger model" />
+                        <img src="/images/coastal_running_classic.png" alt="Coastal jogger model" loading="lazy" />
                         <span className="webinar-duration">25 mins</span>
                       </div>
                       <div className="webinar-small-content">
@@ -978,7 +978,7 @@ function App() {
                   {/* Featured Article Box */}
                   <div className="article-featured-box">
                     <div className="article-featured-image">
-                      <img src="/images/nad-longevity.png" alt="Lab diagnostics" />
+                      <img src="/images/nad-longevity.png" alt="Lab diagnostics" loading="lazy" />
                     </div>
                     <div className="article-featured-content">
                       <div className="article-meta">
@@ -1045,7 +1045,7 @@ function App() {
 
                   <div className="article-featured-box">
                     <div className="article-featured-image" style={{ position: 'relative', cursor: 'pointer' }} onClick={() => playWebinar('https://www.youtube.com/embed/WmzSpOKoppM', 'Dr. Wei-Wu He on Livelong Podcast')}>
-                      <img src="/images/telehealth-consultation.png" alt="Dr. He interview" />
+                      <img src="/images/telehealth-consultation.png" alt="Dr. He interview" loading="lazy" />
                       <div className="webinar-play-overlay">
                         <span className="webinar-play-btn">▶</span>
                       </div>
@@ -1077,11 +1077,12 @@ function App() {
                     <iframe 
                       width="100%" 
                       height="100%" 
-                      src={activeVideoUrl} 
+                      src={`${activeVideoUrl}${activeVideoUrl.includes('?') ? '&' : '?'}autoplay=1`} 
                       title={activeVideoTitle} 
                       frameBorder="0" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                       allowFullScreen
+                      loading="lazy"
                     ></iframe>
                   </div>
                 </div>
