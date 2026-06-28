@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Pax Longevity — Personalized, preventive, and precision-based care designed to help you live a longer, healthier, and more vibrant life.">
+  <title>Pax Longevity — Live Longer. Live Better.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="translations.js" defer></script>
+  <script src="woocommerce.js" defer></script>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-wrapper">
+          <img src="logo.png" alt="Pax Logo" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">PAX</span>
+            <span class="logo-tagline">LONGEVITY</span>
+          </div>
+        </div>
+      </a>
+      
+      <nav class="nav" id="nav-menu">
+        <a href="#approach" class="nav-link" data-i18n="navApproach">Our Approach</a>
+        <a href="#programs" class="nav-link" data-i18n="navPrograms">Programs</a>
+        <a href="#science" class="nav-link" data-i18n="navScience">Science</a>
+        <a href="#membership" class="nav-link" data-i18n="navMembership">Membership</a>
+        <a href="#about" class="nav-link" data-i18n="navAbout">About</a>
+        <a href="#journal" class="nav-link" data-i18n="navJournal">Journal</a>
+        <button class="btn btn-primary" id="nav-cta" data-i18n="navCta">Book a Consultation</button>
+      </nav>
+      
+      <div class="header-right">
+        <div class="lang-switcher" id="lang-switcher">
+          <button class="lang-current" aria-label="Select Language">
+            <span class="lang-flag">🇺🇸</span>
+            <span class="lang-code">EN</span>
+            <span class="lang-chevron">▼</span>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown">
+            <!-- Populated dynamically by I18n class in translations.js -->
+          </div>
+        </div>
+        
+        <!-- WooCommerce cart toggle button (id: cart-toggle) will be auto-inserted here by woocommerce.js -->
+        
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/hero-jogger.png" alt="Pax Longevity Hero">
+    </div>
+    <div class="container hero-content">
+      <div class="hero-label" data-i18n="heroLabel">Live Longer. Live Better.</div>
+      <h1 class="hero-title" data-i18n="heroTitle" data-i18n-html>The future <em>of health is</em> longevity.</h1>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">Personalized, preventive, and precision-based care designed to help you live a longer, healthier, and more vibrant life.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="hero-cta-primary" data-i18n="heroCta1">Start Your Journey</button>
+        <button class="btn btn-outline" id="hero-cta-secondary" data-i18n="heroCta2">
+          Explore Our Approach <span class="btn-icon">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Bar -->
+  <section class="metrics">
+    <div class="container">
+      <div class="metrics-inner">
+        <div class="metric">
+          <div class="metric-icon">☀️</div>
+          <div class="metric-data">
+            <div class="metric-value">82</div>
+            <div class="metric-unit" data-i18n="metricUnit1">Years</div>
+            <div class="metric-desc" data-i18n="metricDesc1">Average Lifespan</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">🌊</div>
+          <div class="metric-data">
+            <div class="metric-value">62</div>
+            <div class="metric-unit" data-i18n="metricUnit2">Years</div>
+            <div class="metric-desc" data-i18n="metricDesc2">Average Healthspan</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">🌴</div>
+          <div class="metric-data">
+            <div class="metric-value">20</div>
+            <div class="metric-unit" data-i18n="metricUnit3">Years</div>
+            <div class="metric-desc" data-i18n="metricDesc3">Lost to Preventable Decline</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">❤️</div>
+          <div class="metric-data">
+            <div class="metric-value">100%</div>
+            <div class="metric-unit" data-i18n="metricUnit4">You</div>
+            <div class="metric-desc" data-i18n="metricDesc4">Optimized Potential</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach Section -->
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="approach-header">
+        <div class="section-label" data-i18n="approachLabel">Our Approach</div>
+        <h2 class="section-title" data-i18n="approachTitle" data-i18n-html>A new standard <em>in longevity care.</em></h2>
+        <p class="approach-description" data-i18n="approachDesc">We combine advanced diagnostics, world-class experts, and data-driven insights to create a plan that's uniquely you.</p>
+        <a href="#programs" class="approach-link" id="explore-programs">
+          <span data-i18n="approachLink">Explore Programs</span> <span class="arrow">→</span>
+        </a>
+      </div>
+      
+      <div class="approach-cards">
+        <div class="approach-card">
+          <div class="approach-card-img">
+            <img src="images/precision-diagnostics.png" alt="Precision Diagnostics">
+          </div>
+          <div class="approach-card-body">
+            <div class="approach-card-icon">🩸</div>
+            <h3 class="approach-card-title" data-i18n="card1Title">Precision Diagnostics</h3>
+            <p class="approach-card-text" data-i18n="card1Text">Advanced testing to measure what matters most.</p>
+          </div>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-img">
+            <img src="images/preventive-medicine.png" alt="Preventive Medicine">
+          </div>
+          <div class="approach-card-body">
+            <div class="approach-card-icon">🧬</div>
+            <h3 class="approach-card-title" data-i18n="card2Title">Preventive Medicine</h3>
+            <p class="approach-card-text" data-i18n="card2Text">Identify risks early and take action before symptoms appear.</p>
+          </div>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-img">
+            <img src="images/performance-optimization.png" alt="Performance Optimization">
+          </div>
+          <div class="approach-card-body">
+            <div class="approach-card-icon">⚡</div>
+            <h3 class="approach-card-title" data-i18n="card3Title">Performance Optimization</h3>
+            <p class="approach-card-text" data-i18n="card3Text">Improve energy, metabolism, strength and mental clarity.</p>
+          </div>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-img">
+            <img src="images/recovery-regeneration.png" alt="Recovery & Regeneration">
+          </div>
+          <div class="approach-card-body">
+            <div class="approach-card-icon">🌙</div>
+            <h3 class="approach-card-title" data-i18n="card4Title">Recovery & Regeneration</h3>
+            <p class="approach-card-text" data-i18n="card4Text">Sleep, recovery and cellular health to slow aging.</p>
+          </div>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-img">
+            <img src="images/longevity-plans.png" alt="Personalized Longevity Plans">
+          </div>
+          <div class="approach-card-body">
+            <div class="approach-card-icon">👤</div>
+            <h3 class="approach-card-title" data-i18n="card5Title">Personalized Longevity Plans</h3>
+            <p class="approach-card-text" data-i18n="card5Text">Data-driven plans built around your biology and goals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Miami Lifestyle Section -->
+  <section class="lifestyle" id="about">
+    <div class="container">
+      <div class="lifestyle-content">
+        <div class="section-label" data-i18n="lifestyleLabel">Inspired by Life.</div>
+        <h2 class="section-title lifestyle-title" data-i18n="lifestyleTitle" data-i18n-html>Miami living. Built for longevity.</h2>
+        <p class="lifestyle-text" data-i18n="lifestyleText">Sunshine, movement, connection and science combine to create a healthier future. We believe longevity should be vibrant, active and enjoyed.</p>
+        <button class="btn btn-primary" id="our-story-cta" data-i18n="lifestyleCta">Our Story</button>
+      </div>
+      
+      <div class="lifestyle-image">
+        <img src="images/miami-skyline.png" alt="Miami Skyline">
+        <div class="lifestyle-badge">
+          <div class="badge-text">
+            <span class="badge-wave">🌊</span>
+            <span data-i18n="badgeText" data-i18n-html>Longevity<br>is a<br>Lifestyle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Creative Section: Cellular Longevity Pillars & Experience -->
+  <section class="pillars" id="science-pillars">
+    <div class="container">
+      <div class="pillars-header">
+        <div class="section-label">Cellular Science</div>
+        <h2 class="section-title">The pillars <em>of age reversal.</em></h2>
+        <p class="pillars-description">We target aging at its source. Our clinical protocols are designed to repair cells, optimize biomarkers, and restore youthfulness.</p>
+      </div>
+      
+      <div class="pillars-grid">
+        <!-- Card 1: Organic Squircle Frame -->
+        <div class="pillar-card">
+          <div class="pillar-image-container shape-squircle">
+            <img src="images/cellular-diagnostics.png" alt="Cellular Diagnostics">
+          </div>
+          <div class="pillar-card-content">
+            <span class="pillar-num">01</span>
+            <h3 class="pillar-title">Mitochondrial Health</h3>
+            <p class="pillar-text">Measuring and restoring ATP energy production at the cellular level to slow structural decline.</p>
+          </div>
+        </div>
+        
+        <!-- Card 2: Modern Hexagonal Frame -->
+        <div class="pillar-card">
+          <div class="pillar-image-container shape-hexagon">
+            <img src="images/biomarker-diagnostics.png" alt="Biomarker Diagnostics">
+          </div>
+          <div class="pillar-card-content">
+            <span class="pillar-num">02</span>
+            <h3 class="pillar-title">Epigenetic Sequencing</h3>
+            <p class="pillar-text">Tracking DNA methylation profiles to target age acceleration genes and reprogram biological speed.</p>
+          </div>
+        </div>
+        
+        <!-- Card 3: Offset Geometric Frame -->
+        <div class="pillar-card">
+          <div class="pillar-image-container shape-shield">
+            <img src="images/wellness-therapy.png" alt="Wellness Therapy">
+          </div>
+          <div class="pillar-card-content">
+            <span class="pillar-num">03</span>
+            <h3 class="pillar-title">Regenerative Chambers</h3>
+            <p class="pillar-text">Utilizing advanced oxygenation and light-spectrum pods to trigger deep tissue repair and stem cell release.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / Social Proof Section -->
+  <section class="testimonial">
+    <div class="container">
+      <div class="testimonial-inner">
+        <div class="testimonial-quote">
+          <span class="quote-mark">“</span>
+          <blockquote class="quote-text" data-i18n="quoteText">
+            Pax changed the way I approach my health. I feel better now than I did ten years ago.
+          </blockquote>
+        </div>
+        
+        <div class="testimonial-author">
+          <img src="images/testimonial-avatar.png" alt="Michael T." class="author-avatar">
+          <div class="author-details">
+            <div class="author-name" data-i18n="authorName">Michael T.</div>
+            <div class="author-title" data-i18n="authorTitle">Pax Member</div>
+          </div>
+        </div>
+        
+        <div class="press-logos">
+          <span class="press-logo">Forbes</span>
+          <span class="press-logo">Women's Health</span>
+          <span class="press-logo">well+good</span>
+          <span class="press-logo">GQ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🧪</div>
+          <h4 class="feature-title" data-i18n="feat1Title">Science-Backed</h4>
+          <p class="feature-text" data-i18n="feat1Text">Evidence-based protocols rooted in the latest research.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h4 class="feature-title" data-i18n="feat2Title">Expert Led</h4>
+          <p class="feature-text" data-i18n="feat2Text">World-class physicians and specialists.</p>
+        </div>
+        <!-- Center Logo Feature -->
+        <div class="feature feature-logo-center">
+          <div class="feature-icon" style="margin-top: -10px; margin-bottom: 5px; text-align: center;">
+            <img src="logo.png" alt="Pax Logo" style="height: 38px; width: auto; margin: 0 auto; display: block;">
+          </div>
+          <p class="feature-text" style="text-align: center;" data-i18n="feat3Text">Care and plans tailored to your unique biology.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🍃</div>
+          <h4 class="feature-title" data-i18n="feat4Title">Whole-Body</h4>
+          <p class="feature-text" data-i18n="feat4Text">Integrative approach to mind, body and longevity.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌊</div>
+          <h4 class="feature-title" data-i18n="feat5Title">Miami Inspired</h4>
+          <p class="feature-text" data-i18n="feat5Text">Coastal mindset. Active lifestyle. Optimal living.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <div class="logo-wrapper" style="justify-content: center;">
+          <img src="logo.png" alt="Pax Logo" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">PAX</span>
+            <span class="logo-tagline">LONGEVITY</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-nav">
+        <a href="#approach" class="footer-link" data-i18n="footerApproach">Our Approach</a>
+        <a href="#programs" class="footer-link" data-i18n="footerPrograms">Programs</a>
+        <a href="#science" class="footer-link" data-i18n="footerScience">Science</a>
+        <a href="#membership" class="footer-link" data-i18n="footerMembership">Membership</a>
+        <a href="#about" class="footer-link" data-i18n="footerAbout">About</a>
+        <a href="#journal" class="footer-link" data-i18n="footerJournal">Journal</a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-social">
+        <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+        <a href="#" class="social-icon" aria-label="Twitter">TW</a>
+        <a href="#" class="social-icon" aria-label="LinkedIn">LI</a>
+      </div>
+      
+      <p class="footer-copy" data-i18n="footerCopy">© 2026 Pax Longevity. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic (Nav, Animations) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Nav Toggle
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+          navToggle.classList.toggle('active');
+          navMenu.classList.toggle('open');
+        });
+        
+        // Close mobile nav when clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('open');
+          });
+        });
+      }
+      
+      // Header Scroll Class
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Scroll Reveal Animations
+      const revealElements = document.querySelectorAll('.approach-card, .metric, .pillar-card, .reveal');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+          const elTop = el.getBoundingClientRect().top;
+          if (elTop < triggerBottom) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      
+      // Add class reveal and delay to cards/metrics dynamically
+      document.querySelectorAll('.approach-card').forEach((card, index) => {
+        card.classList.add('reveal');
+        card.classList.add(`reveal-delay-${(index % 5) + 1}`);
+      });
+      
+      document.querySelectorAll('.metric').forEach((metric, index) => {
+        metric.classList.add('reveal');
+        metric.classList.add(`reveal-delay-${(index % 4) + 1}`);
+      });
+      
+      document.querySelectorAll('.pillar-card').forEach((card, index) => {
+        card.classList.add('reveal');
+        card.classList.add(`reveal-delay-${(index % 3) + 1}`);
+      });
+      
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll(); // Initial check
+    });
+  </script>
+</body>
+</html>
