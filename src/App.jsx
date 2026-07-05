@@ -169,7 +169,7 @@ function App() {
             <a href="#/treatments" className={`nav-link ${currentTab === 'treatments' ? 'active' : ''}`}>Treatments</a>
             <a href="#/advisors" className={`nav-link ${currentTab === 'advisors' ? 'active' : ''}`}>Advisors</a>
             <a href="#/education" className={`nav-link ${currentTab === 'education' ? 'active' : ''}`}>Education</a>
-            <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Get Started</button>
+            <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
           </nav>
           
           <button 
@@ -201,7 +201,7 @@ function App() {
           style={{ marginTop: '1rem' }} 
           onClick={() => { toggleMobileNav(); openQuiz(); }}
         >
-          Get Started
+          Begin intake assessment
         </button>
       </div>
 
@@ -237,7 +237,7 @@ function App() {
                   Compounded peptides, whole genome sequencing, and clinical audits. Your longevity journey starts at home.
                 </p>
                 <div className="hero-actions-centered">
-                  <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Start Your Assessment</button>
+                  <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
                   <a href="#/threats" className="btn btn-outline-white">Explore Diagnostics</a>
                 </div>
               </div>
@@ -358,6 +358,53 @@ function App() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Doctor Section (Added from Advisors) */}
+            <section className="sab-section">
+              <div className="container">
+                <div className="section-header-center">
+                  <span className="section-label">Medical Direction</span>
+                  <h2 className="section-title">Guided by pioneering <em>scientific minds.</em></h2>
+                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
+                    Our clinical protocols, dosage ranges, and exclusion audits are managed under guidance from clinical specialists and researchers.
+                  </p>
+                </div>
+                
+                <div className="sab-grid">
+                  <div className="sab-member">
+                    <div className="sab-photo-wrap">
+                      <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance" loading="lazy" />
+                    </div>
+                    <p className="sab-name">Dr. Elena Vance</p>
+                    <p className="sab-role">Scientific Director</p>
+                    <p className="sab-bio">Leading clinical computational genomics expert shaping our patient cell targeting protocols.</p>
+                  </div>
+                  <div className="sab-member">
+                    <div className="sab-photo-wrap">
+                      <img src="/images/milestone-2024.webp" alt="Dr. Marcus Brody" loading="lazy" />
+                    </div>
+                    <p className="sab-name">Dr. Marcus Brody</p>
+                    <p className="sab-role">Metabolic Science Advisor</p>
+                    <p className="sab-bio">Endocrinologist detailing peptide dosing structures for metabolic reversal.</p>
+                  </div>
+                  <div className="sab-member">
+                    <div className="sab-photo-wrap">
+                      <img src="/images/wellness-therapy.webp" alt="Dr. Alan Chen" loading="lazy" />
+                    </div>
+                    <p className="sab-name">Dr. Alan Chen</p>
+                    <p className="sab-role">Cardiovascular Advisor</p>
+                    <p className="sab-bio">Pioneer of early plaque and cardiovascular marker interception technologies.</p>
+                  </div>
+                </div>
+
+                <div className="step-card" style={{ maxWidth: '600px', margin: 'var(--space-3xl) auto 0', textAlign: 'center' }}>
+                  <h3 className="step-title">Strict Medical Safety & Oversight</h3>
+                  <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
+                    Every dosage is prescribed and monitored by state-licensed healthcare practitioners. If any heritable risks or clinical contradictions are flagged during your initial audit or subsequent blood tests, your advisor will contact you to modify your plan immediately.
+                  </p>
                 </div>
               </div>
             </section>
@@ -683,7 +730,7 @@ function App() {
                           <strong>$249/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Get Started</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
                     </div>
                   </div>
 
@@ -710,7 +757,7 @@ function App() {
                           <strong>$149/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Get Started</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
                     </div>
                   </div>
 
@@ -737,7 +784,7 @@ function App() {
                           <strong>$189/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Get Started</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
                     </div>
                   </div>
                 </div>

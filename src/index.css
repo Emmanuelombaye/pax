@@ -11,8 +11,10 @@
 :root {
   /* Brand Colors */
   --sand:           #FAF6F0; /* Background / default canvas */
+  --beige-pastel:   #F4EAE0; /* Light pastel beige for cards to pop against sand */
   --dune:           #E8C5A0; /* Secondary / warm neutral (cards, neutral blocks) */
   --terracotta:     #C17D74; /* Accent (links, highlights, focus, selections) */
+  --dark-terracotta: #A0594E; /* Darker terracotta for CTA buttons */
   --forest:         #2D5A3D; /* Primary (buttons, banners) */
   --ink:            #1F1A16; /* Text / deep neutral */
   --teal:           #4A8A96; /* Coastal highlight */
@@ -153,15 +155,15 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--forest);
+  background: var(--dark-terracotta);
   color: var(--sand);
 }
 
 .btn-primary:hover {
-  background: var(--forest);
+  background: var(--dark-terracotta);
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45, 90, 61, 0.25);
+  box-shadow: 0 4px 12px rgba(160, 89, 78, 0.25);
 }
 
 .btn-outline {
@@ -617,7 +619,7 @@ ul { list-style: none; }
 }
 
 .step-card {
-  background: var(--sand);
+  background: var(--beige-pastel);
   border: 1px solid var(--divider);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
@@ -896,7 +898,7 @@ ul { list-style: none; }
 }
 
 .treatment-card {
-  background: var(--sand);
+  background: var(--beige-pastel);
   border-radius: var(--radius-xl);
   border: 1px solid rgba(45, 90, 61, 0.08);
   overflow: hidden;
