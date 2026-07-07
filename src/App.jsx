@@ -326,6 +326,48 @@ function App() {
               </div>
             </section>
 
+            {/* Treatment preview — extends home scroll without changing hero */}
+            <section className="home-treatments-preview">
+              <div className="container">
+                <div className="section-header-center">
+                  <span className="section-label">Clinical Protocols</span>
+                  <h2 className="section-title">Explore our <em>treatments.</em></h2>
+                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
+                    Physician-guided compounded therapies, cold-chain shipped overnight to your door.
+                  </p>
+                </div>
+                <div className="home-treatments-grid">
+                  <a href="#/treatments" className="home-treatment-card">
+                    <div className="home-treatment-image">
+                      <img src="/images/semaglutide-treatment.webp" alt="Compounded GLP-1 weight management" loading="lazy" />
+                    </div>
+                    <div className="home-treatment-body">
+                      <h3>Compounded GLP-1</h3>
+                      <p>Semaglutide & Tirzepatide for metabolic reset and sustainable weight management.</p>
+                    </div>
+                  </a>
+                  <a href="#/treatments" className="home-treatment-card">
+                    <div className="home-treatment-image">
+                      <img src="/images/nad-longevity.webp" alt="NAD+ cellular longevity" loading="lazy" />
+                    </div>
+                    <div className="home-treatment-body">
+                      <h3>Compounded NAD+</h3>
+                      <p>Cellular energy restoration, mitochondrial support, and cognitive clarity.</p>
+                    </div>
+                  </a>
+                  <a href="#/treatments" className="home-treatment-card">
+                    <div className="home-treatment-image">
+                      <img src="/images/sermorelin-recovery.webp" alt="Sermorelin vitality recovery" loading="lazy" />
+                    </div>
+                    <div className="home-treatment-body">
+                      <h3>Compounded Sermorelin</h3>
+                      <p>Recovery, sleep quality, and natural growth hormone stimulation.</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+
             {/* CSS infinite scrolling Marquee Ticker */}
             <section className="ticker-section">
               <div className="ticker-wrap">
@@ -347,6 +389,34 @@ function App() {
                   <span className="ticker-item">DNA Methylation</span>
                   <span className="ticker-item">Insulin Resistance Control</span>
                   <span className="ticker-item">Bio-identical Hormone Pathways</span>
+                </div>
+              </div>
+            </section>
+
+            {/* Supplemental lifestyle gallery — new images only */}
+            <section className="home-gallery-section">
+              <div className="container">
+                <div className="section-header-center">
+                  <span className="section-label">The Pax Lifestyle</span>
+                  <h2 className="section-title">Longevity you can <em>feel.</em></h2>
+                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
+                    Italian summer meets Miami vitality — movement, nourishment, and coastal energy woven into every protocol.
+                  </p>
+                </div>
+                <div className="home-gallery-grid">
+                  {[
+                    { src: '/images/home-scroll-01.webp', alt: 'Morning walk on Miami beach', caption: 'Morning coastal movement' },
+                    { src: '/images/home-scroll-02.webp', alt: 'Nourishing wellness meal', caption: 'Metabolic nourishment' },
+                    { src: '/images/home-scroll-03.webp', alt: 'Cycling along the coast', caption: 'Active longevity' },
+                    { src: '/images/home-scroll-04.webp', alt: 'Sunrise meditation by the ocean', caption: 'Mind-body balance' },
+                  ].map((item) => (
+                    <figure key={item.src} className="home-gallery-item">
+                      <div className="home-gallery-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" />
+                      </div>
+                      <figcaption className="home-gallery-caption">{item.caption}</figcaption>
+                    </figure>
+                  ))}
                 </div>
               </div>
             </section>
@@ -381,6 +451,25 @@ function App() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* Full-width lifestyle band — supplemental banner image */}
+            <section className="home-cinematic-band">
+              <div
+                className="home-cinematic-band-bg"
+                style={{ backgroundImage: 'url(/images/home-scroll-banner.webp)' }}
+                role="img"
+                aria-label="Miami sunset coastal longevity lifestyle"
+              />
+              <div className="home-cinematic-band-overlay" />
+              <div className="container home-cinematic-band-content">
+                <span className="section-label" style={{ color: 'rgba(250,246,240,0.85)' }}>Coastal Vitality</span>
+                <h2 className="home-cinematic-band-title">Your forever summer <em>starts here.</em></h2>
+                <p className="home-cinematic-band-text">
+                  Prevent decline years before symptoms. Personalized telehealth protocols built for the life you want to live.
+                </p>
+                <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
               </div>
             </section>
 
