@@ -9,16 +9,10 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// Register service worker for caching
+// Register service worker for caching (stale-while-revalidate)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('ServiceWorker registered successfully with scope: ', registration.scope);
-      })
-      .catch((err) => {
-        console.error('ServiceWorker registration failed: ', err);
-      });
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
   });
 }
 

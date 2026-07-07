@@ -2,10 +2,8 @@
    PAX LONGEVITY CLINIC — Telehealth Stylesheet
    Strict adherence to the Pax Health Brand Kit
    Aesthetics: Warm, Sunny, Coastal, Active
+   Fonts loaded in index.html (avoid duplicate @import)
    ============================================ */
-
-/* ---------- Google Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ---------- CSS Custom Properties ---------- */
 :root {

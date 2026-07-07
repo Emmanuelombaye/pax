@@ -75,6 +75,14 @@ const LIFESTYLE_PILLARS = [
   }
 ];
 
+const HERO_SLIDES = [
+  '/images/hero-longevity.webp',
+  '/images/miami-active.webp',
+  '/images/hero-miami-cycle.webp',
+  '/images/hero-miami-yoga.webp',
+  '/images/hero-miami-water.webp',
+];
+
 const ROUTE_TABS = [
   'vision', 'threats', 'treatments', 'advisors', 'education',
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
@@ -97,10 +105,19 @@ function App() {
   useEffect(() => {
     if (currentTab !== 'home') return;
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % 5);
+      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => clearInterval(interval);
   }, [currentTab]);
+
+  useEffect(() => {
+    if (currentTab !== 'home') return;
+    const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
+    [HERO_SLIDES[activeSlide], HERO_SLIDES[nextIndex]].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [activeSlide, currentTab]);
 
   // Intake Quiz Modal State
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -296,19 +313,16 @@ function App() {
             {/* Cinematic Background Slideshow Hero (HLI Style) */}
             <section className="cinematic-hero">
               <div className="slideshow-container">
-                {[
-                  '/images/hero-longevity.webp',
-                  '/images/miami-active.webp',
-                  '/images/hero-miami-cycle.webp',
-                  '/images/hero-miami-yoga.webp',
-                  '/images/hero-miami-water.webp'
-                ].map((imgUrl, index) => (
+                {HERO_SLIDES.map((imgUrl, index) => {
+                  const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
+                  const shouldLoad = index === activeSlide || index === nextIndex;
+                  return (
                   <div 
-                    key={index}
+                    key={imgUrl}
                     className={`slide-item ${index === activeSlide ? 'active' : ''}`}
-                    style={{ backgroundImage: `url(${imgUrl})` }}
+                    style={shouldLoad ? { backgroundImage: `url(${imgUrl})` } : undefined}
                   />
-                ))}
+                );})}
                 <div className="slideshow-overlay" />
               </div>
 
@@ -326,7 +340,7 @@ function App() {
 
               {/* Navigation indicators */}
               <div className="slideshow-nav">
-                {[0, 1, 2, 3, 4].map((idx) => (
+                {HERO_SLIDES.map((_, idx) => (
                   <button 
                     key={idx}
                     type="button"
