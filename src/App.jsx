@@ -339,7 +339,7 @@ function App() {
                 <div className="home-treatments-grid">
                   <a href="#/treatments" className="home-treatment-card">
                     <div className="home-treatment-image">
-                      <img src="/images/semaglutide-treatment.webp" alt="Compounded GLP-1 weight management" loading="lazy" />
+                      <img src="/images/glp1-treatment.webp" alt="Compounded GLP-1 weight management" loading="lazy" />
                     </div>
                     <div className="home-treatment-body">
                       <h3>Compounded GLP-1</h3>
@@ -348,7 +348,7 @@ function App() {
                   </a>
                   <a href="#/treatments" className="home-treatment-card">
                     <div className="home-treatment-image">
-                      <img src="/images/nad-longevity.webp" alt="NAD+ cellular longevity" loading="lazy" />
+                      <img src="/images/nad-treatment.webp" alt="NAD+ cellular longevity" loading="lazy" />
                     </div>
                     <div className="home-treatment-body">
                       <h3>Compounded NAD+</h3>
@@ -357,7 +357,7 @@ function App() {
                   </a>
                   <a href="#/treatments" className="home-treatment-card">
                     <div className="home-treatment-image">
-                      <img src="/images/sermorelin-recovery.webp" alt="Sermorelin vitality recovery" loading="lazy" />
+                      <img src="/images/sermorelin-treatment.webp" alt="Sermorelin vitality recovery" loading="lazy" />
                     </div>
                     <div className="home-treatment-body">
                       <h3>Compounded Sermorelin</h3>
@@ -808,7 +808,7 @@ function App() {
                   {/* Semaglutide/Tirzepatide Weight Loss */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/semaglutide-treatment.webp" alt="Semaglutide Weight Management" loading="lazy" />
+                      <img src="/images/glp1-treatment.webp" alt="Semaglutide Weight Management" loading="lazy" />
                       <span className="treatment-badge">Weight Loss</span>
                     </div>
                     <div className="treatment-body">
@@ -835,7 +835,7 @@ function App() {
                   {/* NAD+ Cellular Energy */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/nad-longevity.webp" alt="NAD+ Longevity Peptides" loading="lazy" />
+                      <img src="/images/nad-treatment.webp" alt="NAD+ Longevity Peptides" loading="lazy" />
                       <span className="treatment-badge">Cellular Health</span>
                     </div>
                     <div className="treatment-body">
@@ -862,7 +862,7 @@ function App() {
                   {/* Sermorelin Recovery */}
                   <div className="treatment-card">
                     <div className="treatment-image">
-                      <img src="/images/sermorelin-recovery.webp" alt="Sermorelin Recovery Treatment" loading="lazy" />
+                      <img src="/images/sermorelin-treatment.webp" alt="Sermorelin Recovery Treatment" loading="lazy" />
                       <span className="treatment-badge">Vitality</span>
                     </div>
                     <div className="treatment-body">
