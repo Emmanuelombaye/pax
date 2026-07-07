@@ -11,11 +11,12 @@
 :root {
   /* Brand Colors */
   --sand:           #FAF6F0; /* Background / default canvas */
-  --beige-pastel:   #F4EAE0; /* Light pastel beige for cards to pop against sand */
-  --dune:           #E8C5A0; /* Secondary / warm neutral (cards, neutral blocks) */
+  --beige-pastel:   #F4EAE0; /* Light pastel beige — page accents */
+  --card-surface:   #EDD5CC; /* Sunset terracotta pastel — boxed cards */
+  --dune:           #E8C5A0; /* Warm neutral accents */
   --terracotta:     #C17D74; /* Accent (links, highlights, focus, selections) */
-  --dark-terracotta: #A0594E; /* Darker terracotta for CTA buttons */
-  --forest:         #2D5A3D; /* Primary (buttons, banners) */
+  --dark-terracotta: #A0594E; /* CTA buttons & warm accents */
+  --forest:         #A0594E; /* Legacy alias — terracotta, no green */
   --ink:            #1F1A16; /* Text / deep neutral */
   --teal:           #4A8A96; /* Coastal highlight */
 
@@ -23,7 +24,7 @@
   --text-primary:   var(--ink);
   --text-secondary: rgba(31, 26, 22, 0.85);
   --text-light:     rgba(31, 26, 22, 0.6);
-  --divider:        rgba(45, 90, 61, 0.15);
+  --divider:        rgba(160, 89, 78, 0.18);
 
   /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
@@ -532,7 +533,7 @@ ul { list-style: none; }
   padding: var(--space-md);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(45, 90, 61, 0.1);
+  border: 1px solid rgba(160, 89, 78, 0.1);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -540,7 +541,7 @@ ul { list-style: none; }
 }
 
 .float-badge-icon {
-  background: rgba(45, 90, 61, 0.1);
+  background: rgba(160, 89, 78, 0.1);
   color: var(--forest);
   width: 32px;
   height: 32px;
@@ -595,6 +596,123 @@ ul { list-style: none; }
   letter-spacing: 0.08em;
 }
 
+/* ---------- Personal Guidance Feature Cards ---------- */
+.guidance-section {
+  padding: var(--space-2xl) 0 var(--space-xl);
+  background: var(--sand);
+}
+
+.guidance-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.guidance-card {
+  background: var(--card-surface);
+  border: 1px solid rgba(160, 89, 78, 0.22);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
+  transition: all var(--duration) var(--ease-out);
+}
+
+.guidance-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(160, 89, 78, 0.35);
+}
+
+.guidance-label {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-terracotta);
+  margin-bottom: var(--space-sm);
+}
+
+.guidance-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.guidance-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ---------- Featured Lead Physician ---------- */
+.featured-doctor {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 720px;
+  margin: var(--space-2xl) auto 0;
+  background: var(--card-surface);
+  border: 1px solid rgba(160, 89, 78, 0.22);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
+}
+
+.featured-doctor-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(160, 89, 78, 0.25);
+  margin: 0 auto;
+}
+
+.featured-doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-doctor-content {
+  text-align: center;
+}
+
+.featured-doctor-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: var(--space-sm);
+}
+
+.featured-doctor-role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--terracotta);
+  margin-bottom: var(--space-sm);
+}
+
+.featured-doctor-bio {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+.featured-doctor-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-terracotta);
+}
+
+.featured-doctor-link:hover {
+  color: var(--terracotta);
+}
+
 /* ---------- How It Works Flow ---------- */
 .how-it-works {
   padding: var(--space-3xl) 0;
@@ -619,8 +737,8 @@ ul { list-style: none; }
 }
 
 .step-card {
-  background: var(--beige-pastel);
-  border: 1px solid var(--divider);
+  background: var(--card-surface);
+  border: 1px solid rgba(160, 89, 78, 0.22);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
   display: flex;
@@ -628,12 +746,13 @@ ul { list-style: none; }
   gap: var(--space-md);
   position: relative;
   transition: all var(--duration) var(--ease-out);
+  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
 }
 
 .step-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--dune);
+  border-color: rgba(160, 89, 78, 0.35);
 }
 
 .step-num {
@@ -641,7 +760,7 @@ ul { list-style: none; }
   font-size: 3rem;
   line-height: 1;
   font-style: italic;
-  color: var(--dune);
+  color: var(--terracotta);
   font-weight: 500;
 }
 
@@ -898,9 +1017,9 @@ ul { list-style: none; }
 }
 
 .treatment-card {
-  background: var(--beige-pastel);
+  background: var(--card-surface);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(45, 90, 61, 0.08);
+  border: 1px solid rgba(160, 89, 78, 0.18);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -929,7 +1048,7 @@ ul { list-style: none; }
   position: absolute;
   top: 15px;
   left: 15px;
-  background: var(--forest);
+  background: var(--dark-terracotta);
   color: var(--sand);
   font-size: 0.6rem;
   font-weight: 700;
@@ -1327,7 +1446,7 @@ ul { list-style: none; }
   right: 0;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(45, 90, 61, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(160, 89, 78, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1422,11 +1541,11 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: rgba(250, 246, 240, 0.65);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(250, 246, 240, 0.75);
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
 .footer-badge-item span {
@@ -1552,7 +1671,7 @@ ul { list-style: none; }
 .progress-bar-container {
   width: 100%;
   height: 6px;
-  background: rgba(45, 90, 61, 0.1);
+  background: rgba(160, 89, 78, 0.1);
   border-radius: var(--radius-full);
   margin-bottom: var(--space-xl);
   overflow: hidden;
@@ -1608,7 +1727,7 @@ ul { list-style: none; }
 
 .quiz-option.selected {
   border-color: var(--forest);
-  background: rgba(45, 90, 61, 0.06);
+  background: rgba(160, 89, 78, 0.06);
   color: var(--forest);
   box-shadow: 0 0 0 1px var(--forest);
 }
@@ -1678,6 +1797,25 @@ ul { list-style: none; }
   .steps-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
+  }
+
+  .guidance-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .featured-doctor {
+    grid-template-columns: auto 1fr;
+    text-align: left;
+    padding: var(--space-2xl);
+  }
+
+  .featured-doctor-photo {
+    margin: 0;
+  }
+
+  .featured-doctor-content {
+    text-align: left;
   }
 
   .threats-grid {
@@ -2246,7 +2384,7 @@ ul { list-style: none; }
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  background: rgba(45, 90, 61, 0.08);
+  background: rgba(160, 89, 78, 0.08);
   color: var(--forest);
   padding: 4px 10px;
   border-radius: var(--radius-full);

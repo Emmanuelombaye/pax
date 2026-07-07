@@ -276,6 +276,28 @@ function App() {
               </div>
             </section>
 
+            {/* Personal Guidance — boxed feature cards */}
+            <section className="guidance-section">
+              <div className="container">
+                <div className="guidance-grid">
+                  <div className="guidance-card">
+                    <span className="guidance-label">Personalized Care</span>
+                    <h3 className="guidance-title">See personal guidance</h3>
+                    <p className="guidance-text">
+                      Every patient receives a tailored longevity plan built around your goals, biomarkers, and clinical history — not a one-size-fits-all protocol.
+                    </p>
+                  </div>
+                  <div className="guidance-card">
+                    <span className="guidance-label">Clinical Oversight</span>
+                    <h3 className="guidance-title">Provider consultation</h3>
+                    <p className="guidance-text">
+                      A licensed U.S. practitioner reviews your online health intake within 24 hours and guides your treatment path from first assessment through delivery.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* How It Works Section */}
             <section className="how-it-works" id="how-it-works">
               <div className="container">
@@ -298,7 +320,7 @@ function App() {
                   <div className="step-card">
                     <span className="step-num">03</span>
                     <h3 className="step-title">Cold-Chain Delivery</h3>
-                    <p className="step-text">Our compounding pharmacies compound, verify, and express ship your treatment directly to your door.</p>
+                    <p className="step-text">Our compounding pharmacies verify and overnight ship your treatment in temperature-controlled packaging, directly to your door.</p>
                   </div>
                 </div>
               </div>
@@ -362,41 +384,28 @@ function App() {
               </div>
             </section>
 
-            {/* Doctor Section (Added from Advisors) */}
+            {/* Lead Physician */}
             <section className="sab-section">
               <div className="container">
                 <div className="section-header-center">
                   <span className="section-label">Medical Direction</span>
-                  <h2 className="section-title">Guided by pioneering <em>scientific minds.</em></h2>
+                  <h2 className="section-title">Your care, led by a <em>licensed physician.</em></h2>
                   <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Our clinical protocols, dosage ranges, and exclusion audits are managed under guidance from clinical specialists and researchers.
+                    Clinical protocols, dosage ranges, and safety audits are overseen by our Medical Director and board-certified specialists.
                   </p>
                 </div>
-                
-                <div className="sab-grid">
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Elena Vance</p>
-                    <p className="sab-role">Scientific Director</p>
-                    <p className="sab-bio">Leading clinical computational genomics expert shaping our patient cell targeting protocols.</p>
+
+                <div className="featured-doctor">
+                  <div className="featured-doctor-photo">
+                    <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
                   </div>
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/milestone-2024.webp" alt="Dr. Marcus Brody" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Marcus Brody</p>
-                    <p className="sab-role">Metabolic Science Advisor</p>
-                    <p className="sab-bio">Endocrinologist detailing peptide dosing structures for metabolic reversal.</p>
-                  </div>
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/wellness-therapy.webp" alt="Dr. Alan Chen" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Alan Chen</p>
-                    <p className="sab-role">Cardiovascular Advisor</p>
-                    <p className="sab-bio">Pioneer of early plaque and cardiovascular marker interception technologies.</p>
+                  <div className="featured-doctor-content">
+                    <p className="featured-doctor-name">Dr. Elena Vance</p>
+                    <p className="featured-doctor-role">Medical Director</p>
+                    <p className="featured-doctor-bio">
+                      Board-certified physician leading patient intake reviews, prescription protocols, and personalized treatment plans for every Pax Longevity member.
+                    </p>
+                    <a href="#/advisors" className="featured-doctor-link">Meet our clinical advisory board →</a>
                   </div>
                 </div>
 
@@ -723,7 +732,7 @@ function App() {
                         </div>
                         <div className="detail-row">
                           <span>Shipping</span>
-                          <strong>UPS 2-Day Air (Included)</strong>
+                          <strong>Overnight Delivery (Included)</strong>
                         </div>
                         <div className="detail-row price">
                           <span>From</span>
@@ -750,7 +759,7 @@ function App() {
                         </div>
                         <div className="detail-row">
                           <span>Shipping</span>
-                          <strong>UPS 2-Day Air (Included)</strong>
+                          <strong>Overnight Delivery (Included)</strong>
                         </div>
                         <div className="detail-row price">
                           <span>From</span>
@@ -777,7 +786,7 @@ function App() {
                         </div>
                         <div className="detail-row">
                           <span>Shipping</span>
-                          <strong>UPS 2-Day Air (Included)</strong>
+                          <strong>Overnight Delivery (Included)</strong>
                         </div>
                         <div className="detail-row price">
                           <span>From</span>
@@ -935,7 +944,7 @@ function App() {
                       <div className="webinar-content">
                         <div className="webinar-tags">
                           <span className="webinar-tag">Webinar</span>
-                          <span className="webinar-tag text-forest">Oncology</span>
+                          <span className="webinar-tag text-terracotta">Oncology</span>
                         </div>
                         <h3 className="webinar-title">Pancreatic Cancer Treatment Pathways & Early Interception</h3>
                         <p className="webinar-desc">
