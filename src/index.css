@@ -13,6 +13,7 @@
   --sand:           #FAF6F0; /* Background / default canvas */
   --beige-pastel:   #F4EAE0; /* Light pastel beige — page accents */
   --card-surface:   #EDD5CC; /* Sunset terracotta pastel — boxed cards */
+  --card-elevated:  #FAF6F0; /* Brighter elevated cards on pastel sections */
   --dune:           #E8C5A0; /* Warm neutral accents */
   --terracotta:     #C17D74; /* Accent (links, highlights, focus, selections) */
   --dark-terracotta: #A0594E; /* CTA buttons & warm accents */
@@ -559,11 +560,19 @@ ul { list-style: none; }
   line-height: 1.3;
 }
 
+/* ---------- Pastel Box Cards (Emanuela brand) ---------- */
+.pastel-box {
+  background: var(--card-elevated);
+  border: 1px solid rgba(160, 89, 78, 0.28);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(193, 125, 116, 0.12);
+}
+
 /* ---------- Stats Strip ---------- */
 .stats-strip {
-  background: var(--ink);
-  border-top: 1px solid rgba(250, 246, 240, 0.08);
-  border-bottom: 1px solid rgba(250, 246, 240, 0.08);
+  background: linear-gradient(135deg, var(--beige-pastel) 0%, rgba(237, 213, 204, 0.65) 100%);
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
   padding: var(--space-lg) 0;
 }
 
@@ -584,7 +593,7 @@ ul { list-style: none; }
   font-family: var(--font-display);
   font-size: 2.2rem;
   font-weight: 500;
-  color: var(--dune);
+  color: var(--dark-terracotta);
   line-height: 1;
 }
 
@@ -592,14 +601,14 @@ ul { list-style: none; }
   font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: rgba(250, 246, 240, 0.75);
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
 }
 
 /* ---------- Personal Guidance Feature Cards ---------- */
 .guidance-section {
   padding: var(--space-2xl) 0 var(--space-xl);
-  background: var(--sand);
+  background: var(--beige-pastel);
 }
 
 .guidance-grid {
@@ -609,11 +618,7 @@ ul { list-style: none; }
 }
 
 .guidance-card {
-  background: var(--card-surface);
-  border: 1px solid rgba(160, 89, 78, 0.22);
-  border-radius: var(--radius-xl);
   padding: var(--space-xl);
-  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
   transition: all var(--duration) var(--ease-out);
 }
 
@@ -655,11 +660,18 @@ ul { list-style: none; }
   align-items: center;
   max-width: 720px;
   margin: var(--space-2xl) auto 0;
-  background: var(--card-surface);
-  border: 1px solid rgba(160, 89, 78, 0.22);
-  border-radius: var(--radius-xl);
   padding: var(--space-xl);
-  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
+}
+
+.doctor-section {
+  background: var(--beige-pastel);
+}
+
+.doctor-safety-card {
+  max-width: 600px;
+  margin: var(--space-2xl) auto 0;
+  text-align: center;
+  padding: var(--space-xl);
 }
 
 .featured-doctor-photo {
@@ -1235,6 +1247,12 @@ ul { list-style: none; }
   position: relative;
   transition: all var(--duration) var(--ease-out);
   box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05);
+}
+
+.step-card.pastel-box {
+  background: var(--card-elevated);
+  border-color: rgba(160, 89, 78, 0.28);
+  box-shadow: 0 8px 32px rgba(193, 125, 116, 0.12);
 }
 
 .step-card:hover {
@@ -1865,7 +1883,7 @@ ul { list-style: none; }
 /* ---------- Sourcing & Eligibility ---------- */
 .eligibility {
   padding: var(--space-3xl) 0;
-  background: var(--sand);
+  background: var(--beige-pastel);
   border-top: 1px solid var(--divider);
 }
 
@@ -1908,6 +1926,15 @@ ul { list-style: none; }
   display: flex;
   gap: var(--space-md);
   align-items: flex-start;
+}
+
+.eligibility-item.pastel-box {
+  padding: var(--space-md) var(--space-lg);
+}
+
+.eligibility-cta {
+  margin-top: var(--space-lg);
+  width: 100%;
 }
 
 .eligibility-icon {

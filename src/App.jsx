@@ -313,10 +313,10 @@ function App() {
               </div>
 
               <div className="cinematic-content">
-                <span className="cinematic-kicker">🧬 Longevity & Preventative Care</span>
+                <span className="cinematic-kicker">Italian Summer · Miami Vitality</span>
                 <h1 className="cinematic-title">Prevent decline <em>years before</em> symptoms.</h1>
                 <p className="cinematic-subtitle">
-                  Compounded peptides, whole genome sequencing, and clinical audits. Your longevity journey starts at home.
+                  Euro-summer warmth meets coastal longevity — compounded peptides, licensed U.S. providers, and overnight delivery to your door.
                 </p>
                 <div className="hero-actions-centered">
                   <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
@@ -362,14 +362,14 @@ function App() {
             <section className="guidance-section">
               <div className="container">
                 <div className="guidance-grid">
-                  <div className="guidance-card">
+                  <div className="guidance-card pastel-box">
                     <span className="guidance-label">Personalized Care</span>
                     <h3 className="guidance-title">See personal guidance</h3>
                     <p className="guidance-text">
                       Every patient receives a tailored longevity plan built around your goals, biomarkers, and clinical history — not a one-size-fits-all protocol.
                     </p>
                   </div>
-                  <div className="guidance-card">
+                  <div className="guidance-card pastel-box">
                     <span className="guidance-label">Clinical Oversight</span>
                     <h3 className="guidance-title">Provider consultation</h3>
                     <p className="guidance-text">
@@ -389,21 +389,89 @@ function App() {
                 </div>
                 
                 <div className="steps-grid">
-                  <div className="step-card">
+                  <div className="step-card pastel-box">
                     <span className="step-num">01</span>
                     <h3 className="step-title">Online Health Intake</h3>
                     <p className="step-text">Complete a 5-minute health assessment questionnaire detailing your biological goals and clinical history.</p>
                   </div>
-                  <div className="step-card">
+                  <div className="step-card pastel-box">
                     <span className="step-num">02</span>
                     <h3 className="step-title">Provider Consultation</h3>
                     <p className="step-text">A licensed clinical provider reviews your data within 24 hours to construct a safe, personalized prescription plan.</p>
                   </div>
-                  <div className="step-card">
+                  <div className="step-card pastel-box">
                     <span className="step-num">03</span>
                     <h3 className="step-title">Cold-Chain Delivery</h3>
                     <p className="step-text">Our compounding pharmacies verify and overnight ship your treatment in temperature-controlled packaging, directly to your door.</p>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Sourcing & Eligibility — Emanuela flow: after How It Works */}
+            <section className="eligibility" id="eligibility">
+              <div className="container">
+                <div className="eligibility-grid">
+                  <div className="eligibility-image">
+                    <img src="/images/telehealth-consultation.webp" alt="Telehealth Consultation Screen" loading="lazy" />
+                  </div>
+                  <div className="eligibility-content">
+                    <span className="section-label">Safe & Transparent Care</span>
+                    <h2 className="section-title">Are you <em>eligible?</em></h2>
+                    <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>Longevity treatments require professional medical assessment. We connect you directly with qualified U.S. providers and accredited 503A compounding pharmacies — fully compliant, HIPAA-secure telehealth.</p>
+                    
+                    <div className="eligibility-list">
+                      <div className="eligibility-item pastel-box">
+                        <div className="eligibility-icon">✓</div>
+                        <div className="eligibility-text">
+                          <h4>Accredited Compounding Pharmacies</h4>
+                          <p>All prescription formulas are compounded in FDA-licensed 503A outsourcing facilities using premium quality ingredients.</p>
+                        </div>
+                      </div>
+                      <div className="eligibility-item pastel-box">
+                        <div className="eligibility-icon">✓</div>
+                        <div className="eligibility-text">
+                          <h4>Licensed U.S. Practitioners Only</h4>
+                          <p>Intake audits and medical consults are handled strictly by board-certified physicians or nurse practitioners licensed in your home state.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button className="btn btn-primary btn-quiz-trigger eligibility-cta" onClick={openQuiz}>Begin intake assessment</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Lead Physician */}
+            <section className="sab-section doctor-section">
+              <div className="container">
+                <div className="section-header-center">
+                  <span className="section-label">Medical Direction</span>
+                  <h2 className="section-title">Your care, led by a <em>licensed physician.</em></h2>
+                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
+                    Clinical protocols, dosage ranges, and safety audits are overseen by our Medical Director — real human oversight, not a chatbot.
+                  </p>
+                </div>
+
+                <div className="featured-doctor pastel-box">
+                  <div className="featured-doctor-photo">
+                    <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
+                  </div>
+                  <div className="featured-doctor-content">
+                    <p className="featured-doctor-name">Dr. Elena Vance</p>
+                    <p className="featured-doctor-role">Medical Director</p>
+                    <p className="featured-doctor-bio">
+                      Board-certified physician leading patient intake reviews, prescription protocols, and personalized treatment plans for every Pax Longevity member.
+                    </p>
+                    <a href="#/advisors" className="featured-doctor-link">Meet our clinical advisory board →</a>
+                  </div>
+                </div>
+
+                <div className="step-card pastel-box doctor-safety-card">
+                  <h3 className="step-title">Strict Medical Safety & Oversight</h3>
+                  <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
+                    Every dosage is prescribed and monitored by state-licensed healthcare practitioners. If any heritable risks or clinical contradictions are flagged during your initial audit or subsequent blood tests, your advisor will contact you to modify your plan immediately.
+                  </p>
                 </div>
               </div>
             </section>
@@ -503,40 +571,7 @@ function App() {
               </div>
             </section>
 
-            {/* Sourcing & Eligibility */}
-            <section className="eligibility" id="eligibility">
-              <div className="container">
-                <div className="eligibility-grid">
-                  <div className="eligibility-image">
-                    <img src="/images/telehealth-consultation.webp" alt="Telehealth Consultation Screen" loading="lazy" />
-                  </div>
-                  <div className="eligibility-content">
-                    <span className="section-label">Safe & Transparent Care</span>
-                    <h2 className="section-title">Are you <em>eligible?</em></h2>
-                    <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>Longevity treatments require professional medical assessment. We connect you directly with qualified U.S. providers and accredited compounding pharmacies to ensure safety.</p>
-                    
-                    <div className="eligibility-list">
-                      <div className="eligibility-item">
-                        <div className="eligibility-icon">✓</div>
-                        <div className="eligibility-text">
-                          <h4>Accredited Compounding Pharmacies</h4>
-                          <p>All prescription formulas are compounded in FDA-licensed 503A outsourcing facilities using premium quality ingredients.</p>
-                        </div>
-                      </div>
-                      <div className="eligibility-item">
-                        <div className="eligibility-icon">✓</div>
-                        <div className="eligibility-text">
-                          <h4>Licensed U.S. Practitioners Only</h4>
-                          <p>Intake audits and medical consults are handled strictly by board-certified physicians or nurse practitioners licensed in your home state.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Full-width lifestyle band — supplemental banner image */}
+            {/* Full-width lifestyle band */}
             <section className="home-cinematic-band">
               <div
                 className="home-cinematic-band-bg"
@@ -549,47 +584,13 @@ function App() {
                 <span className="section-label" style={{ color: 'rgba(250,246,240,0.85)' }}>Coastal Vitality</span>
                 <h2 className="home-cinematic-band-title">Your forever summer <em>starts here.</em></h2>
                 <p className="home-cinematic-band-text">
-                  Prevent decline years before symptoms. Personalized telehealth protocols built for the life you want to live.
+                  Italian summer meets Miami vitality. Personalized telehealth protocols built for the life you want to live.
                 </p>
                 <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
               </div>
             </section>
 
-            {/* Lead Physician */}
-            <section className="sab-section">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Medical Direction</span>
-                  <h2 className="section-title">Your care, led by a <em>licensed physician.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Clinical protocols, dosage ranges, and safety audits are overseen by our Medical Director and board-certified specialists.
-                  </p>
-                </div>
-
-                <div className="featured-doctor">
-                  <div className="featured-doctor-photo">
-                    <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
-                  </div>
-                  <div className="featured-doctor-content">
-                    <p className="featured-doctor-name">Dr. Elena Vance</p>
-                    <p className="featured-doctor-role">Medical Director</p>
-                    <p className="featured-doctor-bio">
-                      Board-certified physician leading patient intake reviews, prescription protocols, and personalized treatment plans for every Pax Longevity member.
-                    </p>
-                    <a href="#/advisors" className="featured-doctor-link">Meet our clinical advisory board →</a>
-                  </div>
-                </div>
-
-                <div className="step-card" style={{ maxWidth: '600px', margin: 'var(--space-3xl) auto 0', textAlign: 'center' }}>
-                  <h3 className="step-title">Strict Medical Safety & Oversight</h3>
-                  <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
-                    Every dosage is prescribed and monitored by state-licensed healthcare practitioners. If any heritable risks or clinical contradictions are flagged during your initial audit or subsequent blood tests, your advisor will contact you to modify your plan immediately.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* FAQ Section */}
+            {/* FAQ Section — Emanuela flow: after core conversion path */}
             <section className="faq" id="faq">
               <div className="container">
                 <div className="section-header-center">
