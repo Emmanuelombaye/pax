@@ -1,5 +1,85 @@
 import { useState, useEffect } from 'react';
 
+const LIFESTYLE_PILLARS = [
+  {
+    id: 'lifestyle-movement',
+    image: '/images/lifestyle-movement.webp',
+    alt: 'Morning walk on Miami beach at sunrise',
+    title: 'Coastal Movement',
+    caption: 'Morning coastal movement',
+    teaser: 'Zone-2 walks and tidal rhythm training that sustains metabolic health year-round.',
+    eyebrow: 'Daily Ritual',
+    summary: 'Coastal movement anchors every Pax protocol — low-impact, high-consistency activity that protects cardiovascular reserve and insulin sensitivity without overtaxing recovery. Miami\'s year-round climate makes daily movement a clinical advantage, not an occasional habit.',
+    practices: [
+      '30–45 minute sunrise walks on sand or coastal paths',
+      'Zone-2 cardio sessions to improve mitochondrial density',
+      'Mobility work paired with breath-led cool-downs',
+      'Weekly activity targets tracked against clinical baselines'
+    ],
+    relatedLabel: 'Explore weight management',
+    relatedLink: '#/treatments'
+  },
+  {
+    id: 'lifestyle-nourishment',
+    image: '/images/lifestyle-nourishment.webp',
+    alt: 'Mediterranean wellness meal on a coastal terrace',
+    title: 'Metabolic Nourishment',
+    caption: 'Metabolic nourishment',
+    teaser: 'Mediterranean-inspired nutrition that stabilizes glucose and fuels cellular repair.',
+    eyebrow: 'Fuel & Recovery',
+    summary: 'Metabolic nourishment is the foundation of every longevity outcome. Pax protocols pair physician-guided peptide therapy with practical, Mediterranean-inspired eating — emphasizing lean protein, healthy fats, fiber-rich plants, and timed meals that stabilize glucose curves throughout the day.',
+    practices: [
+      'Protein-forward meals timed around activity and sleep',
+      'Low-glycemic plates rich in omega-3s and polyphenols',
+      'Hydration and electrolyte balance in coastal heat',
+      'Monthly metabolic markers to refine dietary guidance'
+    ],
+    relatedLabel: 'View GLP-1 protocols',
+    relatedLink: '#/treatments'
+  },
+  {
+    id: 'lifestyle-active',
+    image: '/images/lifestyle-active.webp',
+    alt: 'Cycling along the Miami coast at sunrise',
+    title: 'Active Longevity',
+    caption: 'Active longevity',
+    teaser: 'Strength, cycling, and recovery cycles built for decades — not just seasons.',
+    eyebrow: 'Performance',
+    summary: 'Active longevity means training for capacity, not exhaustion. Structured resistance work, coastal cycling, and deliberate recovery windows help preserve lean mass, bone density, and growth hormone rhythms — especially when supported by targeted peptide protocols.',
+    practices: [
+      '2–3 resistance sessions per week with progressive overload',
+      'Coastal cycling or swimming for cardiovascular endurance',
+      'Deliberate rest days aligned with Sermorelin evening dosing',
+      'Sleep and HRV tracking to guide training intensity'
+    ],
+    relatedLabel: 'Explore Sermorelin therapy',
+    relatedLink: '#/treatments'
+  },
+  {
+    id: 'lifestyle-balance',
+    image: '/images/lifestyle-balance.webp',
+    alt: 'Sunrise meditation by the ocean',
+    title: 'Mind-Body Balance',
+    caption: 'Mind-body balance',
+    teaser: 'Meditation, sleep architecture, and nervous-system recovery for cognitive clarity.',
+    eyebrow: 'Restoration',
+    summary: 'Longevity is as much nervous-system health as it is physical capacity. Mind-body balance practices — morning meditation, breathwork, and sleep hygiene — reduce cortisol load, sharpen cognitive clarity, and amplify the cellular repair signals that NAD+ and peptide therapies are designed to support.',
+    practices: [
+      '10-minute sunrise meditation or breathwork rituals',
+      'Consistent sleep windows with evening light discipline',
+      'Digital sunset routines to protect melatonin cycles',
+      'Quarterly cognitive and stress biomarker reviews'
+    ],
+    relatedLabel: 'Explore NAD+ therapy',
+    relatedLink: '#/treatments'
+  }
+];
+
+const ROUTE_TABS = [
+  'vision', 'threats', 'treatments', 'advisors', 'education',
+  ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
+];
+
 function App() {
   // Mobile Nav State
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -59,7 +139,7 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#/', '');
-      if (['vision', 'threats', 'treatments', 'advisors', 'education'].includes(hash)) {
+      if (ROUTE_TABS.includes(hash)) {
         setCurrentTab(hash);
       } else {
         setCurrentTab('home');
@@ -146,6 +226,8 @@ function App() {
     if (quizStep === 3 && !quizData.condition) return true;
     return false;
   };
+
+  const activeLifestyle = LIFESTYLE_PILLARS.find((pillar) => pillar.id === currentTab);
 
   return (
     <>
@@ -393,7 +475,7 @@ function App() {
               </div>
             </section>
 
-            {/* Supplemental lifestyle gallery — new images only */}
+            {/* Supplemental lifestyle gallery — linked pillar pages */}
             <section className="home-gallery-section">
               <div className="container">
                 <div className="section-header-center">
@@ -403,19 +485,19 @@ function App() {
                     Italian summer meets Miami vitality — movement, nourishment, and coastal energy woven into every protocol.
                   </p>
                 </div>
-                <div className="home-gallery-grid">
-                  {[
-                    { src: '/images/home-scroll-01.webp', alt: 'Morning walk on Miami beach', caption: 'Morning coastal movement' },
-                    { src: '/images/home-scroll-02.webp', alt: 'Nourishing wellness meal', caption: 'Metabolic nourishment' },
-                    { src: '/images/home-scroll-03.webp', alt: 'Cycling along the coast', caption: 'Active longevity' },
-                    { src: '/images/home-scroll-04.webp', alt: 'Sunrise meditation by the ocean', caption: 'Mind-body balance' },
-                  ].map((item) => (
-                    <figure key={item.src} className="home-gallery-item">
-                      <div className="home-gallery-image">
-                        <img src={item.src} alt={item.alt} loading="lazy" />
+                <div className="lifestyle-gallery-grid">
+                  {LIFESTYLE_PILLARS.map((pillar, index) => (
+                    <a key={pillar.id} href={`#/${pillar.id}`} className="lifestyle-gallery-card">
+                      <div className="lifestyle-gallery-image">
+                        <img src={pillar.image} alt={pillar.alt} loading="lazy" />
+                        <div className="lifestyle-gallery-overlay">
+                          <span className="lifestyle-gallery-num">{String(index + 1).padStart(2, '0')}</span>
+                          <h3 className="lifestyle-gallery-title">{pillar.title}</h3>
+                          <p className="lifestyle-gallery-teaser">{pillar.teaser}</p>
+                          <span className="lifestyle-gallery-cta">Explore <span aria-hidden="true">→</span></span>
+                        </div>
                       </div>
-                      <figcaption className="home-gallery-caption">{item.caption}</figcaption>
-                    </figure>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -1259,6 +1341,72 @@ function App() {
               </div>
             )}
 
+          </div>
+        )}
+
+        {/* ==================== LIFESTYLE PILLAR PAGES ==================== */}
+        {activeLifestyle && (
+          <div className="fade-in lifestyle-page">
+            <section className="lifestyle-hero">
+              <img src={activeLifestyle.image} alt={activeLifestyle.alt} className="lifestyle-hero-img" loading="eager" />
+              <div className="lifestyle-hero-overlay" />
+              <div className="container lifestyle-hero-content">
+                <a href="#/" className="lifestyle-back-link">← Back to home</a>
+                <span className="section-label lifestyle-hero-label">{activeLifestyle.eyebrow}</span>
+                <h1 className="lifestyle-hero-title">{activeLifestyle.title}</h1>
+                <p className="lifestyle-hero-tagline">{activeLifestyle.teaser}</p>
+              </div>
+            </section>
+
+            <section className="lifestyle-content">
+              <div className="container">
+                <div className="lifestyle-content-grid">
+                  <div className="lifestyle-prose">
+                    <p className="lifestyle-lead">{activeLifestyle.summary}</p>
+                    <h2 className="lifestyle-subtitle">How we integrate it</h2>
+                    <ul className="lifestyle-practices">
+                      {activeLifestyle.practices.map((practice) => (
+                        <li key={practice}>{practice}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <aside className="lifestyle-aside">
+                    <div className="lifestyle-aside-card">
+                      <span className="section-label">Clinical Connection</span>
+                      <p className="lifestyle-aside-text">
+                        Your physician maps each lifestyle pillar to personalized peptide protocols, bloodwork cadence, and dosing schedules — so daily habits compound clinical outcomes.
+                      </p>
+                      <a href={activeLifestyle.relatedLink} className="btn btn-primary lifestyle-aside-btn">
+                        {activeLifestyle.relatedLabel}
+                      </a>
+                      <button className="btn btn-outline btn-quiz-trigger lifestyle-aside-btn" onClick={openQuiz}>
+                        Begin intake assessment
+                      </button>
+                    </div>
+                  </aside>
+                </div>
+
+                <div className="lifestyle-more">
+                  <div className="section-header-center" style={{ marginBottom: 'var(--space-xl)' }}>
+                    <span className="section-label">The Pax Lifestyle</span>
+                    <h2 className="section-title" style={{ fontSize: '2rem' }}>Explore more <em>pillars.</em></h2>
+                  </div>
+                  <div className="lifestyle-more-grid">
+                    {LIFESTYLE_PILLARS.filter((pillar) => pillar.id !== currentTab).map((pillar) => (
+                      <a key={pillar.id} href={`#/${pillar.id}`} className="lifestyle-more-card">
+                        <div className="lifestyle-more-image">
+                          <img src={pillar.image} alt={pillar.alt} loading="lazy" />
+                        </div>
+                        <div className="lifestyle-more-body">
+                          <h3>{pillar.title}</h3>
+                          <span className="lifestyle-more-link">Read more →</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         )}
 

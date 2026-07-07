@@ -768,10 +768,6 @@ ul { list-style: none; }
   transition: transform 0.6s var(--ease-out);
 }
 
-.home-treatment-card:hover .home-treatment-image img {
-  transform: scale(1.06);
-}
-
 .home-treatment-body {
   padding: var(--space-lg);
 }
@@ -826,6 +822,328 @@ ul { list-style: none; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--dark-terracotta);
+}
+
+/* ---------- Lifestyle Gallery (Longevity you can feel) ---------- */
+.lifestyle-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.lifestyle-gallery-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(160, 89, 78, 0.2);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration) var(--ease-out);
+}
+
+.lifestyle-gallery-card:active {
+  transform: scale(0.985);
+}
+
+.lifestyle-gallery-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.lifestyle-gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+
+.lifestyle-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-lg);
+  background: linear-gradient(180deg, transparent 25%, rgba(31, 26, 22, 0.82) 100%);
+  z-index: 1;
+}
+
+.lifestyle-gallery-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(250, 246, 240, 0.7);
+  margin-bottom: var(--space-xs);
+}
+
+.lifestyle-gallery-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--sand);
+  line-height: 1.15;
+  margin-bottom: var(--space-xs);
+}
+
+.lifestyle-gallery-teaser {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(250, 246, 240, 0.88);
+  margin-bottom: var(--space-sm);
+}
+
+.lifestyle-gallery-cta {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dune);
+}
+
+/* ---------- Lifestyle Detail Pages ---------- */
+.lifestyle-page {
+  padding-top: 5rem;
+}
+
+.lifestyle-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.lifestyle-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lifestyle-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31, 26, 22, 0.15) 0%, rgba(31, 26, 22, 0.75) 100%);
+}
+
+.lifestyle-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+}
+
+.lifestyle-back-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.85);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  transition: color var(--duration) var(--ease-out);
+}
+
+.lifestyle-back-link:hover {
+  color: var(--sand);
+}
+
+.lifestyle-hero-label {
+  color: rgba(250, 246, 240, 0.85) !important;
+}
+
+.lifestyle-hero-title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--sand);
+  max-width: 640px;
+}
+
+.lifestyle-hero-tagline {
+  margin-top: var(--space-sm);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(250, 246, 240, 0.9);
+  max-width: 520px;
+}
+
+.lifestyle-content {
+  padding: var(--space-3xl) 0;
+  background: var(--sand);
+}
+
+.lifestyle-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.lifestyle-lead {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.lifestyle-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.lifestyle-practices {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lifestyle-practices li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.lifestyle-practices li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+
+.lifestyle-aside-card {
+  background: var(--card-surface);
+  border: 1px solid rgba(160, 89, 78, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.lifestyle-aside-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.lifestyle-aside-btn {
+  width: 100%;
+}
+
+.lifestyle-more {
+  border-top: 1px solid var(--divider);
+  padding-top: var(--space-3xl);
+}
+
+.lifestyle-more-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.lifestyle-more-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  text-decoration: none;
+  color: inherit;
+  background: var(--card-surface);
+  border: 1px solid rgba(160, 89, 78, 0.18);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--duration) var(--ease-out);
+}
+
+.lifestyle-more-card:active {
+  transform: scale(0.985);
+}
+
+.lifestyle-more-image {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.lifestyle-more-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lifestyle-more-body h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.lifestyle-more-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark-terracotta);
+}
+
+@media (max-width: 767px) {
+  .home-gallery-section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .lifestyle-gallery-grid {
+    gap: var(--space-md);
+  }
+
+  .lifestyle-gallery-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .lifestyle-gallery-title {
+    font-size: 1.35rem;
+  }
+
+  .lifestyle-hero {
+    min-height: 46vh;
+  }
+
+  .lifestyle-hero-title {
+    font-size: 2rem;
+  }
+
+  .lifestyle-content {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lifestyle-gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--terracotta);
+  }
+
+  .lifestyle-gallery-card:hover .lifestyle-gallery-image img {
+    transform: scale(1.06);
+  }
+
+  .lifestyle-more-card:hover {
+    border-color: var(--terracotta);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .home-cinematic-band {
@@ -1224,10 +1542,6 @@ ul { list-style: none; }
   transition: transform 0.6s var(--ease-out);
 }
 
-.treatment-card:hover .treatment-image img {
-  transform: scale(1.06);
-}
-
 .treatment-badge {
   position: absolute;
   top: 15px;
@@ -1291,6 +1605,87 @@ ul { list-style: none; }
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--text-light);
+}
+
+.treatment-card .btn {
+  width: 100%;
+}
+
+/* Mobile-first treatment polish */
+@media (max-width: 767px) {
+  .treatments {
+    padding: var(--space-2xl) 0;
+  }
+
+  .home-treatments-preview {
+    padding: var(--space-2xl) 0;
+  }
+
+  .home-treatments-grid,
+  .treatments-grid {
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .section-header-center {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .treatment-image,
+  .home-treatment-image {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .treatment-body {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+  }
+
+  .home-treatment-body {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .treatment-title {
+    font-size: 1.15rem;
+  }
+
+  .treatment-desc {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 10px;
+  }
+
+  .detail-row strong {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .detail-row.price {
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: var(--space-xs);
+  }
+
+  .treatment-card:active {
+    transform: scale(0.985);
+  }
+
+  .home-treatment-card:active {
+    transform: scale(0.985);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .treatment-card:hover .treatment-image img,
+  .home-treatment-card:hover .home-treatment-image img {
+    transform: scale(1.06);
+  }
 }
 
 /* ---------- Scientific Advisory Board Section ---------- */
@@ -1999,6 +2394,36 @@ ul { list-style: none; }
   .home-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
+  }
+
+  .lifestyle-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .lifestyle-content-grid {
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .lifestyle-more-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .lifestyle-more-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lifestyle-more-image {
+    width: 100%;
+    height: 140px;
+  }
+
+  .lifestyle-more-body {
+    padding: var(--space-md);
   }
 
   .home-cinematic-band {
