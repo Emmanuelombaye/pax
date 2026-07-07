@@ -1,5 +1,44 @@
 import { useState, useEffect } from 'react';
 
+const HOME_FAQS = [
+  {
+    q: 'Are weight-loss medications FDA approved?',
+    lead: 'Brand-name GLP-1s are FDA-approved; compounded versions follow federal 503A pharmacy standards.',
+    points: [
+      'Wegovy & Ozempic are FDA-approved brands',
+      'Compounded Semaglutide is prepared in licensed 503A facilities',
+      'Compounded formulas are not individually FDA-reviewed',
+    ],
+  },
+  {
+    q: 'How fast is my intake reviewed?',
+    lead: 'Most assessments are completed within 24 hours of submission.',
+    points: [
+      'Licensed clinicians review your health intake',
+      'Prescriptions issued when clinically appropriate',
+      'Your provider contacts you if more info is needed',
+    ],
+  },
+  {
+    q: 'How are treatments shipped and stored?',
+    lead: 'Temperature-sensitive peptides ship overnight in cold-chain packaging.',
+    points: [
+      'Insulated packaging with gel packs included',
+      'Overnight delivery to your door',
+      'Refrigerate immediately on arrival',
+    ],
+  },
+  {
+    q: 'Is Pax a compliant telehealth platform?',
+    lead: 'Yes — licensed U.S. providers, HIPAA-secure intake, and accredited compounding partners.',
+    points: [
+      'Board-certified physicians review every intake',
+      '503A accredited pharmacy sourcing',
+      'HIPAA-compliant patient portal',
+    ],
+  },
+];
+
 const LIFESTYLE_PILLARS = [
   {
     id: 'lifestyle-movement',
@@ -9,7 +48,7 @@ const LIFESTYLE_PILLARS = [
     caption: 'Morning coastal movement',
     teaser: 'Zone-2 walks and tidal rhythm training that sustains metabolic health year-round.',
     eyebrow: 'Daily Ritual',
-    summary: 'Coastal movement anchors every Pax protocol — low-impact, high-consistency activity that protects cardiovascular reserve and insulin sensitivity without overtaxing recovery. Miami\'s year-round climate makes daily movement a clinical advantage, not an occasional habit.',
+    summary: 'Low-impact daily movement protects cardiovascular health and insulin sensitivity — without overtaxing recovery.',
     practices: [
       '30–45 minute sunrise walks on sand or coastal paths',
       'Zone-2 cardio sessions to improve mitochondrial density',
@@ -27,7 +66,7 @@ const LIFESTYLE_PILLARS = [
     caption: 'Metabolic nourishment',
     teaser: 'Mediterranean-inspired nutrition that stabilizes glucose and fuels cellular repair.',
     eyebrow: 'Fuel & Recovery',
-    summary: 'Metabolic nourishment is the foundation of every longevity outcome. Pax protocols pair physician-guided peptide therapy with practical, Mediterranean-inspired eating — emphasizing lean protein, healthy fats, fiber-rich plants, and timed meals that stabilize glucose curves throughout the day.',
+    summary: 'Mediterranean-inspired nutrition stabilizes glucose and supports the cellular repair your peptide protocol is designed to enhance.',
     practices: [
       'Protein-forward meals timed around activity and sleep',
       'Low-glycemic plates rich in omega-3s and polyphenols',
@@ -45,7 +84,7 @@ const LIFESTYLE_PILLARS = [
     caption: 'Active longevity',
     teaser: 'Strength, cycling, and recovery cycles built for decades — not just seasons.',
     eyebrow: 'Performance',
-    summary: 'Active longevity means training for capacity, not exhaustion. Structured resistance work, coastal cycling, and deliberate recovery windows help preserve lean mass, bone density, and growth hormone rhythms — especially when supported by targeted peptide protocols.',
+    summary: 'Train for long-term capacity — resistance, endurance, and recovery cycles that preserve lean mass and energy.',
     practices: [
       '2–3 resistance sessions per week with progressive overload',
       'Coastal cycling or swimming for cardiovascular endurance',
@@ -63,7 +102,7 @@ const LIFESTYLE_PILLARS = [
     caption: 'Mind-body balance',
     teaser: 'Meditation, sleep architecture, and nervous-system recovery for cognitive clarity.',
     eyebrow: 'Restoration',
-    summary: 'Longevity is as much nervous-system health as it is physical capacity. Mind-body balance practices — morning meditation, breathwork, and sleep hygiene — reduce cortisol load, sharpen cognitive clarity, and amplify the cellular repair signals that NAD+ and peptide therapies are designed to support.',
+    summary: 'Sleep, meditation, and nervous-system recovery amplify the cellular repair signals your clinical protocol targets.',
     practices: [
       '10-minute sunrise meditation or breathwork rituals',
       'Consistent sleep windows with evening light discipline',
@@ -482,9 +521,9 @@ function App() {
                 </div>
 
                 <div className="step-card pastel-box doctor-safety-card">
-                  <h3 className="step-title">Strict Medical Safety & Oversight</h3>
+                  <h3 className="step-title">Medical safety & oversight</h3>
                   <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
-                    Every dosage is prescribed and monitored by state-licensed healthcare practitioners. If any heritable risks or clinical contradictions are flagged during your initial audit or subsequent blood tests, your advisor will contact you to modify your plan immediately.
+                    Every dose is prescribed and monitored by licensed practitioners. If risks appear in your intake or labs, your provider adjusts your plan immediately.
                   </p>
                 </div>
               </div>
@@ -610,33 +649,25 @@ function App() {
                 <div className="section-header-center">
                   <span className="section-label">Answering Your Questions</span>
                   <h2 className="section-title">Frequently <em>asked.</em></h2>
+                  <p className="faq-intro">Quick answers — tap any question to expand.</p>
                 </div>
                 
                 <div className="faq-list">
-                  {[
-                    {
-                      q: "Are these weight loss medications FDA approved?",
-                      a: "Accompanying branded medications (like Wegovy or Ozempic) are FDA-approved, while compounded Semaglutide is customized in state-licensed compounding pharmacies under federal 503A guidelines. While compounding pharmacies are subject to strict quality rules, compounded medications themselves are not individually reviewed by the FDA."
-                    },
-                    {
-                      q: "How fast will my intake consultation be reviewed?",
-                      a: "Our licensed clinical medical team typically completes assessments and writes prescriptions within 24 hours of form submission. If additional information is needed, your provider will reach out via our secure portal."
-                    },
-                    {
-                      q: "How are the products shipped and stored?",
-                      a: "Peptides like Semaglutide and NAD+ are temperature-sensitive and are shipped in specialized temperature-controlled insulated cold packaging with gel packs. Upon arrival, you should immediately store them in the refrigerator."
-                    }
-                  ].map((faq, idx) => (
-                    <div key={idx} className={`faq-item ${activeFaq === idx ? 'active' : ''}`}>
-                      <button className="faq-question" onClick={() => handleFaqToggle(idx)}>
-                        {faq.q}
-                        <span className="faq-icon">▼</span>
+                  {HOME_FAQS.map((faq, idx) => (
+                    <div key={faq.q} className={`faq-item ${activeFaq === idx ? 'active' : ''}`}>
+                      <button className="faq-question" onClick={() => handleFaqToggle(idx)} aria-expanded={activeFaq === idx}>
+                        <span className="faq-question-text">{faq.q}</span>
+                        <span className="faq-icon" aria-hidden="true">▼</span>
                       </button>
-                      <div 
-                        className="faq-answer" 
-                        style={{ maxHeight: activeFaq === idx ? '200px' : '0px' }}
-                      >
-                        <p>{faq.a}</p>
+                      <div className="faq-answer">
+                        <div className="faq-answer-inner">
+                          <p className="faq-answer-lead">{faq.lead}</p>
+                          <ul className="faq-answer-points">
+                            {faq.points.map((point) => (
+                              <li key={point}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   ))}
