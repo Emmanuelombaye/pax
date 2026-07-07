@@ -178,6 +178,17 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 
+.btn-outline-white {
+  border: 1.5px solid rgba(250, 246, 240, 0.75);
+  color: var(--sand);
+}
+
+.btn-outline-white:hover {
+  background: rgba(250, 246, 240, 0.12);
+  color: var(--sand);
+  transform: translateY(-2px);
+}
+
 .btn-teal {
   background: var(--teal);
   color: var(--sand);
@@ -441,6 +452,13 @@ ul { list-style: none; }
   flex-wrap: wrap;
   gap: var(--space-md);
   margin-bottom: var(--space-xl);
+}
+
+.hero-actions-centered {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
 }
 
 .hero-trust-badges {
@@ -3442,6 +3460,210 @@ ul { list-style: none; }
   
   .articles-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Mobile experience (phone-first polish) ---------- */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .section-header-center {
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .nav-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav .nav-link,
+  .mobile-nav .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .cinematic-hero {
+    height: 72vh;
+    min-height: 0;
+    max-height: 620px;
+    align-items: flex-end;
+  }
+
+  .slideshow-overlay {
+    background:
+      linear-gradient(180deg, rgba(31, 26, 22, 0.2) 0%, rgba(31, 26, 22, 0.72) 52%, var(--ink) 100%);
+  }
+
+  .cinematic-content {
+    margin-bottom: 2.75rem;
+    padding: 0 var(--space-md);
+  }
+
+  .cinematic-title {
+    font-size: clamp(1.95rem, 8.5vw, 2.65rem);
+  }
+
+  .cinematic-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: var(--space-sm) auto var(--space-md);
+  }
+
+  .cinematic-kicker {
+    font-size: 0.6rem;
+    padding: 6px 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-actions-centered,
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+
+  .hero-actions-centered .btn,
+  .hero-actions .btn,
+  .eligibility-cta,
+  .lifestyle-aside-btn,
+  .home-cinematic-band-content .btn,
+  .doctor-section .btn {
+    width: 100%;
+  }
+
+  .slideshow-nav {
+    bottom: 4.5%;
+  }
+
+  .slideshow-indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stats-strip {
+    padding: var(--space-md) 0;
+  }
+
+  .stats-num {
+    font-size: 1.85rem;
+  }
+
+  .stats-label {
+    font-size: 0.62rem;
+  }
+
+  .guidance-section,
+  .how-it-works,
+  .eligibility,
+  .doctor-section,
+  .home-treatments-preview,
+  .home-gallery-section,
+  .faq,
+  .treatments {
+    padding: var(--space-2xl) 0;
+  }
+
+  .guidance-card.pastel-box,
+  .step-card.pastel-box {
+    padding: var(--space-lg);
+  }
+
+  .guidance-title {
+    font-size: 1.2rem;
+  }
+
+  .step-title {
+    font-size: 1.05rem;
+  }
+
+  .eligibility-image {
+    max-width: 260px;
+  }
+
+  .eligibility-content .section-title {
+    font-size: 1.85rem;
+  }
+
+  .eligibility-item.pastel-box {
+    padding: var(--space-md);
+  }
+
+  .featured-doctor.pastel-box {
+    padding: var(--space-lg);
+    text-align: center;
+  }
+
+  .featured-doctor-photo {
+    width: 96px;
+    height: 96px;
+  }
+
+  .doctor-safety-card {
+    margin-top: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .home-cinematic-band {
+    min-height: 340px;
+  }
+
+  .home-cinematic-band-content {
+    padding: var(--space-2xl) 0;
+    max-width: 100%;
+  }
+
+  .home-cinematic-band-title {
+    font-size: 1.85rem;
+  }
+
+  .home-cinematic-band-text {
+    font-size: 0.88rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .lifestyle-aside-card {
+    padding: var(--space-lg);
+  }
+
+  .lifestyle-content-grid {
+    gap: var(--space-lg);
+  }
+
+  .footer {
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+
+  .footer-grid {
+    gap: var(--space-xl);
+  }
+
+  .modal-container {
+    width: calc(100% - 2rem);
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
 
