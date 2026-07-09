@@ -130,8 +130,8 @@ const ROUTE_TABS = [
 const BRAND_LOGO = {
   webp: '/images/pax-logo.webp',
   png: '/images/pax-logo.png',
-  width: 512,
-  height: 512,
+  width: 270,
+  height: 280,
 };
 
 function BrandLogo({ variant = 'header' }) {
@@ -143,11 +143,11 @@ function BrandLogo({ variant = 'header' }) {
       className={`brand-logo brand-logo--${variant}`}
       aria-label="Pax Longevity home"
     >
-      <picture>
+      <picture className="brand-logo__picture">
         <source srcSet={BRAND_LOGO.webp} type="image/webp" />
         <img
           src={BRAND_LOGO.png}
-          alt=""
+          alt="Pax Longevity"
           width={BRAND_LOGO.width}
           height={BRAND_LOGO.height}
           className="brand-logo__img"
