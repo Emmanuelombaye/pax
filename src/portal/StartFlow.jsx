@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BrandMark } from './BrandMark.jsx';
 import { INTAKE_STEPS, PLANS, TREATMENTS, TRUST_POINTS } from './startFlowData.js';
-import { completePurchaseSignup, getPendingOrder, savePendingOrder } from './storage.js';
+import {
+  completePurchaseSignup,
+  getPendingOrder,
+  savePendingOrder,
+} from '../brand/connect.js';
+import { PAX_PASSPORT } from '../brand/passport.js';
 
 const STEPS = ['treatment', 'intake', 'plan', 'checkout', 'verify', 'account'];
 
@@ -155,7 +160,7 @@ export default function StartFlow({ onComplete }) {
     go('account');
   };
 
-  const finishAccount = (e) => {
+  const finishAccount = async (e) => {
     e.preventDefault();
     setError('');
     if (password.length < 4) {
@@ -168,7 +173,7 @@ export default function StartFlow({ onComplete }) {
     }
     setBusy(true);
     try {
-      const { user } = completePurchaseSignup({
+      const { user } = await completePurchaseSignup({
         firstName: checkout.firstName,
         lastName: checkout.lastName,
         email: checkout.email,
@@ -483,7 +488,7 @@ export default function StartFlow({ onComplete }) {
             <p className="pp-eyebrow">Almost there</p>
             <h1>Create your Patient Center login</h1>
             <p className="sf-lede">
-              Your intake is in for provider review (typically within 24 hours). Set a password to track shipping, messages, and treatment.
+              Your intake is in for provider review (typically within 24 hours). Set a password to track shipping, messages, and treatment in the {PAX_PASSPORT.product.shortName} Patient Center.
             </p>
             <div className="sf-summary">
               <div>

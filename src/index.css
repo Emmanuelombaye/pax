@@ -4897,3 +4897,11 @@ ul { list-style: none; }
     grid-template-columns: 1fr;
   }
 }
+
+.pp-auth__mode {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}

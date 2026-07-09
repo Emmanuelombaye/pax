@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BrandMark } from './BrandMark.jsx';
+import { PAX_PASSPORT } from '../brand/passport.js';
 import {
   addWeightEntry,
   getCurrentUser,
@@ -11,7 +12,7 @@ import {
   saveProfile,
   sendMessage,
   toggleChecklistItem,
-} from './storage.js';
+} from '../brand/connect.js';
 
 const NAV = [
   { id: 'home', label: 'Home' },
@@ -54,12 +55,12 @@ function AuthScreen({ onAuthed }) {
     password: '',
   });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setError('');
     setBusy(true);
     try {
-      const result = login({ email: form.email, password: form.password });
+      const result = await login({ email: form.email, password: form.password });
       onAuthed(result.user);
     } catch (err) {
       setError(err.message || 'Something went wrong.');
@@ -93,6 +94,8 @@ function AuthScreen({ onAuthed }) {
         <h2 className="pp-auth__title">Member sign in</h2>
         <p className="pp-auth__sim">
           New here? Don’t create an account first — <a href="#/start">choose a treatment & check out</a>, then unlock Patient Center.
+          <br />
+          <span className="pp-auth__mode">Portable mode · data saved on this device · {PAX_PASSPORT.compliance.demoDisclaimer.split('.')[0]}.</span>
         </p>
 
         <form className="pp-auth__form" onSubmit={submit}>
@@ -138,18 +141,37 @@ function AuthScreen({ onAuthed }) {
 
 function PortalShell({ user, onLogout }) {
   const [tab, setTab] = useState('home');
-  const [profile, setProfile] = useState(() => getProfile(user.id));
+  const [profile, setProfile] = useState(null);
+  const [loadingProfile, setLoadingProfile] = useState(true);
   const [draft, setDraft] = useState('');
   const [weight, setWeight] = useState('');
   const [toast, setToast] = useState('');
 
-  const refresh = () => setProfile(getProfile(user.id));
+  const refresh = async () => {
+    const next = await getProfile(user.id);
+    setProfile(next);
+    return next;
+  };
 
   useEffect(() => {
-    if (tab === 'messages') {
-      markMessagesRead(user.id);
-      refresh();
-    }
+    let alive = true;
+    (async () => {
+      setLoadingProfile(true);
+      const next = await getProfile(user.id);
+      if (alive) {
+        setProfile(next);
+        setLoadingProfile(false);
+      }
+    })();
+    return () => { alive = false; };
+  }, [user.id]);
+
+  useEffect(() => {
+    if (tab !== 'messages') return;
+    (async () => {
+      await markMessagesRead(user.id);
+      await refresh();
+    })();
   }, [tab, user.id]);
 
   const unread = useMemo(
@@ -166,22 +188,22 @@ function PortalShell({ user, onLogout }) {
     window.setTimeout(() => setToast(''), 2400);
   };
 
-  const onToggleCheck = (id) => {
-    setProfile(toggleChecklistItem(user.id, id));
+  const onToggleCheck = async (id) => {
+    setProfile(await toggleChecklistItem(user.id, id));
   };
 
-  const onSend = (e) => {
+  const onSend = async (e) => {
     e.preventDefault();
     if (!draft.trim()) return;
-    setProfile(sendMessage(user.id, draft));
+    setProfile(await sendMessage(user.id, draft));
     setDraft('');
     flash('Message sent');
   };
 
-  const onWeight = (e) => {
+  const onWeight = async (e) => {
     e.preventDefault();
     try {
-      setProfile(addWeightEntry(user.id, weight));
+      setProfile(await addWeightEntry(user.id, weight));
       setWeight('');
       flash('Weight logged');
     } catch (err) {
@@ -189,11 +211,11 @@ function PortalShell({ user, onLogout }) {
     }
   };
 
-  const onSaveProfile = (e) => {
+  const onSaveProfile = async (e) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     setProfile(
-      saveProfile(user.id, {
+      await saveProfile(user.id, {
         firstName: String(fd.get('firstName') || profile.firstName),
         lastName: String(fd.get('lastName') || profile.lastName),
         phone: String(fd.get('phone') || ''),
@@ -202,6 +224,15 @@ function PortalShell({ user, onLogout }) {
     );
     flash('Profile saved');
   };
+
+  if (loadingProfile) {
+    return (
+      <div className="pp-loading">
+        <BrandMark size="lg" />
+        <p>Loading your care record…</p>
+      </div>
+    );
+  }
 
   if (!profile) {
     return (
@@ -471,9 +502,9 @@ function PortalShell({ user, onLogout }) {
             </article>
 
             <article className="pp-card pp-card--soft">
-              <h2>Demo note</h2>
+              <h2>Portable Patient Center</h2>
               <p className="pp-muted">
-                This Patient Center is a branded frontend simulation. Accounts and messages are stored in your browser’s local storage — not a live clinical database.
+                {PAX_PASSPORT.compliance.demoDisclaimer} When you connect a production API, flip `VITE_PAX_CONNECT_MODE=remote` — the UI stays the same.
               </p>
               <a href="#/" className="pp-link">Return to marketing site →</a>
             </article>
@@ -487,13 +518,20 @@ function PortalShell({ user, onLogout }) {
 }
 
 export default function PortalApp() {
-  const [user, setUser] = useState(() => getCurrentUser());
+  const [user, setUser] = useState(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const session = getSession();
-    if (session?.userId) setUser(getCurrentUser());
-    setReady(true);
+    let alive = true;
+    (async () => {
+      const session = getSession();
+      if (session?.userId) {
+        const current = await getCurrentUser();
+        if (alive) setUser(current);
+      }
+      if (alive) setReady(true);
+    })();
+    return () => { alive = false; };
   }, []);
 
   if (!ready) {
