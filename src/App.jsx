@@ -395,7 +395,6 @@ function App() {
               </div>
 
               <div className="cinematic-content">
-                <span className="cinematic-kicker">Italian Summer · Miami Vitality</span>
                 <h1 className="cinematic-title">Prevent decline <em>years before</em> symptoms.</h1>
                 <p className="cinematic-subtitle">
                   Euro-summer warmth meets coastal longevity — compounded peptides, licensed U.S. providers, and overnight delivery to your door.
