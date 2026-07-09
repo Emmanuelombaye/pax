@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { BrandMark } from './BrandMark.jsx';
 import {
   addWeightEntry,
   getCurrentUser,
@@ -45,17 +46,6 @@ function formatTime(iso) {
   }
 }
 
-function BrandMark() {
-  return (
-    <div className="pp-brand">
-      <picture>
-        <source srcSet="/images/pax-logo.webp" type="image/webp" />
-        <img src="/images/pax-logo.png" alt="Pax Longevity" className="pp-brand__img" width="270" height="280" />
-      </picture>
-    </div>
-  );
-}
-
 function AuthScreen({ onAuthed }) {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -83,6 +73,7 @@ function AuthScreen({ onAuthed }) {
       <div className="pp-auth__visual" aria-hidden="true">
         <div className="pp-auth__glow" />
         <div className="pp-auth__copy">
+          <BrandMark size="hero" className="pp-brand--on-dark" />
           <p className="pp-eyebrow">Patient Center</p>
           <h1>Welcome back.</h1>
           <p>
@@ -98,7 +89,7 @@ function AuthScreen({ onAuthed }) {
 
       <div className="pp-auth__panel">
         <a href="#/" className="pp-auth__back">← Back to Pax</a>
-        <BrandMark />
+        <BrandMark size="lg" />
         <h2 className="pp-auth__title">Member sign in</h2>
         <p className="pp-auth__sim">
           New here? Don’t create an account first — <a href="#/start">choose a treatment & check out</a>, then unlock Patient Center.
@@ -225,7 +216,9 @@ function PortalShell({ user, onLogout }) {
     <div className="pp-shell">
       <header className="pp-topbar">
         <div className="pp-topbar__inner">
-          <BrandMark />
+          <a href="#/" className="pp-topbar__brand" aria-label="Pax Longevity home">
+            <BrandMark size="md" />
+          </a>
           <div className="pp-topbar__right">
             <span className="pp-topbar__hello">Hi, {profile.firstName}</span>
             <button type="button" className="pp-btn pp-btn--ghost" onClick={onLogout}>Sign out</button>
@@ -506,7 +499,7 @@ export default function PortalApp() {
   if (!ready) {
     return (
       <div className="pp-loading">
-        <BrandMark />
+        <BrandMark size="lg" />
         <p>Opening Patient Center…</p>
       </div>
     );

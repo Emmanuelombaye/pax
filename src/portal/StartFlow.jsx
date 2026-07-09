@@ -1,19 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
+import { BrandMark } from './BrandMark.jsx';
 import { INTAKE_STEPS, PLANS, TREATMENTS, TRUST_POINTS } from './startFlowData.js';
 import { completePurchaseSignup, getPendingOrder, savePendingOrder } from './storage.js';
 
 const STEPS = ['treatment', 'intake', 'plan', 'checkout', 'verify', 'account'];
-
-function BrandMark() {
-  return (
-    <div className="pp-brand">
-      <picture>
-        <source srcSet="/images/pax-logo.webp" type="image/webp" />
-        <img src="/images/pax-logo.png" alt="Pax Longevity" className="pp-brand__img" width="270" height="280" />
-      </picture>
-    </div>
-  );
-}
 
 function Progress({ step }) {
   const idx = STEPS.indexOf(step);
@@ -201,7 +191,7 @@ export default function StartFlow({ onComplete }) {
       <header className="sf-top">
         <div className="sf-top__inner">
           <a href="#/" className="sf-top__brand" aria-label="Pax Longevity home">
-            <BrandMark />
+            <BrandMark size="md" />
           </a>
           <a href="#/portal" className="sf-top__login">Already a member? Sign in</a>
         </div>

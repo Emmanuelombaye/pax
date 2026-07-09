@@ -3782,14 +3782,56 @@ ul { list-style: none; }
 
 .pp-brand {
   display: inline-flex;
+  align-items: center;
   line-height: 0;
 }
 
 .pp-brand__img {
-  height: 3.25rem;
+  display: block;
   width: auto;
-  max-width: 9rem;
+  height: auto;
   object-fit: contain;
+  object-position: left center;
+}
+
+.pp-brand--sm .pp-brand__img {
+  height: 2.75rem;
+  max-width: 7.5rem;
+}
+
+.pp-brand--md .pp-brand__img {
+  height: 3.5rem;
+  max-width: 9.5rem;
+}
+
+.pp-brand--lg .pp-brand__img {
+  height: 4.75rem;
+  max-width: 12rem;
+}
+
+.pp-brand--hero .pp-brand__img {
+  height: 5.5rem;
+  max-width: 13.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 8px 24px rgba(31, 26, 22, 0.25));
+}
+
+.pp-brand--on-dark .pp-brand__img {
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.35));
+}
+
+.pp-topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.pp-topbar {
+  padding-top: max(0px, env(safe-area-inset-top, 0px));
+}
+
+.pp-topbar__inner {
+  min-height: 4rem;
 }
 
 .pp-auth {
