@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { paxPatientLoginUrl, startPaxEnrollment } from './paxCare.js';
+import { startPaxEnrollment } from './paxCare.js';
+import PortalApp from './portal/PortalApp.jsx';
 
 const HOME_FAQS = [
   {
@@ -229,8 +230,10 @@ function App() {
   // Sync state with URL hash routing
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#/', '');
-      if (ROUTE_TABS.includes(hash)) {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      if (hash === 'portal' || hash.startsWith('portal/')) {
+        setCurrentTab('portal');
+      } else if (ROUTE_TABS.includes(hash)) {
         setCurrentTab(hash);
       } else {
         setCurrentTab('home');
@@ -319,6 +322,10 @@ function App() {
 
   const activeLifestyle = LIFESTYLE_PILLARS.find((pillar) => pillar.id === currentTab);
 
+  if (currentTab === 'portal') {
+    return <PortalApp />;
+  }
+
   return (
     <>
       {/* Header / Navigation */}
@@ -333,6 +340,7 @@ function App() {
             <a href="#/treatments" className={`nav-link ${currentTab === 'treatments' ? 'active' : ''}`}>Treatments</a>
             <a href="#/advisors" className={`nav-link ${currentTab === 'advisors' ? 'active' : ''}`}>Advisors</a>
             <a href="#/education" className={`nav-link ${currentTab === 'education' ? 'active' : ''}`}>Education</a>
+            <a href="#/portal" className="nav-link">Patient Center</a>
             <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
           </nav>
           
@@ -363,6 +371,7 @@ function App() {
         <a href="#/treatments" className={`nav-link mobile-link ${currentTab === 'treatments' ? 'active' : ''}`} onClick={toggleMobileNav}>Treatments</a>
         <a href="#/advisors" className={`nav-link mobile-link ${currentTab === 'advisors' ? 'active' : ''}`} onClick={toggleMobileNav}>Advisors</a>
         <a href="#/education" className={`nav-link mobile-link ${currentTab === 'education' ? 'active' : ''}`} onClick={toggleMobileNav}>Education</a>
+        <a href="#/portal" className="nav-link mobile-link" onClick={toggleMobileNav}>Patient Center</a>
         <button 
           className="btn btn-primary btn-quiz-trigger" 
           style={{ marginTop: '1rem' }} 
@@ -1533,7 +1542,7 @@ function App() {
             <div className="footer-links-col">
               <span className="footer-col-title">Member Hub</span>
               <a href="#/" className="footer-link" onClick={openQuiz}>Start Intake Quiz</a>
-              <a href={paxPatientLoginUrl()} className="footer-link">Secure Portal</a>
+              <a href="#/portal" className="footer-link">Patient Center</a>
               <a href="#/" className="footer-link">FAQ Support</a>
               <a href="#/" className="footer-link">Telehealth Terms</a>
             </div>
