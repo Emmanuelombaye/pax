@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { paxPatientLoginUrl, startPaxEnrollment } from './paxCare.js';
 
 const HOME_FAQS = [
   {
@@ -306,8 +307,7 @@ function App() {
 
   const handleQuizSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you, ${quizData.name}! Your medical assessment has been submitted. A state-licensed clinical provider will review your medical credentials and email you within 24 hours at: ${quizData.email}`);
-    closeQuiz();
+    startPaxEnrollment(quizData.goal || 'weight-loss');
   };
 
   // Check if "Next Step" should be enabled
@@ -1533,7 +1533,7 @@ function App() {
             <div className="footer-links-col">
               <span className="footer-col-title">Member Hub</span>
               <a href="#/" className="footer-link" onClick={openQuiz}>Start Intake Quiz</a>
-              <a href="https://portal.pax-longevity.com" target="_blank" rel="noopener noreferrer" className="footer-link">Secure Portal</a>
+              <a href={paxPatientLoginUrl()} className="footer-link">Secure Portal</a>
               <a href="#/" className="footer-link">FAQ Support</a>
               <a href="#/" className="footer-link">Telehealth Terms</a>
             </div>
