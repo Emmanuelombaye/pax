@@ -2,6 +2,7 @@ const KEYS = {
   session: 'pax_portal_session_v1',
   users: 'pax_portal_users_v1',
   profiles: 'pax_portal_profiles_v1',
+  pending: 'pax_portal_pending_order_v1',
 };
 
 function read(key, fallback) {
@@ -21,27 +22,31 @@ function uid(prefix = 'id') {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36).slice(-4)}`;
 }
 
-function defaultProfile(user) {
+function defaultProfile(user, order = null) {
+  const treatmentName = order?.treatment?.med || order?.treatment?.name || 'Personalized Semaglutide';
+  const planLabel = order?.plan?.label ? `${order.plan.label} plan` : 'Provider-guided plan';
   return {
     userId: user.id,
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,
-    phone: '',
+    phone: user.phone || order?.phone || '',
     dob: '',
     treatment: {
-      name: 'Personalized Semaglutide',
-      status: 'Active',
-      dose: '0.5 mg weekly',
-      nextRefill: addDays(21),
+      name: treatmentName,
+      status: 'Pending provider review',
+      dose: 'To be confirmed by provider',
+      nextRefill: addDays(3),
       pharmacy: 'Licensed U.S. compounding pharmacy',
       startedAt: new Date().toISOString().slice(0, 10),
+      plan: planLabel,
     },
     checklist: [
       { id: 'welcome', label: 'Welcome to Pax Longevity', done: true },
       { id: 'intake', label: 'Complete clinical intake', done: true },
-      { id: 'id', label: 'Verify your identity', done: false },
-      { id: 'provider', label: 'Provider review complete', done: true },
+      { id: 'checkout', label: 'Checkout & authorization hold', done: true },
+      { id: 'id', label: 'Verify your identity', done: true },
+      { id: 'provider', label: 'Provider review (within 24 hours)', done: false },
       { id: 'ship', label: 'First shipment on the way', done: false },
       { id: 'start', label: 'Start your first dose', done: false },
     ],
@@ -50,12 +55,21 @@ function defaultProfile(user) {
         id: uid('msg'),
         from: 'care',
         author: 'Pax Care Team',
-        body: `Hi ${user.firstName} — welcome to your Patient Center. Your provider has approved treatment. Message us anytime with questions about dosing, side effects, or refills.`,
+        body: `Hi ${user.firstName} — thanks for completing checkout. A licensed U.S. provider is reviewing your intake (usually within 24 hours). We’ll update your Patient Center when your prescription is approved.`,
         at: new Date().toISOString(),
         read: false,
       },
     ],
     weightLog: [],
+    order: order
+      ? {
+          treatmentId: order.treatment?.id,
+          planId: order.plan?.id,
+          total: order.plan?.total,
+          intake: order.intake || null,
+          purchasedAt: new Date().toISOString(),
+        }
+      : null,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
@@ -85,7 +99,7 @@ export function findUserByEmail(email) {
   return listUsers().find((u) => u.email === normalized) || null;
 }
 
-export function signup({ firstName, lastName, email, password }) {
+export function signup({ firstName, lastName, email, password, phone, order }) {
   const normalized = String(email || '').trim().toLowerCase();
   if (!normalized || !password || password.length < 4) {
     throw new Error('Enter a valid email and a password (4+ characters).');
@@ -100,6 +114,7 @@ export function signup({ firstName, lastName, email, password }) {
     lastName: String(lastName || '').trim(),
     email: normalized,
     password: String(password),
+    phone: String(phone || '').trim(),
     createdAt: new Date().toISOString(),
   };
 
@@ -108,12 +123,38 @@ export function signup({ firstName, lastName, email, password }) {
   write(KEYS.users, users);
 
   const profiles = read(KEYS.profiles, {});
-  profiles[user.id] = defaultProfile(user);
+  profiles[user.id] = defaultProfile(user, order || null);
   write(KEYS.profiles, profiles);
 
   const session = { userId: user.id, email: user.email, at: new Date().toISOString() };
   setSession(session);
   return { user, session };
+}
+
+/** Yucca-style: account is created only after purchase + verify. */
+export function completePurchaseSignup({ firstName, lastName, email, password, phone, treatment, plan, intake }) {
+  const result = signup({
+    firstName,
+    lastName,
+    email,
+    password,
+    phone,
+    order: { treatment, plan, intake, phone },
+  });
+  clearPendingOrder();
+  return result;
+}
+
+export function getPendingOrder() {
+  return read(KEYS.pending, null);
+}
+
+export function savePendingOrder(order) {
+  write(KEYS.pending, { ...order, updatedAt: new Date().toISOString() });
+}
+
+export function clearPendingOrder() {
+  localStorage.removeItem(KEYS.pending);
 }
 
 export function login({ email, password }) {

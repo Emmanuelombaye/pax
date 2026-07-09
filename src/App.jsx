@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { startPaxEnrollment } from './paxCare.js';
 import PortalApp from './portal/PortalApp.jsx';
+import StartFlow from './portal/StartFlow.jsx';
 
 const HOME_FAQS = [
   {
@@ -233,6 +233,8 @@ function App() {
       const hash = window.location.hash.replace(/^#\/?/, '');
       if (hash === 'portal' || hash.startsWith('portal/')) {
         setCurrentTab('portal');
+      } else if (hash === 'start' || hash.startsWith('start/')) {
+        setCurrentTab('start');
       } else if (ROUTE_TABS.includes(hash)) {
         setCurrentTab(hash);
       } else {
@@ -270,17 +272,7 @@ function App() {
   };
 
   const openQuiz = () => {
-    setIsQuizOpen(true);
-    setQuizStep(1);
-    setQuizData({
-      goal: '',
-      height: '',
-      weight: '',
-      condition: '',
-      name: '',
-      email: ''
-    });
-    document.body.style.overflow = 'hidden';
+    window.location.hash = '#/start';
   };
 
   const closeQuiz = () => {
@@ -310,7 +302,8 @@ function App() {
 
   const handleQuizSubmit = (e) => {
     e.preventDefault();
-    startPaxEnrollment(quizData.goal || 'weight-loss');
+    closeQuiz();
+    window.location.hash = '#/start';
   };
 
   // Check if "Next Step" should be enabled
@@ -324,6 +317,16 @@ function App() {
 
   if (currentTab === 'portal') {
     return <PortalApp />;
+  }
+
+  if (currentTab === 'start') {
+    return (
+      <StartFlow
+        onComplete={() => {
+          window.location.hash = '#/portal';
+        }}
+      />
+    );
   }
 
   return (
@@ -341,7 +344,7 @@ function App() {
             <a href="#/advisors" className={`nav-link ${currentTab === 'advisors' ? 'active' : ''}`}>Advisors</a>
             <a href="#/education" className={`nav-link ${currentTab === 'education' ? 'active' : ''}`}>Education</a>
             <a href="#/portal" className="nav-link">Patient Center</a>
-            <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+            <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
           </nav>
           
           <button 
@@ -377,7 +380,7 @@ function App() {
           style={{ marginTop: '1rem' }} 
           onClick={() => { toggleMobileNav(); openQuiz(); }}
         >
-          Begin intake assessment
+          Find my treatment
         </button>
       </div>
 
@@ -409,7 +412,7 @@ function App() {
                   Euro-summer warmth meets coastal longevity — compounded peptides, licensed U.S. providers, and overnight delivery to your door.
                 </p>
                 <div className="hero-actions-centered">
-                  <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+                  <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
                   <a href="#/threats" className="btn btn-outline-white">Explore Diagnostics</a>
                 </div>
               </div>
@@ -526,7 +529,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <button className="btn btn-primary btn-quiz-trigger eligibility-cta" onClick={openQuiz}>Begin intake assessment</button>
+                    <button className="btn btn-primary btn-quiz-trigger eligibility-cta" onClick={openQuiz}>Find my treatment</button>
                   </div>
                 </div>
               </div>
@@ -676,7 +679,7 @@ function App() {
                 <p className="home-cinematic-band-text">
                   Italian summer meets Miami vitality. Personalized telehealth protocols built for the life you want to live.
                 </p>
-                <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+                <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
               </div>
             </section>
 
@@ -993,7 +996,7 @@ function App() {
                           <strong>$249/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
                     </div>
                   </div>
 
@@ -1020,7 +1023,7 @@ function App() {
                           <strong>$149/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
                     </div>
                   </div>
 
@@ -1047,7 +1050,7 @@ function App() {
                           <strong>$189/mo <span>All-inclusive</span></strong>
                         </div>
                       </div>
-                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Begin intake assessment</button>
+                      <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
                     </div>
                   </div>
                 </div>
@@ -1463,7 +1466,7 @@ function App() {
                         {activeLifestyle.relatedLabel}
                       </a>
                       <button className="btn btn-outline btn-quiz-trigger lifestyle-aside-btn" onClick={openQuiz}>
-                        Begin intake assessment
+                        Find my treatment
                       </button>
                     </div>
                   </aside>
@@ -1541,7 +1544,7 @@ function App() {
             {/* Column 4: Member Hub */}
             <div className="footer-links-col">
               <span className="footer-col-title">Member Hub</span>
-              <a href="#/" className="footer-link" onClick={openQuiz}>Start Intake Quiz</a>
+              <a href="#/start" className="footer-link">Start treatment</a>
               <a href="#/portal" className="footer-link">Patient Center</a>
               <a href="#/" className="footer-link">FAQ Support</a>
               <a href="#/" className="footer-link">Telehealth Terms</a>

@@ -9,7 +9,6 @@ import {
   markMessagesRead,
   saveProfile,
   sendMessage,
-  signup,
   toggleChecklistItem,
 } from './storage.js';
 
@@ -58,12 +57,9 @@ function BrandMark() {
 }
 
 function AuthScreen({ onAuthed }) {
-  const [mode, setMode] = useState('login');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
   });
@@ -73,15 +69,7 @@ function AuthScreen({ onAuthed }) {
     setError('');
     setBusy(true);
     try {
-      const result =
-        mode === 'login'
-          ? login({ email: form.email, password: form.password })
-          : signup({
-              firstName: form.firstName,
-              lastName: form.lastName,
-              email: form.email,
-              password: form.password,
-            });
+      const result = login({ email: form.email, password: form.password });
       onAuthed(result.user);
     } catch (err) {
       setError(err.message || 'Something went wrong.');
@@ -96,13 +84,13 @@ function AuthScreen({ onAuthed }) {
         <div className="pp-auth__glow" />
         <div className="pp-auth__copy">
           <p className="pp-eyebrow">Patient Center</p>
-          <h1>Your care, in one calm place.</h1>
+          <h1>Welcome back.</h1>
           <p>
-            Track treatment, message your care team, and manage refills — designed for Pax Longevity members.
+            Sign in to track treatment, message your care team, and manage refills — available after you complete checkout.
           </p>
           <ul className="pp-auth__perks">
-            <li>Provider-guided protocols</li>
-            <li>Shipment & refill status</li>
+            <li>Provider review status</li>
+            <li>Shipment & refill tracking</li>
             <li>Secure care-team messaging</li>
           </ul>
         </div>
@@ -111,52 +99,12 @@ function AuthScreen({ onAuthed }) {
       <div className="pp-auth__panel">
         <a href="#/" className="pp-auth__back">← Back to Pax</a>
         <BrandMark />
-        <div className="pp-auth__tabs" role="tablist">
-          <button
-            type="button"
-            className={mode === 'login' ? 'active' : ''}
-            onClick={() => { setMode('login'); setError(''); }}
-          >
-            Sign in
-          </button>
-          <button
-            type="button"
-            className={mode === 'signup' ? 'active' : ''}
-            onClick={() => { setMode('signup'); setError(''); }}
-          >
-            Create account
-          </button>
-        </div>
-
+        <h2 className="pp-auth__title">Member sign in</h2>
         <p className="pp-auth__sim">
-          Simulated portal — accounts are saved on this device only (no real database).
+          New here? Don’t create an account first — <a href="#/start">choose a treatment & check out</a>, then unlock Patient Center.
         </p>
 
         <form className="pp-auth__form" onSubmit={submit}>
-          {mode === 'signup' && (
-            <div className="pp-auth__row">
-              <label>
-                First name
-                <input
-                  value={form.firstName}
-                  onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                  placeholder="Ava"
-                  autoComplete="given-name"
-                  required
-                />
-              </label>
-              <label>
-                Last name
-                <input
-                  value={form.lastName}
-                  onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                  placeholder="Rivera"
-                  autoComplete="family-name"
-                />
-              </label>
-            </div>
-          )}
-
           <label>
             Email
             <input
@@ -176,7 +124,7 @@ function AuthScreen({ onAuthed }) {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               placeholder="••••••••"
-              autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+              autoComplete="current-password"
               required
               minLength={4}
             />
@@ -185,13 +133,13 @@ function AuthScreen({ onAuthed }) {
           {error && <p className="pp-auth__error">{error}</p>}
 
           <button type="submit" className="pp-btn pp-btn--primary" disabled={busy}>
-            {busy ? 'Please wait…' : mode === 'login' ? 'Sign in to Patient Center' : 'Create my account'}
+            {busy ? 'Please wait…' : 'Sign in to Patient Center'}
           </button>
         </form>
 
-        <p className="pp-auth__hint">
-          Tip: create an account once — next visit, sign in with the same email and password on this browser.
-        </p>
+        <a href="#/start" className="pp-btn pp-btn--outline" style={{ width: '100%', marginTop: '0.35rem' }}>
+          Start treatment →
+        </a>
       </div>
     </div>
   );
@@ -309,11 +257,14 @@ function PortalShell({ user, onLogout }) {
                 Your treatment, care team, and next steps — all in one place.
               </p>
               <div className="pp-hero-card__meta">
-                <span className={`pp-pill ${profile.treatment.status === 'Active' ? 'pp-pill--ok' : ''}`}>
+                <span className={`pp-pill ${profile.treatment.status === 'Active' ? 'pp-pill--ok' : 'pp-pill--pending'}`}>
                   {profile.treatment.status}
                 </span>
                 <span className="pp-meta-text">{profile.treatment.name}</span>
               </div>
+              {profile.treatment.plan && (
+                <p className="pp-muted" style={{ marginTop: '0.75rem' }}>{profile.treatment.plan}</p>
+              )}
             </div>
 
             <div className="pp-grid-2">
