@@ -134,7 +134,7 @@ const BRAND_LOGO = {
   height: 280,
 };
 
-function BrandLogo({ variant = 'header' }) {
+function BrandLogo({ variant = 'header', onClick }) {
   const isHeader = variant === 'header';
 
   return (
@@ -142,6 +142,7 @@ function BrandLogo({ variant = 'header' }) {
       href="#/"
       className={`brand-logo brand-logo--${variant}`}
       aria-label="Pax Longevity home"
+      onClick={onClick}
     >
       <picture className="brand-logo__picture">
         <source srcSet={BRAND_LOGO.webp} type="image/webp" />
@@ -353,6 +354,9 @@ function App() {
         onClick={toggleMobileNav}
       ></div>
       <div className={`mobile-nav ${isNavOpen ? 'open' : ''}`}>
+        <div className="mobile-nav__brand">
+          <BrandLogo variant="drawer" onClick={toggleMobileNav} />
+        </div>
         <a href="#/" className={`nav-link mobile-link ${currentTab === 'home' ? 'active' : ''}`} onClick={toggleMobileNav}>Home</a>
         <a href="#/vision" className={`nav-link mobile-link ${currentTab === 'vision' ? 'active' : ''}`} onClick={toggleMobileNav}>Vision</a>
         <a href="#/threats" className={`nav-link mobile-link ${currentTab === 'threats' ? 'active' : ''}`} onClick={toggleMobileNav}>The Threats</a>
