@@ -1,8 +1,9 @@
-const CACHE_NAME = 'pax-cache-v2';
+const CACHE_NAME = 'pax-cache-v3';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
-  '/logo.webp',
+  '/images/pax-logo.webp',
+  '/images/pax-logo.png',
   '/favicon.svg',
   '/images/hero-longevity.webp',
 ];

@@ -127,6 +127,39 @@ const ROUTE_TABS = [
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
 ];
 
+const BRAND_LOGO = {
+  webp: '/images/pax-logo.webp',
+  png: '/images/pax-logo.png',
+  width: 512,
+  height: 512,
+};
+
+function BrandLogo({ variant = 'header' }) {
+  const isHeader = variant === 'header';
+
+  return (
+    <a
+      href="#/"
+      className={`brand-logo brand-logo--${variant}`}
+      aria-label="Pax Longevity home"
+    >
+      <picture>
+        <source srcSet={BRAND_LOGO.webp} type="image/webp" />
+        <img
+          src={BRAND_LOGO.png}
+          alt=""
+          width={BRAND_LOGO.width}
+          height={BRAND_LOGO.height}
+          className="brand-logo__img"
+          loading={isHeader ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchPriority={isHeader ? 'high' : 'auto'}
+        />
+      </picture>
+    </a>
+  );
+}
+
 function App() {
   // Mobile Nav State
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -290,15 +323,7 @@ function App() {
       {/* Header / Navigation */}
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container">
-          <a href="#/" className="logo">
-            <div className="logo-wrapper">
-              <img src="/logo.webp" alt="Pax Logo" className="logo-icon" />
-              <div className="logo-text">
-                <span className="logo-name">PAX</span>
-                <span className="logo-tagline">LONGEVITY</span>
-              </div>
-            </div>
-          </a>
+          <BrandLogo variant="header" />
           
           <nav className="nav">
             <a href="#/" className={`nav-link ${currentTab === 'home' ? 'active' : ''}`}>Home</a>
@@ -1466,15 +1491,7 @@ function App() {
             
             {/* Column 1: Brand Info & Socials */}
             <div className="footer-brand">
-              <a href="#/" className="footer-logo">
-                <div className="logo-wrapper">
-                  <img src="/logo.webp" alt="Pax Logo" className="logo-icon" />
-                  <div className="logo-text">
-                    <span className="logo-name" style={{ color: 'var(--sand)' }}>PAX</span>
-                    <span className="logo-tagline">LONGEVITY</span>
-                  </div>
-                </div>
-              </a>
+              <BrandLogo variant="footer" />
               <p className="footer-tagline">
                 Proactive Longevity & Preventative Health. Miami Beach, Florida.
               </p>

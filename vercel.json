@@ -19,7 +19,7 @@
       ]
     },
     {
-      "source": "/logo.webp",
+      "source": "/images/pax-logo.(webp|png)",
       "headers": [
         {
           "key": "Cache-Control",
