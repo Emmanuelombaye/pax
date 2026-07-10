@@ -13,7 +13,10 @@ npm run dev
 |---------|------|------|
 | Marketing | `/` | `src/marketing/` |
 | Start funnel (buy first) | `/#/start` | `src/start/` |
-| Patient Center | `/#/portal` | `src/portal/` |
+| Patient Center | `/#/portal` | `src/portal/` — full simulated clinical portal |
+
+Demo: open `/#/portal` → **Enter demo Patient Center**. Sign out returns to auth.
+
 
 ## Layout
 

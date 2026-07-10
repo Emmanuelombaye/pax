@@ -19,6 +19,8 @@
   --forest:         #A0594E; /* Legacy alias â€” terracotta, no green */
   --ink:            #1F1A16; /* Text / deep neutral */
   --teal:           #4A8A96; /* Coastal highlight */
+  --terracotta-deep: #A0594E;
+  --beige:          #F4EAE0;
 
   /* Surface and Text Mappings */
   --text-primary:   var(--ink);
