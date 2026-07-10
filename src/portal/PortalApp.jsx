@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BrandMark } from './BrandMark.jsx';
+import { BrandMark } from '../brand/BrandMark.jsx';
 import { PAX_PASSPORT } from '../brand/passport.js';
 import {
   addWeightEntry,

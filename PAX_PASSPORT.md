@@ -100,16 +100,22 @@ Implement remote handlers in `connect.js` without rewriting UI.
 
 ```
 src/
+  App.jsx            ← thin hash router (marketing | start | portal)
   brand/
     passport.js      ← product CV / brand kit
     connect.js       ← local | remote adapter
-  portal/
+    BrandLogo.jsx    ← marketing logo
+    BrandMark.jsx    ← portal / start logo
+  marketing/
+    MarketingApp.jsx ← site pages
+    data.js          ← FAQs, lifestyle, hero slides, routes
+  start/
     StartFlow.jsx    ← buy-first funnel
+    startFlowData.js
+  portal/
     PortalApp.jsx    ← Patient Center
     storage.js       ← IndexedDB database
-    BrandMark.jsx
-    startFlowData.js
-  App.jsx            ← marketing + hash routes
+  styles/            ← marketing · portal · start CSS
 ```
 
 ---

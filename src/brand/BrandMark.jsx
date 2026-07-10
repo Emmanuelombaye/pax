@@ -1,4 +1,4 @@
-import { logo } from '../brand/passport.js';
+import { logo } from './passport.js';
 
 /** Shared Pax brand mark for portal + start funnel — driven by brand passport */
 export function BrandMark({ size = 'md', className = '' }) {

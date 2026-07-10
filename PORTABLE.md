@@ -1,6 +1,6 @@
 # Pax Longevity — portable frontend
 
-Independent marketing + Patient Center SPA. Local mock data. No Peak Health runtime required.
+Independent marketing + start funnel + Patient Center SPA. Local mock data.
 
 ## Quick start
 
@@ -9,19 +9,27 @@ npm install
 npm run dev
 ```
 
-- Marketing: `/`
-- Start funnel (buy first): `/#/start`
-- Patient Center: `/#/portal`
+| Surface | Path | Code |
+|---------|------|------|
+| Marketing | `/` | `src/marketing/` |
+| Start funnel (buy first) | `/#/start` | `src/start/` |
+| Patient Center | `/#/portal` | `src/portal/` |
 
-## Product passport (CV)
+## Layout
 
-See **[PAX_PASSPORT.md](./PAX_PASSPORT.md)** and `src/brand/passport.js`.
+```
+src/
+  App.jsx              ← thin hash router (lazy portal + start)
+  brand/               ← passport, connect, BrandLogo, BrandMark
+  marketing/           ← MarketingApp + content data
+  start/               ← TryYucca-style buy-first funnel
+  portal/              ← Patient Center + IndexedDB storage
+  styles/              ← marketing.css · portal.css · start.css
+```
 
 ## Data
 
 Local IndexedDB via `src/brand/connect.js` → `src/portal/storage.js`.
-
-Connect a real API later:
 
 ```bash
 VITE_PAX_CONNECT_MODE=remote
