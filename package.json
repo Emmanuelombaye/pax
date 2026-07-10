@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,7 +22,9 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
     "oxlint": "^1.69.0",
-    "sharp": "^0.35.3",
     "vite": "^8.1.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.35.3"
   }
 }
