@@ -256,7 +256,7 @@ export default function MarketingApp({ currentTab }) {
               </div>
             </section>
 
-            {/* Sourcing & Eligibility — Emanuela flow: after How It Works */}
+            {/* Sourcing & Eligibility */}
             <section className="eligibility" id="eligibility">
               <div className="container">
                 <div className="eligibility-grid">
@@ -438,7 +438,7 @@ export default function MarketingApp({ currentTab }) {
               </div>
             </section>
 
-            {/* FAQ Section — Emanuela flow: after core conversion path */}
+            {/* FAQ */}
             <section className="faq" id="faq">
               <div className="container">
                 <div className="section-header-center">
