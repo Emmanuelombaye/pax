@@ -31,12 +31,12 @@ const HOME_FAQS = [
     ],
   },
   {
-    q: 'Is Pax a compliant telehealth platform?',
+    q: 'Is Pax a secure patient platform?',
     lead: 'Yes — licensed U.S. providers, HIPAA-secure intake, and accredited compounding partners.',
     points: [
       'Board-certified physicians review every intake',
       '503A accredited pharmacy sourcing',
-      'HIPAA-compliant patient portal',
+      'HIPAA-compliant Patient Center',
     ],
   },
 ];
@@ -477,7 +477,7 @@ function App() {
             <section className="how-it-works" id="how-it-works">
               <div className="container">
                 <div className="section-header-center">
-                  <span className="section-label">Telehealth Pathway</span>
+                  <span className="section-label">Care Pathway</span>
                   <h2 className="section-title">How <em>it works.</em></h2>
                 </div>
                 
@@ -506,12 +506,12 @@ function App() {
               <div className="container">
                 <div className="eligibility-grid">
                   <div className="eligibility-image">
-                    <img src="/images/telehealth-consultation.webp" alt="Telehealth Consultation Screen" loading="lazy" />
+                    <img src="/images/clinical-consultation.webp" alt="Pax clinical consultation" loading="lazy" />
                   </div>
                   <div className="eligibility-content">
                     <span className="section-label">Safe & Transparent Care</span>
                     <h2 className="section-title">Are you <em>eligible?</em></h2>
-                    <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>Longevity treatments require professional medical assessment. We connect you directly with qualified U.S. providers and accredited 503A compounding pharmacies — fully compliant, HIPAA-secure telehealth.</p>
+                    <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>Longevity treatments require professional medical assessment. Pax connects you with qualified U.S. providers and accredited 503A compounding pharmacies — HIPAA-secure intake and a branded Patient Center.</p>
                     
                     <div className="eligibility-list">
                       <div className="eligibility-item pastel-box">
@@ -548,7 +548,7 @@ function App() {
 
                 <div className="featured-doctor pastel-box">
                   <div className="featured-doctor-photo">
-                    <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
+                    <img src="/images/clinical-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
                   </div>
                   <div className="featured-doctor-content">
                     <p className="featured-doctor-name">Dr. Elena Vance</p>
@@ -677,7 +677,7 @@ function App() {
                 <span className="section-label" style={{ color: 'rgba(250,246,240,0.85)' }}>Coastal Vitality</span>
                 <h2 className="home-cinematic-band-title">Your forever summer <em>starts here.</em></h2>
                 <p className="home-cinematic-band-text">
-                  Italian summer meets Miami vitality. Personalized telehealth protocols built for the life you want to live.
+                  Italian summer meets Miami vitality. Personalized Pax protocols built for the life you want to live.
                 </p>
                 <button className="btn btn-primary btn-quiz-trigger" onClick={openQuiz}>Find my treatment</button>
               </div>
@@ -828,13 +828,13 @@ function App() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-content-grid">
                         <div className="timeline-image-frame">
-                          <img src="/images/milestone-2024.webp" alt="HIPAA-Compliant Telehealth Platform" loading="lazy" />
+                          <img src="/images/milestone-2024.webp" alt="HIPAA-Compliant Pax Patient Center" loading="lazy" />
                         </div>
                         <div>
                           <span className="timeline-year">2024</span>
-                          <h3 className="timeline-title">Telehealth Portal Integration</h3>
+                          <h3 className="timeline-title">Patient Center Launch</h3>
                           <p className="timeline-desc">
-                            Launched our secure, HIPAA-compliant patient dashboard, connecting subscribers directly with licensed clinical practitioners for rapid medical reviews in under 24 hours.
+                            Launched our secure, HIPAA-compliant Pax Patient Center, connecting members with licensed clinical practitioners for rapid medical reviews in under 24 hours.
                           </p>
                         </div>
                       </div>
@@ -968,7 +968,7 @@ function App() {
                   <span className="section-label">Direct-to-Home Prescriptions</span>
                   <h2 className="section-title">Our <em>treatments.</em></h2>
                   <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Licensed telehealth protocols providing access to premium clinical compoundings, custom cold-chain shipped straight to your door.
+                    Licensed Pax care protocols providing access to premium clinical compoundings, custom cold-chain shipped straight to your door.
                   </p>
                 </div>
                 
@@ -1075,7 +1075,7 @@ function App() {
                 <div className="sab-grid">
                   <div className="sab-member">
                     <div className="sab-photo-wrap">
-                      <img src="/images/telehealth-consultation.webp" alt="Dr. Elena Vance" loading="lazy" />
+                      <img src="/images/clinical-consultation.webp" alt="Dr. Elena Vance" loading="lazy" />
                     </div>
                     <p className="sab-name">Dr. Elena Vance</p>
                     <p className="sab-role">Scientific Director</p>
@@ -1358,7 +1358,7 @@ function App() {
 
                   <div className="article-featured-box">
                     <div className="article-featured-image" style={{ position: 'relative', cursor: 'pointer' }} onClick={() => playWebinar('https://www.youtube.com/embed/WmzSpOKoppM', 'Dr. Wei-Wu He on Livelong Podcast')}>
-                      <img src="/images/telehealth-consultation.webp" alt="Dr. He interview" loading="lazy" />
+                      <img src="/images/clinical-consultation.webp" alt="Dr. He interview" loading="lazy" />
                       <div className="webinar-play-overlay">
                         <span className="webinar-play-btn">▶</span>
                       </div>
@@ -1547,7 +1547,7 @@ function App() {
               <a href="#/start" className="footer-link">Start treatment</a>
               <a href="#/portal" className="footer-link">Patient Center</a>
               <a href="#/" className="footer-link">FAQ Support</a>
-              <a href="#/" className="footer-link">Telehealth Terms</a>
+              <a href="#/" className="footer-link">Member Terms</a>
             </div>
 
           </div>
@@ -1567,7 +1567,7 @@ function App() {
 
           {/* Disclaimer */}
           <p className="footer-disclaimer">
-            Disclaimer: Compounded medications are customized by licensed compounding pharmacies under federal Section 503A guidelines and are not individually reviewed or approved by the FDA. Sourcing claims represent pharmacy compounding standards under Section 503A. Pax Longevity is a telehealth technology platform linking patients with licensed medical practitioners and compounding pharmacies. The clinical information provided is not a substitute for professional medical advice. Always consult your provider before starting any therapeutic peptide regimen.
+            Disclaimer: Compounded medications are customized by licensed compounding pharmacies under federal Section 503A guidelines and are not individually reviewed or approved by the FDA. Sourcing claims represent pharmacy compounding standards under Section 503A. Pax Longevity is a branded patient platform linking members with licensed medical practitioners and compounding pharmacies. The clinical information provided is not a substitute for professional medical advice. Always consult your provider before starting any therapeutic peptide regimen.
           </p>
           
           {/* Bottom links */}
@@ -1576,14 +1576,14 @@ function App() {
             <div className="footer-legal-links">
               <a href="#/" className="footer-legal-link">Privacy Policy</a>
               <a href="#/" className="footer-legal-link">Terms of Service</a>
-              <a href="#/" className="footer-legal-link">Telehealth Consent</a>
+              <a href="#/" className="footer-legal-link">Care Consent</a>
             </div>
           </div>
 
         </div>
       </footer>
 
-      {/* Telehealth Intake Questionnaire Modal */}
+      {/* Health Intake Questionnaire Modal */}
       <div className={`modal ${isQuizOpen ? 'open' : ''}`}>
         <div className="modal-overlay" onClick={closeQuiz}></div>
         <div className="modal-container">

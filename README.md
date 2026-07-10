@@ -1,6 +1,6 @@
 # Pax Longevity
 
-Portable telehealth brand product — marketing site, buy-first start funnel, and Patient Center.
+Branded mock product — marketing site, TryYucca-style buy-first start funnel, and Patient Center.
 
 **Independent frontend.** Local IndexedDB today. Connect a real API later without rewriting the UI.
 

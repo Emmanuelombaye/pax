@@ -1,6 +1,6 @@
 /* ============================================
-   PAX LONGEVITY CLINIC — Telehealth Stylesheet
-   Strict adherence to the Pax Health Brand Kit
+   PAX LONGEVITY — Brand Stylesheet
+   Strict adherence to the Pax Longevity Brand Kit
    Aesthetics: Warm, Sunny, Coastal, Active
    Fonts loaded in index.html (avoid duplicate @import)
    ============================================ */
@@ -2334,7 +2334,7 @@ ul { list-style: none; }
   }
 }
 
-/* ---------- Telehealth Intake Questionnaire Modal ---------- */
+/* ---------- Health Intake Questionnaire Modal ---------- */
 .modal {
   position: fixed;
   inset: 0;

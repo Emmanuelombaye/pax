@@ -1,6 +1,6 @@
 # Pax Longevity — Product Passport (CV)
 
-> Portable telehealth brand product. Frontend-complete today. Backend-connectable later.
+> Portable Pax brand product. Frontend mock complete today. Backend-connectable later.
 
 ---
 
@@ -11,7 +11,7 @@
 | **Product** | Pax Longevity |
 | **Slug** | `pax` |
 | **Tagline** | Prevent decline years before symptoms. |
-| **Category** | Telehealth · Longevity · Peptide Care |
+| **Category** | Longevity · Peptide Care · Patient Center |
 | **Tone** | Calm, clinical-confident, coastal, premium |
 
 ---
@@ -116,7 +116,7 @@ src/
 
 ## Compliance note
 
-Pax is framed as a telehealth technology platform. Compounded medications follow 503A pharmacy standards and are not individually FDA-approved. Demo Patient Center data lives on-device until a production backend is connected.
+Pax is framed as a branded longevity patient platform. Compounded medications follow 503A pharmacy standards and are not individually FDA-approved. Demo Patient Center data lives on-device until a production backend is connected.
 
 ---
 

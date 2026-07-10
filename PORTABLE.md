@@ -1,6 +1,6 @@
 # Pax Longevity — portable frontend
 
-Independent marketing + Patient Center SPA. No Peak Health runtime required.
+Independent marketing + Patient Center SPA. Local mock data. No Peak Health runtime required.
 
 ## Quick start
 

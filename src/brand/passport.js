@@ -11,7 +11,7 @@ export const PAX_PASSPORT = {
     legalName: 'Pax Longevity',
     tagline: 'Prevent decline years before symptoms.',
     shortName: 'Pax',
-    category: 'Telehealth · Longevity · Peptide Care',
+    category: 'Longevity · Peptide Care · Patient Center',
     locale: 'en-US',
   },
 
@@ -74,7 +74,7 @@ export const PAX_PASSPORT = {
   },
 
   compliance: {
-    framing: 'Telehealth technology platform connecting patients with licensed U.S. providers and compounding pharmacies.',
+    framing: 'Pax Longevity patient platform for longevity care, licensed U.S. providers, and compounding pharmacy fulfillment.',
     compounding: '503A compounded medications are not FDA-approved as finished products.',
     demoDisclaimer: 'Patient Center demo data is stored locally on this device until a production backend is connected.',
   },
