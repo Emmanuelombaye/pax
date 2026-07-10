@@ -86,3 +86,5 @@ export async function dbStats() {
   const stats = await local.dbStats();
   return { mode: 'local', ...stats };
 }
+
+export { DEMO_CREDENTIALS, inspectAuthDb, getAuditLog } from '../portal/authDictDb.js';

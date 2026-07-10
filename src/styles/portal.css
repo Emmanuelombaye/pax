@@ -181,6 +181,27 @@
   z-index: 1;
 }
 
+.pc-cred-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background: rgba(74, 138, 150, 0.1);
+  border: 1px solid rgba(74, 138, 150, 0.18);
+}
+.pc-cred-card__label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  font-weight: 600;
+}
+.pc-cred-card code {
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
 /* ---- App shell ---- */
 .pc-app {
   --pc-sidebar: 17.5rem;

@@ -1,8 +1,10 @@
 /**
  * Pax Longevity Patient Center — local relational database (IndexedDB).
  * Tables: users, profiles, orders, messages, weight_logs, meta
- * Session cookie stays in localStorage (auth token only).
+ * Auth sessions live in authDictDb (dictionary DB) — login/logout source of truth.
  */
+
+import * as authDictDb from './authDictDb.js';
 
 const DB_NAME = 'pax_longevity_db';
 const DB_VERSION = 1;
@@ -237,12 +239,12 @@ async function ensureDb() {
 }
 
 export function getSession() {
-  return readLocal(SESSION_KEY, null);
+  return authDictDb.getSession();
 }
 
 export function setSession(session) {
-  if (!session) localStorage.removeItem(SESSION_KEY);
-  else writeLocal(SESSION_KEY, session);
+  // Auth tokens are owned by authDictDb. Kept for legacy callers — prefer login().
+  if (!session) authDictDb.logout();
 }
 
 export function getPendingOrder() {
@@ -314,9 +316,9 @@ export async function signup({ firstName, lastName, email, password, phone, orde
   };
   await storePut('messages', welcomeMsg);
 
-  const session = { userId: user.id, email: user.email, at: new Date().toISOString() };
-  setSession(session);
-  return { user, session };
+  authDictDb.upsertUserFromSignup(user);
+  const authed = authDictDb.login({ email: user.email, password: user.password });
+  return { user: authed.user, session: authed.session };
 }
 
 export async function completePurchaseSignup({ firstName, lastName, email, password, phone, treatment, plan, intake }) {
@@ -333,25 +335,25 @@ export async function completePurchaseSignup({ firstName, lastName, email, passw
 }
 
 export async function login({ email, password }) {
-  await ensureDb();
-  const user = await findUserByEmail(email);
-  if (!user || user.password !== String(password || '')) {
-    throw new Error('Email or password does not match. Complete checkout first, or try again.');
+  try {
+    return authDictDb.login({ email, password });
+  } catch (err) {
+    await ensureDb();
+    const idbUser = await findUserByEmail(email);
+    if (idbUser && idbUser.password === String(password || '')) {
+      authDictDb.upsertUserFromSignup(idbUser);
+      return authDictDb.login({ email, password });
+    }
+    throw err;
   }
-  const session = { userId: user.id, email: user.email, at: new Date().toISOString() };
-  setSession(session);
-  return { user, session };
 }
 
 export function logout() {
-  setSession(null);
+  authDictDb.logout();
 }
 
 export async function getCurrentUser() {
-  await ensureDb();
-  const session = getSession();
-  if (!session?.userId) return null;
-  return storeGet('users', session.userId);
+  return authDictDb.getCurrentUser();
 }
 
 export async function getProfile(userId) {

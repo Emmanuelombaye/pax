@@ -737,10 +737,10 @@ export function NotificationsScreen() {
   );
 }
 
-export function SettingsScreen({ patient, onLogout }) {
+export function SettingsScreen({ patient, onLogout, authMeta, auditLog = [] }) {
   const p = { ...MOCK.profile, ...patient };
   return (
-    <Section title="Settings" lede="Profile, security, privacy, and devices.">
+    <Section title="Settings" lede="Profile, security, privacy, and the live auth dictionary.">
       <div className="pc-grid-2">
         <Panel title="Patient profile">
           <dl className="pc-dl">
@@ -758,17 +758,17 @@ export function SettingsScreen({ patient, onLogout }) {
         </Panel>
         <Panel title="Authentication & security">
           <p>2FA <strong>{MOCK.security.mfa ? 'On' : 'Off'}</strong></p>
-          <h3 className="pc-subtitle">Devices</h3>
+          <h3 className="pc-subtitle">Dictionary database</h3>
+          <p className="pc-muted">
+            {authMeta?.userCount ?? 0} users · {authMeta?.sessionCount ?? 0} sessions · token{' '}
+            <code style={{ fontSize: '0.75rem' }}>{authMeta?.activeToken ? `${authMeta.activeToken.slice(0, 18)}…` : 'none'}</code>
+          </p>
+          <h3 className="pc-subtitle">Auth audit</h3>
           <ul className="pc-list">
-            {MOCK.security.devices.map((d) => (
-              <li key={d.name}>{d.name} · {d.last}{d.current ? ' · this device' : ''}</li>
+            {auditLog.map((a) => (
+              <li key={a.id}>{a.type} · {a.email} · {new Date(a.at).toLocaleString()}</li>
             ))}
-          </ul>
-          <h3 className="pc-subtitle">Session history</h3>
-          <ul className="pc-list">
-            {MOCK.security.sessions.map((s) => (
-              <li key={s.when}>{s.where} · {s.when}</li>
-            ))}
+            {!auditLog.length && <li>No events yet</li>}
           </ul>
           <div className="pc-actions">
             <button type="button" className="pc-btn pc-btn--ghost">Change password</button>
@@ -801,7 +801,7 @@ export function SupportScreen() {
   );
 }
 
-export function renderPortalScreen({ section, panel, patient, onNavigate, onLogout }) {
+export function renderPortalScreen({ section, panel, patient, onNavigate, onLogout, authMeta, auditLog }) {
   switch (section) {
     case 'dashboard':
       return <DashboardScreen patient={patient} onNavigate={onNavigate} />;
@@ -828,7 +828,7 @@ export function renderPortalScreen({ section, panel, patient, onNavigate, onLogo
     case 'notifications':
       return <NotificationsScreen />;
     case 'settings':
-      return <SettingsScreen patient={patient} onLogout={onLogout} />;
+      return <SettingsScreen patient={patient} onLogout={onLogout} authMeta={authMeta} auditLog={auditLog} />;
     case 'support':
       return <SupportScreen />;
     default:

@@ -7,34 +7,19 @@ import {
   login,
   logout as connectLogout,
 } from '../brand/connect.js';
+import { DEMO_CREDENTIALS, getAuditLog, inspectAuthDb } from './authDictDb.js';
 import { Icon } from './Icon.jsx';
-import { DEMO_USER, MOCK, unreadMessages, unreadNotifications } from './mockData.js';
+import { MOCK, unreadMessages, unreadNotifications } from './mockData.js';
 import { MOBILE_PRIMARY, PORTAL_NAV, defaultChild, parsePortalRoute, portalHref } from './nav.js';
 import { renderPortalScreen } from './screens.jsx';
-
-const DEMO_SESSION_KEY = 'pax_portal_demo_session_v1';
-
-function readDemoSession() {
-  try {
-    const raw = localStorage.getItem(DEMO_SESSION_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
-
-function writeDemoSession(user) {
-  localStorage.setItem(DEMO_SESSION_KEY, JSON.stringify(user));
-}
-
-function clearDemoSession() {
-  localStorage.removeItem(DEMO_SESSION_KEY);
-}
 
 function AuthScreen({ onAuthed }) {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({
+    email: DEMO_CREDENTIALS.email,
+    password: DEMO_CREDENTIALS.password,
+  });
 
   const submit = async (e) => {
     e.preventDefault();
@@ -42,8 +27,8 @@ function AuthScreen({ onAuthed }) {
     setBusy(true);
     try {
       const result = await login({ email: form.email, password: form.password });
-      clearDemoSession();
-      onAuthed({ ...result.user, firstName: result.user.firstName || 'Member' });
+      onAuthed(result.user);
+      window.location.hash = '#/portal/dashboard';
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
@@ -51,10 +36,21 @@ function AuthScreen({ onAuthed }) {
     }
   };
 
-  const enterDemo = () => {
-    writeDemoSession(DEMO_USER);
-    onAuthed(DEMO_USER);
-    window.location.hash = '#/portal/dashboard';
+  const enterDemo = async () => {
+    setError('');
+    setBusy(true);
+    try {
+      const result = await login({
+        email: DEMO_CREDENTIALS.email,
+        password: DEMO_CREDENTIALS.password,
+      });
+      onAuthed(result.user);
+      window.location.hash = '#/portal/dashboard';
+    } catch (err) {
+      setError(err.message || 'Demo login failed.');
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
@@ -69,7 +65,7 @@ function AuthScreen({ onAuthed }) {
             Appointments, records, monitoring, medications, billing, and family access — one branded Pax experience.
           </p>
           <ul className="pp-auth__perks">
-            <li>Full simulated clinical dashboard</li>
+            <li>Dictionary auth DB · real login / logout sessions</li>
             <li>RPM graphs & wellness tracking</li>
             <li>Secure messaging & visit join flow</li>
           </ul>
@@ -81,16 +77,22 @@ function AuthScreen({ onAuthed }) {
         <BrandMark size="lg" />
         <h2 className="pp-auth__title">Sign in</h2>
         <p className="pp-auth__sim">
-          Explore the full Patient Center with demo data, or sign in with a member account created after checkout.
+          Accounts live in a local dictionary database (email → user, token → session). Sign out clears your session token.
           <br />
           <span className="pp-auth__mode">{PAX_PASSPORT.compliance.demoDisclaimer}</span>
         </p>
 
-        <button type="button" className="pp-btn pp-btn--primary" onClick={enterDemo} style={{ width: '100%' }}>
-          Enter demo Patient Center
+        <div className="pc-cred-card">
+          <p className="pc-cred-card__label">Demo dictionary account</p>
+          <code>{DEMO_CREDENTIALS.email}</code>
+          <code>password: {DEMO_CREDENTIALS.password}</code>
+        </div>
+
+        <button type="button" className="pp-btn pp-btn--primary" onClick={enterDemo} disabled={busy} style={{ width: '100%' }}>
+          {busy ? 'Signing in…' : 'Enter demo Patient Center'}
         </button>
 
-        <div className="pc-auth-divider"><span>or member login</span></div>
+        <div className="pc-auth-divider"><span>or sign in with form</span></div>
 
         <form className="pp-auth__form" onSubmit={submit}>
           <label>
@@ -155,6 +157,9 @@ function PortalShell({ user, onLogout }) {
     [],
   );
 
+  const authMeta = useMemo(() => inspectAuthDb(), [user?.id]);
+  const auditLog = useMemo(() => getAuditLog(8), [user?.id, section]);
+
   useEffect(() => {
     const sync = () => {
       const next = parsePortalRoute();
@@ -188,6 +193,8 @@ function PortalShell({ user, onLogout }) {
     patient,
     onNavigate: navigate,
     onLogout,
+    authMeta,
+    auditLog,
   });
 
   const renderNavItem = (item) => {
@@ -333,14 +340,6 @@ export default function PortalApp() {
   useEffect(() => {
     let alive = true;
     (async () => {
-      const demo = readDemoSession();
-      if (demo) {
-        if (alive) {
-          setUser(demo);
-          setBoot(false);
-        }
-        return;
-      }
       if (!getSession()) {
         if (alive) setBoot(false);
         return;
@@ -358,7 +357,6 @@ export default function PortalApp() {
   }, []);
 
   const onLogout = () => {
-    clearDemoSession();
     connectLogout();
     setUser(null);
     window.location.hash = '#/portal';
