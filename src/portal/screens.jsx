@@ -91,7 +91,7 @@ export function DashboardScreen({ patient, onNavigate }) {
       <div className="pc-stat-grid">
         <Stat label="Health score" value={MOCK.healthScore} hint="Composite from vitals + adherence" chart={<ProgressRing value={MOCK.healthScore} />} />
         <Stat label="Weight trend" value={`${MOCK.monitoring.weight.at(-1).v} lb`} hint="−3.8 lb this month" chart={<Sparkline data={MOCK.monitoring.weight} width={140} height={40} />} />
-        <Stat label="Adherence" value={`${MOCK.medSchedule.adherence}%`} hint="Medication tracker" chart={<Sparkline data={MOCK.monitoring.hr} stroke="var(--terracotta-deep, #A0594E)" width={140} height={40} />} />
+        <Stat label="Adherence" value={`${MOCK.medSchedule.adherence}%`} hint="Medication tracker" chart={<Sparkline data={MOCK.monitoring.hr} stroke="var(--forest)" width={140} height={40} />} />
         <Stat label="Balance due" value={MOCK.billing.balance === 0 ? '$0' : `$${MOCK.billing.balance}`} hint={MOCK.membership.plan} />
       </div>
 
@@ -337,7 +337,7 @@ export function HealthScreen({ panel }) {
       <Section title="Vitals" lede="Latest readings synced from monitoring.">
         <div className="pc-stat-grid">
           <Stat label="Blood pressure" value={`${MOCK.monitoring.bp.at(-1).v}/${MOCK.monitoring.bp.at(-1).diastolic}`} hint="mmHg" chart={<Sparkline data={MOCK.monitoring.bp} />} />
-          <Stat label="Heart rate" value={`${MOCK.monitoring.hr.at(-1).v} bpm`} chart={<Sparkline data={MOCK.monitoring.hr} stroke="var(--terracotta-deep, #A0594E)" />} />
+          <Stat label="Heart rate" value={`${MOCK.monitoring.hr.at(-1).v} bpm`} chart={<Sparkline data={MOCK.monitoring.hr} stroke="var(--forest)" />} />
           <Stat label="Weight" value={`${MOCK.monitoring.weight.at(-1).v} lb`} chart={<Sparkline data={MOCK.monitoring.weight} />} />
           <Stat label="SpO₂" value={`${MOCK.monitoring.spo2.at(-1).v}%`} chart={<Sparkline data={MOCK.monitoring.spo2} />} />
         </div>
@@ -511,7 +511,7 @@ export function MonitoringScreen({ panel }) {
     return (
       <Section title="Heart rate" lede="Resting trend from Apple Watch.">
         <Panel>
-          <AreaChart data={MOCK.monitoring.hr} stroke="var(--teal)" fill="rgba(74,138,150,0.18)" formatY={(v) => `${v}`} />
+          <AreaChart data={MOCK.monitoring.hr} stroke="var(--forest)" fill="rgba(45, 90, 61, 0.14)" formatY={(v) => `${v}`} />
         </Panel>
       </Section>
     );

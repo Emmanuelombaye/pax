@@ -31,7 +31,7 @@
 .sf-top__login {
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--dark-terracotta);
+  color: var(--forest);
   white-space: nowrap;
 }
 
@@ -43,14 +43,14 @@
 
 .sf-progress__track {
   height: 0.35rem;
-  background: rgba(160, 89, 78, 0.12);
+  background: rgba(45, 90, 61, 0.12);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .sf-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--terracotta), var(--dark-terracotta));
+  background: linear-gradient(90deg, var(--forest), rgba(45, 90, 61, 0.75));
   transition: width 0.35s var(--ease-out);
 }
 
@@ -132,7 +132,7 @@
 }
 
 .sf-treat.active {
-  border-color: var(--dark-terracotta);
+  border-color: var(--forest);
   box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.2), var(--shadow-md);
 }
 
@@ -168,7 +168,7 @@
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
   background: rgba(193, 125, 116, 0.16);
-  color: var(--dark-terracotta);
+  color: var(--forest);
 }
 
 .sf-treat__meta {
@@ -210,7 +210,7 @@
 }
 
 .sf-choice.active {
-  border-color: var(--dark-terracotta);
+  border-color: var(--forest);
   background: rgba(237, 213, 204, 0.45);
   box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.15);
 }
@@ -271,7 +271,7 @@
 }
 
 .sf-plan.active {
-  border-color: var(--dark-terracotta);
+  border-color: var(--forest);
   box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.18);
   background: #fff;
 }
@@ -284,7 +284,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: var(--dark-terracotta);
+  background: var(--forest);
   color: #fff;
   padding: 0.25rem 0.45rem;
   border-radius: 999px;
@@ -342,8 +342,8 @@
 
 .sf-hold {
   font-size: 0.8rem;
-  color: #2f6670;
-  background: rgba(74, 138, 150, 0.1);
+  color: var(--forest);
+  background: rgba(45, 90, 61, 0.1);
   border-radius: var(--radius-md);
   padding: 0.65rem 0.8rem;
   margin-bottom: 1rem;
@@ -357,7 +357,7 @@
 }
 
 .pp-auth__sim a {
-  color: var(--dark-terracotta);
+  color: var(--forest);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -365,7 +365,7 @@
 
 .pp-pill--pending {
   background: rgba(193, 125, 116, 0.18);
-  color: var(--dark-terracotta);
+  color: var(--forest);
 }
 
 @media (max-width: 800px) {
@@ -389,4 +389,28 @@
   font-size: 0.68rem;
   color: var(--text-light);
   line-height: 1.4;
+}
+
+.sf-legal {
+  margin-top: 1.25rem;
+}
+
+.sf-legal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  color: rgba(31, 26, 22, 0.65);
+  font-size: 0.82rem;
+}
+
+.sf-legal__links a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sf-legal__links a:hover {
+  color: var(--terracotta);
 }

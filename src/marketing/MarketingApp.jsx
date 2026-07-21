@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BrandLogo } from '../brand/BrandLogo.jsx';
 import { HOME_FAQS, LIFESTYLE_PILLARS, HERO_SLIDES } from './data.js';
+import LegalPage from './LegalPage.jsx';
+import { LEGAL_PAGE_IDS } from './legalContent.js';
 
 export default function MarketingApp({ currentTab }) {
   // Mobile Nav State
@@ -1251,6 +1253,11 @@ export default function MarketingApp({ currentTab }) {
           </div>
         )}
 
+        {/* ==================== LEGAL PAGES ==================== */}
+        {LEGAL_PAGE_IDS.includes(currentTab) && (
+          <LegalPage pageId={currentTab} />
+        )}
+
       </main>
 
       {/* Footer */}
@@ -1302,7 +1309,15 @@ export default function MarketingApp({ currentTab }) {
               <a href="#/start" className="footer-link">Start treatment</a>
               <a href="#/portal" className="footer-link">Patient Center</a>
               <a href="#/" className="footer-link">FAQ Support</a>
-              <a href="#/" className="footer-link">Member Terms</a>
+              <a href="#/terms" className="footer-link">Member Terms</a>
+            </div>
+
+            {/* Column 5: Legal */}
+            <div className="footer-links-col">
+              <span className="footer-col-title">Legal</span>
+              <a href="#/privacy" className="footer-link">Privacy Policy</a>
+              <a href="#/terms" className="footer-link">Terms of Service</a>
+              <a href="#/medical-disclaimer" className="footer-link">Medical Disclaimer</a>
             </div>
 
           </div>
@@ -1329,9 +1344,9 @@ export default function MarketingApp({ currentTab }) {
           <div className="footer-bottom">
             <p className="footer-copy">© 2026 Pax Longevity. All rights reserved.</p>
             <div className="footer-legal-links">
-              <a href="#/" className="footer-legal-link">Privacy Policy</a>
-              <a href="#/" className="footer-legal-link">Terms of Service</a>
-              <a href="#/" className="footer-legal-link">Care Consent</a>
+              <a href="#/privacy" className="footer-legal-link">Privacy Policy</a>
+              <a href="#/terms" className="footer-legal-link">Terms of Service</a>
+              <a href="#/medical-disclaimer" className="footer-legal-link">Medical Disclaimer</a>
             </div>
           </div>
 

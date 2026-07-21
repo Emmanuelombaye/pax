@@ -21,12 +21,10 @@
 | Token | Value |
 |-------|--------|
 | Sand (canvas) | `#FAF6F0` |
-| Beige | `#F4EAE0` |
-| Card / terracotta pastel | `#EDD5CC` |
-| Terracotta | `#C17D74` |
-| Deep terracotta (CTA) | `#A0594E` |
-| Ink | `#1F1A16` |
-| Coastal teal | `#4A8A96` |
+| Dune (cards / warm neutral) | `#EBC5A0` |
+| Terracotta (accent) | `#C17C74` |
+| Forest (primary / CTAs) | `#2D5A3D` |
+| Ink (text) | `#1F1A16` |
 | Display font | Instrument Serif |
 | Body font | Work Sans |
 | Logo | `/images/pax-logo.webp` (+ PNG fallback) |

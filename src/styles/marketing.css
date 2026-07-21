@@ -7,26 +7,27 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  /* Brand Colors */
+  /* Pax Health Brand Kit */
   --sand:           #FAF6F0; /* Background / default canvas */
-  --beige-pastel:   #F4EAE0; /* Light pastel beige â€” section backgrounds */
-  --card-surface:   #EDD5CC; /* Sunset terracotta pastel â€” boxed cards */
-  --card-elevated:  #EDD5CC; /* Elevated boxes â€” terracotta pastel (Emanuela pick) */
-  --section-tint:   #F7F0E8; /* Muted canvas behind cards for bubble contrast */
-  --dune:           #E8C5A0; /* Warm neutral accents */
-  --terracotta:     #C17D74; /* Accent (links, highlights, focus, selections) */
-  --dark-terracotta: #A0594E; /* CTA buttons & warm accents */
-  --forest:         #A0594E; /* Legacy alias â€” terracotta, no green */
+  --dune:           #EBC5A0; /* Secondary / warm neutral — soft cards */
+  --terracotta:     #C17C74; /* Accent — links, focus, small highlights only */
+  --forest:         #2D5A3D; /* Primary — buttons, banners, key UI */
   --ink:            #1F1A16; /* Text / deep neutral */
-  --teal:           #4A8A96; /* Coastal highlight */
-  --terracotta-deep: #A0594E;
-  --beige:          #F4EAE0;
+  --card-surface:   var(--dune);
+  --card-elevated:  var(--dune);
+  --beige-pastel:   #F5EDE4; /* Light warm section tint */
+  --section-tint:   #F8F3EC;
+  --beige:          var(--dune);
+  /* Legacy aliases — map old tokens to brand kit */
+  --dark-terracotta: var(--forest);
+  --terracotta-deep: var(--forest);
+  --teal:           var(--forest);
 
   /* Surface and Text Mappings */
   --text-primary:   var(--ink);
   --text-secondary: rgba(31, 26, 22, 0.85);
   --text-light:     rgba(31, 26, 22, 0.6);
-  --divider:        rgba(160, 89, 78, 0.18);
+  --divider:        rgba(45, 90, 61, 0.14);
 
   /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
@@ -53,7 +54,7 @@
   --shadow-sm:   0 2px 8px rgba(31, 26, 22, 0.04);
   --shadow-md:   0 8px 24px rgba(31, 26, 22, 0.06);
   --shadow-lg:   0 16px 48px rgba(31, 26, 22, 0.1);
-  --shadow-warm: 0 12px 32px rgba(193, 125, 116, 0.18);
+  --shadow-warm: 0 12px 32px rgba(45, 90, 61, 0.12);
   --duration:    0.35s;
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -74,9 +75,10 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 400;
   color: var(--text-primary);
   background-color: var(--sand);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
@@ -158,15 +160,16 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--dark-terracotta);
+  background: var(--forest);
   color: var(--sand);
+  font-weight: 500;
 }
 
 .btn-primary:hover {
-  background: var(--dark-terracotta);
+  background: var(--forest);
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(160, 89, 78, 0.25);
+  box-shadow: 0 4px 12px rgba(45, 90, 61, 0.22);
 }
 
 .btn-outline {
@@ -192,15 +195,16 @@ ul { list-style: none; }
 }
 
 .btn-teal {
-  background: var(--teal);
+  background: var(--forest);
   color: var(--sand);
+  font-weight: 500;
 }
 
 .btn-teal:hover {
-  background: var(--teal);
-  opacity: 0.95;
+  background: var(--forest);
+  opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(74, 138, 150, 0.25);
+  box-shadow: 0 4px 12px rgba(45, 90, 61, 0.22);
 }
 
 /* ---------- Header / Navigation ---------- */
@@ -2171,7 +2175,7 @@ ul { list-style: none; }
   left: 0;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(193, 125, 116, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 90, 61, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2182,7 +2186,7 @@ ul { list-style: none; }
   right: 0;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(160, 89, 78, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 90, 61, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2324,9 +2328,165 @@ ul { list-style: none; }
   color: var(--sand);
 }
 
+/* ---------- Legal pages (Privacy, Terms, Medical Disclaimer) ---------- */
+.legal-page {
+  background: var(--sand);
+}
+
+.legal-hero {
+  padding: calc(5.5rem + var(--space-xl)) 0 var(--space-2xl);
+  background: linear-gradient(180deg, var(--beige-pastel) 0%, var(--sand) 100%);
+  border-bottom: 1px solid var(--divider);
+}
+
+.legal-hero__inner {
+  max-width: 52rem;
+}
+
+.legal-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: var(--space-sm);
+}
+
+.legal-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.legal-updated {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.legal-body {
+  padding: var(--space-3xl) 0 var(--space-4xl);
+}
+
+.legal-layout {
+  display: grid;
+  gap: var(--space-2xl);
+  max-width: 56rem;
+}
+
+.legal-nav {
+  padding: var(--space-lg);
+  background: var(--beige-pastel);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--divider);
+  height: fit-content;
+}
+
+.legal-nav__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: var(--space-md);
+}
+
+.legal-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.legal-nav__link {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
+}
+
+.legal-nav__link:hover {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink);
+}
+
+.legal-nav__link.is-active {
+  background: var(--card-surface);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.legal-content {
+  min-width: 0;
+}
+
+.legal-intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2xl);
+}
+
+.legal-section {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--divider);
+}
+
+.legal-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--space-lg);
+}
+
+.legal-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: var(--space-md);
+}
+
+.legal-section p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-contact {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: var(--space-xl);
+}
+
+.legal-contact a {
+  color: var(--terracotta-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-contact a:hover {
+  color: var(--terracotta);
+}
+
+@media (min-width: 900px) {
+  .legal-layout {
+    grid-template-columns: 220px 1fr;
+    align-items: start;
+  }
+}
+
 @media (min-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1.2fr repeat(3, 1fr);
+    grid-template-columns: 1.2fr repeat(4, 1fr);
   }
   
   .footer-bottom {

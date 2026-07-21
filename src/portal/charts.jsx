@@ -1,6 +1,6 @@
 /** Lightweight SVG charts — no chart library dependency */
 
-export function Sparkline({ data = [], width = 120, height = 36, stroke = 'var(--teal)' }) {
+export function Sparkline({ data = [], width = 120, height = 36, stroke = 'var(--forest)' }) {
   if (!data.length) return null;
   const values = data.map((d) => d.v);
   const min = Math.min(...values);
@@ -24,8 +24,8 @@ export function AreaChart({
   data = [],
   width = 560,
   height = 180,
-  stroke = 'var(--terracotta-deep, #A0594E)',
-  fill = 'rgba(160, 89, 78, 0.16)',
+  stroke = 'var(--forest)',
+  fill = 'rgba(45, 90, 61, 0.14)',
   formatY = (v) => String(v),
 }) {
   if (!data.length) return null;
@@ -95,18 +95,18 @@ export function DualLineChart({
   return (
     <div className="pc-chart-wrap">
       <svg className="pc-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Blood pressure chart">
-        {path(aKey, 'var(--terracotta-deep, #A0594E)')}
-        {path(bKey, 'var(--teal)')}
+        {path(aKey, 'var(--forest)')}
+        {path(bKey, 'var(--terracotta)')}
       </svg>
       <div className="pc-legend">
-        <span><i style={{ background: 'var(--terracotta-deep, #A0594E)' }} />{aLabel}</span>
-        <span><i style={{ background: 'var(--teal)' }} />{bLabel}</span>
+        <span><i style={{ background: 'var(--forest)' }} />{aLabel}</span>
+        <span><i style={{ background: 'var(--terracotta)' }} />{bLabel}</span>
       </div>
     </div>
   );
 }
 
-export function ProgressRing({ value = 0, size = 88, stroke = 8, color = 'var(--teal)' }) {
+export function ProgressRing({ value = 0, size = 88, stroke = 8, color = 'var(--forest)' }) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const offset = c - (Math.min(100, Math.max(0, value)) / 100) * c;

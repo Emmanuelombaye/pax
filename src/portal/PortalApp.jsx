@@ -127,6 +127,14 @@ function AuthScreen({ onAuthed }) {
         <a href="#/start" className="pp-btn pp-btn--outline" style={{ width: '100%', marginTop: '0.35rem' }}>
           Start treatment →
         </a>
+
+        <p className="pp-auth__legal-links">
+          <a href="#/privacy">Privacy</a>
+          <span aria-hidden="true"> · </span>
+          <a href="#/terms">Terms</a>
+          <span aria-hidden="true"> · </span>
+          <a href="#/medical-disclaimer">Medical Disclaimer</a>
+        </p>
       </div>
     </div>
   );

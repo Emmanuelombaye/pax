@@ -123,6 +123,7 @@ const HERO_SLIDES = [
 
 const ROUTE_TABS = [
   'vision', 'threats', 'treatments', 'advisors', 'education',
+  'privacy', 'terms', 'medical-disclaimer',
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
 ];
 

@@ -526,6 +526,17 @@ export default function StartFlow({ onComplete }) {
             </form>
           </section>
         )}
+
+        {/* Legal links */}
+        <footer className="sf-legal">
+          <p className="sf-legal__links">
+            <a href="#/privacy">Privacy</a>
+            <span aria-hidden="true"> · </span>
+            <a href="#/terms">Terms</a>
+            <span aria-hidden="true"> · </span>
+            <a href="#/medical-disclaimer">Medical Disclaimer</a>
+          </p>
+        </footer>
       </main>
     </div>
   );

@@ -26,13 +26,10 @@ export const PAX_PASSPORT = {
   brand: {
     colors: {
       sand: '#FAF6F0',
-      beige: '#F4EAE0',
-      card: '#EDD5CC',
-      dune: '#E8C5A0',
-      terracotta: '#C17D74',
-      terracottaDeep: '#A0594E',
+      dune: '#EBC5A0',
+      terracotta: '#C17C74',
+      forest: '#2D5A3D',
       ink: '#1F1A16',
-      teal: '#4A8A96',
       white: '#FFFFFF',
     },
     fonts: {
