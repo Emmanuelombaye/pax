@@ -143,7 +143,7 @@ export default function StartFlow({ onComplete }) {
       setError('Complete your contact details and card to continue.');
       return;
     }
-    // Simulated authorization hold â€” no real charge
+    // Simulated authorization hold — no real charge
     go('verify');
   };
 
@@ -209,7 +209,7 @@ export default function StartFlow({ onComplete }) {
             <p className="pp-eyebrow">Get started</p>
             <h1>Choose a treatment plan</h1>
             <p className="sf-lede">
-              Browse science-backed options, then complete a short medical questionnaire â€” no account needed until after checkout.
+              Browse science-backed options, then complete a short medical questionnaire — no account needed until after checkout.
             </p>
             <TrustStrip />
             <div className="sf-treat-grid">
@@ -235,14 +235,14 @@ export default function StartFlow({ onComplete }) {
             </div>
             {error && <p className="pp-auth__error">{error}</p>}
             <button type="button" className="pp-btn pp-btn--primary sf-cta" onClick={continueTreatment}>
-              Continue with {treatment ? treatment.name : 'selected treatment'} â†’
+              Continue with {treatment ? treatment.name : 'selected treatment'} →
             </button>
           </section>
         )}
 
         {step === 'intake' && (
           <section className="sf-panel sf-panel--narrow">
-            <p className="pp-eyebrow">Clinical intake Â· {intakeIndex + 1}/{INTAKE_STEPS.length}</p>
+            <p className="pp-eyebrow">Clinical intake · {intakeIndex + 1}/{INTAKE_STEPS.length}</p>
             <h1>{intakeStep.question}</h1>
             <p className="sf-lede">Takes a few minutes. A licensed U.S. provider reviews within 24 hours.</p>
 
@@ -302,7 +302,7 @@ export default function StartFlow({ onComplete }) {
                 Back
               </button>
               <button type="button" className="pp-btn pp-btn--primary" onClick={continueIntake}>
-                Continue â†’
+                Continue →
               </button>
             </div>
           </section>
@@ -313,7 +313,7 @@ export default function StartFlow({ onComplete }) {
             <p className="pp-eyebrow">{treatment?.name}</p>
             <h1>Choose your plan & check out</h1>
             <p className="sf-lede">
-              Authorization hold only â€” you are charged if a provider prescribes. Cancel anytime.
+              Authorization hold only — you are charged if a provider prescribes. Cancel anytime.
             </p>
             <div className="sf-plan-grid">
               {PLANS.map((p) => (
@@ -337,7 +337,7 @@ export default function StartFlow({ onComplete }) {
             <div className="sf-nav-row">
               <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('intake')}>Back</button>
               <button type="button" className="pp-btn pp-btn--primary" onClick={() => go('checkout')}>
-                Continue to checkout â†’
+                Continue to checkout →
               </button>
             </div>
           </section>
@@ -350,11 +350,11 @@ export default function StartFlow({ onComplete }) {
             <div className="sf-summary">
               <div>
                 <strong>{treatment?.med}</strong>
-                <span>{plan.label} Â· ${plan.perMonth}/mo</span>
+                <span>{plan.label} · ${plan.perMonth}/mo</span>
               </div>
               <strong>${plan.total}</strong>
             </div>
-            <p className="sf-hold">Simulated card authorization â€” no real charge in this demo.</p>
+            <p className="sf-hold">Simulated card authorization — no real charge in this demo.</p>
             <form className="pp-auth__form" onSubmit={continueCheckout}>
               <div className="pp-auth__row">
                 <label>
@@ -422,7 +422,7 @@ export default function StartFlow({ onComplete }) {
               {error && <p className="pp-auth__error">{error}</p>}
               <div className="sf-nav-row">
                 <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('plan')}>Back</button>
-                <button type="submit" className="pp-btn pp-btn--primary">Authorize & continue â†’</button>
+                <button type="submit" className="pp-btn pp-btn--primary">Authorize & continue →</button>
               </div>
             </form>
           </section>
@@ -433,7 +433,7 @@ export default function StartFlow({ onComplete }) {
             <p className="pp-eyebrow">Identity verification</p>
             <h1>Verify your identity</h1>
             <p className="sf-lede">
-              Required before a provider can issue a prescription â€” last 4 of SSN or government ID.
+              Required before a provider can issue a prescription — last 4 of SSN or government ID.
             </p>
             <div className="sf-choices sf-choices--row">
               <button
@@ -477,7 +477,7 @@ export default function StartFlow({ onComplete }) {
               {error && <p className="pp-auth__error">{error}</p>}
               <div className="sf-nav-row">
                 <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('checkout')}>Back</button>
-                <button type="submit" className="pp-btn pp-btn--primary">Submit for provider review â†’</button>
+                <button type="submit" className="pp-btn pp-btn--primary">Submit for provider review →</button>
               </div>
             </form>
           </section>
@@ -493,7 +493,7 @@ export default function StartFlow({ onComplete }) {
             <div className="sf-summary">
               <div>
                 <strong>{checkout.email}</strong>
-                <span>{treatment?.name} Â· {plan.label}</span>
+                <span>{treatment?.name} · {plan.label}</span>
               </div>
             </div>
             <form className="pp-auth__form" onSubmit={finishAccount}>
@@ -521,7 +521,7 @@ export default function StartFlow({ onComplete }) {
               </label>
               {error && <p className="pp-auth__error">{error}</p>}
               <button type="submit" className="pp-btn pp-btn--primary sf-cta" disabled={busy}>
-                {busy ? 'Opening Patient Centerâ€¦' : 'Open Patient Center â†’'}
+                {busy ? 'Opening Patient Center…' : 'Open Patient Center →'}
               </button>
             </form>
           </section>

@@ -1,5 +1,5 @@
 /* ============================================
-   PAX LONGEVITY â€” Brand Stylesheet
+   PAX LONGEVITY — Brand Stylesheet
    Strict adherence to the Pax Longevity Brand Kit
    Aesthetics: Warm, Sunny, Coastal, Active
    Fonts loaded in index.html (avoid duplicate @import)
@@ -9,7 +9,7 @@
 :root {
   /* Pax Health Brand Kit */
   --sand:           #FAF6F0; /* Background / default canvas */
-  --dune:           #EBC5A0; /* Secondary / warm neutral — soft cards */
+  --dune:           #E8C5A0; /* Secondary / warm neutral — soft cards */
   --terracotta:     #C17C74; /* Accent — links, focus, small highlights only */
   --forest:         #2D5A3D; /* Primary — buttons, banners, key UI */
   --ink:            #1F1A16; /* Text / deep neutral */
@@ -1097,7 +1097,7 @@ ul { list-style: none; }
 }
 
 .lifestyle-practices li::before {
-  content: 'âœ“';
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--terracotta);
@@ -2139,7 +2139,7 @@ ul { list-style: none; }
 }
 
 .faq-answer-points li::before {
-  content: 'â€¢';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--terracotta);

@@ -21,7 +21,7 @@
 | Token | Value |
 |-------|--------|
 | Sand (canvas) | `#FAF6F0` |
-| Dune (cards / warm neutral) | `#EBC5A0` |
+| Dune (cards / warm neutral) | `#E8C5A0` |
 | Terracotta (accent) | `#C17C74` |
 | Forest (primary / CTAs) | `#2D5A3D` |
 | Ink (text) | `#1F1A16` |
