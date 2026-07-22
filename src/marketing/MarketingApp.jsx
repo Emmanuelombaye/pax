@@ -15,6 +15,19 @@ export default function MarketingApp({ currentTab }) {
 
   // Cinematic slideshow slide index
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isDesktopHero, setIsDesktopHero] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = () => setIsDesktopHero(mq.matches);
+    onChange();
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const heroSrc = (slide) => (isDesktopHero ? slide.desktop : slide.mobile);
 
   useEffect(() => {
     if (currentTab !== 'home') return;
@@ -27,11 +40,11 @@ export default function MarketingApp({ currentTab }) {
   useEffect(() => {
     if (currentTab !== 'home') return;
     const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
-    [HERO_SLIDES[activeSlide], HERO_SLIDES[nextIndex]].forEach((src) => {
+    [heroSrc(HERO_SLIDES[activeSlide]), heroSrc(HERO_SLIDES[nextIndex])].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
-  }, [activeSlide, currentTab]);
+  }, [activeSlide, currentTab, isDesktopHero]);
 
   useEffect(() => {
     setIsNavOpen(false);
@@ -150,12 +163,13 @@ export default function MarketingApp({ currentTab }) {
             {/* Cinematic Background Slideshow Hero (HLI Style) */}
             <section className="cinematic-hero">
               <div className="slideshow-container">
-                {HERO_SLIDES.map((imgUrl, index) => {
+                {HERO_SLIDES.map((slide, index) => {
                   const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
                   const shouldLoad = index === activeSlide || index === nextIndex;
+                  const imgUrl = heroSrc(slide);
                   return (
                   <div 
-                    key={imgUrl}
+                    key={slide.mobile}
                     className={`slide-item ${index === activeSlide ? 'active' : ''}`}
                     style={shouldLoad ? { backgroundImage: `url(${imgUrl})` } : undefined}
                   />

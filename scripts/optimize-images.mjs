@@ -4,7 +4,7 @@ import path from 'path';
 import os from 'os';
 
 const imagesDir = path.join(process.cwd(), 'public', 'images');
-const heroNames = new Set([
+const heroMobileNames = new Set([
   'hero-longevity.webp',
   'miami-active.webp',
   'hero-miami-cycle.webp',
@@ -19,14 +19,20 @@ for (const file of files) {
   const input = path.join(imagesDir, file);
   try {
     const before = fs.statSync(input).size;
-    const isHero = heroNames.has(file);
+    const isHeroDesktop = /-desktop\.webp$/i.test(file);
+    const isHeroMobile = heroMobileNames.has(file);
 
     let pipeline = sharp(input).rotate();
-    pipeline = isHero
-      ? pipeline.resize(1600, 900, { fit: 'cover', withoutEnlargement: true })
-      : pipeline.resize(1400, 1050, { fit: 'inside', withoutEnlargement: true });
+    if (isHeroDesktop) {
+      pipeline = pipeline.resize(1600, 667, { fit: 'cover', position: 'attention', withoutEnlargement: true });
+    } else if (isHeroMobile) {
+      pipeline = pipeline.resize(1600, 900, { fit: 'cover', withoutEnlargement: true });
+    } else {
+      pipeline = pipeline.resize(1400, 1050, { fit: 'inside', withoutEnlargement: true });
+    }
 
-    const buffer = await pipeline.webp({ quality: isHero ? 78 : 80, effort: 6 }).toBuffer();
+    const quality = isHeroDesktop ? 72 : isHeroMobile ? 78 : 80;
+    const buffer = await pipeline.webp({ quality, effort: 6 }).toBuffer();
     const tmp = path.join(os.tmpdir(), `pax-opt-${file}`);
     fs.writeFileSync(tmp, buffer);
     fs.copyFileSync(tmp, input);

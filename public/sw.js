@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pax-cache-v4';
+const CACHE_NAME = 'pax-cache-v5';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -6,6 +6,7 @@ const PRECACHE_URLS = [
   '/images/pax-logo.png',
   '/favicon.svg',
   '/images/hero-longevity.webp',
+  '/images/hero-longevity-desktop.webp',
 ];
 
 const isCacheable = (url) => {

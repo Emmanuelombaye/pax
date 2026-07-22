@@ -114,11 +114,26 @@ const LIFESTYLE_PILLARS = [
 ];
 
 const HERO_SLIDES = [
-  '/images/hero-longevity.webp',
-  '/images/miami-active.webp',
-  '/images/hero-miami-cycle.webp',
-  '/images/hero-miami-yoga.webp',
-  '/images/hero-miami-water.webp',
+  {
+    mobile: '/images/hero-longevity.webp',
+    desktop: '/images/hero-longevity-desktop.webp',
+  },
+  {
+    mobile: '/images/miami-active.webp',
+    desktop: '/images/miami-active-desktop.webp',
+  },
+  {
+    mobile: '/images/hero-miami-cycle.webp',
+    desktop: '/images/hero-miami-cycle-desktop.webp',
+  },
+  {
+    mobile: '/images/hero-miami-yoga.webp',
+    desktop: '/images/hero-miami-yoga-desktop.webp',
+  },
+  {
+    mobile: '/images/hero-miami-water.webp',
+    desktop: '/images/hero-miami-water-desktop.webp',
+  },
 ];
 
 const ROUTE_TABS = [
