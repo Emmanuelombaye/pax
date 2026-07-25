@@ -3024,8 +3024,9 @@ ul { list-style: none; }
     justify-content: flex-start;
     padding-left: clamp(3rem, 10vw, 8rem);
     height: auto;
-    aspect-ratio: 16 / 9;
-    max-height: 800px;
+    /* Match desktop hero assets (1600×667) so cover fills without cropping or stretching */
+    aspect-ratio: 1600 / 667;
+    max-height: none;
   }
 
   .cinematic-content {
