@@ -163,16 +163,34 @@ export default function MarketingApp({ currentTab }) {
             {/* Cinematic Background Slideshow Hero (HLI Style) */}
             <section className="cinematic-hero">
               <div className="slideshow-container">
+                {/* Desktop height sizer — natural image ratio, no crop/stretch */}
+                <img
+                  className="slideshow-sizer"
+                  src={heroSrc(HERO_SLIDES[activeSlide])}
+                  alt=""
+                  aria-hidden="true"
+                  decoding="async"
+                />
                 {HERO_SLIDES.map((slide, index) => {
                   const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
                   const shouldLoad = index === activeSlide || index === nextIndex;
                   const imgUrl = heroSrc(slide);
                   return (
-                  <div 
+                  <div
                     key={slide.mobile}
                     className={`slide-item ${index === activeSlide ? 'active' : ''}`}
-                    style={shouldLoad ? { backgroundImage: `url(${imgUrl})` } : undefined}
-                  />
+                    style={!isDesktopHero && shouldLoad ? { backgroundImage: `url(${imgUrl})` } : undefined}
+                  >
+                    {isDesktopHero && shouldLoad && (
+                      <img
+                        className="slide-item__img"
+                        src={imgUrl}
+                        alt=""
+                        decoding="async"
+                        fetchPriority={index === activeSlide ? 'high' : 'auto'}
+                      />
+                    )}
+                  </div>
                 );})}
                 <div className="slideshow-overlay" />
               </div>
@@ -191,7 +209,7 @@ export default function MarketingApp({ currentTab }) {
               {/* Navigation indicators */}
               <div className="slideshow-nav">
                 {HERO_SLIDES.map((_, idx) => (
-                  <button 
+                  <button
                     key={idx}
                     type="button"
                     className={`slideshow-indicator ${idx === activeSlide ? 'active' : ''}`}

@@ -1,0 +1,34 @@
+Pax Health — Brand Kit
+Color palette, typography, and usage for logo design
+Color Palette
+SAND Sand — Background
+HEX #FAF6F0
+OKLCH oklch(0.972 0.018 78)
+DUNE Dune — Secondary / warm neutral
+HEX #E8C5A0
+OKLCH oklch(0.851 0.068 65)
+TERRACOTTA Terracotta — Accent
+HEX #C17C74
+OKLCH oklch(0.642 0.108 30)
+FOREST Forest — Primary (buttons, banners)
+HEX #2D5A3D
+OKLCH oklch(0.405 0.063 152)
+INK Ink — Text / deep neutral
+HEX #1F1A16
+OKLCH oklch(0.21 0.012 60)
+Typography
+Instrument Serif — Headings
+Used for H1–H4, display type, and editorial moments. Regular weight, slight negative tracking.
+Work Sans — Body & UI
+Weights in use: 300, 400, 500, 600. For paragraphs, labels, navigation, buttons.
+Recommended Usage
+Headings Instrument Serif, Ink (#1F1A16) on Sand. Reversed to Sand on Forest banners.
+Body Work Sans 400, Ink on Sand. Line height 1.5–1.7. Avoid pure black.
+Buttons Forest background, Sand text, Work Sans 500. Hover: Forest at 90% opacity.
+Accents Terracotta for links, selection, focus rings, and small highlights — never large areas.
+Surfaces Sand as the default canvas. Dune for soft cards and warm neutral blocks.
+Logo on dark Use Sand or Dune on Forest / Ink. Maintain clear space ≥ cap height around the mark.
+Pax Health — pax-longevity.com · Source of truth: OKLCH (web). HEX shown for print/logo work.
+
+-- 1 of 1 --
+

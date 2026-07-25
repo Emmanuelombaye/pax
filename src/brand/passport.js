@@ -25,16 +25,25 @@ export const PAX_PASSPORT = {
 
   brand: {
     colors: {
+      // HEX for components; OKLCH is brand-kit source of truth for web CSS
       sand: '#FAF6F0',
       dune: '#E8C5A0',
       terracotta: '#C17C74',
       forest: '#2D5A3D',
       ink: '#1F1A16',
       white: '#FFFFFF',
+      oklch: {
+        sand: 'oklch(0.972 0.018 78)',
+        dune: 'oklch(0.851 0.068 65)',
+        terracotta: 'oklch(0.642 0.108 30)',
+        forest: 'oklch(0.405 0.063 152)',
+        ink: 'oklch(0.21 0.012 60)',
+      },
     },
     fonts: {
       display: "'Instrument Serif', Georgia, serif",
       body: "'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+      bodyWeights: [300, 400, 500, 600],
     },
     logo: {
       webp: '/images/pax-logo.webp',

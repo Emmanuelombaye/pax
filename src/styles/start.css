@@ -118,7 +118,7 @@
   display: grid;
   grid-template-columns: 140px 1fr;
   text-align: left;
-  border: 1px solid rgba(160, 89, 78, 0.14);
+  border: 1px solid rgba(193, 125, 116, 0.14);
   background: rgba(255, 255, 255, 0.88);
   border-radius: 1.25rem;
   overflow: hidden;
@@ -133,7 +133,7 @@
 
 .sf-treat.active {
   border-color: var(--forest);
-  box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.2), var(--shadow-md);
+  box-shadow: 0 0 0 2px rgba(193, 125, 116, 0.2), var(--shadow-md);
 }
 
 .sf-treat__media {
@@ -212,7 +212,7 @@
 .sf-choice.active {
   border-color: var(--forest);
   background: rgba(237, 213, 204, 0.45);
-  box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.15);
+  box-shadow: 0 0 0 2px rgba(193, 125, 116, 0.15);
 }
 
 .sf-metrics {
@@ -272,7 +272,7 @@
 
 .sf-plan.active {
   border-color: var(--forest);
-  box-shadow: 0 0 0 2px rgba(160, 89, 78, 0.18);
+  box-shadow: 0 0 0 2px rgba(193, 125, 116, 0.18);
   background: #fff;
 }
 
@@ -326,7 +326,7 @@
   padding: 1rem 1.1rem;
   border-radius: 1rem;
   background: rgba(237, 213, 204, 0.45);
-  border: 1px solid rgba(160, 89, 78, 0.14);
+  border: 1px solid rgba(193, 125, 116, 0.14);
   margin: 1rem 0;
 }
 

@@ -7,16 +7,23 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  /* Pax Health Brand Kit */
-  --sand:           #FAF6F0; /* Background / default canvas */
-  --dune:           #E8C5A0; /* Secondary / warm neutral — soft cards */
-  --terracotta:     #C17C74; /* Accent — links, focus, small highlights only */
-  --forest:         #2D5A3D; /* Primary — buttons, banners, key UI */
-  --ink:            #1F1A16; /* Text / deep neutral */
+  /* Pax Health Brand Kit — HEX fallbacks, then OKLCH (web source of truth) */
+  --sand:           #FAF6F0;
+  --dune:           #E8C5A0;
+  --terracotta:     #C17C74;
+  --forest:         #2D5A3D;
+  --ink:            #1F1A16;
+  --sand:           oklch(0.972 0.018 78);
+  --dune:           oklch(0.851 0.068 65);
+  --terracotta:     oklch(0.642 0.108 30);
+  --forest:         oklch(0.405 0.063 152);
+  --ink:            oklch(0.21 0.012 60);
   --card-surface:   var(--dune);
   --card-elevated:  var(--dune);
-  --beige-pastel:   #F5EDE4; /* Light warm section tint */
+  --beige-pastel:   #F5EDE4;
+  --beige-pastel:   color-mix(in oklch, var(--sand) 88%, var(--dune));
   --section-tint:   #F8F3EC;
+  --section-tint:   color-mix(in oklch, var(--sand) 92%, var(--dune));
   --beige:          var(--dune);
   /* Legacy aliases — map old tokens to brand kit */
   --dark-terracotta: var(--forest);
@@ -26,8 +33,11 @@
   /* Surface and Text Mappings */
   --text-primary:   var(--ink);
   --text-secondary: rgba(31, 26, 22, 0.85);
+  --text-secondary: color-mix(in oklch, var(--ink) 85%, transparent);
   --text-light:     rgba(31, 26, 22, 0.6);
+  --text-light:     color-mix(in oklch, var(--ink) 60%, transparent);
   --divider:        rgba(45, 90, 61, 0.14);
+  --divider:        color-mix(in oklch, var(--forest) 14%, transparent);
 
   /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
@@ -123,7 +133,7 @@ ul { list-style: none; }
 
 .section-label {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--terracotta);
@@ -152,7 +162,7 @@ ul { list-style: none; }
   gap: 0.5rem;
   padding: 0.9rem 1.85rem;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: var(--radius-full);
@@ -454,7 +464,7 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(74, 138, 150, 0.12);
+  background: rgba(45, 90, 61, 0.12);
   color: var(--teal);
   padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
@@ -596,7 +606,7 @@ ul { list-style: none; }
   padding: var(--space-md);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(160, 89, 78, 0.1);
+  border: 1px solid rgba(193, 125, 116, 0.1);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -604,7 +614,7 @@ ul { list-style: none; }
 }
 
 .float-badge-icon {
-  background: rgba(160, 89, 78, 0.1);
+  background: rgba(193, 125, 116, 0.1);
   color: var(--forest);
   width: 32px;
   height: 32px;
@@ -622,19 +632,19 @@ ul { list-style: none; }
   line-height: 1.3;
 }
 
-/* ---------- Pastel Box Cards (Emanuela brand) ---------- */
+/* ---------- Pastel Box Cards — Dune surfaces; terracotta accents only ---------- */
 .pastel-box {
   background: var(--card-surface);
-  border: 1.5px solid rgba(160, 89, 78, 0.38);
+  border: 1.5px solid color-mix(in oklch, var(--forest) 18%, transparent);
   border-radius: var(--radius-xl);
   box-shadow:
-    0 12px 40px rgba(193, 125, 116, 0.22),
-    0 2px 8px rgba(31, 26, 22, 0.06);
+    0 12px 40px color-mix(in oklch, var(--ink) 8%, transparent),
+    0 2px 8px color-mix(in oklch, var(--ink) 4%, transparent);
 }
 
 /* ---------- Stats Strip ---------- */
 .stats-strip {
-  background: linear-gradient(135deg, var(--beige-pastel) 0%, rgba(237, 213, 204, 0.65) 100%);
+  background: linear-gradient(135deg, var(--beige-pastel) 0%, color-mix(in oklch, var(--dune) 35%, var(--sand)) 100%);
   border-top: 1px solid var(--divider);
   border-bottom: 1px solid var(--divider);
   padding: var(--space-lg) 0;
@@ -689,9 +699,9 @@ ul { list-style: none; }
 .guidance-card:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 16px 48px rgba(193, 125, 116, 0.28),
-    0 4px 12px rgba(31, 26, 22, 0.08);
-  border-color: rgba(160, 89, 78, 0.45);
+    0 16px 48px color-mix(in oklch, var(--ink) 10%, transparent),
+    0 4px 12px color-mix(in oklch, var(--ink) 5%, transparent);
+  border-color: color-mix(in oklch, var(--forest) 28%, transparent);
 }
 
 .guidance-label {
@@ -745,7 +755,7 @@ ul { list-style: none; }
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(160, 89, 78, 0.25);
+  border: 2px solid rgba(193, 125, 116, 0.25);
   margin: 0 auto;
 }
 
@@ -809,7 +819,7 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   background: var(--card-surface);
-  border: 1.5px solid rgba(160, 89, 78, 0.38);
+  border: 1.5px solid rgba(193, 125, 116, 0.38);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow:
@@ -823,7 +833,7 @@ ul { list-style: none; }
 .home-treatment-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(160, 89, 78, 0.35);
+  border-color: rgba(193, 125, 116, 0.35);
 }
 
 .home-treatment-image {
@@ -884,7 +894,7 @@ ul { list-style: none; }
 .home-gallery-image {
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 1px solid rgba(160, 89, 78, 0.18);
+  border: 1px solid rgba(193, 125, 116, 0.18);
   aspect-ratio: 4 / 3;
 }
 
@@ -918,7 +928,7 @@ ul { list-style: none; }
   color: inherit;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 1px solid rgba(160, 89, 78, 0.2);
+  border: 1px solid rgba(193, 125, 116, 0.2);
   box-shadow: var(--shadow-sm);
   transition: all var(--duration) var(--ease-out);
 }
@@ -1106,7 +1116,7 @@ ul { list-style: none; }
 
 .lifestyle-aside-card {
   background: var(--card-surface);
-  border: 1px solid rgba(160, 89, 78, 0.2);
+  border: 1px solid rgba(193, 125, 116, 0.2);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
   display: flex;
@@ -1142,7 +1152,7 @@ ul { list-style: none; }
   text-decoration: none;
   color: inherit;
   background: var(--card-surface);
-  border: 1px solid rgba(160, 89, 78, 0.18);
+  border: 1px solid rgba(193, 125, 116, 0.18);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--duration) var(--ease-out);
@@ -1306,7 +1316,7 @@ ul { list-style: none; }
 
 .step-card {
   background: var(--card-surface);
-  border: 1px solid rgba(160, 89, 78, 0.22);
+  border: 1px solid rgba(193, 125, 116, 0.22);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
   display: flex;
@@ -1319,7 +1329,7 @@ ul { list-style: none; }
 
 .step-card.pastel-box {
   background: var(--card-surface);
-  border-color: rgba(160, 89, 78, 0.38);
+  border-color: rgba(193, 125, 116, 0.38);
   box-shadow:
     0 12px 40px rgba(193, 125, 116, 0.22),
     0 2px 8px rgba(31, 26, 22, 0.06);
@@ -1328,7 +1338,7 @@ ul { list-style: none; }
 .step-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(160, 89, 78, 0.35);
+  border-color: rgba(193, 125, 116, 0.35);
 }
 
 .step-num {
@@ -1595,7 +1605,7 @@ ul { list-style: none; }
 .treatment-card {
   background: var(--card-surface);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(160, 89, 78, 0.18);
+  border: 1px solid rgba(193, 125, 116, 0.18);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1635,7 +1645,7 @@ ul { list-style: none; }
   top: 15px;
   left: 15px;
   z-index: 2;
-  background: rgba(160, 89, 78, 0.92);
+  background: rgba(193, 125, 116, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--sand);
@@ -2057,7 +2067,7 @@ ul { list-style: none; }
 
 .faq-item {
   background: var(--card-surface);
-  border: 1.5px solid rgba(160, 89, 78, 0.32);
+  border: 1.5px solid rgba(193, 125, 116, 0.32);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(193, 125, 116, 0.14);
@@ -2065,7 +2075,7 @@ ul { list-style: none; }
 }
 
 .faq-item.active {
-  border-color: rgba(160, 89, 78, 0.45);
+  border-color: rgba(193, 125, 116, 0.45);
   box-shadow: 0 10px 32px rgba(193, 125, 116, 0.2);
 }
 
@@ -2568,7 +2578,7 @@ ul { list-style: none; }
 .progress-bar-container {
   width: 100%;
   height: 6px;
-  background: rgba(160, 89, 78, 0.1);
+  background: rgba(193, 125, 116, 0.1);
   border-radius: var(--radius-full);
   margin-bottom: var(--space-xl);
   overflow: hidden;
@@ -2624,7 +2634,7 @@ ul { list-style: none; }
 
 .quiz-option.selected {
   border-color: var(--forest);
-  background: rgba(160, 89, 78, 0.06);
+  background: rgba(193, 125, 116, 0.06);
   color: var(--forest);
   box-shadow: 0 0 0 1px var(--forest);
 }
@@ -2984,6 +2994,11 @@ ul { list-style: none; }
   z-index: 1;
 }
 
+/* Mobile-only: hidden. Desktop uses this to size hero to the image. */
+.slideshow-sizer {
+  display: none;
+}
+
 .slide-item {
   position: absolute;
   inset: 0;
@@ -2996,6 +3011,10 @@ ul { list-style: none; }
 
 .slide-item.active {
   opacity: 1;
+}
+
+.slide-item__img {
+  display: none;
 }
 
 .slideshow-overlay {
@@ -3021,16 +3040,70 @@ ul { list-style: none; }
 
 @media (min-width: 768px) {
   .cinematic-hero {
-    justify-content: flex-start;
-    padding-left: clamp(3rem, 10vw, 8rem);
+    display: block;
     height: auto;
-    /* Match desktop hero assets (1600×667) so cover fills without cropping or stretching */
-    aspect-ratio: 1600 / 667;
+    min-height: 0;
     max-height: none;
+    aspect-ratio: auto;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .slideshow-container {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    line-height: 0;
+  }
+
+  /* Drives section height from the real desktop asset — full image, no crop/stretch */
+  .slideshow-sizer {
+    display: block;
+    width: 100%;
+    height: auto;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .slide-item {
+    background-image: none !important;
+    background-color: var(--ink);
+  }
+
+  .slide-item__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .cinematic-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     text-align: left;
+    max-width: min(650px, 48%);
+    margin: 0;
+    padding:
+      clamp(5.75rem, 10vh, 7rem)
+      clamp(3rem, 10vw, 8rem)
+      clamp(2.5rem, 6vh, 4rem);
+    box-sizing: border-box;
+  }
+
+  .cinematic-title {
+    font-size: clamp(2rem, 3.8vw, 3.6rem);
+  }
+
+  .cinematic-subtitle {
     margin-left: 0;
     margin-right: 0;
   }
@@ -3319,7 +3392,7 @@ ul { list-style: none; }
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  background: rgba(160, 89, 78, 0.08);
+  background: rgba(193, 125, 116, 0.08);
   color: var(--forest);
   padding: 4px 10px;
   border-radius: var(--radius-full);
