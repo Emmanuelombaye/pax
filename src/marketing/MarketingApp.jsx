@@ -27,8 +27,6 @@ export default function MarketingApp({ currentTab }) {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  const heroSrc = (slide) => (isDesktopHero ? slide.desktop : slide.mobile);
-
   useEffect(() => {
     if (currentTab !== 'home') return;
     const interval = setInterval(() => {
@@ -40,10 +38,19 @@ export default function MarketingApp({ currentTab }) {
   useEffect(() => {
     if (currentTab !== 'home') return;
     const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
-    [heroSrc(HERO_SLIDES[activeSlide]), heroSrc(HERO_SLIDES[nextIndex])].forEach((src) => {
+    const preload = (src) => {
       const img = new Image();
       img.src = src;
-    });
+    };
+    const current = HERO_SLIDES[activeSlide];
+    const next = HERO_SLIDES[nextIndex];
+    if (isDesktopHero) {
+      preload(current.desktop);
+      preload(next.desktop);
+    } else {
+      preload(current.mobile);
+      preload(next.mobile);
+    }
   }, [activeSlide, currentTab, isDesktopHero]);
 
   useEffect(() => {
@@ -163,34 +170,18 @@ export default function MarketingApp({ currentTab }) {
             {/* Cinematic Background Slideshow Hero (HLI Style) */}
             <section className="cinematic-hero">
               <div className="slideshow-container">
-                {/* Desktop height sizer — natural image ratio, no crop/stretch */}
-                <img
-                  className="slideshow-sizer"
-                  src={heroSrc(HERO_SLIDES[activeSlide])}
-                  alt=""
-                  aria-hidden="true"
-                  decoding="async"
-                />
                 {HERO_SLIDES.map((slide, index) => {
                   const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
                   const shouldLoad = index === activeSlide || index === nextIndex;
-                  const imgUrl = heroSrc(slide);
                   return (
                   <div
                     key={slide.mobile}
                     className={`slide-item ${index === activeSlide ? 'active' : ''}`}
-                    style={!isDesktopHero && shouldLoad ? { backgroundImage: `url(${imgUrl})` } : undefined}
-                  >
-                    {isDesktopHero && shouldLoad && (
-                      <img
-                        className="slide-item__img"
-                        src={imgUrl}
-                        alt=""
-                        decoding="async"
-                        fetchPriority={index === activeSlide ? 'high' : 'auto'}
-                      />
-                    )}
-                  </div>
+                    style={shouldLoad ? {
+                      '--hero-mobile': `url(${slide.mobile})`,
+                      '--hero-desktop': `url(${slide.desktop})`,
+                    } : undefined}
+                  />
                 );})}
                 <div className="slideshow-overlay" />
               </div>
