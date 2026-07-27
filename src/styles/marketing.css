@@ -5,44 +5,8 @@
    Fonts loaded in index.html (avoid duplicate @import)
    ============================================ */
 
-/* ---------- CSS Custom Properties ---------- */
+/* Layout tokens (brand colors/fonts live in src/brand/kit.css) */
 :root {
-  /* Pax Health Brand Kit — HEX fallbacks, then OKLCH (web source of truth) */
-  --sand:           #FAF6F0;
-  --dune:           #E8C5A0;
-  --terracotta:     #C17C74;
-  --forest:         #2D5A3D;
-  --ink:            #1F1A16;
-  --sand:           oklch(0.972 0.018 78);
-  --dune:           oklch(0.851 0.068 65);
-  --terracotta:     oklch(0.642 0.108 30);
-  --forest:         oklch(0.405 0.063 152);
-  --ink:            oklch(0.21 0.012 60);
-  --card-surface:   var(--dune);
-  --card-elevated:  var(--dune);
-  --beige-pastel:   #F5EDE4;
-  --beige-pastel:   color-mix(in oklch, var(--sand) 88%, var(--dune));
-  --section-tint:   #F8F3EC;
-  --section-tint:   color-mix(in oklch, var(--sand) 92%, var(--dune));
-  --beige:          var(--dune);
-  /* Legacy aliases — map old tokens to brand kit */
-  --dark-terracotta: var(--forest);
-  --terracotta-deep: var(--forest);
-  --teal:           var(--forest);
-
-  /* Surface and Text Mappings */
-  --text-primary:   var(--ink);
-  --text-secondary: rgba(31, 26, 22, 0.85);
-  --text-secondary: color-mix(in oklch, var(--ink) 85%, transparent);
-  --text-light:     rgba(31, 26, 22, 0.6);
-  --text-light:     color-mix(in oklch, var(--ink) 60%, transparent);
-  --divider:        rgba(45, 90, 61, 0.14);
-  --divider:        color-mix(in oklch, var(--forest) 14%, transparent);
-
-  /* Typography */
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body:    'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
   /* Spacing */
   --space-xs:  0.25rem;
   --space-sm:  0.5rem;
@@ -204,17 +168,17 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 
-.btn-teal {
-  background: var(--forest);
-  color: var(--sand);
+.btn-forest {
+  background: var(--btn-bg);
+  color: var(--btn-text);
   font-weight: 500;
 }
 
-.btn-teal:hover {
-  background: var(--forest);
-  opacity: 0.9;
+.btn-forest:hover {
+  background: var(--btn-bg);
+  opacity: var(--btn-hover-opacity);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45, 90, 61, 0.22);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--forest) 22%, transparent);
 }
 
 /* ---------- Header / Navigation ---------- */
@@ -427,7 +391,7 @@ ul { list-style: none; }
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--forest);
   margin-bottom: var(--space-lg);
 }
 
@@ -441,7 +405,7 @@ ul { list-style: none; }
 
 .vision-text em {
   font-style: italic;
-  color: var(--teal);
+  color: var(--forest);
 }
 
 /* ---------- Hero Section ---------- */
@@ -465,7 +429,7 @@ ul { list-style: none; }
   align-items: center;
   gap: 8px;
   background: rgba(45, 90, 61, 0.12);
-  color: var(--teal);
+  color: var(--forest);
   padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
   font-size: 0.68rem;

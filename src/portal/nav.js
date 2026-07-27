@@ -71,8 +71,8 @@ export function defaultChild(sectionId) {
   return item?.children?.[0]?.id || null;
 }
 
-export function parsePortalRoute(hash = window.location.hash) {
-  const raw = hash.replace(/^#\/?/, '');
+export function parsePortalRoute(hash) {
+  const raw = (hash ?? (typeof window !== 'undefined' ? window.location.hash : '')).replace(/^#\/?/, '');
   const parts = raw.split('/').filter(Boolean);
   // ['portal'] | ['portal', 'dashboard'] | ['portal', 'appointments', 'upcoming']
   if (parts[0] !== 'portal') {

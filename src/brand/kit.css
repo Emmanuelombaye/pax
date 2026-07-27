@@ -1,0 +1,42 @@
+/* Pax Health Brand Kit — web tokens (source: docs/brand-kit.md, src/brand/passport.js) */
+:root {
+  /* Core palette — HEX fallbacks, OKLCH source of truth */
+  --sand: #FAF6F0;
+  --dune: #E8C5A0;
+  --terracotta: #C17C74;
+  --forest: #2D5A3D;
+  --ink: #1F1A16;
+  --white: #FFFFFF;
+
+  --sand: oklch(0.972 0.018 78);
+  --dune: oklch(0.851 0.068 65);
+  --terracotta: oklch(0.642 0.108 30);
+  --forest: oklch(0.405 0.063 152);
+  --ink: oklch(0.21 0.012 60);
+
+  /* Kit surfaces */
+  --card-surface: var(--dune);
+  --card-elevated: var(--dune);
+  --beige-pastel: color-mix(in oklch, var(--sand) 88%, var(--dune));
+  --section-tint: color-mix(in oklch, var(--sand) 92%, var(--dune));
+  --beige: var(--dune);
+
+  /* Text */
+  --text-primary: var(--ink);
+  --text-secondary: color-mix(in oklch, var(--ink) 85%, transparent);
+  --text-light: color-mix(in oklch, var(--ink) 60%, transparent);
+  --text-on-forest: var(--sand);
+  --divider: color-mix(in oklch, var(--forest) 14%, transparent);
+
+  /* Typography — Instrument Serif + Work Sans */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Semantic */
+  --link: var(--terracotta);
+  --focus-ring: var(--terracotta);
+  --btn-bg: var(--forest);
+  --btn-text: var(--sand);
+  --btn-hover-opacity: 0.9;
+  --error: color-mix(in oklch, var(--terracotta) 72%, var(--ink));
+}

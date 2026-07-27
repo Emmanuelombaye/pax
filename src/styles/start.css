@@ -200,7 +200,7 @@
 .sf-choice {
   text-align: left;
   border: 1px solid var(--divider);
-  background: #fff;
+  background: var(--card-surface);
   border-radius: 1rem;
   padding: 0.95rem 1.05rem;
   font-size: 0.95rem;
@@ -211,8 +211,8 @@
 
 .sf-choice.active {
   border-color: var(--forest);
-  background: rgba(237, 213, 204, 0.45);
-  box-shadow: 0 0 0 2px rgba(193, 125, 116, 0.15);
+  background: color-mix(in oklch, var(--dune) 55%, var(--sand));
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--terracotta) 15%, transparent);
 }
 
 .sf-metrics {
@@ -241,7 +241,7 @@
   text-transform: none;
   letter-spacing: normal;
   color: var(--ink);
-  background: #fff;
+  background: var(--white);
 }
 
 .sf-nav-row {
@@ -264,7 +264,7 @@
   position: relative;
   text-align: left;
   border: 1px solid var(--divider);
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in oklch, var(--white) 90%, transparent);
   border-radius: 1.2rem;
   padding: 1.15rem 1rem 1.2rem;
   cursor: pointer;
@@ -272,8 +272,8 @@
 
 .sf-plan.active {
   border-color: var(--forest);
-  box-shadow: 0 0 0 2px rgba(193, 125, 116, 0.18);
-  background: #fff;
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--terracotta) 18%, transparent);
+  background: var(--white);
 }
 
 .sf-plan__tag {
@@ -284,8 +284,8 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: var(--forest);
-  color: #fff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   padding: 0.25rem 0.45rem;
   border-radius: 999px;
 }

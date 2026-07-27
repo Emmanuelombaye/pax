@@ -9,9 +9,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint",
+    "lint": "oxlint src --ignore-pattern \"**/*.js\"",
     "preview": "vite preview",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "brand:prepare": "node scripts/prepare-brand-kit.mjs"
   },
   "dependencies": {
     "react": "^19.2.7",

@@ -132,8 +132,9 @@ export function ProgressRing({ value = 0, size = 88, stroke = 8, color = 'var(--
   );
 }
 
-export function BarRow({ label, value, max = 100, tone = 'teal' }) {
+export function BarRow({ label, value, max = 100, tone = 'forest' }) {
   const pct = Math.min(100, Math.round((value / max) * 100));
+  const toneClass = tone === 'terra' ? ' pc-bar-row__fill--terra' : '';
   return (
     <div className="pc-bar-row">
       <div className="pc-bar-row__meta">
@@ -141,7 +142,7 @@ export function BarRow({ label, value, max = 100, tone = 'teal' }) {
         <strong>{value}{typeof max === 'number' && max === 100 ? '%' : ''}</strong>
       </div>
       <div className="pc-bar-row__track">
-        <div className={`pc-bar-row__fill pc-bar-row__fill--${tone}`} style={{ width: `${pct}%` }} />
+        <div className={`pc-bar-row__fill${toneClass}`} style={{ width: `${pct}%` }} />
       </div>
     </div>
   );

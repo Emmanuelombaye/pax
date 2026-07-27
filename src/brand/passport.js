@@ -1,7 +1,8 @@
 /**
  * PAX LONGEVITY — Brand Passport (portable product identity)
  * Single source of truth for branding, product surface, and future connect hooks.
- * Keep this file frontend-only. Swap `connect.mode` later when wiring a real backend.
+ * CSS tokens: src/brand/kit.css (keep in sync with brand.colors)
+ * Brand kit PDF: pax-health-brand-kit.pdf · docs/brand-kit.md
  */
 
 export const PAX_PASSPORT = {
@@ -89,5 +90,21 @@ export const PAX_PASSPORT = {
 export const brand = PAX_PASSPORT.brand;
 export const colors = PAX_PASSPORT.brand.colors;
 export const logo = PAX_PASSPORT.brand.logo;
+
+/** Brand kit usage — mirrors docs/brand-kit.md */
+export const BRAND_KIT = {
+  colors: PAX_PASSPORT.brand.colors,
+  fonts: PAX_PASSPORT.brand.fonts,
+  usage: {
+    canvas: 'sand',
+    cards: 'dune',
+    primary: 'forest',
+    accent: 'terracotta',
+    text: 'ink',
+    buttons: { background: 'forest', text: 'sand', hoverOpacity: 0.9 },
+    headings: { family: 'display', color: 'ink', onDark: 'sand' },
+    body: { family: 'body', weight: 400, lineHeight: '1.5-1.7' },
+  },
+};
 
 export default PAX_PASSPORT;

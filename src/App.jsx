@@ -5,8 +5,8 @@ import { ROUTE_TABS } from './marketing/data.js';
 const PortalApp = lazy(() => import('./portal/PortalApp.jsx'));
 const StartFlow = lazy(() => import('./start/StartFlow.jsx'));
 
-function parseHashTab(hashRaw = window.location.hash) {
-  const hash = hashRaw.replace(/^#\/?/, '');
+function parseHashTab(hashRaw) {
+  const hash = (hashRaw ?? (typeof window !== 'undefined' ? window.location.hash : '')).replace(/^#\/?/, '');
   if (hash === 'portal' || hash.startsWith('portal/')) return 'portal';
   if (hash === 'start' || hash.startsWith('start/')) return 'start';
   if (ROUTE_TABS.includes(hash)) return hash;

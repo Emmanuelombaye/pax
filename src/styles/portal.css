@@ -58,11 +58,11 @@
 }
 .pp-btn:active { transform: scale(0.98); }
 .pp-btn--primary {
-  background: var(--forest, #2D5A3D);
-  color: var(--sand);
+  background: var(--btn-bg);
+  color: var(--btn-text);
   font-weight: 500;
 }
-.pp-btn--primary:hover { background: var(--forest, #2D5A3D); opacity: 0.9; }
+.pp-btn--primary:hover { background: var(--btn-bg); opacity: var(--btn-hover-opacity); }
 .pp-btn--outline,
 .pp-btn--ghost {
   background: transparent;
@@ -83,7 +83,7 @@
   background:
     linear-gradient(160deg, rgba(31, 26, 22, 0.55), rgba(31, 26, 22, 0.2)),
     url('/images/clinical-consultation.webp') center/cover;
-  color: #faf6f0;
+  color: var(--sand);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -174,10 +174,10 @@
   border: 1px solid rgba(31, 26, 22, 0.16);
   border-radius: 0.85rem;
   padding: 0.65rem 0.9rem;
-  background: #fff;
+  background: var(--white);
   font: inherit;
 }
-.pp-auth__error { color: #9b2c2c; margin: 0; }
+.pp-auth__error { color: var(--error); margin: 0; }
 .pp-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -325,8 +325,8 @@
   height: 1.25rem;
   padding: 0 0.35rem;
   border-radius: 999px;
-  background: var(--forest, #2D5A3D);
-  color: #fff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   font-size: 0.72rem;
   display: inline-grid;
   place-items: center;
@@ -446,8 +446,8 @@
 }
 .pc-btn:active { transform: scale(0.98); }
 .pc-btn--primary {
-  background: var(--forest, #2D5A3D);
-  color: #fff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
 }
 .pc-btn--ghost {
   background: rgba(31, 26, 22, 0.04);
@@ -642,7 +642,7 @@
   border-radius: 999px;
   padding: 0.65rem 1rem;
   font: inherit;
-  background: #fff;
+  background: var(--white);
 }
 
 .pc-video__stage {
@@ -655,7 +655,7 @@
   background:
     linear-gradient(160deg, rgba(31, 26, 22, 0.82), rgba(45, 90, 61, 0.55)),
     var(--beige);
-  color: #faf6f0;
+  color: var(--sand);
   margin-bottom: 1rem;
 }
 
