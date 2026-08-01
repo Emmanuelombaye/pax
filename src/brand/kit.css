@@ -4,37 +4,36 @@
  */
 
 :root {
-  /* —— Five colors (HEX fallback → OKLCH) —— */
+  /* —— Five master brand colors (Dark Green P+RX inspired) —— */
   --sand: #FAF6F0;
-  --forest: #2D5A3D;
+  --forest: #1C3F34;
   --terracotta: #C17C74;
   --dune: #E8C5A0;
-  --indigo: #3B5266;
+  --terracotta-sun: #C17C74;
 
   --sand: oklch(0.972 0.018 78);
-  --forest: oklch(0.405 0.063 152);
+  --forest: oklch(0.32 0.065 160);
   --terracotta: oklch(0.642 0.108 30);
   --dune: oklch(0.851 0.068 65);
-  --indigo: oklch(0.40 0.04 245);
 
-  /* Surfaces derived from kit only */
+  /* Master Surfaces (Forest on Sand default) */
   --white: var(--sand);
-  --card-surface: color-mix(in oklch, var(--dune) 42%, var(--sand));
-  --card-elevated: color-mix(in oklch, var(--dune) 55%, var(--sand));
+  --card-surface: color-mix(in oklch, var(--sand) 92%, var(--dune));
+  --card-elevated: color-mix(in oklch, var(--sand) 85%, var(--dune));
   --beige-pastel: color-mix(in oklch, var(--sand) 88%, var(--dune));
-  --section-tint: color-mix(in oklch, var(--sand) 92%, var(--dune));
+  --section-tint: color-mix(in oklch, var(--sand) 95%, var(--dune));
   --beige: var(--dune);
-  --ink: var(--indigo); /* legacy alias */
+  --ink: var(--forest);
 
-  /* Text */
-  --text-primary: var(--indigo);
-  --text-secondary: color-mix(in oklch, var(--indigo) 82%, transparent);
-  --text-light: color-mix(in oklch, var(--indigo) 58%, transparent);
+  /* Primary Text: Forest Green on Sand */
+  --text-primary: var(--forest);
+  --text-secondary: color-mix(in oklch, var(--forest) 80%, transparent);
+  --text-light: color-mix(in oklch, var(--forest) 60%, transparent);
   --text-on-forest: var(--sand);
   --text-on-dark: var(--sand);
-  --divider: color-mix(in oklch, var(--forest) 14%, transparent);
+  --divider: color-mix(in oklch, var(--forest) 15%, transparent);
 
-  /* Type — Instrument Serif only, weight 400 */
+  /* Type — Instrument Serif only everywhere */
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Instrument Serif', Georgia, serif;
   --font-weight: 400;
@@ -50,15 +49,15 @@
   --focus-ring: var(--terracotta);
   --btn-bg: var(--forest);
   --btn-text: var(--sand);
-  --btn-hover-opacity: 0.9;
-  --error: color-mix(in oklch, var(--terracotta) 72%, var(--indigo));
-  --warn: color-mix(in oklch, var(--terracotta) 70%, var(--indigo));
+  --btn-hover-opacity: 0.92;
+  --error: var(--terracotta);
+  --warn: var(--terracotta);
 
-  /* Shadows from indigo / forest — never raw #1F1A16 */
-  --shadow-sm: 0 2px 8px color-mix(in oklch, var(--indigo) 8%, transparent);
-  --shadow-md: 0 8px 24px color-mix(in oklch, var(--indigo) 10%, transparent);
-  --shadow-lg: 0 16px 48px color-mix(in oklch, var(--indigo) 14%, transparent);
-  --shadow-warm: 0 12px 32px color-mix(in oklch, var(--forest) 14%, transparent);
+  /* Shadows from forest green */
+  --shadow-sm: 0 2px 8px color-mix(in oklch, var(--forest) 8%, transparent);
+  --shadow-md: 0 8px 24px color-mix(in oklch, var(--forest) 12%, transparent);
+  --shadow-lg: 0 16px 48px color-mix(in oklch, var(--forest) 18%, transparent);
+  --shadow-warm: 0 12px 32px color-mix(in oklch, var(--forest) 15%, transparent);
 
   --duration: 0.35s;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

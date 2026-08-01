@@ -1,23 +1,23 @@
 <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pax Longevity seal">
-  <circle cx="240" cy="240" r="200" fill="none" stroke="#2D5A3D" stroke-width="2"/>
-  <circle cx="240" cy="240" r="190" fill="none" stroke="#2D5A3D" stroke-width="0.8"/>
+  <circle cx="240" cy="240" r="200" fill="none" stroke="#1C3F34" stroke-width="2"/>
+  <circle cx="240" cy="240" r="190" fill="none" stroke="#1C3F34" stroke-width="0.8"/>
   <defs>
     <path id="pax-seal-top" d="M 82 240 A 158 158 0 0 1 398 240"/>
     <path id="pax-seal-bottom" d="M 82 240 A 158 158 0 0 0 398 240"/>
   </defs>
-  <text font-family="'Instrument Serif', Georgia, serif" font-size="16" fill="#2D5A3D" style="letter-spacing:0.30em">
+  <text font-family="'Instrument Serif', Georgia, serif" font-size="16" fill="#1C3F34" style="letter-spacing:0.30em">
     <textPath href="#pax-seal-top" startOffset="50%" text-anchor="middle">PAX LONGEVITY</textPath>
   </text>
-  <text font-family="'Instrument Serif', Georgia, serif" font-size="13" fill="#2D5A3D" style="letter-spacing:0.30em">
-    <textPath href="#pax-seal-bottom" startOffset="50%" text-anchor="middle">HEALTH � VITALITY � BALANCE</textPath>
+  <text font-family="'Instrument Serif', Georgia, serif" font-size="13" fill="#1C3F34" style="letter-spacing:0.30em">
+    <textPath href="#pax-seal-bottom" startOffset="50%" text-anchor="middle">HEALTH • VITALITY • BALANCE</textPath>
   </text>
-  <text x="240" y="258" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="100" fill="#2D5A3D" style="letter-spacing:0.03em">PAX</text>
+  <text x="240" y="258" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="100" fill="#1C3F34" style="letter-spacing:0.03em">PAX</text>
   <circle cx="240" cy="288" r="4" fill="#C17C74"/>
   <g transform="translate(207, 308) scale(0.55)">
     <circle cx="60" cy="18" r="2.2" fill="#C17C74"/>
-    <path d="M60 34 C 50 52 50 72 60 92 C 70 72 70 52 60 34 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M60 92 C 34 88 22 74 22 58 C 40 58 54 72 60 92 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M60 92 C 86 88 98 74 98 58 C 80 58 66 72 60 92 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
-    <line x1="34" y1="98" x2="86" y2="98" stroke="#2D5A3D" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M60 34 C 50 52 50 72 60 92 C 70 72 70 52 60 34 Z" fill="none" stroke="#1C3F34" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M60 92 C 34 88 22 74 22 58 C 40 58 54 72 60 92 Z" fill="none" stroke="#1C3F34" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M60 92 C 86 88 98 74 98 58 C 80 58 66 72 60 92 Z" fill="none" stroke="#1C3F34" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="34" y1="98" x2="86" y2="98" stroke="#1C3F34" stroke-width="1.6" stroke-linecap="round"/>
   </g>
 </svg>
