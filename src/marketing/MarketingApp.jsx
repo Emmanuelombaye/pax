@@ -416,26 +416,58 @@ export default function MarketingApp({ currentTab }) {
               </div>
             </section>
 
-            {/* Supplemental lifestyle gallery — linked pillar pages */}
-            <section className="home-gallery-section">
+            {/* Luxury Editorial Lifestyle Showcase — Linked Pillar Pages */}
+            <section className="home-gallery-section pax-lifestyle-showcase">
               <div className="container">
                 <div className="section-header-center">
-                  <span className="section-label">The Pax Lifestyle</span>
-                  <h2 className="section-title">Longevity you can <em>feel.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
+                  <span className="section-label pax-lifestyle-eyebrow">The Pax Lifestyle • Architecture of Vitality</span>
+                  <h2 className="section-title pax-lifestyle-main-title">
+                    Longevity you can <em>feel.</em>
+                  </h2>
+                  <p className="hero-description pax-lifestyle-desc">
                     Italian summer meets Miami vitality — movement, nourishment, and coastal energy woven into every protocol.
                   </p>
+                  
+                  {/* Luxury Concept Tags */}
+                  <div className="pax-lifestyle-tags">
+                    <span className="pax-lifestyle-tag">✦ Mediterranean Sun</span>
+                    <span className="pax-lifestyle-tag">✦ Coastal Movement</span>
+                    <span className="pax-lifestyle-tag">✦ Metabolic Architecture</span>
+                    <span className="pax-lifestyle-tag">✦ Circadian Sync</span>
+                  </div>
                 </div>
-                <div className="lifestyle-gallery-grid">
+
+                {/* Editorial Bento / Grid */}
+                <div className="lifestyle-gallery-grid pax-lifestyle-grid">
                   {LIFESTYLE_PILLARS.map((pillar, index) => (
-                    <a key={pillar.id} href={`#/${pillar.id}`} className="lifestyle-gallery-card">
-                      <div className="lifestyle-gallery-image">
+                    <a key={pillar.id} href={`#/${pillar.id}`} className={`lifestyle-gallery-card pax-lifestyle-card pax-card-variant-${index + 1}`}>
+                      <div className="lifestyle-gallery-image pax-lifestyle-img-wrap">
                         <img src={pillar.image} alt={pillar.alt} loading="lazy" />
-                        <div className="lifestyle-gallery-overlay">
-                          <span className="lifestyle-gallery-num">{String(index + 1).padStart(2, '0')}</span>
-                          <h3 className="lifestyle-gallery-title">{pillar.title}</h3>
-                          <p className="lifestyle-gallery-teaser">{pillar.teaser}</p>
-                          <span className="lifestyle-gallery-cta">Explore <span aria-hidden="true">→</span></span>
+                        <div className="pax-lifestyle-badge">
+                          <span className="pax-badge-num">0{index + 1}</span>
+                          <span className="pax-badge-label">{pillar.eyebrow}</span>
+                        </div>
+                        <div className="lifestyle-gallery-overlay pax-lifestyle-card-overlay">
+                          <div className="pax-card-top-meta">
+                            <span className="pax-meta-pill">{pillar.caption}</span>
+                          </div>
+                          <div className="pax-card-body">
+                            <h3 className="lifestyle-gallery-title pax-card-title">{pillar.title}</h3>
+                            <p className="lifestyle-gallery-teaser pax-card-teaser">{pillar.teaser}</p>
+                            
+                            {/* Key practices preview tags */}
+                            <div className="pax-card-practices">
+                              {pillar.practices.slice(0, 2).map((practice, pIdx) => (
+                                <span key={pIdx} className="pax-practice-pill">✓ {practice.split(' ')[0]} {practice.split(' ')[1]} {practice.split(' ')[2]}</span>
+                              ))}
+                            </div>
+
+                            <div className="pax-card-footer">
+                              <span className="lifestyle-gallery-cta pax-card-cta">
+                                Explore Protocol <span className="pax-cta-arrow" aria-hidden="true">→</span>
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </a>
@@ -444,22 +476,51 @@ export default function MarketingApp({ currentTab }) {
               </div>
             </section>
 
-            {/* Full-width lifestyle band */}
-            <section className="home-cinematic-band">
+            {/* Cinematic Coastal Vitality Band with Live Stats */}
+            <section className="home-cinematic-band pax-coastal-band">
               <div
-                className="home-cinematic-band-bg"
+                className="home-cinematic-band-bg pax-band-bg"
                 style={{ backgroundImage: 'url(/images/home-scroll-banner.webp)' }}
                 role="img"
                 aria-label="Miami sunset coastal longevity lifestyle"
               />
-              <div className="home-cinematic-band-overlay" />
-              <div className="container home-cinematic-band-content">
-                <span className="section-label" style={{ color: 'rgba(250,246,240,0.85)' }}>Coastal Vitality</span>
-                <h2 className="home-cinematic-band-title">Your forever summer <em>starts here.</em></h2>
-                <p className="home-cinematic-band-text">
-                  Italian summer meets Miami vitality. Personalized Pax protocols built for the life you want to live.
-                </p>
-                <button className="btn btn-primary btn-quiz-trigger" onClick={openStart}>Find my treatment</button>
+              <div className="home-cinematic-band-overlay pax-band-gradient" />
+              <div className="container home-cinematic-band-content pax-band-content">
+                <div className="pax-band-glass-card">
+                  <span className="section-label pax-band-label">Coastal Vitality Protocol</span>
+                  <h2 className="home-cinematic-band-title pax-band-title">
+                    Your forever summer <em>starts here.</em>
+                  </h2>
+                  <p className="home-cinematic-band-text pax-band-text">
+                    Italian summer meets Miami vitality. Personalized Pax protocols built for the life you want to live.
+                  </p>
+
+                  <div className="pax-band-stats">
+                    <div className="pax-band-stat">
+                      <span className="stat-val">+14.2 Yrs</span>
+                      <span className="stat-lbl">Healthspan Target</span>
+                    </div>
+                    <div className="pax-band-stat-divider" />
+                    <div className="pax-band-stat">
+                      <span className="stat-val">98.4%</span>
+                      <span className="stat-lbl">Patient Vitality Index</span>
+                    </div>
+                    <div className="pax-band-stat-divider" />
+                    <div className="pax-band-stat">
+                      <span className="stat-val">100%</span>
+                      <span className="stat-lbl">Personalized Care</span>
+                    </div>
+                  </div>
+
+                  <div className="pax-band-actions">
+                    <button className="btn btn-primary btn-quiz-trigger pax-band-primary-btn" onClick={openStart}>
+                      Find My Treatment
+                    </button>
+                    <a href="#/treatments" className="btn btn-secondary pax-band-sec-btn">
+                      Explore All Protocols
+                    </a>
+                  </div>
+                </div>
               </div>
             </section>
 

@@ -877,84 +877,409 @@ ul { list-style: none; }
   color: var(--dark-terracotta);
 }
 
-/* ---------- Lifestyle Gallery (Longevity you can feel) ---------- */
-.lifestyle-gallery-grid {
+/* ---------- Lifestyle Gallery (Longevity you can feel) — REDESIGN ---------- */
+.pax-lifestyle-showcase {
+  background: linear-gradient(180deg, color-mix(in oklch, var(--dune) 70%, var(--sand)) 0%, color-mix(in oklch, var(--dune) 85%, var(--sand)) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--space-3xl) * 1.2) 0;
+}
+
+.pax-lifestyle-showcase::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 154, 141, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pax-lifestyle-eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--terracotta-sun);
+}
+
+.pax-lifestyle-main-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.pax-lifestyle-desc {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--dune);
+  opacity: 0.9;
+}
+
+/* Luxury Concept Tags */
+.pax-lifestyle-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.pax-lifestyle-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(193, 125, 116, 0.25);
+  color: var(--dark-terracotta);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Editorial Bento / Grid */
+.pax-lifestyle-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   margin-top: var(--space-2xl);
 }
 
-.lifestyle-gallery-card {
+@media (min-width: 640px) {
+  .pax-lifestyle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pax-lifestyle-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+.pax-lifestyle-card {
+  position: relative;
   display: block;
   text-decoration: none;
   color: inherit;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl, 24px);
   overflow: hidden;
-  border: 1px solid rgba(193, 125, 116, 0.2);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--duration) var(--ease-out);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 36px -8px rgba(59, 82, 102, 0.16);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
 }
 
-.lifestyle-gallery-card:active {
-  transform: scale(0.985);
+.pax-lifestyle-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 56px -12px rgba(59, 82, 102, 0.28);
+  border-color: rgba(230, 154, 141, 0.5);
 }
 
-.lifestyle-gallery-image {
+.pax-lifestyle-img-wrap {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 4.8;
   overflow: hidden;
 }
 
-.lifestyle-gallery-image img {
+.pax-lifestyle-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s var(--ease-out);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
 }
 
-.lifestyle-gallery-overlay {
+.pax-lifestyle-card:hover .pax-lifestyle-img-wrap img {
+  transform: scale(1.08);
+  filter: brightness(1.04);
+}
+
+/* Floating Luxury Badge */
+.pax-lifestyle-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(26, 38, 48, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--sand);
+}
+
+.pax-badge-num {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--terracotta-sun);
+}
+
+.pax-badge-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.95);
+}
+
+/* Card Overlay & Content */
+.pax-lifestyle-card-overlay {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: var(--space-lg);
-  background: linear-gradient(180deg, transparent 25%, rgba(59, 82, 102, 0.82) 100%);
-  z-index: 1;
+  justify-content: space-between;
+  padding: var(--space-xl);
+  background: linear-gradient(180deg, rgba(26, 38, 48, 0.15) 0%, rgba(26, 38, 48, 0.45) 45%, rgba(26, 38, 48, 0.92) 100%);
+  z-index: 2;
+  transition: background 0.4s ease;
 }
 
-.lifestyle-gallery-num {
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  color: rgba(250, 246, 240, 0.7);
-  margin-bottom: var(--space-xs);
+.pax-lifestyle-card:hover .pax-lifestyle-card-overlay {
+  background: linear-gradient(180deg, rgba(26, 38, 48, 0.1) 0%, rgba(26, 38, 48, 0.35) 40%, rgba(26, 38, 48, 0.95) 100%);
 }
 
-.lifestyle-gallery-title {
+.pax-card-top-meta {
+  display: flex;
+  align-items: center;
+}
+
+.pax-meta-pill {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(250, 246, 240, 0.2);
+  backdrop-filter: blur(6px);
+  color: var(--sand);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pax-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.pax-card-title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 400;
   color: var(--sand);
   line-height: 1.15;
-  margin-bottom: var(--space-xs);
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.lifestyle-gallery-teaser {
-  font-size: 0.82rem;
+.pax-card-teaser {
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: rgba(250, 246, 240, 0.88);
-  margin-bottom: var(--space-sm);
+  color: rgba(250, 246, 240, 0.9);
+  margin: 0;
 }
 
-.lifestyle-gallery-cta {
+.pax-card-practices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.pax-practice-pill {
   font-size: 0.72rem;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: rgba(250, 246, 240, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pax-card-footer {
+  margin-top: var(--space-xs);
+  display: flex;
+  align-items: center;
+}
+
+.pax-card-cta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--dune);
+  color: var(--terracotta-sun);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.pax-lifestyle-card:hover .pax-card-cta {
+  color: #FFF;
+  gap: 12px;
+}
+
+.pax-cta-arrow {
+  transition: transform 0.3s ease;
+}
+
+.pax-lifestyle-card:hover .pax-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Coastal Vitality Band (Restructured) ---------- */
+.pax-coastal-band {
+  position: relative;
+  padding: calc(var(--space-3xl) * 1.5) 0;
+  overflow: hidden;
+}
+
+.pax-band-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 10s ease-out;
+}
+
+.pax-coastal-band:hover .pax-band-bg {
+  transform: scale(1.04);
+}
+
+.pax-band-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 38, 48, 0.85) 0%, rgba(26, 38, 48, 0.6) 50%, rgba(26, 38, 48, 0.88) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.pax-band-content {
+  position: relative;
+  z-index: 3;
+}
+
+.pax-band-glass-card {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: clamp(var(--space-xl), 5vw, calc(var(--space-3xl)));
+  border-radius: var(--radius-2xl, 28px);
+  background: rgba(250, 246, 240, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.pax-band-label {
+  color: var(--terracotta-sun) !important;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+}
+
+.pax-band-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  color: var(--sand);
+  margin: var(--space-xs) 0 var(--space-md);
+  line-height: 1.1;
+}
+
+.pax-band-text {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: rgba(250, 246, 240, 0.92);
+  max-width: 620px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.6;
+}
+
+.pax-band-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  background: rgba(26, 38, 48, 0.45);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pax-band-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--terracotta-sun);
+}
+
+.stat-lbl {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.8);
+}
+
+.pax-band-stat-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 540px) {
+  .pax-band-stat-divider {
+    display: none;
+  }
+}
+
+.pax-band-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.pax-band-primary-btn {
+  padding: 14px 32px;
+  font-size: 0.95rem;
+}
+
+.pax-band-sec-btn {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  color: var(--sand);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+}
+
+.pax-band-sec-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #FFF;
 }
 
 /* ---------- Lifestyle Detail Pages ---------- */
