@@ -30,7 +30,7 @@
 
 .sf-top__login {
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--forest);
   white-space: nowrap;
 }
@@ -57,7 +57,7 @@
 .sf-progress__label {
   margin: 0.4rem 0 0;
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -99,7 +99,7 @@
 
 .sf-trust li {
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.4rem 0.7rem;
@@ -162,7 +162,7 @@
 .sf-badge {
   display: inline-flex;
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.25rem 0.55rem;
@@ -180,7 +180,7 @@
 }
 
 .sf-treat__meta strong { color: var(--ink); }
-.sf-treat__meta span { color: var(--text-light); font-weight: 600; }
+.sf-treat__meta span { color: var(--text-light); font-weight: 400; }
 
 .sf-cta {
   width: 100%;
@@ -204,7 +204,7 @@
   border-radius: 1rem;
   padding: 0.95rem 1.05rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--ink);
   cursor: pointer;
 }
@@ -225,7 +225,7 @@
   display: grid;
   gap: 0.35rem;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -237,7 +237,7 @@
   padding: 0.85rem 0.95rem;
   font: inherit;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: none;
   letter-spacing: normal;
   color: var(--ink);
@@ -281,7 +281,7 @@
   top: 0.65rem;
   right: 0.65rem;
   font-size: 0.6rem;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   background: var(--btn-bg);
@@ -315,7 +315,7 @@
   font-size: 0.82rem;
 }
 
-.sf-plan__total { margin: 0.35rem 0 0.15rem; font-weight: 600; }
+.sf-plan__total { margin: 0.35rem 0 0.15rem; font-weight: 400; }
 .sf-plan__note { margin: 0; }
 
 .sf-summary {
@@ -325,7 +325,7 @@
   align-items: center;
   padding: 1rem 1.1rem;
   border-radius: 1rem;
-  background: rgba(237, 213, 204, 0.45);
+  background: color-mix(in oklch, var(--dune) 55%, var(--sand));
   border: 1px solid rgba(193, 125, 116, 0.14);
   margin: 1rem 0;
 }
@@ -358,7 +358,7 @@
 
 .pp-auth__sim a {
   color: var(--forest);
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -401,7 +401,7 @@
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  color: rgba(31, 26, 22, 0.65);
+  color: rgba(59, 82, 102, 0.65);
   font-size: 0.82rem;
 }
 

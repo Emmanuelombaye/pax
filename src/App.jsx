@@ -16,6 +16,7 @@ function parseHashTab(hashRaw) {
 function SurfaceFallback() {
   return (
     <div className="pp-loading" role="status" aria-live="polite">
+      <img src="/brand/pax-monogram.svg" alt="" width="48" height="58" className="pp-loading__mark" />
       <p className="pp-muted">Loading Pax…</p>
     </div>
   );

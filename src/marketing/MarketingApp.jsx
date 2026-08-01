@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrandLogo } from '../brand/BrandLogo.jsx';
+import { BrandLogo, BrandIcon, PAX_PASSPORT } from '../brand/index.js';
 import { HOME_FAQS, LIFESTYLE_PILLARS, HERO_SLIDES } from './data.js';
 import LegalPage from './LegalPage.jsx';
 import { LEGAL_PAGE_IDS } from './legalContent.js';
@@ -187,7 +187,7 @@ export default function MarketingApp({ currentTab }) {
               </div>
 
               <div className="cinematic-content">
-                <h1 className="cinematic-title">Prevent decline <em>years before</em> symptoms.</h1>
+                <h1 className="cinematic-title">Live longer. Feel younger. <em>Age intentionally.</em></h1>
                 <p className="cinematic-subtitle">
                   Euro-summer warmth meets coastal longevity — compounded peptides, licensed U.S. providers, and overnight delivery to your door.
                 </p>
@@ -711,22 +711,22 @@ export default function MarketingApp({ currentTab }) {
                       </thead>
                       <tbody>
                         <tr style={{ borderBottom: '1px solid var(--divider)' }}>
-                          <td style={{ padding: 'var(--space-md)', fontWeight: '600' }}>Cardiovascular</td>
+                          <td style={{ padding: 'var(--space-md)', fontWeight: '400' }}>Cardiovascular</td>
                           <td style={{ padding: 'var(--space-md)' }}>ApoB, Lipoprotein(a), High-sensitivity CRP</td>
                           <td style={{ padding: 'var(--space-md)' }}>Lipid panel optimizations & hormone balance</td>
                         </tr>
                         <tr style={{ borderBottom: '1px solid var(--divider)' }}>
-                          <td style={{ padding: 'var(--space-md)', fontWeight: '600' }}>Metabolic</td>
+                          <td style={{ padding: 'var(--space-md)', fontWeight: '400' }}>Metabolic</td>
                           <td style={{ padding: 'var(--space-md)' }}>HbA1c, Fasting Insulin, Visceral Fat Ratio</td>
                           <td style={{ padding: 'var(--space-md)' }}>Compounded GLP-1 (Semaglutide) & NAD+ Support</td>
                         </tr>
                         <tr style={{ borderBottom: '1px solid var(--divider)' }}>
-                          <td style={{ padding: 'var(--space-md)', fontWeight: '600' }}>Neurodegenerative</td>
+                          <td style={{ padding: 'var(--space-md)', fontWeight: '400' }}>Neurodegenerative</td>
                           <td style={{ padding: 'var(--space-md)' }}>APOE genotyping, sleep quality metrics</td>
                           <td style={{ padding: 'var(--space-md)' }}>Sermorelin recovery cycles & sleep sync</td>
                         </tr>
                         <tr>
-                          <td style={{ padding: 'var(--space-md)', fontWeight: '600' }}>Oncological</td>
+                          <td style={{ padding: 'var(--space-md)', fontWeight: '400' }}>Oncological</td>
                           <td style={{ padding: 'var(--space-md)' }}>Hereditary cancer paneling, cell-free DNA</td>
                           <td style={{ padding: 'var(--space-md)' }}>Biomarker early detection guidance</td>
                         </tr>
@@ -1293,8 +1293,13 @@ export default function MarketingApp({ currentTab }) {
             <div className="footer-brand">
               <BrandLogo variant="footer" />
               <p className="footer-tagline">
-                Proactive Longevity & Preventative Health. Miami Beach, Florida.
+                {PAX_PASSPORT.product.tagline}
+                <br />
+                Miami Beach, Florida.
               </p>
+              <div className="footer-socials" aria-hidden="true">
+                <BrandIcon name="sun" size={56} className="footer-kit-mark" />
+              </div>
               <div className="footer-socials">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram">
                   <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>

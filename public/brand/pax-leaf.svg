@@ -1,0 +1,7 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pax leaf">
+  <circle cx="60" cy="18" r="2.2" fill="#C17C74"/>
+  <path d="M60 34 C 50 52 50 72 60 92 C 70 72 70 52 60 34 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M60 92 C 34 88 22 74 22 58 C 40 58 54 72 60 92 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M60 92 C 86 88 98 74 98 58 C 80 58 66 72 60 92 Z" fill="none" stroke="#2D5A3D" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="34" y1="98" x2="86" y2="98" stroke="#2D5A3D" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

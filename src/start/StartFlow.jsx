@@ -1,12 +1,11 @@
 ﻿import { useEffect, useMemo, useState } from 'react';
-import { BrandMark } from '../brand/BrandMark.jsx';
-import { INTAKE_STEPS, PLANS, TREATMENTS, TRUST_POINTS } from './startFlowData.js';
+import { BrandMark, PAX_PASSPORT } from '../brand/index.js';
 import {
   completePurchaseSignup,
   getPendingOrder,
   savePendingOrder,
 } from '../brand/connect.js';
-import { PAX_PASSPORT } from '../brand/passport.js';
+import { INTAKE_STEPS, PLANS, TREATMENTS, TRUST_POINTS } from './startFlowData.js';
 
 const STEPS = ['treatment', 'intake', 'plan', 'checkout', 'verify', 'account'];
 

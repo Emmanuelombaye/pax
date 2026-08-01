@@ -10,9 +10,10 @@
 |-------|--------|
 | **Product** | Pax Longevity |
 | **Slug** | `pax` |
-| **Tagline** | Prevent decline years before symptoms. |
+| **Tagline** | Live longer. Feel younger. Age intentionally. |
 | **Category** | Longevity · Peptide Care · Patient Center |
-| **Tone** | Calm, clinical-confident, coastal, premium |
+| **Tone** | Calm, confident, intentional — never salesy |
+| **Brand kit (client)** | https://pax-longevity-flow.lovable.app/ |
 
 ---
 
@@ -21,15 +22,14 @@
 | Token | Value |
 |-------|--------|
 | Sand (canvas) | `#FAF6F0` |
-| Dune (cards / warm neutral) | `#E8C5A0` |
-| Terracotta (accent) | `#C17C74` |
 | Forest (primary / CTAs) | `#2D5A3D` |
-| Ink (text) | `#1F1A16` |
-| Display font | Instrument Serif |
-| Body font | Work Sans |
-| Logo | `/images/pax-logo.webp` (+ PNG fallback) |
+| Terracotta (accent) | `#C17C74` |
+| Dune (cards / warm neutral) | `#E8C5A0` |
+| Indigo (text) | `#3B5266` |
+| Typeface | Instrument Serif only (400 + italic) |
+| Logo | `/brand/pax-horizontal.svg` (+ stacked / seal / monogram) |
 
-Source of truth in code: `src/brand/passport.js`
+Source of truth: client handoff + `src/brand/passport.js` · `docs/client-brand-kit.md`
 
 ---
 

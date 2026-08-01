@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pax sunrise">
+  <line x1="20" y1="78" x2="180" y2="78" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M 82 78 A 18 18 0 0 1 118 78" fill="none" stroke="#C17C74" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="76" y1="78" x2="54" y2="78" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="76.81778016906236" y1="71.7883429175395" x2="55.567411990702865" y2="66.09432392528403" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="79.21539030917347" y1="66" x2="60.16283142591582" y2="55" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="83.02943725152286" y1="61.02943725152286" x2="67.4730880654188" y2="45.473088065418814" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="88" y1="57.21539030917347" x2="76.99999999999999" y2="38.16283142591583" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="93.78834291753951" y1="54.81778016906236" x2="88.09432392528406" y2="33.56741199070285" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="100" y1="54" x2="100" y2="32" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="106.2116570824605" y1="54.81778016906236" x2="111.90567607471597" y2="33.567411990702865" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="112" y1="57.21539030917347" x2="123" y2="38.16283142591582" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="116.97056274847714" y1="61.029437251522864" x2="132.5269119345812" y2="45.473088065418814" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="120.78460969082653" y1="66" x2="139.8371685740842" y2="55.00000000000001" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="123.18221983093764" y1="71.7883429175395" x2="144.43258800929715" y2="66.09432392528404" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="124" y1="78" x2="146" y2="78" stroke="#C17C74" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

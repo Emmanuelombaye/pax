@@ -1,29 +1,37 @@
-import { logo } from './passport.js';
+import { resolveMark } from './marks.js';
 
-/** Marketing header/footer brand mark — driven by brand passport */
-export function BrandLogo({ variant = 'header', onClick }) {
+/**
+ * Marketing brand lockup (header / drawer / footer).
+ * mark: horizontal | stacked | seal | monogram
+ */
+export function BrandLogo({
+  variant = 'header',
+  mark,
+  onClick,
+  className = '',
+}) {
+  const resolvedMark =
+    mark || (variant === 'drawer' ? 'stacked' : 'horizontal');
+  const asset = resolveMark(resolvedMark);
   const isHeader = variant === 'header';
 
   return (
     <a
       href="#/"
-      className={`brand-logo brand-logo--${variant}`}
+      className={`brand-logo brand-logo--${variant} ${className}`.trim()}
       aria-label="Pax Longevity home"
       onClick={onClick}
     >
-      <picture className="brand-logo__picture">
-        <source srcSet={logo.webp} type="image/webp" />
-        <img
-          src={logo.png}
-          alt={logo.alt}
-          width={logo.width}
-          height={logo.height}
-          className="brand-logo__img"
-          loading={isHeader ? 'eager' : 'lazy'}
-          decoding="async"
-          fetchPriority={isHeader ? 'high' : 'auto'}
-        />
-      </picture>
+      <img
+        src={asset.src}
+        alt={asset.alt}
+        width={asset.width}
+        height={asset.height}
+        className="brand-logo__img"
+        loading={isHeader ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchPriority={isHeader ? 'high' : 'auto'}
+      />
     </a>
   );
 }

@@ -51,7 +51,7 @@ export function AreaChart({
         const y = pad.t + h - ((t - min) / span) * h;
         return (
           <g key={t}>
-            <line x1={pad.l} x2={pad.l + w} y1={y} y2={y} stroke="rgba(31,26,22,0.08)" />
+            <line x1={pad.l} x2={pad.l + w} y1={y} y2={y} stroke="rgba(59, 82, 102,0.08)" />
             <text x={pad.l - 8} y={y + 4} textAnchor="end" className="pc-chart__tick">
               {formatY(Math.round(t * 10) / 10)}
             </text>
@@ -112,7 +112,7 @@ export function ProgressRing({ value = 0, size = 88, stroke = 8, color = 'var(--
   const offset = c - (Math.min(100, Math.max(0, value)) / 100) * c;
   return (
     <svg className="pc-ring" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(31,26,22,0.08)" strokeWidth={stroke} />
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(59, 82, 102,0.08)" strokeWidth={stroke} />
       <circle
         cx={size / 2}
         cy={size / 2}

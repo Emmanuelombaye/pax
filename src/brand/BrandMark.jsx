@@ -1,19 +1,27 @@
-import { logo } from './passport.js';
+import { resolveMark } from './marks.js';
 
-/** Shared Pax brand mark for portal + start funnel — driven by brand passport */
-export function BrandMark({ size = 'md', className = '' }) {
+/**
+ * Portal + start funnel brand mark.
+ * mark: horizontal | stacked | seal | monogram
+ * size: sm | md | lg | hero
+ */
+export function BrandMark({
+  size = 'md',
+  mark = 'horizontal',
+  className = '',
+}) {
+  const asset = resolveMark(mark);
+
   return (
     <div className={`pp-brand pp-brand--${size} ${className}`.trim()}>
-      <picture>
-        <source srcSet={logo.webp} type="image/webp" />
-        <img
-          src={logo.png}
-          alt={logo.alt}
-          className="pp-brand__img"
-          width={logo.width}
-          height={logo.height}
-        />
-      </picture>
+      <img
+        src={asset.src}
+        alt={asset.alt}
+        className="pp-brand__img"
+        width={asset.width}
+        height={asset.height}
+        decoding="async"
+      />
     </div>
   );
 }

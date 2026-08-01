@@ -1,16 +1,17 @@
 /**
- * PAX LONGEVITY — Brand Passport (portable product identity)
- * Single source of truth for branding, product surface, and future connect hooks.
- * CSS tokens: src/brand/kit.css (keep in sync with brand.colors)
- * Brand kit PDF: pax-health-brand-kit.pdf · docs/brand-kit.md
+ * PAX LONGEVITY — Brand Passport
+ * Client source of truth: https://pax-longevity-flow.lovable.app/
+ * Tokens: src/brand/kit.css · Docs: docs/client-brand-kit.md
  */
 
+import { MARKS, ICONS } from './marks.js';
+
 export const PAX_PASSPORT = {
-  version: '1.0.0',
+  version: '1.2.0',
   product: {
     name: 'Pax Longevity',
     legalName: 'Pax Longevity',
-    tagline: 'Prevent decline years before symptoms.',
+    tagline: 'Live longer. Feel younger. Age intentionally.',
     shortName: 'Pax',
     category: 'Longevity · Peptide Care · Patient Center',
     locale: 'en-US',
@@ -20,42 +21,47 @@ export const PAX_PASSPORT = {
     slug: 'pax',
     supportEmail: 'support@pax-longevity.com',
     marketingUrl: 'https://www.pax-longevity.com',
+    brandKitUrl: 'https://pax-longevity-flow.lovable.app/',
     portalPath: '#/portal',
     startPath: '#/start',
   },
 
   brand: {
+    /** Five kit colors — nothing else */
     colors: {
-      // HEX for components; OKLCH is brand-kit source of truth for web CSS
       sand: '#FAF6F0',
-      dune: '#E8C5A0',
-      terracotta: '#C17C74',
       forest: '#2D5A3D',
-      ink: '#1F1A16',
-      white: '#FFFFFF',
+      terracotta: '#C17C74',
+      dune: '#E8C5A0',
+      indigo: '#3B5266',
       oklch: {
         sand: 'oklch(0.972 0.018 78)',
-        dune: 'oklch(0.851 0.068 65)',
-        terracotta: 'oklch(0.642 0.108 30)',
         forest: 'oklch(0.405 0.063 152)',
-        ink: 'oklch(0.21 0.012 60)',
+        terracotta: 'oklch(0.642 0.108 30)',
+        dune: 'oklch(0.851 0.068 65)',
+        indigo: 'oklch(0.40 0.04 245)',
       },
     },
     fonts: {
-      display: "'Instrument Serif', Georgia, serif",
-      body: "'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif",
-      bodyWeights: [300, 400, 500, 600],
+      family: "'Instrument Serif', Georgia, serif",
+      weights: [400],
+      italicOnlyEmphasis: true,
     },
+    marks: MARKS,
+    icons: ICONS,
+    /** Convenience default lockup */
     logo: {
-      webp: '/images/pax-logo.webp',
-      png: '/images/pax-logo.png',
-      width: 270,
-      height: 280,
-      alt: 'Pax Longevity',
+      ...MARKS.horizontal,
+      horizontal: MARKS.horizontal.src,
+      stacked: MARKS.stacked.src,
+      seal: MARKS.seal.src,
+      monogram: MARKS.monogram.src,
+      sun: ICONS.sun.src,
+      leaf: ICONS.leaf.src,
     },
     voice: {
-      tone: ['calm', 'clinical-confident', 'coastal', 'premium'],
-      avoid: ['hype', 'clinical jargon overload', 'green medical clichés'],
+      tone: ['calm', 'confident', 'intentional', 'never salesy'],
+      avoid: ['hype', 'optimize your health today', 'sans-serif UI fonts', 'bold type'],
     },
   },
 
@@ -67,11 +73,6 @@ export const PAX_PASSPORT = {
     affiliate: false,
   },
 
-  /**
-   * Connect contract — local-first today, remote-ready tomorrow.
-   * mode: 'local' | 'remote'
-   * When remote, set baseUrl + apiKey via env; no Peak coupling required.
-   */
   connect: {
     mode: (import.meta.env.VITE_PAX_CONNECT_MODE || 'local').trim(),
     baseUrl: (import.meta.env.VITE_PAX_API_URL || '').trim(),
@@ -81,9 +82,11 @@ export const PAX_PASSPORT = {
   },
 
   compliance: {
-    framing: 'Pax Longevity patient platform for longevity care, licensed U.S. providers, and compounding pharmacy fulfillment.',
+    framing:
+      'Pax Longevity patient platform for longevity care, licensed U.S. providers, and compounding pharmacy fulfillment.',
     compounding: '503A compounded medications are not FDA-approved as finished products.',
-    demoDisclaimer: 'Patient Center demo data is stored locally on this device until a production backend is connected.',
+    demoDisclaimer:
+      'Patient Center demo data is stored locally on this device until a production backend is connected.',
   },
 };
 
@@ -91,19 +94,23 @@ export const brand = PAX_PASSPORT.brand;
 export const colors = PAX_PASSPORT.brand.colors;
 export const logo = PAX_PASSPORT.brand.logo;
 
-/** Brand kit usage — mirrors docs/brand-kit.md */
+/** Runtime brand-kit contract for UI + docs */
 export const BRAND_KIT = {
+  source: PAX_PASSPORT.identity.brandKitUrl,
+  tagline: PAX_PASSPORT.product.tagline,
   colors: PAX_PASSPORT.brand.colors,
   fonts: PAX_PASSPORT.brand.fonts,
+  marks: MARKS,
+  icons: ICONS,
   usage: {
     canvas: 'sand',
     cards: 'dune',
     primary: 'forest',
     accent: 'terracotta',
-    text: 'ink',
+    text: 'indigo',
     buttons: { background: 'forest', text: 'sand', hoverOpacity: 0.9 },
-    headings: { family: 'display', color: 'ink', onDark: 'sand' },
-    body: { family: 'body', weight: 400, lineHeight: '1.5-1.7' },
+    type: { family: 'Instrument Serif', weight: 400, emphasis: 'italic', lineHeight: 1.55 },
+    logoDefault: 'horizontal',
   },
 };
 

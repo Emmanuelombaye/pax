@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BrandMark } from '../brand/BrandMark.jsx';
-import { PAX_PASSPORT } from '../brand/passport.js';
+import { BrandMark, PAX_PASSPORT } from '../brand/index.js';
 import {
   getCurrentUser,
   getSession,
@@ -58,7 +57,7 @@ function AuthScreen({ onAuthed }) {
       <div className="pp-auth__visual" aria-hidden="true">
         <div className="pp-auth__glow" />
         <div className="pp-auth__copy">
-          <BrandMark size="hero" className="pp-brand--on-dark" />
+          <BrandMark size="hero" mark="horizontal" className="pp-brand--on-dark" />
           <p className="pp-eyebrow">Patient Center</p>
           <h1>Your care, clearly arranged.</h1>
           <p>
