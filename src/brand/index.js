@@ -12,7 +12,8 @@ export {
   default as default,
 } from './passport.js';
 
-export { MARKS, ICONS, resolveMark, resolveIcon } from './marks.js';
+export { MARKS, ICONS, LOGO_COMPARE, resolveMark, resolveIcon } from './marks.js';
 export { BrandLogo } from './BrandLogo.jsx';
 export { BrandMark } from './BrandMark.jsx';
 export { BrandIcon } from './BrandIcon.jsx';
+

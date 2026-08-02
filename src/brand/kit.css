@@ -1,37 +1,51 @@
 /* Pax Longevity Brand Kit — web tokens + utilities
  * Source of truth: https://pax-longevity-flow.lovable.app/
+ * Interim primary: Dark Green P+RX forest (#1C3F34)
  * See docs/client-brand-kit.md
  */
 
 :root {
-  /* —— Five master brand colors (Dark Green P+RX inspired) —— */
+  /* —— Five master brand colors (HEX fallbacks, then OKLCH truth) —— */
   --sand: #FAF6F0;
   --forest: #1C3F34;
   --terracotta: #C17C74;
   --dune: #E8C5A0;
+  --indigo: #3B5266; /* kit table only — do not use as ink or large surfaces */
   --terracotta-sun: #C17C74;
 
   --sand: oklch(0.972 0.018 78);
-  --forest: oklch(0.32 0.065 160);
+  --forest: oklch(0.32 0.065 160); /* P+RX dark green ≈ #1C3F34 */
   --terracotta: oklch(0.642 0.108 30);
   --dune: oklch(0.851 0.068 65);
+  --indigo: oklch(0.40 0.04 245);
 
   /* Master Surfaces (Forest on Sand default) */
   --white: var(--sand);
-  --card-surface: color-mix(in oklch, var(--sand) 92%, var(--dune));
-  --card-elevated: color-mix(in oklch, var(--sand) 85%, var(--dune));
-  --beige-pastel: color-mix(in oklch, var(--sand) 88%, var(--dune));
-  --section-tint: color-mix(in oklch, var(--sand) 95%, var(--dune));
+  --card-surface: color-mix(in oklch, var(--sand) 94%, var(--dune));
+  --card-elevated: color-mix(in oklch, var(--sand) 90%, var(--dune));
+  --beige-pastel: color-mix(in oklch, var(--sand) 92%, var(--dune));
+  --section-tint: color-mix(in oklch, var(--sand) 96%, var(--dune));
   --beige: var(--dune);
   --ink: var(--forest);
 
-  /* Primary Text: Forest Green on Sand */
+  /* Primary Text: Forest Green on Sand — never indigo */
   --text-primary: var(--forest);
-  --text-secondary: color-mix(in oklch, var(--forest) 80%, transparent);
-  --text-light: color-mix(in oklch, var(--forest) 60%, transparent);
+  --text-secondary: color-mix(in oklch, var(--forest) 78%, transparent);
+  --text-light: color-mix(in oklch, var(--forest) 58%, transparent);
   --text-on-forest: var(--sand);
   --text-on-dark: var(--sand);
-  --divider: color-mix(in oklch, var(--forest) 15%, transparent);
+  --divider: color-mix(in oklch, var(--forest) 14%, transparent);
+
+  /* Scrims for photography overlays (forest, not navy/indigo) */
+  --scrim-soft: color-mix(in oklch, var(--forest) 35%, transparent);
+  --scrim-mid: color-mix(in oklch, var(--forest) 55%, transparent);
+  --scrim-strong: color-mix(in oklch, var(--forest) 78%, transparent);
+  --scrim-hero: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--forest) 18%, transparent) 0%,
+    color-mix(in oklch, var(--forest) 42%, transparent) 45%,
+    color-mix(in oklch, var(--forest) 82%, transparent) 100%
+  );
 
   /* Type — Instrument Serif only everywhere */
   --font-display: 'Instrument Serif', Georgia, serif;

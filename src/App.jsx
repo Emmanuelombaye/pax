@@ -4,11 +4,13 @@ import { ROUTE_TABS } from './marketing/data.js';
 
 const PortalApp = lazy(() => import('./portal/PortalApp.jsx'));
 const StartFlow = lazy(() => import('./start/StartFlow.jsx'));
+const BrandCompare = lazy(() => import('./marketing/BrandCompare.jsx'));
 
 function parseHashTab(hashRaw) {
   const hash = (hashRaw ?? (typeof window !== 'undefined' ? window.location.hash : '')).replace(/^#\/?/, '');
   if (hash === 'portal' || hash.startsWith('portal/')) return 'portal';
   if (hash === 'start' || hash.startsWith('start/')) return 'start';
+  if (hash === 'brand-compare') return 'brand-compare';
   if (ROUTE_TABS.includes(hash)) return hash;
   return 'home';
 }
@@ -54,6 +56,14 @@ export default function App() {
             window.location.hash = '#/portal';
           }}
         />
+      </Suspense>
+    );
+  }
+
+  if (currentTab === 'brand-compare') {
+    return (
+      <Suspense fallback={<SurfaceFallback />}>
+        <BrandCompare />
       </Suspense>
     );
   }

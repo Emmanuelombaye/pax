@@ -43,14 +43,14 @@
 
 .sf-progress__track {
   height: 0.35rem;
-  background: rgba(45, 90, 61, 0.12);
+  background: rgba(28, 63, 52, 0.12);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .sf-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--forest), rgba(45, 90, 61, 0.75));
+  background: linear-gradient(90deg, var(--forest), rgba(28, 63, 52, 0.75));
   transition: width 0.35s var(--ease-out);
 }
 
@@ -343,7 +343,7 @@
 .sf-hold {
   font-size: 0.8rem;
   color: var(--forest);
-  background: rgba(45, 90, 61, 0.1);
+  background: rgba(28, 63, 52, 0.1);
   border-radius: var(--radius-md);
   padding: 0.65rem 0.8rem;
   margin-bottom: 1rem;

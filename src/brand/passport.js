@@ -2,12 +2,13 @@
  * PAX LONGEVITY — Brand Passport
  * Client source of truth: https://pax-longevity-flow.lovable.app/
  * Tokens: src/brand/kit.css · Docs: docs/client-brand-kit.md
+ * Interim primary forest: Dark Green P+RX (#1C3F34)
  */
 
 import { MARKS, ICONS } from './marks.js';
 
 export const PAX_PASSPORT = {
-  version: '1.2.0',
+  version: '1.3.0',
   product: {
     name: 'Pax Longevity',
     legalName: 'Pax Longevity',
@@ -27,16 +28,16 @@ export const PAX_PASSPORT = {
   },
 
   brand: {
-    /** Five kit colors — nothing else */
+    /** Five kit colors — nothing else. Forest is P+RX dark green for this interim pass. */
     colors: {
       sand: '#FAF6F0',
-      forest: '#2D5A3D',
+      forest: '#1C3F34',
       terracotta: '#C17C74',
       dune: '#E8C5A0',
       indigo: '#3B5266',
       oklch: {
         sand: 'oklch(0.972 0.018 78)',
-        forest: 'oklch(0.405 0.063 152)',
+        forest: 'oklch(0.32 0.065 160)',
         terracotta: 'oklch(0.642 0.108 30)',
         dune: 'oklch(0.851 0.068 65)',
         indigo: 'oklch(0.40 0.04 245)',
@@ -53,6 +54,7 @@ export const PAX_PASSPORT = {
     logo: {
       ...MARKS.horizontal,
       horizontal: MARKS.horizontal.src,
+      horizontalOnDark: MARKS.horizontalOnDark?.src,
       stacked: MARKS.stacked.src,
       seal: MARKS.seal.src,
       monogram: MARKS.monogram.src,
@@ -107,10 +109,11 @@ export const BRAND_KIT = {
     cards: 'dune',
     primary: 'forest',
     accent: 'terracotta',
-    text: 'indigo',
+    text: 'forest',
     buttons: { background: 'forest', text: 'sand', hoverOpacity: 0.9 },
     type: { family: 'Instrument Serif', weight: 400, emphasis: 'italic', lineHeight: 1.55 },
     logoDefault: 'horizontal',
+    note: 'Indigo remains in the kit table for rare print use only — never as body text or large web surfaces. Forest is P+RX dark green (#1C3F34) for this interim pass.',
   },
 };
 

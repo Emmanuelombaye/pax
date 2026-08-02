@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrandLogo, BrandIcon, PAX_PASSPORT } from '../brand/index.js';
-import { HOME_FAQS, LIFESTYLE_PILLARS, HERO_SLIDES } from './data.js';
+import { HOME_FAQS, LIFESTYLE_PILLARS, HOME_PROGRAMS, HOME_CHIPS, HOME_DOCTORS } from './data.js';
 import LegalPage from './LegalPage.jsx';
 import { LEGAL_PAGE_IDS } from './legalContent.js';
 
@@ -13,45 +13,6 @@ export default function MarketingApp({ currentTab }) {
   const [activeFaq, setActiveFaq] = useState(null);
   
 
-  // Cinematic slideshow slide index
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isDesktopHero, setIsDesktopHero] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
-  );
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    const onChange = () => setIsDesktopHero(mq.matches);
-    onChange();
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-
-  useEffect(() => {
-    if (currentTab !== 'home') return;
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [currentTab]);
-
-  useEffect(() => {
-    if (currentTab !== 'home') return;
-    const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
-    const preload = (src) => {
-      const img = new Image();
-      img.src = src;
-    };
-    const current = HERO_SLIDES[activeSlide];
-    const next = HERO_SLIDES[nextIndex];
-    if (isDesktopHero) {
-      preload(current.desktop);
-      preload(next.desktop);
-    } else {
-      preload(current.mobile);
-      preload(next.mobile);
-    }
-  }, [activeSlide, currentTab, isDesktopHero]);
 
   useEffect(() => {
     setIsNavOpen(false);
@@ -165,389 +126,192 @@ export default function MarketingApp({ currentTab }) {
       <main style={{ minHeight: '60vh' }}>
         
         {/* ==================== HOME PAGE VIEW ==================== */}
-        {currentTab === 'home' && (
-          <div className="fade-in">
-            {/* Cinematic Background Slideshow Hero (HLI Style) */}
-            <section className="cinematic-hero">
-              <div className="slideshow-container">
-                {HERO_SLIDES.map((slide, index) => {
-                  const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
-                  const shouldLoad = index === activeSlide || index === nextIndex;
-                  return (
-                  <div
-                    key={slide.mobile}
-                    className={`slide-item ${index === activeSlide ? 'active' : ''}`}
-                    style={shouldLoad ? {
-                      '--hero-mobile': `url(${slide.mobile})`,
-                      '--hero-desktop': `url(${slide.desktop})`,
-                    } : undefined}
-                  />
-                );})}
-                <div className="slideshow-overlay" />
-              </div>
 
-              <div className="cinematic-content">
-                <h1 className="cinematic-title">Live longer. Feel younger. <em>Age intentionally.</em></h1>
-                <p className="cinematic-subtitle">
-                  Euro-summer warmth meets coastal longevity — compounded peptides, licensed U.S. providers, and overnight delivery to your door.
+        {currentTab === 'home' && (
+          <div className="fade-in home-card-flow">
+            {/* Split hero — copy + product/lifestyle cards */}
+            <section className="cf-hero">
+              <div className="cf-hero__copy">
+                <p className="cf-kicker">Telehealth · Longevity · Performance</p>
+                <h1 className="cf-hero__title">
+                  Live longer. Feel younger.<br />Age intentionally.
+                </h1>
+                <p className="cf-hero__lede">
+                  Pax Longevity is a physician-led virtual practice — GLP-1s, hormones, peptides, and vitality protocols prescribed by licensed U.S. doctors and shipped to your door.
                 </p>
-                <div className="hero-actions-centered">
-                  <button className="btn btn-primary btn-quiz-trigger" onClick={openStart}>Find my treatment</button>
-                  <a href="#/threats" className="btn btn-outline-white">Explore Diagnostics</a>
+                <div className="cf-trust">
+                  <span>✓ HIPAA Compliant</span>
+                  <span>✓ CLIA Certified Labs</span>
+                  <span>✓ CAP Accredited Partners</span>
+                  <span>✓ 503A Pharmacy Partners</span>
+                </div>
+                <div className="cf-hero__actions">
+                  <button type="button" className="cf-btn-ink" onClick={openStart}>Find my treatment</button>
+                  <a href="#/treatments" className="cf-btn-ghost">View treatments</a>
                 </div>
               </div>
 
-              {/* Navigation indicators */}
-              <div className="slideshow-nav">
-                {HERO_SLIDES.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    className={`slideshow-indicator ${idx === activeSlide ? 'active' : ''}`}
-                    onClick={() => setActiveSlide(idx)}
-                    aria-label={`Go to slide ${idx + 1}`}
+              <div className="cf-hero__cards">
+                <button type="button" className="cf-feature-card cf-feature-card--dune" onClick={openStart}>
+                  <div className="cf-feature-card__top">
+                    <p className="cf-feature-card__eyebrow">Start intake</p>
+                    <h3 className="cf-feature-card__title">Find my treatment</h3>
+                  </div>
+                  <div className="cf-feature-card__product-wrap">
+                    <img
+                      className="cf-feature-card__product"
+                      src="/images/cards/glp-pen.png"
+                      alt="Weight-loss pen"
+                      loading="eager"
+                    />
+                  </div>
+                  <div className="cf-feature-card__cta">
+                    <span>Begin assessment</span>
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </button>
+
+                <a href="#/vision" className="cf-feature-card cf-feature-card--photo">
+                  <img
+                    className="cf-feature-card__bg"
+                    src="/images/cards/lifestyle-runner.png"
+                    alt="Daily longevity practice"
+                    loading="eager"
                   />
+                  <div className="cf-feature-card__scrim" />
+                  <div className="cf-feature-card__top cf-feature-card__top--light">
+                    <p className="cf-feature-card__eyebrow">We believe longevity</p>
+                    <h3 className="cf-feature-card__title">is a daily practice</h3>
+                  </div>
+                  <div className="cf-feature-card__cta cf-feature-card__cta--light">
+                    <span>Our philosophy</span>
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            {/* Program chips */}
+            <section className="cf-chips" aria-label="Programs">
+              <div className="cf-chips__row">
+                {HOME_CHIPS.map((chip) => (
+                  <a key={chip.label} href={chip.href} className="cf-chip">
+                    <span>{chip.label}</span>
+                    <span className="cf-chip__arrow" aria-hidden="true">→</span>
+                  </a>
                 ))}
               </div>
             </section>
 
-            {/* Stats Strip */}
-            <section className="stats-strip">
-              <div className="container">
-                <div className="stats-grid">
-                  <div className="stats-item">
-                    <div className="stats-num">30+</div>
-                    <div className="stats-label">Diagnostics In One Visit</div>
-                  </div>
-                  <div className="stats-item">
-                    <div className="stats-num">1 in 5</div>
-                    <div className="stats-label">Adults Carry Undetected Risks</div>
-                  </div>
-                  <div className="stats-item">
-                    <div className="stats-num">10,000+</div>
-                    <div className="stats-label">Intakes Reviewed Safely</div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Personal Guidance — boxed feature cards */}
-            <section className="guidance-section">
-              <div className="container">
-                <div className="guidance-grid">
-                  <div className="guidance-card pastel-box">
-                    <span className="guidance-label">Personalized Care</span>
-                    <h3 className="guidance-title">See personal guidance</h3>
-                    <p className="guidance-text">
-                      Every patient receives a tailored longevity plan built around your goals, biomarkers, and clinical history — not a one-size-fits-all protocol.
-                    </p>
-                  </div>
-                  <div className="guidance-card pastel-box">
-                    <span className="guidance-label">Clinical Oversight</span>
-                    <h3 className="guidance-title">Provider consultation</h3>
-                    <p className="guidance-text">
-                      A licensed U.S. practitioner reviews your online health intake within 24 hours and guides your treatment path from first assessment through delivery.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* How It Works Section */}
-            <section className="how-it-works" id="how-it-works">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Care Pathway</span>
-                  <h2 className="section-title">How <em>it works.</em></h2>
-                </div>
-                
-                <div className="steps-grid">
-                  <div className="step-card pastel-box">
-                    <span className="step-num">01</span>
-                    <h3 className="step-title">Online Health Intake</h3>
-                    <p className="step-text">Complete a 5-minute health assessment questionnaire detailing your biological goals and clinical history.</p>
-                  </div>
-                  <div className="step-card pastel-box">
-                    <span className="step-num">02</span>
-                    <h3 className="step-title">Provider Consultation</h3>
-                    <p className="step-text">A licensed clinical provider reviews your data within 24 hours to construct a safe, personalized prescription plan.</p>
-                  </div>
-                  <div className="step-card pastel-box">
-                    <span className="step-num">03</span>
-                    <h3 className="step-title">Cold-Chain Delivery</h3>
-                    <p className="step-text">Our compounding pharmacies verify and overnight ship your treatment in temperature-controlled packaging, directly to your door.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Sourcing & Eligibility */}
-            <section className="eligibility" id="eligibility">
-              <div className="container">
-                <div className="eligibility-grid">
-                  <div className="eligibility-image">
-                    <img src="/images/clinical-consultation.webp" alt="Pax clinical consultation" loading="lazy" />
-                  </div>
-                  <div className="eligibility-content">
-                    <span className="section-label">Safe & Transparent Care</span>
-                    <h2 className="section-title">Are you <em>eligible?</em></h2>
-                    <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>Longevity treatments require professional medical assessment. Pax connects you with qualified U.S. providers and accredited 503A compounding pharmacies — HIPAA-secure intake and a branded Patient Center.</p>
-                    
-                    <div className="eligibility-list">
-                      <div className="eligibility-item pastel-box">
-                        <div className="eligibility-icon">✓</div>
-                        <div className="eligibility-text">
-                          <h4>Accredited Compounding Pharmacies</h4>
-                          <p>All prescription formulas are compounded in FDA-licensed 503A outsourcing facilities using premium quality ingredients.</p>
-                        </div>
-                      </div>
-                      <div className="eligibility-item pastel-box">
-                        <div className="eligibility-icon">✓</div>
-                        <div className="eligibility-text">
-                          <h4>Licensed U.S. Practitioners Only</h4>
-                          <p>Intake audits and medical consults are handled strictly by board-certified physicians or nurse practitioners licensed in your home state.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <button className="btn btn-primary btn-quiz-trigger eligibility-cta" onClick={openStart}>Find my treatment</button>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Lead Physician */}
-            <section className="sab-section doctor-section">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Medical Direction</span>
-                  <h2 className="section-title">Your care, led by a <em>licensed physician.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Clinical protocols, dosage ranges, and safety audits are overseen by our Medical Director — real human oversight, not a chatbot.
-                  </p>
-                </div>
-
-                <div className="featured-doctor pastel-box">
-                  <div className="featured-doctor-photo">
-                    <img src="/images/clinical-consultation.webp" alt="Dr. Elena Vance, Medical Director" loading="lazy" />
-                  </div>
-                  <div className="featured-doctor-content">
-                    <p className="featured-doctor-name">Dr. Elena Vance</p>
-                    <p className="featured-doctor-role">Medical Director</p>
-                    <p className="featured-doctor-bio">
-                      Board-certified physician leading patient intake reviews, prescription protocols, and personalized treatment plans for every Pax Longevity member.
-                    </p>
-                    <a href="#/advisors" className="featured-doctor-link">Meet our clinical advisory board →</a>
-                  </div>
-                </div>
-
-                <div className="step-card pastel-box doctor-safety-card">
-                  <h3 className="step-title">Medical safety & oversight</h3>
-                  <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
-                    Every dose is prescribed and monitored by licensed practitioners. If risks appear in your intake or labs, your provider adjusts your plan immediately.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Treatment preview — extends home scroll without changing hero */}
-            <section className="home-treatments-preview">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Clinical Protocols</span>
-                  <h2 className="section-title">Explore our <em>treatments.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Physician-guided compounded therapies, cold-chain shipped overnight to your door.
-                  </p>
-                </div>
-                <div className="home-treatments-grid">
-                  <a href="#/treatments" className="home-treatment-card">
-                    <div className="home-treatment-image">
-                      <img src="/images/glp1-treatment.webp" alt="Compounded GLP-1 weight management" loading="lazy" />
-                    </div>
-                    <div className="home-treatment-body">
-                      <h3>Compounded GLP-1</h3>
-                      <p>Semaglutide & Tirzepatide for metabolic reset and sustainable weight management.</p>
-                    </div>
-                  </a>
-                  <a href="#/treatments" className="home-treatment-card">
-                    <div className="home-treatment-image">
-                      <img src="/images/nad-treatment.webp" alt="NAD+ cellular longevity" loading="lazy" />
-                    </div>
-                    <div className="home-treatment-body">
-                      <h3>Compounded NAD+</h3>
-                      <p>Cellular energy restoration, mitochondrial support, and cognitive clarity.</p>
-                    </div>
-                  </a>
-                  <a href="#/treatments" className="home-treatment-card">
-                    <div className="home-treatment-image">
-                      <img src="/images/sermorelin-treatment.webp" alt="Sermorelin vitality recovery" loading="lazy" />
-                    </div>
-                    <div className="home-treatment-body">
-                      <h3>Compounded Sermorelin</h3>
-                      <p>Recovery, sleep quality, and natural growth hormone stimulation.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* CSS infinite scrolling Marquee Ticker */}
-            <section className="ticker-section">
-              <div className="ticker-wrap">
-                <div className="ticker-track">
-                  <span className="ticker-item">Compounded Semaglutide</span>
-                  <span className="ticker-item">NAD+ Cellular Coenzymes</span>
-                  <span className="ticker-item">Sermorelin Peptides</span>
-                  <span className="ticker-item">Mitochondrial Optimization</span>
-                  <span className="ticker-item">ApoB Lipid Targets</span>
-                  <span className="ticker-item">DNA Methylation</span>
-                  <span className="ticker-item">Insulin Resistance Control</span>
-                  <span className="ticker-item">Bio-identical Hormone Pathways</span>
-                  {/* Duplicate for infinite effect */}
-                  <span className="ticker-item">Compounded Semaglutide</span>
-                  <span className="ticker-item">NAD+ Cellular Coenzymes</span>
-                  <span className="ticker-item">Sermorelin Peptides</span>
-                  <span className="ticker-item">Mitochondrial Optimization</span>
-                  <span className="ticker-item">ApoB Lipid Targets</span>
-                  <span className="ticker-item">DNA Methylation</span>
-                  <span className="ticker-item">Insulin Resistance Control</span>
-                  <span className="ticker-item">Bio-identical Hormone Pathways</span>
-                </div>
-              </div>
-            </section>
-
-            {/* Luxury Editorial Lifestyle Showcase — Linked Pillar Pages */}
-            <section className="home-gallery-section pax-lifestyle-showcase">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label pax-lifestyle-eyebrow">The Pax Lifestyle • Architecture of Vitality</span>
-                  <h2 className="section-title pax-lifestyle-main-title">
-                    Longevity you can <em>feel.</em>
+            {/* Programs stage with product cards */}
+            <section className="cf-programs">
+              <div className="cf-programs__stage">
+                <div className="cf-programs__intro">
+                  <h2 className="cf-programs__title">
+                    Multiple programs,<br /><em>one practice.</em>
                   </h2>
-                  <p className="hero-description pax-lifestyle-desc">
-                    Italian summer meets Miami vitality — movement, nourishment, and coastal energy woven into every protocol.
-                  </p>
-                  
-                  {/* Luxury Concept Tags */}
-                  <div className="pax-lifestyle-tags">
-                    <span className="pax-lifestyle-tag">✦ Mediterranean Sun</span>
-                    <span className="pax-lifestyle-tag">✦ Coastal Movement</span>
-                    <span className="pax-lifestyle-tag">✦ Metabolic Architecture</span>
-                    <span className="pax-lifestyle-tag">✦ Circadian Sync</span>
+                  <div className="cf-programs__hero-img-wrap">
+                    <img
+                      src="/images/cards/glp-pen.png"
+                      alt=""
+                      className="cf-programs__hero-img"
+                      loading="lazy"
+                    />
                   </div>
+                  <p className="cf-programs__lede">
+                    Physician-led prescription programs — fulfilled by vetted pharmacy partners and shipped directly to your door.
+                  </p>
+                  <button type="button" className="cf-btn-dune" onClick={openStart}>Find my treatment</button>
                 </div>
 
-                {/* Editorial Bento / Grid */}
-                <div className="lifestyle-gallery-grid pax-lifestyle-grid">
-                  {LIFESTYLE_PILLARS.map((pillar, index) => (
-                    <a key={pillar.id} href={`#/${pillar.id}`} className={`lifestyle-gallery-card pax-lifestyle-card pax-card-variant-${index + 1}`}>
-                      <div className="lifestyle-gallery-image pax-lifestyle-img-wrap">
-                        <img src={pillar.image} alt={pillar.alt} loading="lazy" />
-                        <div className="pax-lifestyle-badge">
-                          <span className="pax-badge-num">0{index + 1}</span>
-                          <span className="pax-badge-label">{pillar.eyebrow}</span>
+                <div className="cf-programs__access">
+                  <h3 className="cf-programs__access-title">Access our specialized programs</h3>
+                  <div className="cf-program-scroller">
+                    {HOME_PROGRAMS.map((program) => (
+                      <a
+                        key={program.id}
+                        href={program.href}
+                        className={`cf-program-card cf-program-card--${program.tone}`}
+                      >
+                        <span className="cf-program-card__badge">{program.badge}</span>
+                        <img
+                          src={program.image}
+                          alt=""
+                          className="cf-program-card__img"
+                          loading="lazy"
+                        />
+                        <div className="cf-program-card__body">
+                          <h4>{program.title}</h4>
+                          <p>{program.blurb}</p>
                         </div>
-                        <div className="lifestyle-gallery-overlay pax-lifestyle-card-overlay">
-                          <div className="pax-card-top-meta">
-                            <span className="pax-meta-pill">{pillar.caption}</span>
-                          </div>
-                          <div className="pax-card-body">
-                            <h3 className="lifestyle-gallery-title pax-card-title">{pillar.title}</h3>
-                            <p className="lifestyle-gallery-teaser pax-card-teaser">{pillar.teaser}</p>
-                            
-                            {/* Key practices preview tags */}
-                            <div className="pax-card-practices">
-                              {pillar.practices.slice(0, 2).map((practice, pIdx) => (
-                                <span key={pIdx} className="pax-practice-pill">✓ {practice.split(' ')[0]} {practice.split(' ')[1]} {practice.split(' ')[2]}</span>
-                              ))}
-                            </div>
-
-                            <div className="pax-card-footer">
-                              <span className="lifestyle-gallery-cta pax-card-cta">
-                                Explore Protocol <span className="pax-cta-arrow" aria-hidden="true">→</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  ))}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
 
-            {/* Cinematic Coastal Vitality Band with Live Stats */}
-            <section className="home-cinematic-band pax-coastal-band">
-              <div
-                className="home-cinematic-band-bg pax-band-bg"
-                style={{ backgroundImage: 'url(/images/home-scroll-banner.webp)' }}
-                role="img"
-                aria-label="Miami sunset coastal longevity lifestyle"
-              />
-              <div className="home-cinematic-band-overlay pax-band-gradient" />
-              <div className="container home-cinematic-band-content pax-band-content">
-                <div className="pax-band-glass-card">
-                  <span className="section-label pax-band-label">Coastal Vitality Protocol</span>
-                  <h2 className="home-cinematic-band-title pax-band-title">
-                    Your forever summer <em>starts here.</em>
+            {/* Plans photo band */}
+            <section className="cf-plans">
+              <div className="cf-plans__panel">
+                <img
+                  className="cf-plans__bg"
+                  src="/images/cards/lifestyle-runner.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div className="cf-plans__scrim" />
+                <div className="cf-plans__head">
+                  <h2 className="cf-plans__title">
+                    Multiple plans,<br className="cf-br-desktop" />one clinic.
                   </h2>
-                  <p className="home-cinematic-band-text pax-band-text">
-                    Italian summer meets Miami vitality. Personalized Pax protocols built for the life you want to live.
+                  <p className="cf-plans__lede">
+                    Choose the level of care that matches your goals — every plan is physician-led and concierge-delivered.
                   </p>
-
-                  <div className="pax-band-stats">
-                    <div className="pax-band-stat">
-                      <span className="stat-val">+14.2 Yrs</span>
-                      <span className="stat-lbl">Healthspan Target</span>
-                    </div>
-                    <div className="pax-band-stat-divider" />
-                    <div className="pax-band-stat">
-                      <span className="stat-val">98.4%</span>
-                      <span className="stat-lbl">Patient Vitality Index</span>
-                    </div>
-                    <div className="pax-band-stat-divider" />
-                    <div className="pax-band-stat">
-                      <span className="stat-val">100%</span>
-                      <span className="stat-lbl">Personalized Care</span>
-                    </div>
-                  </div>
-
-                  <div className="pax-band-actions">
-                    <button className="btn btn-primary btn-quiz-trigger pax-band-primary-btn" onClick={openStart}>
-                      Find My Treatment
-                    </button>
-                    <a href="#/treatments" className="btn btn-secondary pax-band-sec-btn">
-                      Explore All Protocols
-                    </a>
-                  </div>
                 </div>
+                <div className="cf-plans__actions">
+                  <button type="button" className="cf-btn-dune" onClick={openStart}>Pax Performance ($519/mo)</button>
+                  <button type="button" className="cf-btn-light" onClick={openStart}>Pax Essentials ($199/mo)</button>
+                </div>
+              </div>
+            </section>
+
+            {/* Guidance CTA */}
+            <section className="cf-guidance">
+              <div className="cf-guidance__panel">
+                <h2 className="cf-guidance__title">
+                  Personal guidance,<br />tailored to you.
+                </h2>
+                <p className="cf-guidance__lede">
+                  Personalized guidance, physician-led protocols, advanced diagnostics, and a concierge telehealth experience designed around performance, recovery, longevity, and lifestyle.
+                </p>
+                <button type="button" className="cf-btn-dune cf-btn-dune--lg" onClick={openStart}>Begin intake assessment →</button>
               </div>
             </section>
 
             {/* FAQ */}
-            <section className="faq" id="faq">
+            <section className="faq cf-faq" id="faq">
               <div className="container">
                 <div className="section-header-center">
-                  <span className="section-label">Answering Your Questions</span>
-                  <h2 className="section-title">Frequently <em>asked.</em></h2>
-                  <p className="faq-intro">Quick answers — tap any question to expand.</p>
+                  <h2 className="section-title">Frequently asked questions</h2>
                 </div>
-                
                 <div className="faq-list">
                   {HOME_FAQS.map((faq, idx) => (
                     <div key={faq.q} className={`faq-item ${activeFaq === idx ? 'active' : ''}`}>
                       <button className="faq-question" onClick={() => handleFaqToggle(idx)} aria-expanded={activeFaq === idx}>
                         <span className="faq-question-text">{faq.q}</span>
-                        <span className="faq-icon" aria-hidden="true">▼</span>
+                        <span className="faq-icon" aria-hidden="true">+</span>
                       </button>
                       <div className="faq-answer">
                         <div className="faq-answer-inner">
                           <p className="faq-answer-lead">{faq.lead}</p>
-                          <ul className="faq-answer-points">
-                            {faq.points.map((point) => (
-                              <li key={point}>{point}</li>
-                            ))}
-                          </ul>
+                          {faq.points?.length > 0 && (
+                            <ul className="faq-answer-points">
+                              {faq.points.map((point) => (
+                                <li key={point}>{point}</li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -555,8 +319,31 @@ export default function MarketingApp({ currentTab }) {
                 </div>
               </div>
             </section>
+
+            {/* Doctors */}
+            <section className="cf-doctors">
+              <div className="cf-doctors__inner">
+                <h2 className="cf-doctors__title">
+                  The best care<br />by the best in medicine
+                </h2>
+                <p className="cf-doctors__lede">Meet the team of leading specialists guiding your protocols.</p>
+                <div className="cf-doctors__grid">
+                  {HOME_DOCTORS.map((doc) => (
+                    <article key={doc.name} className="cf-doctor-card">
+                      <div className="cf-doctor-card__photo">
+                        <img src={doc.image} alt={doc.name} loading="lazy" />
+                      </div>
+                      <h3>{doc.name}</h3>
+                      <p>{doc.bio}</p>
+                    </article>
+                  ))}
+                </div>
+                <a href="#/advisors" className="cf-doctors__link">Meet our clinical advisory board →</a>
+              </div>
+            </section>
           </div>
         )}
+
 
         {/* ==================== VISION PAGE VIEW ==================== */}
         {currentTab === 'vision' && (

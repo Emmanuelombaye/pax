@@ -1,40 +1,24 @@
-/** Marketing content + route tab ids */
+/** Marketing content + route tab ids — home FAQ copy from pax-longevity.vercel.app */
 const HOME_FAQS = [
   {
-    q: 'Are weight-loss medications FDA approved?',
-    lead: 'Brand-name GLP-1s are FDA-approved; compounded versions follow federal 503A pharmacy standards.',
-    points: [
-      'Wegovy & Ozempic are FDA-approved brands',
-      'Compounded Semaglutide is prepared in licensed 503A facilities',
-      'Compounded formulas are not individually FDA-reviewed',
-    ],
+    q: 'What is the Pax Longevity Membership?',
+    lead: 'The Pax Longevity Membership gives you access to our network of leading medical providers, personalized treatment plans, and exclusive pricing on prescription medications and labs.',
+    points: [],
   },
   {
-    q: 'How fast is my intake reviewed?',
-    lead: 'Most assessments are completed within 24 hours of submission.',
-    points: [
-      'Licensed clinicians review your health intake',
-      'Prescriptions issued when clinically appropriate',
-      'Your provider contacts you if more info is needed',
-    ],
+    q: 'How much does the weight loss program cost?',
+    lead: 'Programs start at $199/month for Semaglutide and $299/month for Tirzepatide, depending on the dosage and plan prescribed by your provider.',
+    points: [],
   },
   {
-    q: 'How are treatments shipped and stored?',
-    lead: 'Temperature-sensitive peptides ship overnight in cold-chain packaging.',
-    points: [
-      'Insulated packaging with gel packs included',
-      'Overnight delivery to your door',
-      'Refrigerate immediately on arrival',
-    ],
+    q: 'Are video visits with a doctor required?',
+    lead: 'In most cases, an asynchronous intake form is sufficient. However, if your provider needs more information, they may request a brief telehealth video visit.',
+    points: [],
   },
   {
-    q: 'Is Pax a secure patient platform?',
-    lead: 'Yes — licensed U.S. providers, HIPAA-secure intake, and accredited compounding partners.',
-    points: [
-      'Board-certified physicians review every intake',
-      '503A accredited pharmacy sourcing',
-      'HIPAA-compliant Patient Center',
-    ],
+    q: 'Is insurance required?',
+    lead: 'No, Pax operates on a cash-pay basis. This allows us to provide transparent, affordable pricing without the hassle of insurance approvals.',
+    points: [],
   },
 ];
 
@@ -113,26 +97,83 @@ const LIFESTYLE_PILLARS = [
   }
 ];
 
+/** Wellness-first carousel (secondary pages / legacy). */
 const HERO_SLIDES = [
   {
     mobile: '/images/hero-longevity.webp',
     desktop: '/images/hero-longevity-desktop.webp',
   },
   {
-    mobile: '/images/miami-active.webp',
-    desktop: '/images/miami-active-desktop.webp',
-  },
-  {
-    mobile: '/images/hero-miami-cycle.webp',
-    desktop: '/images/hero-miami-cycle-desktop.webp',
+    mobile: '/images/hero-miami-water.webp',
+    desktop: '/images/hero-miami-water-desktop.webp',
   },
   {
     mobile: '/images/hero-miami-yoga.webp',
     desktop: '/images/hero-miami-yoga-desktop.webp',
   },
   {
-    mobile: '/images/hero-miami-water.webp',
-    desktop: '/images/hero-miami-water-desktop.webp',
+    mobile: '/images/home-scroll-banner.webp',
+    desktop: '/images/home-scroll-banner.webp',
+  },
+];
+
+/** Home card-flow programs — Vercel-style cards, generated Pax product imagery */
+const HOME_PROGRAMS = [
+  {
+    id: 'glp',
+    title: 'GLPs / Weight Loss',
+    blurb: 'Physician-titrated Semaglutide & Tirzepatide',
+    badge: 'Most demand',
+    tone: 'amber',
+    image: '/images/cards/glp-pen.png',
+    href: '#/treatments',
+  },
+  {
+    id: 'hormone',
+    title: 'Hormone Health',
+    blurb: 'TRT, HRT & longevity optimization',
+    badge: 'Controlled',
+    tone: 'clay',
+    image: '/images/cards/pill-bottle.png',
+    href: '#/treatments',
+  },
+  {
+    id: 'peptides',
+    title: 'Peptides & Wellness',
+    blurb: 'NAD+, Sermorelin & cellular recovery',
+    badge: 'Premium',
+    tone: 'dune',
+    image: '/images/cards/labs-box.png',
+    href: '#/treatments',
+  },
+  {
+    id: 'vitality',
+    title: 'Vitality',
+    blurb: 'Energy, recovery & performance protocols',
+    badge: 'Subscription',
+    tone: 'mist',
+    image: '/images/cards/vitality-bottle.png',
+    href: '#/treatments',
+  },
+];
+
+const HOME_CHIPS = [
+  { label: 'GLPs / Weight Loss', href: '#/treatments' },
+  { label: 'Hormone Health & Longevity', href: '#/treatments' },
+  { label: 'Peptides & Wellness', href: '#/treatments' },
+  { label: 'Vitality & Performance', href: '#/treatments' },
+];
+
+const HOME_DOCTORS = [
+  {
+    name: 'Dr. Mark Hamilton, MD',
+    bio: 'Specialist in TRT, longevity protocols, and performance optimization.',
+    image: '/images/cards/doctor-male.png',
+  },
+  {
+    name: 'Dr. Sarah Jenkins, MD',
+    bio: 'Expert in advanced endocrinology, GLP-1 weight management, and metabolic health.',
+    image: '/images/cards/doctor-female.png',
   },
 ];
 
@@ -142,4 +183,12 @@ const ROUTE_TABS = [
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
 ];
 
-export { HOME_FAQS, LIFESTYLE_PILLARS, HERO_SLIDES, ROUTE_TABS };
+export {
+  HOME_FAQS,
+  LIFESTYLE_PILLARS,
+  HERO_SLIDES,
+  HOME_PROGRAMS,
+  HOME_CHIPS,
+  HOME_DOCTORS,
+  ROUTE_TABS,
+};
