@@ -1,5 +1,5 @@
-<svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pax Longevity stacked">
-  <g transform="translate(60, 24)">
+<svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pax Longevity compact stacked">
+  <g transform="translate(40, 18) scale(1)">
     <line x1="20" y1="78" x2="180" y2="78" stroke="#C17C74" stroke-width="1.6" stroke-linecap="round"/>
     <path d="M 82 78 A 18 18 0 0 1 118 78" fill="none" stroke="#C17C74" stroke-width="1.8" stroke-linecap="round"/>
     <line x1="76" y1="78" x2="54" y2="78" stroke="#C17C74" stroke-width="1.6" stroke-linecap="round"/>
@@ -16,7 +16,7 @@
     <line x1="123.18" y1="71.79" x2="144.43" y2="66.09" stroke="#C17C74" stroke-width="1.6" stroke-linecap="round"/>
     <line x1="124" y1="78" x2="146" y2="78" stroke="#C17C74" stroke-width="1.6" stroke-linecap="round"/>
   </g>
-  <text x="160" y="230" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="88" fill="#1C3F34" style="letter-spacing:0.02em">PAX</text>
-  <circle cx="160" cy="252" r="3.5" fill="#C17C74"/>
-  <text x="160" y="280" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="16" fill="#1C3F34" style="letter-spacing:0.42em">LONGEVITY</text>
+  <text x="140" y="190" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="72" fill="#1C3F34" style="letter-spacing:0.02em">PAX</text>
+  <circle cx="140" cy="208" r="3.5" fill="#C17C74"/>
+  <text x="140" y="232" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-size="14" fill="#1C3F34" style="letter-spacing:0.38em">LONGEVITY</text>
 </svg>

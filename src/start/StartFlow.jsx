@@ -2,22 +2,49 @@
 import { BrandMark, PAX_PASSPORT } from '../brand/index.js';
 import {
   completePurchaseSignup,
+  clearPendingOrder,
   getPendingOrder,
   savePendingOrder,
 } from '../brand/connect.js';
-import { INTAKE_STEPS, PLANS, TREATMENTS, TRUST_POINTS } from './startFlowData.js';
+import {
+  FLOW_STEPS,
+  INTAKE_STEPS,
+  PLANS,
+  TREATMENT_CATEGORIES,
+  TREATMENTS,
+  TRUST_POINTS,
+} from './startFlowData.js';
 
 const STEPS = ['treatment', 'intake', 'plan', 'checkout', 'verify', 'account'];
 
+function flowPhase(step) {
+  if (step === 'treatment') return 'treatment';
+  if (step === 'intake') return 'intake';
+  if (step === 'plan' || step === 'checkout') return 'plan';
+  return 'verify';
+}
+
 function Progress({ step }) {
-  const idx = STEPS.indexOf(step);
-  const pct = Math.round(((idx + 1) / STEPS.length) * 100);
+  const phase = flowPhase(step);
+  const phaseIdx = FLOW_STEPS.findIndex((s) => s.id === phase);
+  const pct = Math.round(((phaseIdx + 1) / FLOW_STEPS.length) * 100);
+
   return (
     <div className="sf-progress">
+      <div className="sf-progress__steps" aria-label="Enrollment progress">
+        {FLOW_STEPS.map((s, i) => (
+          <div
+            key={s.id}
+            className={`sf-progress__step ${i <= phaseIdx ? 'sf-progress__step--done' : ''} ${i === phaseIdx ? 'sf-progress__step--active' : ''}`}
+          >
+            <span className="sf-progress__dot">{i + 1}</span>
+            <span className="sf-progress__name">{s.label}</span>
+          </div>
+        ))}
+      </div>
       <div className="sf-progress__track">
         <div className="sf-progress__bar" style={{ width: `${pct}%` }} />
       </div>
-      <p className="sf-progress__label">Step {idx + 1} of {STEPS.length}</p>
     </div>
   );
 }
@@ -34,8 +61,16 @@ function TrustStrip() {
 
 export default function StartFlow({ onComplete }) {
   const pending = getPendingOrder();
+  const hashTreatmentId = (() => {
+    if (typeof window === 'undefined') return '';
+    const raw = window.location.hash.replace(/^#\/?/, '');
+    const query = raw.includes('?') ? raw.split('?')[1] : '';
+    const params = new URLSearchParams(query);
+    const value = params.get('treatment') || '';
+    return TREATMENTS.some((t) => t.id === value) ? value : '';
+  })();
   const [step, setStep] = useState(pending?.resumeStep || 'treatment');
-  const [treatmentId, setTreatmentId] = useState(pending?.treatmentId || '');
+  const [treatmentId, setTreatmentId] = useState(pending?.treatmentId || hashTreatmentId || '');
   const [intakeIndex, setIntakeIndex] = useState(0);
   const [intake, setIntake] = useState(pending?.intake || {
     goal: '',
@@ -98,6 +133,11 @@ export default function StartFlow({ onComplete }) {
       phone: checkout.phone,
       resumeStep: next,
     });
+  };
+
+  const cancelFlow = () => {
+    clearPendingOrder();
+    window.location.hash = '#/';
   };
 
   const onSelectTreatment = (id) => {
@@ -204,38 +244,88 @@ export default function StartFlow({ onComplete }) {
 
       <main className="sf-main">
         {step === 'treatment' && (
-          <section className="sf-panel">
-            <p className="pp-eyebrow">Get started</p>
-            <h1>Choose a treatment plan</h1>
-            <p className="sf-lede">
-              Browse science-backed options, then complete a short medical questionnaire — no account needed until after checkout.
-            </p>
-            <TrustStrip />
-            <div className="sf-treat-grid">
-              {TREATMENTS.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  className={`sf-treat ${treatmentId === t.id ? 'active' : ''}`}
-                  onClick={() => onSelectTreatment(t.id)}
-                >
-                  <div className="sf-treat__media" style={{ backgroundImage: `url(${t.image})` }} />
-                  <div className="sf-treat__body">
-                    <span className="sf-badge">{t.badge}</span>
-                    <h2>{t.name}</h2>
-                    <p>{t.blurb}</p>
-                    <div className="sf-treat__meta">
-                      <strong>{t.med}</strong>
-                      <span>As low as ${t.priceFrom}/mo</span>
+          <section className="sf-panel sf-panel--start">
+            <header className="sf-start-hero">
+              <div className="sf-start-hero__copy">
+                <p className="sf-eyebrow">Get started</p>
+                <h1>Choose a treatment plan</h1>
+                <p className="sf-lede sf-lede--strong">
+                  Browse science-backed options, then complete a short medical questionnaire — no account needed until after checkout.
+                </p>
+                <TrustStrip />
+              </div>
+              <div className="sf-start-hero__flow" aria-hidden="true">
+                <ol className="sf-flow-preview">
+                  <li><span>01</span> Pick your protocol</li>
+                  <li><span>02</span> Complete intake</li>
+                  <li><span>03</span> Checkout & verify</li>
+                  <li><span>04</span> Open Patient Center</li>
+                </ol>
+              </div>
+            </header>
+
+            <div className="sf-catalog">
+              {TREATMENT_CATEGORIES.map((cat) => {
+                const items = TREATMENTS.filter((t) => cat.treatments.includes(t.id));
+                if (!items.length) return null;
+                return (
+                  <div key={cat.id} className="sf-catalog__group">
+                    <h2 className="sf-catalog__title">{cat.title}</h2>
+                    <div className="sf-product-grid">
+                      {items.map((t) => {
+                        const selected = treatmentId === t.id;
+                        return (
+                          <article
+                            key={t.id}
+                            className={`sf-product ${selected ? 'active' : ''}`}
+                          >
+                            <div className="sf-product__media">
+                              <img src={t.image} alt="" loading="lazy" />
+                              <span className="sf-product__badge">{t.badge}</span>
+                            </div>
+                            <div className="sf-product__body">
+                              <h3>{t.name}</h3>
+                              <p className="sf-product__med">{t.med}</p>
+                              <p className="sf-product__blurb">{t.blurb}</p>
+                              <div className="sf-product__meta">
+                                <span className="sf-product__freq">{t.frequency}</span>
+                                <span className="sf-product__price">From <strong>${t.priceFrom}</strong>/mo</span>
+                              </div>
+                              <button
+                                type="button"
+                                className={`sf-product__select ${selected ? 'sf-product__select--active' : ''}`}
+                                onClick={() => onSelectTreatment(t.id)}
+                                aria-pressed={selected}
+                              >
+                                {selected ? 'Selected ✓' : 'Select treatment'}
+                              </button>
+                            </div>
+                          </article>
+                        );
+                      })}
                     </div>
                   </div>
-                </button>
-              ))}
+                );
+              })}
             </div>
+
             {error && <p className="pp-auth__error">{error}</p>}
-            <button type="button" className="pp-btn pp-btn--primary sf-cta" onClick={continueTreatment}>
-              Continue with {treatment ? treatment.name : 'selected treatment'} →
-            </button>
+            <div className="sf-sticky-cta">
+              <p className="sf-sticky-cta__hint">
+                {treatment ? `Selected: ${treatment.name}` : 'Select a treatment to continue'}
+              </p>
+              <div className="sf-nav-row sf-nav-row--triple">
+                <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>
+                  Cancel
+                </button>
+                <a href="#/" className="pp-btn pp-btn--outline">
+                  Back
+                </a>
+                <button type="button" className="pp-btn pp-btn--primary sf-cta" onClick={continueTreatment}>
+                  Continue with {treatment ? treatment.name : 'selected treatment'} →
+                </button>
+              </div>
+            </div>
           </section>
         )}
 
@@ -288,7 +378,14 @@ export default function StartFlow({ onComplete }) {
             )}
 
             {error && <p className="pp-auth__error">{error}</p>}
-            <div className="sf-nav-row">
+            <div className="sf-nav-row sf-nav-row--triple">
+              <button
+                type="button"
+                className="pp-btn pp-btn--ghost"
+                onClick={cancelFlow}
+              >
+                Cancel
+              </button>
               <button
                 type="button"
                 className="pp-btn pp-btn--outline"
@@ -333,7 +430,8 @@ export default function StartFlow({ onComplete }) {
                 </button>
               ))}
             </div>
-            <div className="sf-nav-row">
+            <div className="sf-nav-row sf-nav-row--triple">
+              <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
               <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('intake')}>Back</button>
               <button type="button" className="pp-btn pp-btn--primary" onClick={() => go('checkout')}>
                 Continue to checkout →
@@ -419,7 +517,8 @@ export default function StartFlow({ onComplete }) {
                 </label>
               </div>
               {error && <p className="pp-auth__error">{error}</p>}
-              <div className="sf-nav-row">
+              <div className="sf-nav-row sf-nav-row--triple">
+                <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
                 <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('plan')}>Back</button>
                 <button type="submit" className="pp-btn pp-btn--primary">Authorize & continue →</button>
               </div>
@@ -474,7 +573,8 @@ export default function StartFlow({ onComplete }) {
                 </label>
               )}
               {error && <p className="pp-auth__error">{error}</p>}
-              <div className="sf-nav-row">
+              <div className="sf-nav-row sf-nav-row--triple">
+                <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
                 <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('checkout')}>Back</button>
                 <button type="submit" className="pp-btn pp-btn--primary">Submit for provider review →</button>
               </div>
@@ -519,9 +619,13 @@ export default function StartFlow({ onComplete }) {
                 />
               </label>
               {error && <p className="pp-auth__error">{error}</p>}
-              <button type="submit" className="pp-btn pp-btn--primary sf-cta" disabled={busy}>
-                {busy ? 'Opening Patient Center…' : 'Open Patient Center →'}
-              </button>
+              <div className="sf-nav-row sf-nav-row--triple">
+                <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
+                <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('verify')} disabled={busy}>Back</button>
+                <button type="submit" className="pp-btn pp-btn--primary sf-cta" disabled={busy}>
+                  {busy ? 'Opening Patient Center…' : 'Open Patient Center →'}
+                </button>
+              </div>
             </form>
           </section>
         )}

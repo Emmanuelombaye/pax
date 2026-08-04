@@ -2,7 +2,8 @@ import { resolveMark } from './marks.js';
 
 /**
  * Marketing brand lockup (header / drawer / footer).
- * mark: horizontal | stacked | seal | monogram
+ * mark: horizontal | horizontalOnDark | stacked | stackedCompact | seal | monogram
+ * Default A = horizontal (Forest on Sand). Drawer uses compact stacked (C).
  */
 export function BrandLogo({
   variant = 'header',
@@ -11,7 +12,12 @@ export function BrandLogo({
   className = '',
 }) {
   const resolvedMark =
-    mark || (variant === 'drawer' ? 'stacked' : 'horizontal');
+    mark ||
+    (variant === 'drawer'
+      ? 'stackedCompact'
+      : variant === 'footer'
+        ? 'horizontalOnDark'
+        : 'horizontal');
   const asset = resolveMark(resolvedMark);
   const isHeader = variant === 'header';
 

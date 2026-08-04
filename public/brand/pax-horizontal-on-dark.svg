@@ -18,6 +18,6 @@
     <line x1="124" y1="78" x2="146" y2="78" stroke="#C17C74" stroke-width="1.8" stroke-linecap="round"/>
   </g>
   <!-- Wordmark -->
-  <text x="168" y="72" font-family="'Instrument Serif', Georgia, serif" font-size="64" fill="#1C3F34" style="letter-spacing:0.02em">PAX</text>
-  <text x="168" y="100" font-family="'Instrument Serif', Georgia, serif" font-size="14" fill="#1C3F34" style="letter-spacing:0.42em">LONGEVITY</text>
+  <text x="168" y="72" font-family="'Instrument Serif', Georgia, serif" font-size="64" fill="#FAF6F0" style="letter-spacing:0.02em">PAX</text>
+  <text x="168" y="100" font-family="'Instrument Serif', Georgia, serif" font-size="14" fill="#FAF6F0" style="letter-spacing:0.42em">LONGEVITY</text>
 </svg>
