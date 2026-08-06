@@ -1702,7 +1702,9 @@ ul { list-style: none; }
 
 .threats-kicker {
   margin: 0 0 0.4rem;
+  font-family: var(--font-body);
   font-size: 0.7rem;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--terracotta);
@@ -1710,20 +1712,26 @@ ul { list-style: none; }
 
 .threats-title {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(2.1rem, 5vw, 3.6rem);
+  font-weight: 400;
   line-height: 1.05;
   color: var(--forest);
 }
 
 .threats-title em {
+  font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
   color: color-mix(in oklch, var(--forest) 78%, var(--terracotta));
 }
 
 .threats-lede {
   margin: 0.85rem auto 0;
   max-width: 40rem;
+  font-family: var(--font-body);
   font-size: 1rem;
+  font-weight: 400;
   line-height: 1.6;
   color: color-mix(in oklch, var(--forest) 78%, transparent);
 }
@@ -1778,7 +1786,9 @@ ul { list-style: none; }
   border-radius: 9999px;
   background: color-mix(in oklch, var(--sand) 88%, transparent);
   color: var(--forest);
+  font-family: var(--font-body);
   font-size: 0.78rem;
+  font-weight: 400;
   letter-spacing: 0.08em;
   backdrop-filter: blur(6px);
 }
@@ -1789,7 +1799,9 @@ ul { list-style: none; }
 
 .threat-card__focus {
   margin: 0 0 0.3rem;
+  font-family: var(--font-body);
   font-size: 0.66rem;
+  font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--terracotta);
@@ -1797,14 +1809,18 @@ ul { list-style: none; }
 
 .threat-card__title {
   margin: 0;
+  font-family: var(--font-display);
   font-size: 1.28rem;
+  font-weight: 400;
   line-height: 1.15;
   color: var(--forest);
 }
 
 .threat-card__text {
   margin: 0.55rem 0 0;
+  font-family: var(--font-body);
   font-size: 0.86rem;
+  font-weight: 400;
   line-height: 1.55;
   color: color-mix(in oklch, var(--forest) 78%, transparent);
 }
@@ -1824,7 +1840,9 @@ ul { list-style: none; }
 
 .threats-audit__title {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
   color: var(--forest);
 }
 
@@ -1842,13 +1860,16 @@ ul { list-style: none; }
 .threats-audit__table td {
   padding: 0.75rem 0.85rem;
   text-align: left;
+  font-family: var(--font-body);
   font-size: 0.82rem;
+  font-weight: 400;
   color: var(--forest);
   border-bottom: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
 }
 
 .threats-audit__table th {
   font-size: 0.68rem;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: color-mix(in oklch, var(--forest) 68%, transparent);
