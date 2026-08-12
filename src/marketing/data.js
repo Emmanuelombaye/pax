@@ -9,7 +9,7 @@ const HOME_FAQS = [
   },
   {
     q: 'How much does the weight loss program cost?',
-    lead: 'Programs start at $199/month for Semaglutide and $299/month for Tirzepatide, depending on the dosage and plan prescribed by your provider.',
+    lead: 'Semaglutide plans start at $125/month on the 6-month plan ($146 month-to-month). Tirzepatide plans start at $225/month on the 6-month plan ($258 month-to-month). Final pricing is confirmed after provider review.',
     points: [],
   },
   {
@@ -41,7 +41,7 @@ const LIFESTYLE_PILLARS = [
       'Weekly activity targets tracked against clinical baselines'
     ],
     relatedLabel: 'Explore weight management',
-    relatedLink: '#/treatments'
+    relatedLink: '#/treatments/weight-loss'
   },
   {
     id: 'lifestyle-nourishment',
@@ -51,7 +51,7 @@ const LIFESTYLE_PILLARS = [
     caption: 'Metabolic nourishment',
     teaser: 'Mediterranean-inspired nutrition that stabilizes glucose and fuels cellular repair.',
     eyebrow: 'Fuel & Recovery',
-    summary: 'Mediterranean-inspired nutrition stabilizes glucose and supports the cellular repair your peptide protocol is designed to enhance.',
+    summary: 'Mediterranean-inspired nutrition stabilizes glucose and supports the metabolic progress your GLP-1 protocol is designed to enhance.',
     practices: [
       'Protein-forward meals timed around activity and sleep',
       'Low-glycemic plates rich in omega-3s and polyphenols',
@@ -59,7 +59,7 @@ const LIFESTYLE_PILLARS = [
       'Monthly metabolic markers to refine dietary guidance'
     ],
     relatedLabel: 'View GLP-1 protocols',
-    relatedLink: '#/treatments'
+    relatedLink: '#/treatments/weight-loss'
   },
   {
     id: 'lifestyle-active',
@@ -73,11 +73,11 @@ const LIFESTYLE_PILLARS = [
     practices: [
       '2–3 resistance sessions per week with progressive overload',
       'Coastal cycling or swimming for cardiovascular endurance',
-      'Deliberate rest days aligned with Sermorelin evening dosing',
+      'Deliberate rest days aligned with weekly injection schedules',
       'Sleep and HRV tracking to guide training intensity'
     ],
-    relatedLabel: 'Explore Sermorelin therapy',
-    relatedLink: '#/treatments'
+    relatedLabel: 'Explore Semaglutide',
+    relatedLink: '#/start?treatment=semaglutide'
   },
   {
     id: 'lifestyle-balance',
@@ -87,15 +87,15 @@ const LIFESTYLE_PILLARS = [
     caption: 'Mind-body balance',
     teaser: 'Meditation, sleep architecture, and nervous-system recovery for cognitive clarity.',
     eyebrow: 'Restoration',
-    summary: 'Sleep, meditation, and nervous-system recovery amplify the cellular repair signals your clinical protocol targets.',
+    summary: 'Sleep, meditation, and nervous-system recovery amplify the metabolic progress your GLP-1 protocol supports.',
     practices: [
       '10-minute sunrise meditation or breathwork rituals',
       'Consistent sleep windows with evening light discipline',
       'Digital sunset routines to protect melatonin cycles',
       'Quarterly cognitive and stress biomarker reviews'
     ],
-    relatedLabel: 'Explore NAD+ therapy',
-    relatedLink: '#/treatments'
+    relatedLabel: 'Explore Tirzepatide',
+    relatedLink: '#/start?treatment=tirzepatide'
   }
 ];
 
@@ -119,57 +119,39 @@ const HERO_SLIDES = [
   },
 ];
 
-/** Home card-flow programs — Vercel-style cards, generated Pax product imagery */
+/** Home card-flow programs — Semaglutide & Tirzepatide only */
 const HOME_PROGRAMS = [
   {
-    id: 'glp',
-    title: 'GLPs / Weight Loss',
-    blurb: 'Physician-titrated Semaglutide & Tirzepatide',
-    badge: 'Most demand',
+    id: 'semaglutide',
+    title: 'Semaglutide',
+    blurb: 'Weekly GLP-1 for steady appetite and weight support',
+    badge: 'Most popular',
     tone: 'amber',
     image: MARKETING_IMAGES.cards.glpPen,
-    href: '#/treatments',
+    href: '#/start?treatment=semaglutide',
   },
   {
-    id: 'hormone',
-    title: 'Hormone Health',
-    blurb: 'TRT, HRT & longevity optimization',
-    badge: 'Controlled',
+    id: 'tirzepatide',
+    title: 'Tirzepatide',
+    blurb: 'Weekly GLP-1 + GIP dual-pathway weight support',
+    badge: 'Dual action',
     tone: 'clay',
-    image: MARKETING_IMAGES.cards.pillBottle,
-    href: '#/treatments',
-  },
-  {
-    id: 'peptides',
-    title: 'Peptides & Wellness',
-    blurb: 'NAD+, Sermorelin & cellular recovery',
-    badge: 'Premium',
-    tone: 'dune',
-    image: MARKETING_IMAGES.cards.labsBox,
-    href: '#/treatments',
-  },
-  {
-    id: 'vitality',
-    title: 'Vitality',
-    blurb: 'Energy, recovery & performance protocols',
-    badge: 'Subscription',
-    tone: 'mist',
-    image: MARKETING_IMAGES.cards.vitalityBottle,
-    href: '#/treatments',
+    image: MARKETING_IMAGES.cards.glpPen,
+    href: '#/start?treatment=tirzepatide',
   },
 ];
 
 const HOME_CHIPS = [
-  { label: 'GLPs / Weight Loss', href: '#/treatments' },
-  { label: 'Hormone Health & Longevity', href: '#/treatments' },
-  { label: 'Peptides & Wellness', href: '#/treatments' },
-  { label: 'Vitality & Performance', href: '#/treatments' },
+  { label: 'Semaglutide', href: '#/start?treatment=semaglutide' },
+  { label: 'Tirzepatide', href: '#/start?treatment=tirzepatide' },
+  { label: 'Weight Loss Treatments', href: '#/treatments/weight-loss' },
+  { label: 'See if I qualify', href: '#/start' },
 ];
 
 const HOME_DOCTORS = [
   {
     name: 'Dr. Mark Hamilton, MD',
-    bio: 'Specialist in TRT, longevity protocols, and performance optimization.',
+    bio: 'Specialist in GLP-1 weight management and metabolic optimization.',
     image: MARKETING_IMAGES.cards.doctorMale,
   },
   {
@@ -219,7 +201,7 @@ const THREAT_DOMAINS = [
 ];
 
 const ROUTE_TABS = [
-  'vision', 'threats', 'treatments', 'advisors', 'education',
+  'vision', 'threats', 'treatments', 'how-it-works', 'advisors', 'providers', 'education',
   'privacy', 'terms', 'medical-disclaimer',
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
 ];

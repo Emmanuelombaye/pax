@@ -1,5 +1,4 @@
-/* Pax Longevity — brand kit tokens, then surface stylesheets */
-@import './brand/kit.css';
+/* Pax Longevity — brand kit locked in main.jsx; surface stylesheets only */
 @import './styles/marketing.css';
 @import './styles/portal.css';
 @import './styles/start.css';

@@ -1,0 +1,473 @@
+/* ========== Yucca layout shell — Pax brand tokens only ========== */
+
+.yx-promo {
+  background: var(--forest);
+  color: var(--sand);
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.yx-promo a,
+.yx-promo button {
+  color: var(--dune);
+  font: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 0.35rem;
+}
+
+.yx-shell .header {
+  background: transparent;
+  border-bottom: 0;
+  padding: 0.65rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.yx-shell .header.scrolled {
+  padding: 0.45rem 0;
+  background: color-mix(in oklch, var(--sand) 94%, white);
+  box-shadow: var(--shadow-sm);
+}
+
+.yx-shell .header .container.yx-header-bar,
+.yx-shell .yx-header-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1rem;
+  max-width: min(1180px, calc(100% - 1.5rem));
+  margin-inline: auto;
+  border: 1.5px solid color-mix(in oklch, var(--forest) 14%, transparent);
+  border-radius: 999px;
+  margin-top: 0.65rem;
+  margin-bottom: 0.35rem;
+  padding: 0.55rem 0.7rem 0.55rem 1.15rem;
+  background: color-mix(in oklch, var(--sand) 94%, white);
+  backdrop-filter: blur(14px);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.yx-shell .yx-header-bar .brand-logo {
+  justify-self: start;
+  z-index: 1;
+}
+
+.yx-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: 100%;
+  margin-left: 0;
+  gap: 0;
+}
+
+.yx-nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(1.1rem, 2.2vw, 2rem);
+}
+
+.yx-nav__link {
+  color: var(--forest);
+  text-decoration: none;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.02rem, 1.15vw, 1.18rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  opacity: 0.9;
+  white-space: nowrap;
+  padding: 0.35rem 0.15rem;
+  transition: opacity 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.yx-nav__link:hover,
+.yx-nav__link.active {
+  opacity: 1;
+  color: var(--forest);
+}
+
+.yx-nav__actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 0.45rem;
+  z-index: 1;
+}
+
+.yx-btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 1.15rem;
+  border-radius: 999px;
+  transition: opacity 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.yx-btn--ghost {
+  background: transparent;
+  color: var(--forest);
+  min-height: auto;
+  padding: 0.45rem 0.7rem;
+  font-family: var(--font-display, inherit);
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+.yx-btn--primary {
+  background: var(--forest);
+  color: var(--sand);
+  letter-spacing: -0.01em;
+  font-family: var(--font-display, inherit);
+  font-size: 1.02rem;
+  min-height: 2.65rem;
+  padding: 0 1.25rem;
+  border: 2px solid var(--forest);
+  box-shadow:
+    0 2px 0 color-mix(in oklch, var(--forest) 22%, transparent),
+    0 8px 18px -12px color-mix(in oklch, var(--forest) 35%, transparent);
+}
+
+.yx-shell .yx-header-bar .nav-toggle {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .yx-shell .header .container.yx-header-bar,
+  .yx-shell .yx-header-bar {
+    grid-template-columns: 1fr auto;
+    border-radius: 1.15rem;
+    padding: 0.55rem 0.7rem 0.55rem 0.95rem;
+  }
+
+  .yx-nav,
+  .yx-nav__actions {
+    display: none;
+  }
+
+  .yx-shell .yx-header-bar .nav-toggle {
+    display: inline-flex;
+  }
+}
+
+.yx-btn--primary:hover {
+  opacity: var(--btn-hover-opacity);
+}
+
+.yx-btn--dune {
+  background: var(--dune);
+  color: var(--forest);
+}
+
+.yx-btn--dune:hover {
+  opacity: 0.92;
+}
+
+.yx-btn--outline {
+  background: transparent;
+  color: var(--forest);
+  border: 1.5px solid color-mix(in oklch, var(--forest) 28%, transparent);
+}
+
+.yx-btn--lg {
+  min-height: 52px;
+  padding: 0 1.6rem;
+  font-size: 1rem;
+}
+
+/* Trust marquee */
+.yx-marquee {
+  overflow: hidden;
+  border-block: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
+  background: color-mix(in oklch, var(--sand) 88%, var(--dune));
+  padding: 0.85rem 0;
+}
+
+.yx-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: yx-marquee 28s linear infinite;
+}
+
+.yx-marquee__track span {
+  color: var(--forest);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.78;
+}
+
+@keyframes yx-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yx-marquee__track {
+    animation: none;
+  }
+}
+
+/* Home hero — Yucca split composition, Pax brand */
+.yx-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 2rem 2.5rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 2.5rem;
+  color: var(--forest);
+}
+
+.yx-hero__copy h1 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.2vw, 4rem);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.08;
+}
+
+.yx-hero__copy h1 em {
+  font-style: italic;
+  display: block;
+}
+
+.yx-hero__price {
+  margin: 0 0 1.35rem;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+.yx-hero__price strong {
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.yx-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.yx-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+}
+
+.yx-hero__stat strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.yx-hero__stat span {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  opacity: 0.72;
+}
+
+.yx-hero__media {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--sand) 70%, var(--dune));
+  aspect-ratio: 3 / 4;
+  max-height: 560px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.yx-hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
+
+.yx-hero__media-bg,
+.yx-hero__product {
+  display: none;
+}
+
+/* Treatments page shell */
+.yx-treatments {
+  padding: 2.5rem 0 4.5rem;
+  background: var(--sand);
+  color: var(--forest);
+}
+
+.yx-treatments__intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  padding: 0 1.25rem;
+}
+
+.yx-treatments__intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.9rem, 3.8vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.15;
+}
+
+.yx-treatments__intro p {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  opacity: 0.88;
+}
+
+.yx-treatments__wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.yx-how {
+  max-width: 1000px;
+  margin: 3.5rem auto 0;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.yx-how h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 400;
+}
+
+.yx-how > p {
+  margin: 0 auto 1.75rem;
+  max-width: 32rem;
+  opacity: 0.8;
+}
+
+.yx-how__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+
+.yx-how__card {
+  background: color-mix(in oklch, var(--sand) 86%, var(--dune));
+  border: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+  border-radius: 18px;
+  padding: 1.35rem 1.2rem;
+}
+
+.yx-how__card span {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 0.55rem;
+}
+
+.yx-how__card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.yx-how__card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.82;
+}
+
+.yx-home-treatments {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3.5rem;
+}
+
+.yx-home-treatments__head {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: var(--forest);
+}
+
+.yx-home-treatments__head h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  font-weight: 400;
+}
+
+.yx-home-treatments__head p {
+  margin: 0 auto;
+  max-width: 34rem;
+  opacity: 0.82;
+}
+
+@media (max-width: 960px) {
+  .yx-nav__links {
+    display: none;
+  }
+
+  .yx-hero {
+    grid-template-columns: 1fr;
+    padding-top: 2.25rem;
+  }
+
+  .yx-hero__media {
+    min-height: 0;
+    max-height: 440px;
+    aspect-ratio: 4 / 5;
+    order: -1;
+  }
+
+  .yx-hero__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .yx-how__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .yx-nav__actions .yx-btn--ghost {
+    display: none;
+  }
+
+  .yx-hero__copy h1 {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+}

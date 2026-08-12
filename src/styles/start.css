@@ -131,6 +131,11 @@
   max-width: none;
 }
 
+.sf-panel--start .glp-pick {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
 .sf-eyebrow {
   font-size: 0.72rem;
   letter-spacing: 0.2em;

@@ -9,13 +9,14 @@ import {
 import {
   FLOW_STEPS,
   INTAKE_STEPS,
-  PLANS,
-  TREATMENT_CATEGORIES,
+  TREATMENT_INCLUDES,
   TREATMENTS,
   TRUST_POINTS,
+  getGoalForTreatment,
+  getPlansForTreatment,
+  resolveTreatmentId,
 } from './startFlowData.js';
-
-const STEPS = ['treatment', 'intake', 'plan', 'checkout', 'verify', 'account'];
+import GlpTreatmentPicker from './GlpTreatmentPicker.jsx';
 
 function flowPhase(step) {
   if (step === 'treatment') return 'treatment';
@@ -66,11 +67,12 @@ export default function StartFlow({ onComplete }) {
     const raw = window.location.hash.replace(/^#\/?/, '');
     const query = raw.includes('?') ? raw.split('?')[1] : '';
     const params = new URLSearchParams(query);
-    const value = params.get('treatment') || '';
-    return TREATMENTS.some((t) => t.id === value) ? value : '';
+    return resolveTreatmentId(params.get('treatment') || '');
   })();
   const [step, setStep] = useState(pending?.resumeStep || 'treatment');
-  const [treatmentId, setTreatmentId] = useState(pending?.treatmentId || hashTreatmentId || '');
+  const [treatmentId, setTreatmentId] = useState(
+    resolveTreatmentId(pending?.treatmentId) || hashTreatmentId || 'semaglutide',
+  );
   const [intakeIndex, setIntakeIndex] = useState(0);
   const [intake, setIntake] = useState(pending?.intake || {
     goal: '',
@@ -96,15 +98,27 @@ export default function StartFlow({ onComplete }) {
   const [busy, setBusy] = useState(false);
 
   const treatment = useMemo(
-    () => TREATMENTS.find((t) => t.id === treatmentId) || null,
+    () => TREATMENTS.find((t) => t.id === treatmentId) || TREATMENTS[0],
     [treatmentId],
   );
-  const plan = useMemo(() => PLANS.find((p) => p.id === planId) || PLANS[1], [planId]);
+  const goal = useMemo(() => getGoalForTreatment(treatment.id), [treatment.id]);
+  const isGlp = treatment.category === 'weight-loss';
+  const plans = useMemo(() => getPlansForTreatment(treatmentId), [treatmentId]);
+  const plan = useMemo(
+    () => plans.find((p) => p.id === planId) || plans.find((p) => p.popular) || plans[0],
+    [plans, planId],
+  );
   const intakeStep = INTAKE_STEPS[intakeIndex];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step, intakeIndex]);
+
+  useEffect(() => {
+    if (!plans.some((p) => p.id === planId)) {
+      setPlanId(plans.find((p) => p.popular)?.id || plans[0]?.id || '3mo');
+    }
+  }, [plans, planId]);
 
   const persist = (extra = {}) => {
     savePendingOrder({
@@ -182,7 +196,6 @@ export default function StartFlow({ onComplete }) {
       setError('Complete your contact details and card to continue.');
       return;
     }
-    // Simulated authorization hold — no real charge
     go('verify');
   };
 
@@ -247,16 +260,18 @@ export default function StartFlow({ onComplete }) {
           <section className="sf-panel sf-panel--start">
             <header className="sf-start-hero">
               <div className="sf-start-hero__copy">
-                <p className="sf-eyebrow">Get started</p>
-                <h1>Choose a treatment plan</h1>
+                <p className="sf-eyebrow">Get started · {goal.label}</p>
+                <h1>{isGlp ? 'Choose your GLP-1 treatment' : `Confirm your ${goal.title} plan`}</h1>
                 <p className="sf-lede sf-lede--strong">
-                  Browse science-backed options, then complete a short medical questionnaire — no account needed until after checkout.
+                  {isGlp
+                    ? 'Select Semaglutide or Tirzepatide, then complete a short medical questionnaire — no account needed until after checkout.'
+                    : `${treatment.blurb} Complete a short medical questionnaire — no account needed until after checkout.`}
                 </p>
                 <TrustStrip />
               </div>
               <div className="sf-start-hero__flow" aria-hidden="true">
                 <ol className="sf-flow-preview">
-                  <li><span>01</span> Pick your protocol</li>
+                  <li><span>01</span> Pick your medication</li>
                   <li><span>02</span> Complete intake</li>
                   <li><span>03</span> Checkout & verify</li>
                   <li><span>04</span> Open Patient Center</li>
@@ -264,55 +279,51 @@ export default function StartFlow({ onComplete }) {
               </div>
             </header>
 
-            <div className="sf-catalog">
-              {TREATMENT_CATEGORIES.map((cat) => {
-                const items = TREATMENTS.filter((t) => cat.treatments.includes(t.id));
-                if (!items.length) return null;
-                return (
-                  <div key={cat.id} className="sf-catalog__group">
-                    <h2 className="sf-catalog__title">{cat.title}</h2>
-                    <div className="sf-product-grid">
-                      {items.map((t) => {
-                        const selected = treatmentId === t.id;
-                        return (
-                          <article
-                            key={t.id}
-                            className={`sf-product ${selected ? 'active' : ''}`}
-                          >
-                            <div className="sf-product__media">
-                              <img src={t.image} alt="" loading="lazy" />
-                              <span className="sf-product__badge">{t.badge}</span>
-                            </div>
-                            <div className="sf-product__body">
-                              <h3>{t.name}</h3>
-                              <p className="sf-product__med">{t.med}</p>
-                              <p className="sf-product__blurb">{t.blurb}</p>
-                              <div className="sf-product__meta">
-                                <span className="sf-product__freq">{t.frequency}</span>
-                                <span className="sf-product__price">From <strong>${t.priceFrom}</strong>/mo</span>
-                              </div>
-                              <button
-                                type="button"
-                                className={`sf-product__select ${selected ? 'sf-product__select--active' : ''}`}
-                                onClick={() => onSelectTreatment(t.id)}
-                                aria-pressed={selected}
-                              >
-                                {selected ? 'Selected ✓' : 'Select treatment'}
-                              </button>
-                            </div>
-                          </article>
-                        );
-                      })}
+            {isGlp ? (
+              <GlpTreatmentPicker
+                selectedId={treatmentId}
+                onSelect={onSelectTreatment}
+                showCta={false}
+              />
+            ) : (
+              <article className="glp-pick">
+                <div className="glp-pick__media">
+                  <img src={treatment.image || goal.image} alt="" loading="lazy" />
+                  <div className="glp-pick__media-badges" aria-hidden="true">
+                    {goal.badges.map((b) => (
+                      <span key={b} className="glp-pick__chip">{b}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="glp-pick__body">
+                  <p className="glp-pick__proof">{goal.eyebrow}</p>
+                  <h2 className="glp-pick__title">{treatment.name}</h2>
+                  <p className="glp-pick__blurb">{goal.blurb}</p>
+                  <div className="glp-pick__includes">
+                    <p className="glp-pick__includes-label">All plans include</p>
+                    <ul>
+                      {TREATMENT_INCLUDES.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="glp-pick__footer">
+                    <div className="glp-pick__price">
+                      <span className="glp-pick__price-label">Starting as low as</span>
+                      <p className="glp-pick__price-value">
+                        <strong>${treatment.priceFrom}</strong>
+                        <span>/mo</span>
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              </article>
+            )}
 
             {error && <p className="pp-auth__error">{error}</p>}
             <div className="sf-sticky-cta">
               <p className="sf-sticky-cta__hint">
-                {treatment ? `Selected: ${treatment.name}` : 'Select a treatment to continue'}
+                Selected: {treatment.name}
               </p>
               <div className="sf-nav-row sf-nav-row--triple">
                 <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>
@@ -322,7 +333,7 @@ export default function StartFlow({ onComplete }) {
                   Back
                 </a>
                 <button type="button" className="pp-btn pp-btn--primary sf-cta" onClick={continueTreatment}>
-                  Continue with {treatment ? treatment.name : 'selected treatment'} →
+                  Continue with {treatment.name} →
                 </button>
               </div>
             </div>
@@ -356,11 +367,11 @@ export default function StartFlow({ onComplete }) {
             {intakeStep.type === 'metrics' && (
               <div className="sf-metrics">
                 <label>
-                  Height (e.g. 5'7")
+                  Height (e.g. 5&apos;7&quot;)
                   <input
                     value={intake.height}
                     onChange={(e) => setIntake({ ...intake, height: e.target.value })}
-                    placeholder="5'7&quot;"
+                    placeholder={'5\'7"'}
                   />
                 </label>
                 <label>
@@ -412,7 +423,7 @@ export default function StartFlow({ onComplete }) {
               Authorization hold only — you are charged if a provider prescribes. Cancel anytime.
             </p>
             <div className="sf-plan-grid">
-              {PLANS.map((p) => (
+              {plans.map((p) => (
                 <button
                   key={p.id}
                   type="button"
@@ -630,7 +641,6 @@ export default function StartFlow({ onComplete }) {
           </section>
         )}
 
-        {/* Legal links */}
         <footer className="sf-legal">
           <p className="sf-legal__links">
             <a href="#/privacy">Privacy</a>

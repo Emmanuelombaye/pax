@@ -12,6 +12,10 @@ function parseHashTab(hashRaw) {
   if (route === 'portal' || route.startsWith('portal/')) return 'portal';
   if (route === 'start' || route.startsWith('start/')) return 'start';
   if (route === 'brand-compare') return 'brand-compare';
+  // Deep links: #/treatments/weight-loss (legacy longevity/MR normalize in TreatmentsExplore)
+  if (route === 'treatments' || route.startsWith('treatments/')) return 'treatments';
+  // Nav label is Providers; keep #/advisors as a back-compat alias
+  if (route === 'providers' || route === 'advisors') return 'advisors';
   if (ROUTE_TABS.includes(route)) return route;
   return 'home';
 }

@@ -1,18 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrandLogo, PAX_PASSPORT } from '../brand/index.js';
-import { HOME_FAQS, LIFESTYLE_PILLARS, HOME_PROGRAMS, HOME_CHIPS, HOME_DOCTORS, THREAT_DOMAINS } from './data.js';
+import { LIFESTYLE_PILLARS, THREAT_DOMAINS } from './data.js';
 import { MARKETING_IMAGES } from './assets.js';
 import LegalPage from './LegalPage.jsx';
 import { LEGAL_PAGE_IDS } from './legalContent.js';
+import YuccaHome from './YuccaHome.jsx';
+import TreatmentsExplore from './TreatmentsExplore.jsx';
+import HowItWorksPage from './HowItWorksPage.jsx';
+import AdvisorsPage from './AdvisorsPage.jsx';
+import { resolveTreatmentId } from '../start/startFlowData.js';
 
 const START_TREATMENT_MAP = {
-  glp: 'weight-loss',
-  metabolic: 'metabolic-oral',
-  nad: 'longevity',
-  sermorelin: 'recovery',
-  hormone: 'hormone',
-  hair: 'hair',
-  lifestyle: 'sexual-wellness',
+  semaglutide: 'semaglutide',
+  tirzepatide: 'tirzepatide',
+  glp: 'semaglutide',
+  'weight-loss': 'semaglutide',
+  nad: 'semaglutide',
+  longevity: 'semaglutide',
+  sermorelin: 'semaglutide',
+  recovery: 'semaglutide',
+  'muscle-recovery': 'semaglutide',
 };
 
 function setImageFallback(event, fallbackSrc) {
@@ -27,7 +34,7 @@ export default function MarketingApp({ currentTab }) {
   const [isScrolled, setIsScrolled] = useState(false);
   // FAQ Active State
   const [activeFaq, setActiveFaq] = useState(null);
-  const [selectedTx, setSelectedTx] = useState('glp');
+  const [selectedTx, setSelectedTx] = useState('semaglutide');
   const programScrollerRef = useRef(null);
   
 
@@ -163,7 +170,11 @@ export default function MarketingApp({ currentTab }) {
   }, [currentTab]);
 
   const toggleMobileNav = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen((open) => {
+      const next = !open;
+      document.body.style.overflow = next ? 'hidden' : '';
+      return next;
+    });
   };
 
   const handleFaqToggle = (index) => {
@@ -175,43 +186,74 @@ export default function MarketingApp({ currentTab }) {
       window.location.hash = '#/start';
       return;
     }
-    const mapped = START_TREATMENT_MAP[treatmentSeed];
+    const mapped =
+      resolveTreatmentId(treatmentSeed) || START_TREATMENT_MAP[treatmentSeed] || null;
     window.location.hash = mapped ? `#/start?treatment=${encodeURIComponent(mapped)}` : '#/start';
   };
 
   const activeLifestyle = LIFESTYLE_PILLARS.find((pillar) => pillar.id === currentTab);
-  const selectedTxLabel = {
-    glp: 'Compounded GLP-1',
-    metabolic: 'Metabolic Oral Support',
-    nad: 'Compounded NAD+',
-    sermorelin: 'Sermorelin Protocol',
-    hormone: 'TRT / HRT Optimization',
-    hair: 'Hair Restoration Topicals',
-    lifestyle: 'Sexual Wellness Support',
-  }[selectedTx] || 'Selected treatment';
 
   return (
-    <>
-      {/* Header / Navigation */}
+    <div className="yx-shell">
+      <div className="yx-promo">
+        Pax Longevity offer · Semaglutide from <strong>$125/mo</strong> on the 6-month plan
+        <button type="button" onClick={() => openStart('semaglutide')}>Lock in price →</button>
+      </div>
+
+      {/* Yucca order: trust marquee directly under promo, then pill nav */}
+      <div className="yxr-trustbar yxr-trustbar--shell" aria-hidden="true">
+        <div className="yxr-trustbar__track">
+          {[0, 1].map((loop) => (
+            <div key={loop} className="yxr-trustbar__group">
+              <span className="yxr-trustbar__item">U.S. Licensed Pharmacies</span>
+              <span className="yxr-trustbar__item">Licensed Providers in all 50 States</span>
+              <span className="yxr-trustbar__item">Free Expedited Shipment</span>
+              <span className="yxr-trustbar__item">Pax Longevity Patient Center</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Header / Navigation — logo | centered menu | actions */}
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container">
+        <div className="container yx-header-bar">
           <BrandLogo variant="header" />
-          
-          <nav className="nav">
-            <a href="#/" className={`nav-link ${currentTab === 'home' ? 'active' : ''}`}>Home</a>
-            <a href="#/vision" className={`nav-link ${currentTab === 'vision' ? 'active' : ''}`}>Vision</a>
-            <a href="#/threats" className={`nav-link ${currentTab === 'threats' ? 'active' : ''}`}>The Threats</a>
-            <a href="#/treatments" className={`nav-link ${currentTab === 'treatments' ? 'active' : ''}`}>Treatments</a>
-            <a href="#/advisors" className={`nav-link ${currentTab === 'advisors' ? 'active' : ''}`}>Advisors</a>
-            <a href="#/education" className={`nav-link ${currentTab === 'education' ? 'active' : ''}`}>Education</a>
-            <a href="#/portal" className="nav-link">Patient Center</a>
-            <button className="btn btn-primary btn-quiz-trigger" onClick={openStart}>Find my treatment</button>
+
+          <nav className="yx-nav" aria-label="Primary">
+            <div className="yx-nav__links">
+              <a href="#/treatments/weight-loss" className={`yx-nav__link ${currentTab === 'treatments' ? 'active' : ''}`}>
+                Treatments
+              </a>
+              <a
+                href="#/how-it-works"
+                className={`yx-nav__link ${currentTab === 'how-it-works' ? 'active' : ''}`}
+              >
+                How it works
+              </a>
+              <a href="#/providers" className={`yx-nav__link ${currentTab === 'advisors' || currentTab === 'providers' ? 'active' : ''}`}>
+                Providers
+              </a>
+              <a href="#/education" className={`yx-nav__link ${currentTab === 'education' ? 'active' : ''}`}>
+                Education
+              </a>
+            </div>
           </nav>
-          
-          <button 
-            className={`nav-toggle ${isNavOpen ? 'active' : ''}`} 
+
+          <div className="yx-nav__actions">
+            <a href="#/portal" className="yx-btn yx-btn--ghost">
+              Log in
+            </a>
+            <button type="button" className="yx-btn yx-btn--primary" onClick={openStart}>
+              Get started
+            </button>
+          </div>
+
+          <button
+            type="button"
+            className={`nav-toggle ${isNavOpen ? 'active' : ''}`}
             onClick={toggleMobileNav}
-            aria-label="Toggle Menu"
+            aria-label={isNavOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isNavOpen}
           >
             <span></span>
             <span></span>
@@ -220,343 +262,107 @@ export default function MarketingApp({ currentTab }) {
         </div>
       </header>
 
-      {/* Mobile Navigation Menu */}
-      <div 
-        className={`mobile-overlay ${isNavOpen ? 'open' : ''}`} 
+      {/* Mobile Navigation Menu — Yucca-style drawer */}
+      <div
+        className={`mobile-overlay ${isNavOpen ? 'open' : ''}`}
         onClick={toggleMobileNav}
-      ></div>
-      <div className={`mobile-nav ${isNavOpen ? 'open' : ''}`}>
-        <div className="mobile-nav__brand">
-          <BrandLogo variant="drawer" onClick={toggleMobileNav} />
+        aria-hidden={!isNavOpen}
+      />
+      <div className={`mobile-nav ${isNavOpen ? 'open' : ''}`} role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="mobile-nav__top">
+          <div className="mobile-nav__brand">
+            <BrandLogo variant="drawer" onClick={toggleMobileNav} />
+          </div>
+          <button type="button" className="mobile-nav__close" onClick={toggleMobileNav} aria-label="Close menu">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            </svg>
+          </button>
         </div>
-        <a href="#/" className={`nav-link mobile-link ${currentTab === 'home' ? 'active' : ''}`} onClick={toggleMobileNav}>Home</a>
-        <a href="#/vision" className={`nav-link mobile-link ${currentTab === 'vision' ? 'active' : ''}`} onClick={toggleMobileNav}>Vision</a>
-        <a href="#/threats" className={`nav-link mobile-link ${currentTab === 'threats' ? 'active' : ''}`} onClick={toggleMobileNav}>The Threats</a>
-        <a href="#/treatments" className={`nav-link mobile-link ${currentTab === 'treatments' ? 'active' : ''}`} onClick={toggleMobileNav}>Treatments</a>
-        <a href="#/advisors" className={`nav-link mobile-link ${currentTab === 'advisors' ? 'active' : ''}`} onClick={toggleMobileNav}>Advisors</a>
-        <a href="#/education" className={`nav-link mobile-link ${currentTab === 'education' ? 'active' : ''}`} onClick={toggleMobileNav}>Education</a>
-        <a href="#/portal" className="nav-link mobile-link" onClick={toggleMobileNav}>Patient Center</a>
-        <button 
-          className="btn btn-primary btn-quiz-trigger" 
-          style={{ marginTop: '1rem' }} 
-          onClick={() => { toggleMobileNav(); openStart(); }}
-        >
-          Find my treatment
-        </button>
+
+        <p className="mobile-nav__eyebrow">Explore</p>
+        <div className="mobile-nav__links">
+          <a href="#/" className={`mobile-link ${currentTab === 'home' ? 'active' : ''}`} onClick={toggleMobileNav}>
+            Home
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+          <a
+            href="#/treatments/weight-loss"
+            className={`mobile-link ${currentTab === 'treatments' ? 'active' : ''}`}
+            onClick={toggleMobileNav}
+          >
+            Treatments
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+          <a
+            href="#/how-it-works"
+            className={`mobile-link ${currentTab === 'how-it-works' ? 'active' : ''}`}
+            onClick={toggleMobileNav}
+          >
+            How it works
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+          <a
+            href="#/providers"
+            className={`mobile-link ${currentTab === 'advisors' || currentTab === 'providers' ? 'active' : ''}`}
+            onClick={toggleMobileNav}
+          >
+            Providers
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+          <a
+            href="#/education"
+            className={`mobile-link ${currentTab === 'education' ? 'active' : ''}`}
+            onClick={toggleMobileNav}
+          >
+            Education
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+          <a href="#/portal" className="mobile-link" onClick={toggleMobileNav}>
+            Patient Center
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
+        </div>
+
+        <div className="mobile-nav__footer">
+          <a href="#/portal" className="yx-btn yx-btn--ghost" onClick={toggleMobileNav}>
+            Log in
+          </a>
+          <button
+            type="button"
+            className="yx-btn yx-btn--primary"
+            onClick={() => {
+              toggleMobileNav();
+              openStart();
+            }}
+          >
+            Get started
+          </button>
+        </div>
       </div>
 
       {/* DYNAMIC PAGE VIEWS */}
       <main style={{ minHeight: '60vh' }}>
         
         {/* ==================== HOME PAGE VIEW ==================== */}
-
         {currentTab === 'home' && (
-          <div className="fade-in home-card-flow">
-            {/* Full-bleed hero */}
-            <section className="cf-hero cf-hero--full cf-hero--italy-miami">
-              <div className="cf-hero__media" aria-hidden="true">
-                <img className="cf-hero__bg-image" src={MARKETING_IMAGES.home.hero} alt="" loading="eager" />
-                <div className="cf-hero__overlay" />
-              </div>
-              <div className="cf-hero__copy cf-hero__copy--left">
-                <p className="cf-kicker">Pax Longevity</p>
-                <h1 className="cf-hero__title">
-                  Sunset state of mind.<br />Clinical peace of mind.
-                </h1>
-                <p className="cf-hero__lede">
-                  Luxury telehealth for weight, hormones, peptides, and vitality protocols,
-                  delivered with precision and care.
-                </p>
-              </div>
-            </section>
-
-            <section className="cf-system-intro" aria-label="Longevity system">
-              <div className="cf-system-intro__inner">
-                <h2 className="cf-system-intro__title">The Pax Longevity System</h2>
-                <p className="cf-system-intro__lede">Doctor-prescribed longevity care delivered through:</p>
-                <div className="cf-system-intro__grid">
-                  <span>Personalized treatment plans</span>
-                  <span>Licensed U.S. medical providers</span>
-                  <span>Vetted 503A pharmacy fulfillment</span>
-                </div>
-              </div>
-            </section>
-
-            {/* Program chips */}
-            <section className="cf-chips" aria-label="Programs">
-              <div className="cf-chips__row">
-                {HOME_CHIPS.map((chip) => (
-                  <a key={chip.label} href={chip.href} className="cf-chip">
-                    <span>{chip.label}</span>
-                    <span className="cf-chip__arrow" aria-hidden="true">→</span>
-                  </a>
-                ))}
-              </div>
-            </section>
-
-            {/* Programs stage with product cards */}
-            <section className="cf-programs cf-reveal">
-              <div className="cf-programs__stage">
-                <div className="cf-programs__lead-row">
-                  <div className="cf-programs__intro">
-                    <p className="cf-programs__kicker">Precision Program Library</p>
-                    <h2 className="cf-programs__title">
-                      Multiple programs,<br /><em>one practice.</em>
-                    </h2>
-                    <p className="cf-programs__lede">
-                      Physician-led prescription pathways for weight, hormones, peptides, and recovery — matched to your biomarkers and delivered concierge-style.
-                    </p>
-                    <div className="cf-programs__proof">
-                      <span>Licensed U.S. providers</span>
-                      <span>Vetted 503A pharmacy partners</span>
-                      <span>Cold-chain delivery when required</span>
-                    </div>
-                    <div className="cf-programs__lead-actions">
-                      <button type="button" className="cf-btn-dune" onClick={openStart}>Find my treatment</button>
-                      <a href="#/treatments" className="cf-btn-light">See full treatments</a>
-                    </div>
-                  </div>
-
-                  <div className="cf-programs__visual">
-                    <div className="cf-programs__hero-img-wrap">
-                      <img src={MARKETING_IMAGES.cards.glpPen} alt="" className="cf-programs__hero-img" loading="lazy" />
-                    </div>
-                    <div className="cf-programs__visual-note">
-                      <strong>24h</strong>
-                      <span>Typical provider review turnaround</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cf-programs__access">
-                  <div className="cf-programs__access-head">
-                    <p className="cf-programs__access-kicker">Program Catalog</p>
-                    <h3 className="cf-programs__access-title">Access our specialized programs</h3>
-                    <p className="cf-programs__access-lede">Select a protocol category to view physician-led options and pricing.</p>
-                  </div>
-                  <div className="cf-program-scroller" ref={programScrollerRef}>
-                    {[...HOME_PROGRAMS, ...HOME_PROGRAMS].map((program, index) => {
-                      const isClone = index >= HOME_PROGRAMS.length;
-                      return (
-                        <a
-                          key={`${program.id}-${index}`}
-                          href={program.href}
-                          className={`cf-program-card cf-program-card--${program.tone} cf-reveal`}
-                          style={{ '--reveal-delay': `${120 + ((index % HOME_PROGRAMS.length) * 70)}ms` }}
-                          aria-hidden={isClone ? 'true' : undefined}
-                          tabIndex={isClone ? -1 : undefined}
-                        >
-                          <span className="cf-program-card__badge">{program.badge}</span>
-                          <img
-                            src={program.image}
-                            alt=""
-                            className="cf-program-card__img"
-                            loading="lazy"
-                          />
-                          <div className="cf-program-card__body">
-                            <h4>{program.title}</h4>
-                            <p>{program.blurb}</p>
-                            <div className="cf-program-card__meta">
-                              <span>Doctor-prescribed</span>
-                              <span>Cold-chain delivery</span>
-                            </div>
-                            <div className="cf-program-card__cta">
-                              <span>View protocol</span>
-                              <span aria-hidden="true">→</span>
-                            </div>
-                          </div>
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="cf-eligibility cf-reveal" style={{ '--reveal-delay': '90ms' }}>
-              <div className="cf-eligibility__inner">
-                <div className="cf-eligibility__copy">
-                  <p className="cf-eligibility__kicker">Quick pre-check</p>
-                  <h2 className="cf-eligibility__title">Are you eligible?</h2>
-                  <p className="cf-eligibility__lede">
-                    Most adults qualify for at least one physician-led program. Complete a short
-                    medical questionnaire and our licensed team reviews your profile within 24
-                    hours.
-                  </p>
-                  <ul className="cf-eligibility__list">
-                    <li>Age 18+ with valid U.S. state residence</li>
-                    <li>Clinical history reviewed by licensed providers</li>
-                    <li>No commitment until after medical review</li>
-                  </ul>
-                  <button type="button" className="cf-btn-dune cf-eligibility__cta" onClick={openStart}>
-                    Check my eligibility
-                  </button>
-                </div>
-
-                <div className="cf-eligibility__media-grid">
-                  <article className="cf-eligibility__media-card">
-                    <img
-                      src={MARKETING_IMAGES.home.eligibilityPrimary}
-                      alt="Patient speaking with a clinician"
-                      loading="lazy"
-                      onError={(e) => setImageFallback(e, MARKETING_IMAGES.cards.doctorFemale)}
-                    />
-                  </article>
-                  <article className="cf-eligibility__media-card">
-                    <img
-                      src={MARKETING_IMAGES.home.eligibilitySecondary}
-                      alt="Wellness-focused lifestyle and movement"
-                      loading="lazy"
-                      onError={(e) => setImageFallback(e, MARKETING_IMAGES.cards.lifestyleRunner)}
-                    />
-                  </article>
-                </div>
-              </div>
-            </section>
-
-            {/* Plans photo band */}
-            <section className="cf-plans cf-reveal" style={{ '--reveal-delay': '120ms' }}>
-              <div className="cf-plans__panel">
-                <img
-                  className="cf-plans__bg"
-                  src={MARKETING_IMAGES.cards.lifestyleRunner}
-                  alt=""
-                  loading="lazy"
-                />
-                <div className="cf-plans__scrim" />
-                <div className="cf-plans__head">
-                  <p className="cf-plans__kicker">Pax Plans</p>
-                  <h2 className="cf-plans__title">
-                    Pax Plans,<br className="cf-br-desktop" />elevated longevity care.
-                  </h2>
-                  <p className="cf-plans__lede">
-                    Built for different goals and lifestyles, each tier includes physician-led protocols, concierge follow-up, and premium pharmacy fulfillment.
-                  </p>
-                </div>
-                <div className="cf-plans__grid">
-                  <article className="cf-plans__card">
-                    <p className="cf-plans__card-chip">Essentials</p>
-                    <h3>Pax Essentials</h3>
-                    <p className="cf-plans__card-price">From <strong>$199</strong>/mo</p>
-                    <p className="cf-plans__card-note">Core protocol + monthly provider check-ins.</p>
-                  </article>
-                  <article className="cf-plans__card cf-plans__card--featured">
-                    <p className="cf-plans__card-chip">Most chosen</p>
-                    <h3>Pax Performance</h3>
-                    <p className="cf-plans__card-price">From <strong>$349</strong>/mo</p>
-                    <p className="cf-plans__card-note">Advanced diagnostics, tighter monitoring, and goal-based adjustments.</p>
-                  </article>
-                  <article className="cf-plans__card">
-                    <p className="cf-plans__card-chip">Premier</p>
-                    <h3>Pax Signature</h3>
-                    <p className="cf-plans__card-price">From <strong>$519</strong>/mo</p>
-                    <p className="cf-plans__card-note">Full concierge cadence with priority physician access and white-glove support.</p>
-                  </article>
-                </div>
-                <div className="cf-plans__actions">
-                  <button type="button" className="cf-btn-dune" onClick={openStart}>Check eligibility & choose my plan</button>
-                  <button type="button" className="cf-btn-light" onClick={openStart}>See physician-recommended match</button>
-                </div>
-              </div>
-            </section>
-
-            {/* Guidance CTA */}
-            <section className="cf-guidance cf-reveal" style={{ '--reveal-delay': '150ms' }}>
-              <div className="cf-guidance__panel">
-                <div className="cf-guidance__grid">
-                  <div className="cf-guidance__copy">
-                    <p className="cf-guidance__kicker">Concierge Clinical Experience</p>
-                    <h2 className="cf-guidance__title">
-                      Personal guidance,<br />tailored to you.
-                    </h2>
-                    <p className="cf-guidance__lede">
-                      Personalized guidance, physician-led protocols, advanced diagnostics, and a concierge telehealth experience designed around performance, recovery, longevity, and lifestyle.
-                    </p>
-                    <div className="cf-guidance__proof">
-                      <span>Physician-led oversight</span>
-                      <span>Custom diagnostics strategy</span>
-                      <span>White-glove follow-up</span>
-                    </div>
-                    <button type="button" className="cf-btn-dune cf-btn-dune--lg cf-guidance__cta" onClick={openStart}>Begin intake assessment →</button>
-                  </div>
-                  <div className="cf-guidance__visual">
-                    <img
-                      src={MARKETING_IMAGES.home.guidance}
-                      alt="Doctor consultation for personalized longevity care"
-                      loading="lazy"
-                    />
-                    <div className="cf-guidance__visual-note">
-                      <strong>24h review</strong>
-                      <span>Typical clinical response time</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* FAQ */}
-            <section className="faq cf-faq" id="faq">
-              <div className="container">
-                <div className="section-header-center cf-faq__head">
-                  <p className="cf-faq__kicker">Support & clarity</p>
-                  <h2 className="section-title">Frequently asked questions</h2>
-                  <p className="cf-faq__lede">
-                    Clear answers before you start. Every protocol is reviewed by licensed U.S. providers.
-                  </p>
-                </div>
-                <div className="faq-list">
-                  {HOME_FAQS.map((faq, idx) => (
-                    <div key={faq.q} className={`faq-item ${activeFaq === idx ? 'active' : ''}`}>
-                      <button
-                        className="faq-question"
-                        onClick={() => handleFaqToggle(idx)}
-                        aria-expanded={activeFaq === idx}
-                        aria-controls={`faq-panel-${idx}`}
-                      >
-                        <span className="faq-question-id">{String(idx + 1).padStart(2, '0')}</span>
-                        <span className="faq-question-text">{faq.q}</span>
-                        <span className="faq-icon" aria-hidden="true">+</span>
-                      </button>
-                      <div className="faq-answer" id={`faq-panel-${idx}`}>
-                        <div className="faq-answer-inner">
-                          <p className="faq-answer-lead">{faq.lead}</p>
-                          {faq.points?.length > 0 && (
-                            <ul className="faq-answer-points">
-                              {faq.points.map((point) => (
-                                <li key={point}>{point}</li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Doctors */}
-            <section className="cf-doctors">
-              <div className="cf-doctors__inner">
-                <h2 className="cf-doctors__title">
-                  The best care<br />by the best in medicine
-                </h2>
-                <p className="cf-doctors__lede">Meet the team of leading specialists guiding your protocols.</p>
-                <div className="cf-doctors__grid">
-                  {HOME_DOCTORS.map((doc) => (
-                    <article key={doc.name} className="cf-doctor-card">
-                      <div className="cf-doctor-card__photo">
-                        <img src={doc.image} alt={doc.name} loading="lazy" />
-                      </div>
-                      <h3>{doc.name}</h3>
-                      <p>{doc.bio}</p>
-                    </article>
-                  ))}
-                </div>
-                <a href="#/advisors" className="cf-doctors__link">Meet our clinical advisory board →</a>
-              </div>
-            </section>
-          </div>
+          <YuccaHome
+            openStart={openStart}
+            activeFaq={activeFaq}
+            onFaqToggle={handleFaqToggle}
+          />
         )}
 
 
@@ -786,269 +592,20 @@ export default function MarketingApp({ currentTab }) {
 
         {/* ==================== TREATMENTS PAGE VIEW ==================== */}
         {currentTab === 'treatments' && (
-          <div className="fade-in" style={{ paddingTop: '6rem' }}>
-            <section className="treatments">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Direct-to-Home Prescriptions</span>
-                  <h2 className="section-title">Our <em>treatments.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Licensed Pax care protocols providing access to premium clinical compoundings, custom cold-chain shipped straight to your door.
-                  </p>
-                </div>
-
-                <div className="tx-layout">
-                  <aside className="tx-rail">
-                    <p className="tx-rail__label">How It Works</p>
-                    <ol className="tx-rail__steps">
-                      <li>Complete your intake and goals</li>
-                      <li>Licensed provider reviews within 24 hours</li>
-                      <li>Medication ships directly in temperature-safe packaging</li>
-                    </ol>
-                    <p className="tx-rail__selected">Selected: {selectedTxLabel}</p>
-                    <button className="btn btn-primary btn-quiz-trigger tx-rail__cta" onClick={() => openStart(selectedTx)}>
-                      Check eligibility & start
-                    </button>
-                  </aside>
-
-                  <div className="tx-catalog">
-                    <section className="tx-group">
-                      <div className="tx-group__header">
-                        <span className="tx-group__eyebrow">Category 01</span>
-                        <h3 className="tx-group__title">Metabolic & Weight Care</h3>
-                      </div>
-                      <div className="tx-card-grid">
-                        <article className={`tx-card ${selectedTx === 'glp' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.glpPen} alt="Compounded GLP-1 treatment" loading="lazy" />
-                            <span className="tx-card__badge">Most Requested</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Compounded GLP-1</h4>
-                            <p>Semaglutide and Tirzepatide protocols for appetite, insulin sensitivity, and body-composition support.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">Weekly</span>
-                              <span className="tx-card__price">From <strong>$249</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'glp' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('glp')}
-                              aria-pressed={selectedTx === 'glp'}
-                            >
-                              {selectedTx === 'glp' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                        <article className={`tx-card ${selectedTx === 'metabolic' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.pillBottle} alt="Metabolic oral support treatment" loading="lazy" />
-                            <span className="tx-card__badge">Adjunct</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Metabolic Oral Support</h4>
-                            <p>Targeted adjunct options to complement GLP protocols and improve long-term adherence.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">Daily</span>
-                              <span className="tx-card__price">From <strong>$89</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'metabolic' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('metabolic')}
-                              aria-pressed={selectedTx === 'metabolic'}
-                            >
-                              {selectedTx === 'metabolic' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                      </div>
-                    </section>
-
-                    <section className="tx-group">
-                      <div className="tx-group__header">
-                        <span className="tx-group__eyebrow">Category 02</span>
-                        <h3 className="tx-group__title">Energy, Hormones & Recovery</h3>
-                      </div>
-                      <div className="tx-card-grid">
-                        <article className={`tx-card ${selectedTx === 'nad' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.vitalityBottle} alt="Compounded NAD+ treatment" loading="lazy" />
-                            <span className="tx-card__badge">Cellular</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Compounded NAD+</h4>
-                            <p>Mitochondrial support protocol designed to improve energy consistency and cognitive clarity.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">2x Weekly</span>
-                              <span className="tx-card__price">From <strong>$149</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'nad' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('nad')}
-                              aria-pressed={selectedTx === 'nad'}
-                            >
-                              {selectedTx === 'nad' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                        <article className={`tx-card ${selectedTx === 'sermorelin' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.labsBox} alt="Compounded Sermorelin treatment" loading="lazy" />
-                            <span className="tx-card__badge">Recovery</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Sermorelin Protocol</h4>
-                            <p>Night-time recovery support focused on sleep architecture, muscle repair, and healthy aging markers.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">Nightly</span>
-                              <span className="tx-card__price">From <strong>$189</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'sermorelin' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('sermorelin')}
-                              aria-pressed={selectedTx === 'sermorelin'}
-                            >
-                              {selectedTx === 'sermorelin' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                        <article className={`tx-card ${selectedTx === 'hormone' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.pillBottle} alt="TRT and HRT treatment support" loading="lazy" />
-                            <span className="tx-card__badge">Hormones</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>TRT / HRT Optimization</h4>
-                            <p>Physician-guided hormone balancing plans personalized around bloodwork and symptom profile.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">Monthly Plan</span>
-                              <span className="tx-card__price">From <strong>$219</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'hormone' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('hormone')}
-                              aria-pressed={selectedTx === 'hormone'}
-                            >
-                              {selectedTx === 'hormone' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                      </div>
-                    </section>
-
-                    <section className="tx-group">
-                      <div className="tx-group__header">
-                        <span className="tx-group__eyebrow">Category 03</span>
-                        <h3 className="tx-group__title">Aesthetic & Lifestyle Prescriptions</h3>
-                      </div>
-                      <div className="tx-card-grid tx-card-grid--two">
-                        <article className={`tx-card ${selectedTx === 'hair' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.vitalityBottle} alt="Hair restoration topical treatment" loading="lazy" />
-                            <span className="tx-card__badge">Hair</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Hair Restoration Topicals</h4>
-                            <p>Custom compounded topical blends for density, growth support, and scalp health maintenance.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">Daily</span>
-                              <span className="tx-card__price">From <strong>$79</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'hair' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('hair')}
-                              aria-pressed={selectedTx === 'hair'}
-                            >
-                              {selectedTx === 'hair' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                        <article className={`tx-card ${selectedTx === 'lifestyle' ? 'active' : ''}`}>
-                          <div className="tx-card__media">
-                            <img src={MARKETING_IMAGES.cards.pillBottle} alt="Sexual wellness tadalafil support" loading="lazy" />
-                            <span className="tx-card__badge">Lifestyle</span>
-                          </div>
-                          <div className="tx-card__body">
-                            <h4>Sexual Wellness Support</h4>
-                            <p>Discreet provider-led tadalafil and performance-support protocols with flexible dose plans.</p>
-                            <div className="tx-card__meta">
-                              <span className="tx-card__freq">As Needed</span>
-                              <span className="tx-card__price">From <strong>$69</strong>/mo</span>
-                            </div>
-                            <button
-                              type="button"
-                              className={`tx-card__select ${selectedTx === 'lifestyle' ? 'active' : ''}`}
-                              onClick={() => setSelectedTx('lifestyle')}
-                              aria-pressed={selectedTx === 'lifestyle'}
-                            >
-                              {selectedTx === 'lifestyle' ? 'Selected ✓' : 'Select treatment'}
-                            </button>
-                          </div>
-                        </article>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+          <TreatmentsExplore
+            selectedTx={selectedTx}
+            setSelectedTx={setSelectedTx}
+            openStart={openStart}
+          />
         )}
 
-        {/* ==================== ADVISORS PAGE VIEW ==================== */}
-        {currentTab === 'advisors' && (
-          <div className="fade-in" style={{ paddingTop: '6rem' }}>
-            <section className="sab-section">
-              <div className="container">
-                <div className="section-header-center">
-                  <span className="section-label">Medical Direction</span>
-                  <h2 className="section-title">Guided by pioneering <em>scientific minds.</em></h2>
-                  <p className="hero-description" style={{ marginTop: 'var(--space-sm)' }}>
-                    Our clinical protocols, dosage ranges, and exclusion audits are managed under guidance from clinical specialists and researchers.
-                  </p>
-                </div>
-                
-                <div className="sab-grid">
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/clinical-consultation.webp" alt="Dr. Elena Vance" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Elena Vance</p>
-                    <p className="sab-role">Scientific Director</p>
-                    <p className="sab-bio">Leading clinical computational genomics expert shaping our patient cell targeting protocols.</p>
-                  </div>
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/milestone-2024.webp" alt="Dr. Marcus Brody" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Marcus Brody</p>
-                    <p className="sab-role">Metabolic Science Advisor</p>
-                    <p className="sab-bio">Endocrinologist detailing peptide dosing structures for metabolic reversal.</p>
-                  </div>
-                  <div className="sab-member">
-                    <div className="sab-photo-wrap">
-                      <img src="/images/wellness-therapy.webp" alt="Dr. Alan Chen" loading="lazy" />
-                    </div>
-                    <p className="sab-name">Dr. Alan Chen</p>
-                    <p className="sab-role">Cardiovascular Advisor</p>
-                    <p className="sab-bio">Pioneer of early plaque and cardiovascular marker interception technologies.</p>
-                  </div>
-                </div>
-
-                <div className="step-card" style={{ maxWidth: '600px', margin: 'var(--space-3xl) auto 0', textAlign: 'center' }}>
-                  <h3 className="step-title">Strict Medical Safety & Oversight</h3>
-                  <p className="step-text" style={{ marginTop: 'var(--space-sm)' }}>
-                    Every dosage is prescribed and monitored by state-licensed healthcare practitioners. If any heritable risks or clinical contradictions are flagged during your initial audit or subsequent blood tests, your advisor will contact you to modify your plan immediately.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
+        {currentTab === 'how-it-works' && (
+          <HowItWorksPage openStart={openStart} />
         )}
+
+        {currentTab === 'advisors' || currentTab === 'providers' ? (
+          <AdvisorsPage openStart={openStart} />
+        ) : null}
 
 
 
@@ -1467,7 +1024,8 @@ export default function MarketingApp({ currentTab }) {
 
             <div className="footer-links-col">
               <span className="footer-col-title">Care</span>
-              <a href="#/treatments" className="footer-link">Treatments</a>
+              <a href="#/treatments/weight-loss" className="footer-link">Treatments</a>
+              <a href="#/how-it-works" className="footer-link">How it works</a>
               <a href="#/start" className="footer-link">Start treatment</a>
               <a href="#/portal" className="footer-link">Patient Center</a>
             </div>
@@ -1476,7 +1034,7 @@ export default function MarketingApp({ currentTab }) {
               <span className="footer-col-title">Company</span>
               <a href="#/vision" className="footer-link">Vision</a>
               <a href="#/threats" className="footer-link">Threats</a>
-              <a href="#/advisors" className="footer-link">Advisors</a>
+              <a href="#/providers" className="footer-link">Providers</a>
               <a href="#/education" className="footer-link">Education</a>
             </div>
 
@@ -1508,8 +1066,7 @@ export default function MarketingApp({ currentTab }) {
           </div>
         </div>
       </footer>
-
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,85 @@
+/* Pax home hero — full-strength photo, no top fade */
+
+.yucca-home .pax-home-hero__card {
+  position: relative;
+  isolation: isolate;
+  background: #fff !important;
+  border-color: var(--forest) !important;
+  min-height: clamp(34rem, 72vw, 42rem);
+}
+
+.yucca-home .pax-home-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.yucca-home .pax-home-hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: 1;
+}
+
+/* No top fade — title stays readable on the bright sky */
+.yucca-home .pax-home-hero__wash {
+  display: none;
+}
+
+.yucca-home .pax-home-hero__scrim {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in oklch, var(--forest) 22%, transparent) 38%,
+      color-mix(in oklch, var(--forest) 70%, transparent) 100%
+    );
+}
+
+.yucca-home .pax-home-hero__wrap {
+  color: var(--sand) !important;
+}
+
+.yucca-home .pax-home-hero__heading {
+  color: var(--forest) !important;
+  text-shadow: none;
+}
+
+.yucca-home .pax-home-hero__heading,
+.yucca-home .pax-home-hero__subtitle {
+  position: relative;
+  z-index: 2;
+}
+
+.yucca-home .pax-home-hero__subtitle {
+  color: color-mix(in oklch, var(--forest) 82%, transparent) !important;
+}
+
+@media (min-width: 768px) {
+  .yucca-home .pax-home-hero__card {
+    min-height: 42rem;
+  }
+
+  .yucca-home .pax-home-hero__photo {
+    object-position: center 36%;
+  }
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-bottom {
+  position: relative;
+  z-index: 3;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-floating {
+  display: none !important;
+}

@@ -1,0 +1,124 @@
+/* Homepage fidelity overrides — scoped under .yucca-home — Pax brand kit */
+
+.yucca-home {
+  background: var(--sand);
+  color: var(--forest);
+  overflow-x: clip;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Retro geometry vars remapped to Pax kit tokens */
+.yucca-home,
+.yucca-home[data-retro-scope] {
+  --color-retro-surface: var(--sand);
+  --color-retro-cream: var(--sand);
+  --color-retro-ink: var(--forest);
+  --color-retro-ink-soft: color-mix(in oklch, var(--forest) 62%, transparent);
+  --color-retro-shadow: var(--forest);
+  --color-retro-sky-1: color-mix(in oklch, var(--dune) 55%, var(--sand));
+  --color-retro-sky-2: color-mix(in oklch, var(--dune) 75%, var(--sand));
+  --color-retro-green: var(--forest);
+  --color-retro-yellow: color-mix(in oklch, var(--dune) 70%, var(--sand));
+  --color-retro-purple: color-mix(in oklch, var(--dune) 42%, var(--sand));
+  --color-retro-lavender: color-mix(in oklch, var(--dune) 38%, var(--sand));
+  --font-retro-display: var(--font-display);
+  --font-retro-body: var(--font-body);
+}
+
+.yucca-home,
+.yucca-home * {
+  font-weight: 400;
+}
+
+.yucca-home em,
+.yucca-home i,
+.yucca-home .italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Hero reveal helpers (live site JS sets these on scroll) */
+.yucca-home .hero-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Active treatment pane visibility */
+.yucca-home [data-retro-treatments-pane][data-active='false'] {
+  display: none;
+}
+
+.yucca-home [data-retro-treatments-pane][data-active='true'] {
+  display: block;
+}
+
+/* FAQ open state without Astro data attributes */
+.yucca-home [data-faq-item][data-open='true'] .retro-faqs__panel {
+  grid-template-rows: 1fr;
+}
+
+.yucca-home [data-faq-item][data-open='true'] .retro-faqs__icon {
+  transform: rotate(45deg);
+}
+
+/* Marquee animation fallback */
+@keyframes yucca-home-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.yucca-home .retro-happy__track {
+  animation: yucca-home-marquee 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yucca-home .retro-happy__track {
+    animation: none;
+  }
+}
+
+/* Treatments product card — sand elevated surface */
+.yucca-home .retro-home-treatments-card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune));
+}
+
+/* BNPL logos — mirror sets height only; ensure width renders */
+.yucca-home .retro-home-treatments-bnpl img {
+  display: block;
+  height: 14px;
+  width: auto;
+}
+
+/* CTAs — forest primary / sand text (hero primary inverted in pax-buttons) */
+.yucca-home .retro-home-treatments-cta,
+.yucca-home .retro-home-closing-cta,
+.yucca-home .retro-home-reviews-cta {
+  font-family: var(--font-body);
+  font-weight: 400;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+/* Doctors cards — exact Yucca geometry; Pax wordmark + photo only */
+.yucca-home .retro-home-doctor-photo {
+  object-position: center 18%;
+}
+
+.yucca-home .retro-home-doctor-brand {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  height: 18px;
+  width: auto;
+  display: block;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .yucca-home .retro-home-doctor-brand {
+    height: 20px;
+    right: 18px;
+    bottom: 16px;
+  }
+}

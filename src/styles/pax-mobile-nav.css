@@ -1,0 +1,180 @@
+/* Pax mobile navigation — Yucca-style: CTA stays in header, professional drawer */
+
+@media (max-width: 960px) {
+  /* Logo | Get started + hamburger (Yucca mobile pattern) */
+  .yx-shell .header .container.yx-header-bar,
+  .yx-shell .yx-header-bar {
+    display: grid !important;
+    grid-template-columns: 1fr auto auto !important;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .yx-shell .yx-nav {
+    display: none !important;
+  }
+
+  /* Keep Get started visible like Yucca mobile */
+  .yx-shell .yx-nav__actions {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.4rem;
+    justify-self: end;
+    grid-column: 2;
+  }
+
+  .yx-shell .yx-nav__actions .yx-btn--ghost {
+    display: none !important;
+  }
+
+  .yx-shell .yx-nav__actions .yx-btn--primary {
+    min-height: 2.35rem !important;
+    padding: 0 0.95rem !important;
+    font-size: 0.95rem !important;
+    box-shadow: 2px 3px 0 0 var(--forest) !important;
+  }
+
+  .yx-shell .yx-header-bar .nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 1.5px solid color-mix(in oklch, var(--forest) 22%, transparent);
+    background: color-mix(in oklch, var(--sand) 92%, var(--dune));
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
+.mobile-nav {
+  width: min(86vw, 22.5rem) !important;
+  max-width: 100% !important;
+  background:
+    radial-gradient(90% 50% at 100% 0%, color-mix(in oklch, var(--dune) 28%, transparent), transparent 55%),
+    var(--sand) !important;
+  padding:
+    max(1.25rem, env(safe-area-inset-top, 0px))
+    1.25rem
+    max(1.25rem, env(safe-area-inset-bottom, 0px)) !important;
+  gap: 0 !important;
+  border-left: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+  box-shadow: -18px 0 48px color-mix(in oklch, var(--forest) 18%, transparent) !important;
+}
+
+.mobile-nav__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+}
+
+.mobile-nav__brand {
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+.mobile-nav__close {
+  appearance: none;
+  border: 1.5px solid color-mix(in oklch, var(--forest) 20%, transparent);
+  background: color-mix(in oklch, var(--sand) 90%, var(--dune));
+  color: var(--forest);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobile-nav__close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.mobile-nav__eyebrow {
+  margin: 1.15rem 0 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav .mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 0.15rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
+  color: var(--forest) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.45rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;
+  text-decoration: none;
+  line-height: 1.15;
+}
+
+.mobile-nav .mobile-link::after {
+  display: none !important;
+}
+
+.mobile-nav .mobile-link.active {
+  color: var(--terracotta) !important;
+}
+
+.mobile-nav .mobile-link__chev {
+  color: color-mix(in oklch, var(--forest) 45%, transparent);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.mobile-nav__footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-top: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+}
+
+.mobile-nav__footer .yx-btn {
+  width: 100%;
+  min-height: 3.1rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.mobile-nav__footer .yx-btn--ghost {
+  display: inline-flex !important;
+  border: 2px solid var(--forest) !important;
+  background: transparent !important;
+  color: var(--forest) !important;
+}
+
+.mobile-nav__footer .yx-btn--primary {
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+.mobile-overlay {
+  background: color-mix(in oklch, var(--forest) 48%, transparent) !important;
+}

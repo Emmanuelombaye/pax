@@ -1,0 +1,748 @@
+/* Yucca-clone sections: results / treatments stage / how-it-works — Pax tokens */
+
+/* ========== Results marquee (Yucca retro-happy) ========== */
+.yxr-happy {
+  padding: 0 0 3.5rem;
+  background: var(--sand);
+}
+
+.yxr-happy__heading {
+  margin: 0 auto 1.25rem;
+  padding: 0 1rem;
+  max-width: 50rem;
+  text-align: center;
+  font-size: clamp(1.7rem, 3.8vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-happy__heading em {
+  font-style: italic;
+}
+
+.yxr-happy__marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.yxr-happy__track {
+  display: flex;
+  width: max-content;
+  animation: yxr-happy-scroll 70s linear infinite;
+}
+
+.yxr-happy__marquee:hover .yxr-happy__track {
+  animation-play-state: paused;
+}
+
+@keyframes yxr-happy-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.yxr-happy__group {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.75rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.yxr-happy__card {
+  position: relative;
+  flex-shrink: 0;
+  width: min(78vw, 480px);
+  height: clamp(200px, 36vw, 280px);
+  border: 2px solid var(--forest);
+  border-radius: 16px;
+  box-shadow: 3px 4px 0 0 var(--forest);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--sand);
+}
+
+.yxr-happy__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.yxr-happy__chip {
+  position: absolute;
+  top: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.yxr-happy__chip--before {
+  left: 12px;
+  background: var(--forest);
+  color: var(--sand);
+}
+
+.yxr-happy__chip--after {
+  left: 52%;
+  background: color-mix(in oklch, var(--dune) 70%, white);
+  color: var(--forest);
+}
+
+.yxr-happy__scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.82));
+  z-index: 1;
+}
+
+.yxr-happy__metric {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 3.4rem;
+  z-index: 2;
+  color: #fff;
+}
+
+.yxr-happy__metric-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 1.1rem;
+}
+
+.yxr-happy__lbs {
+  margin: 0.15rem 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.yxr-happy__lbs strong {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.yxr-happy__time {
+  margin: 0.2rem 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.yxr-happy__pill {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--forest) 72%, transparent);
+  color: var(--sand);
+  backdrop-filter: blur(8px);
+}
+
+.yxr-happy__pill strong {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.yxr-happy__pill span {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yxr-happy__track { animation: none; }
+}
+
+/* ========== Treatments stage (Yucca home rtt) ========== */
+.yxr-rtt {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: 3.5rem 1rem 0;
+}
+
+.yxr-rtt__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: background 0.7s ease;
+  background:
+    radial-gradient(ellipse at 15% -10%, color-mix(in oklch, var(--dune) 55%, white) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 110%, color-mix(in oklch, var(--dune) 45%, var(--sand)) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in oklch, var(--sand) 80%, var(--dune)), color-mix(in oklch, var(--dune) 35%, var(--sand)));
+}
+
+.yxr-rtt[data-tone='wl'] .yxr-rtt__bg {
+  background:
+    radial-gradient(ellipse at 15% -10%, color-mix(in oklch, var(--dune) 50%, white) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 110%, color-mix(in oklch, var(--terracotta) 18%, var(--sand)) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in oklch, var(--sand) 78%, var(--dune)), color-mix(in oklch, var(--dune) 42%, var(--sand)));
+}
+
+.yxr-rtt[data-tone='aa'] .yxr-rtt__bg {
+  background:
+    radial-gradient(ellipse at 15% -10%, color-mix(in oklch, var(--forest) 14%, var(--sand)) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 110%, color-mix(in oklch, var(--forest) 18%, var(--sand)) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in oklch, var(--sand) 86%, var(--forest)), color-mix(in oklch, var(--forest) 12%, var(--sand)));
+}
+
+.yxr-rtt[data-tone='mr'] .yxr-rtt__bg {
+  background:
+    radial-gradient(ellipse at 15% -10%, color-mix(in oklch, var(--terracotta) 22%, var(--sand)) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 110%, color-mix(in oklch, var(--dune) 55%, var(--sand)) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in oklch, var(--sand) 82%, var(--dune)), color-mix(in oklch, var(--dune) 48%, var(--sand)));
+}
+
+.yxr-rtt__head,
+.yxr-rtt__tabs,
+.yxr-rtt__panes {
+  position: relative;
+  z-index: 1;
+}
+
+.yxr-rtt__head {
+  max-width: 40rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.yxr-rtt__head h2 {
+  margin: 0 auto;
+  max-width: 20ch;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-rtt__head p {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+  opacity: 0.88;
+}
+
+.yxr-rtt__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 1.75rem;
+  padding: 0.4rem;
+  background: var(--sand);
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  box-shadow: 3px 4px 0 0 var(--forest);
+}
+
+.yxr-rtt__tab {
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 3.1rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--forest);
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease, box-shadow 0.15s ease;
+}
+
+.yxr-rtt__tab:hover {
+  background: color-mix(in oklch, var(--sand) 70%, white);
+}
+
+.yxr-rtt__tab.is-active {
+  border-color: var(--forest);
+  box-shadow: 2px 3px 0 0 var(--forest);
+}
+
+.yxr-rtt__tab.is-active[data-tone='wl'] {
+  background: color-mix(in oklch, var(--dune) 45%, var(--sand));
+}
+
+.yxr-rtt__tab.is-active[data-tone='aa'] {
+  background: color-mix(in oklch, var(--forest) 12%, var(--sand));
+}
+
+.yxr-rtt__tab.is-active[data-tone='mr'] {
+  background: color-mix(in oklch, var(--terracotta) 16%, var(--sand));
+}
+
+.yxr-rtt__tab-label {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  font-size: 0.98rem;
+}
+
+.yxr-rtt__tab-img {
+  display: none;
+}
+
+.yxr-rtt__panes {
+  width: 100%;
+  max-width: min(68rem, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.yxr-rtt__pane {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
+  gap: 0;
+  padding-bottom: 2.5rem;
+}
+
+.yxr-rtt__photos {
+  display: none;
+}
+
+.yxr-rtt__card {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 32rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.15rem 1.15rem 1.25rem;
+  background: var(--sand);
+  border: 2px solid var(--forest);
+  border-radius: 1.5rem;
+  box-shadow: 3px 4px 0 0 var(--forest);
+}
+
+.yxr-rtt__tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.yxr-rtt__tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.yxr-rtt__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid var(--forest);
+  font-size: 0.78rem;
+  line-height: 1;
+  box-shadow: 2px 3px 0 0 var(--forest);
+}
+
+.yxr-rtt__chip--tone {
+  background: color-mix(in oklch, var(--dune) 40%, var(--sand));
+}
+
+.yxr-rtt[data-tone='aa'] .yxr-rtt__chip--tone {
+  background: color-mix(in oklch, var(--forest) 12%, var(--sand));
+}
+
+.yxr-rtt[data-tone='mr'] .yxr-rtt__chip--tone {
+  background: color-mix(in oklch, var(--terracotta) 18%, var(--sand));
+}
+
+.yxr-rtt__chip--seller {
+  background: var(--forest);
+  color: var(--sand);
+}
+
+.yxr-rtt__product {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.yxr-rtt__reviews {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.yxr-rtt__enrolled {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  opacity: 0.8;
+  max-width: 12rem;
+}
+
+.yxr-rtt__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--terracotta);
+  letter-spacing: 0.05em;
+}
+
+.yxr-rtt__stars strong {
+  color: var(--forest);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.yxr-rtt__reviews-count {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.72;
+}
+
+.yxr-rtt__vials {
+  width: 7.5rem;
+  flex-shrink: 0;
+}
+
+.yxr-rtt__vials img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.yxr-rtt__copy .yxr-rtt__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.yxr-rtt__copy h3 {
+  margin: 0.2rem 0 0.45rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.yxr-rtt__blurb {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.88;
+}
+
+.yxr-rtt__meds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.yxr-rtt__med {
+  appearance: none;
+  border: 2px solid color-mix(in oklch, var(--forest) 28%, transparent);
+  background: color-mix(in oklch, var(--sand) 88%, var(--dune));
+  color: var(--forest);
+  border-radius: 14px;
+  padding: 0.75rem 0.7rem;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  gap: 0.2rem;
+  font: inherit;
+  min-height: 72px;
+}
+
+.yxr-rtt__med.is-active {
+  border-color: var(--forest);
+  box-shadow: 2px 3px 0 0 var(--forest);
+  background: color-mix(in oklch, var(--dune) 35%, var(--sand));
+}
+
+.yxr-rtt__med strong {
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+
+.yxr-rtt__med span {
+  font-size: 0.78rem;
+  opacity: 0.72;
+}
+
+.yxr-rtt__cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.yxr-rtt__btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 1.25rem;
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 3px 4px 0 0 var(--forest);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.yxr-rtt__btn:hover {
+  transform: translate(2px, 3px);
+  box-shadow: 0 0 0 0 var(--forest);
+}
+
+.yxr-rtt__btn--primary {
+  flex: 1;
+  background: var(--forest);
+  color: var(--sand);
+}
+
+.yxr-rtt__btn--secondary {
+  background: var(--sand);
+  color: var(--forest);
+}
+
+@media (max-width: 960px) {
+  .yxr-rtt__pane {
+    min-height: 0;
+    justify-content: center;
+  }
+
+  .yxr-rtt__card {
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+
+  .yxr-rtt__tabs {
+    width: 100%;
+    max-width: 40rem;
+    overflow-x: auto;
+    border-radius: 18px;
+  }
+
+  .yxr-rtt__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .yxr-rtt__btn--primary,
+  .yxr-rtt__btn--secondary {
+    width: 100%;
+  }
+}
+
+/* ========== How it works override (Yucca brutal image cards) ========== */
+.yxr-hiw {
+  background: var(--sand);
+  padding: 3.25rem 1rem 4rem;
+  max-width: none;
+  margin: 0;
+}
+
+.yxr-hiw__head {
+  max-width: 44ch;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.yxr-hiw__head h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-hiw__head p {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.5;
+  opacity: 0.82;
+}
+
+.yxr-hiw__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.yxr-hiw__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in oklch, var(--sand) 92%, white);
+  border: 2px solid var(--forest);
+  border-radius: 1.5rem;
+  overflow: visible;
+  box-shadow: 3px 4px 0 0 var(--forest);
+  padding: 0;
+}
+
+.yxr-hiw__tag {
+  align-self: flex-start;
+  margin: 1.15rem 0 0 1.15rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  background: color-mix(in oklch, var(--dune) 55%, var(--sand));
+  color: var(--forest);
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  box-shadow: 2px 3px 0 0 var(--forest);
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  opacity: 1;
+}
+
+.yxr-hiw__top {
+  padding: 0.9rem 1.35rem 1.35rem;
+  text-align: center;
+}
+
+.yxr-hiw__top h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.yxr-hiw__top p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.82;
+  text-wrap: balance;
+}
+
+.yxr-hiw__media {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  overflow: hidden;
+  border-radius: 0 0 calc(1.5rem - 2px) calc(1.5rem - 2px);
+}
+
+.yxr-hiw__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 664 / 358;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 960px) {
+  .yxr-hiw__grid {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+    padding: 0;
+  }
+
+  .yxr-happy__group {
+    gap: 1rem;
+  }
+}
+
+/* ========== Treatments explore page (/treatments) ========== */
+.yxr-tx {
+  background: var(--sand);
+  color: var(--forest);
+  padding-bottom: 1rem;
+}
+
+.yxr-tx__intro {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 1.25rem;
+  text-align: center;
+}
+
+.yxr-tx__intro h1 {
+  margin: 0;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-tx__tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0 1rem 1.5rem;
+}
+
+.yxr-tx__tab {
+  appearance: none;
+  border: 2px solid var(--forest);
+  background: var(--sand);
+  color: var(--forest);
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 2px 3px 0 0 var(--forest);
+}
+
+.yxr-tx__tab.is-active[data-tone='wl'] {
+  background: color-mix(in oklch, var(--dune) 45%, var(--sand));
+}
+
+.yxr-tx__tab.is-active[data-tone='aa'] {
+  background: color-mix(in oklch, var(--forest) 12%, var(--sand));
+}
+
+.yxr-tx__tab.is-active[data-tone='mr'] {
+  background: color-mix(in oklch, var(--terracotta) 16%, var(--sand));
+}
+
+.glp-pick--explore {
+  margin: 0 auto 2.5rem;
+  width: calc(100% - 2rem);
+}
+
+.yxr-happy--treatments {
+  padding-top: 1rem;
+}

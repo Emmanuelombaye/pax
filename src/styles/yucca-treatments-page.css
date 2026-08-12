@@ -1,0 +1,336 @@
+﻿/* ========== Treatments explore page — full Yucca /treatments/ clone ========== */
+.yxr-tx {
+  background: var(--sand);
+  color: var(--forest);
+  padding-bottom: 1rem;
+}
+
+.yxr-tx__intro {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 1.25rem;
+  text-align: center;
+}
+
+.yxr-tx__intro h1 {
+  margin: 0;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-tx__tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0 1rem 1.5rem;
+}
+
+.yxr-tx__tabs--sticky {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 30;
+  background: color-mix(in oklch, var(--sand) 88%, transparent);
+  backdrop-filter: blur(10px);
+  padding-top: 0.65rem;
+  padding-bottom: 0.85rem;
+}
+
+.yxr-tx__tab {
+  appearance: none;
+  border: 2px solid var(--forest);
+  background: var(--sand);
+  color: var(--forest);
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 2px 3px 0 0 var(--forest);
+}
+
+.yxr-tx__tab.is-active[data-tone='wl'] {
+  background: color-mix(in oklch, var(--dune) 45%, var(--sand));
+}
+
+.yxr-tx__tab.is-active[data-tone='aa'] {
+  background: color-mix(in oklch, var(--forest) 12%, var(--sand));
+}
+
+.yxr-tx__tab.is-active[data-tone='mr'] {
+  background: color-mix(in oklch, var(--terracotta) 16%, var(--sand));
+}
+
+.glp-pick--explore {
+  margin: 0 auto 2.5rem;
+  width: calc(100% - 2rem);
+}
+
+.yxr-happy--treatments {
+  padding-top: 1rem;
+}
+
+.yxr-tx__ratings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.78;
+}
+
+.yxr-happy__time--solo {
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.yxr-tx__pane {
+  padding-bottom: 1rem;
+}
+
+.yxr-tx__lead {
+  margin: 0.65rem auto 0;
+  max-width: 42rem;
+  text-align: center;
+  line-height: 1.55;
+  opacity: 0.86;
+}
+
+.yxr-tx__signal,
+.yxr-tx__potential,
+.yxr-tx__clinical,
+.yxr-tx__weeks,
+.yxr-tx__faq,
+.yxr-tx__reviews,
+.yxr-tx__why {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.75rem 1.25rem;
+}
+
+.yxr-tx__signal h2,
+.yxr-tx__potential h2,
+.yxr-tx__clinical h2,
+.yxr-tx__weeks h2,
+.yxr-tx__faq h2,
+.yxr-tx__reviews h2,
+.yxr-tx__why h2 {
+  margin: 0 auto;
+  max-width: 22ch;
+  text-align: center;
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: var(--tracking-display);
+}
+
+.yxr-tx__signal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.yxr-tx__signal-card,
+.yxr-tx__week-card,
+.yxr-tx__why-grid article,
+.yxr-tx__reviews-grid article,
+.yxr-tx__potential-card {
+  border: 2px solid var(--forest);
+  border-radius: 1.25rem;
+  box-shadow: 3px 4px 0 0 var(--forest);
+  background: color-mix(in oklch, var(--sand) 92%, white);
+  padding: 1.25rem 1.15rem;
+}
+
+.yxr-tx__signal-card h3,
+.yxr-tx__week-card h3,
+.yxr-tx__why-grid h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.yxr-tx__signal-card p,
+.yxr-tx__week-card p,
+.yxr-tx__why-grid p,
+.yxr-tx__reviews-grid p {
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.86;
+}
+
+.yxr-tx__potential-card {
+  max-width: 28rem;
+  margin: 1.75rem auto 0;
+  text-align: center;
+}
+
+.yxr-tx__potential-label {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.yxr-tx__potential-stat {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.yxr-tx__potential-stat strong {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--terracotta);
+}
+
+.yxr-tx__potential-note,
+.yxr-tx__potential-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  opacity: 0.75;
+}
+
+.yxr-tx__clinical ul {
+  margin: 1.5rem auto 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.yxr-tx__clinical li {
+  position: relative;
+  padding-left: 1.35rem;
+  line-height: 1.5;
+}
+
+.yxr-tx__clinical li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--forest);
+}
+
+.yxr-tx__weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.yxr-tx__week-card span {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  box-shadow: 2px 3px 0 0 var(--forest);
+  background: color-mix(in oklch, var(--dune) 40%, var(--sand));
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.yxr-tx__faq-list {
+  max-width: 44rem;
+  margin: 1.75rem auto;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.yxr-tx__faq-item {
+  border: 2px solid var(--forest);
+  border-radius: 1rem;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.yxr-tx__faq-item button {
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--forest);
+  font: inherit;
+  text-align: left;
+  padding: 1rem 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.yxr-tx__faq-item p {
+  margin: 0;
+  padding: 0 1.1rem 1rem;
+  line-height: 1.55;
+  opacity: 0.86;
+}
+
+.yxr-tx__faq .yxr-btn,
+.yxr-tx__reviews .yxr-btn {
+  display: flex;
+  margin: 1.25rem auto 0;
+}
+
+.yxr-tx__reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.yxr-tx__stars {
+  color: var(--terracotta);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+}
+
+.yxr-tx__reviews-grid footer {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.yxr-tx__reviews-grid footer strong {
+  font-weight: 400;
+}
+
+.yxr-tx__reviews-grid footer span,
+.yxr-tx__reviews-note {
+  font-size: 0.85rem;
+  opacity: 0.72;
+}
+
+.yxr-tx__reviews-note {
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+.yxr-tx__why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .yxr-tx__signal-grid,
+  .yxr-tx__weeks-grid,
+  .yxr-tx__reviews-grid,
+  .yxr-tx__why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yxr-tx__tabs--sticky {
+    top: 0;
+    border-bottom: 1px solid color-mix(in oklch, var(--forest) 12%, transparent);
+  }
+}

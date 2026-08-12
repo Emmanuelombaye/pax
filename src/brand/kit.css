@@ -63,6 +63,8 @@
   --focus-ring: var(--terracotta);
   --btn-bg: var(--forest);
   --btn-text: var(--sand);
+  --btn-bg-on-dark: var(--sand);
+  --btn-text-on-dark: var(--forest);
   --btn-hover-opacity: 0.92;
   --error: var(--terracotta);
   --warn: var(--terracotta);

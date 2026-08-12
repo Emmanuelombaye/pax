@@ -1,0 +1,252 @@
+/* Pax protocol cards — weight-loss explore (left vials untouched) */
+
+.yx-clone .pax-protocol .retro-protocol__right {
+  gap: 1.1rem !important;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card {
+  --i: 0;
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0;
+  width: 100% !important;
+  padding: 1.4rem 1.5rem 1.5rem 1.65rem !important;
+  border-radius: 24px !important;
+  border: 1px solid color-mix(in oklch, var(--forest) 12%, transparent) !important;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--dune) 22%, transparent) 0%,
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #fff 0%,
+      color-mix(in oklch, var(--sand) 88%, white) 100%
+    ) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 70%, transparent) inset,
+    0 14px 32px -18px color-mix(in oklch, var(--forest) 28%, transparent),
+    0 4px 12px -6px color-mix(in oklch, var(--forest) 12%, transparent) !important;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.35s ease !important;
+  animation: pax-protocol-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.09s * var(--i));
+}
+
+/* Terracotta → forest accent rail */
+.yx-clone .pax-protocol .pax-protocol-card::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset: 12px auto 12px 0;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(
+    180deg,
+    var(--terracotta) 0%,
+    color-mix(in oklch, var(--terracotta) 45%, var(--forest)) 55%,
+    var(--forest) 100%
+  );
+  box-shadow: 0 0 12px color-mix(in oklch, var(--terracotta) 35%, transparent);
+  transition: inset 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Soft watermark step number */
+.yx-clone .pax-protocol .pax-protocol-card::after {
+  content: attr(data-step);
+  position: absolute;
+  z-index: 0;
+  right: 0.35rem;
+  bottom: -0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 9vw, 5.75rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  color: color-mix(in oklch, var(--forest) 14%, transparent);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.35s ease, transform 0.4s ease;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: color-mix(in oklch, var(--forest) 26%, transparent) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 80%, transparent) inset,
+    0 22px 44px -20px color-mix(in oklch, var(--forest) 34%, transparent),
+    0 8px 18px -10px color-mix(in oklch, var(--terracotta) 22%, transparent) !important;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card:hover::before {
+  inset: 8px auto 8px 0;
+  box-shadow: 0 0 16px color-mix(in oklch, var(--terracotta) 45%, transparent);
+}
+
+.yx-clone .pax-protocol .pax-protocol-card:hover::after {
+  color: color-mix(in oklch, var(--terracotta) 22%, transparent);
+  transform: translateY(-4px);
+}
+
+.yx-clone .pax-protocol .pax-protocol-card__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card__icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem !important;
+  height: 3.35rem !important;
+  margin: 0 !important;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--forest) 14%, transparent);
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      color-mix(in oklch, #fff 70%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--dune) 55%, var(--sand)),
+      color-mix(in oklch, var(--sand) 70%, var(--terracotta))
+    );
+  color: var(--forest) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 55%, transparent) inset,
+    0 6px 14px -8px color-mix(in oklch, var(--forest) 22%, transparent);
+  flex: 0 0 auto;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card:hover .pax-protocol-card__icon {
+  transform: scale(1.05);
+  border-color: color-mix(in oklch, var(--terracotta) 40%, var(--forest));
+}
+
+.yx-clone .pax-protocol .pax-protocol-card__icon svg {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  display: block;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card__n {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--terracotta);
+  line-height: 1;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--terracotta) 12%, transparent);
+  border: 1px solid color-mix(in oklch, var(--terracotta) 22%, transparent);
+}
+
+.yx-clone .pax-protocol .pax-protocol-card .retro-protocol-card__title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.6rem !important;
+  max-width: 28ch !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.18rem, 2vw, 1.42rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: var(--tracking-display) !important;
+  line-height: 1.18 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .pax-protocol .pax-protocol-card .retro-protocol-card__body {
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+  max-width: 42ch;
+  font-size: 0.94rem !important;
+  line-height: 1.58 !important;
+  color: color-mix(in oklch, var(--forest) 70%, transparent) !important;
+}
+
+.yx-clone .pax-protocol .pax-protocol__cta {
+  margin-top: 0.45rem !important;
+  width: 100% !important;
+  min-height: 3.35rem !important;
+  height: auto !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 18%, transparent) inset,
+    0 10px 24px -12px color-mix(in oklch, var(--forest) 45%, transparent) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.2s ease, box-shadow 0.25s ease !important;
+  animation: pax-protocol-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.3s;
+}
+
+.yx-clone .pax-protocol .pax-protocol__cta:hover,
+.yx-clone .pax-protocol .pax-protocol__cta:active {
+  opacity: var(--btn-hover-opacity);
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 22%, transparent) inset,
+    0 14px 28px -12px color-mix(in oklch, var(--forest) 50%, transparent) !important;
+}
+
+@keyframes pax-protocol-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yx-clone .pax-protocol .pax-protocol-card,
+  .yx-clone .pax-protocol .pax-protocol__cta {
+    animation: none;
+  }
+
+  .yx-clone .pax-protocol .pax-protocol-card:hover,
+  .yx-clone .pax-protocol .pax-protocol-card:hover .pax-protocol-card__icon,
+  .yx-clone .pax-protocol .pax-protocol-card:hover::after {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .yx-clone .pax-protocol .pax-protocol-card {
+    padding: 1.2rem 1.25rem 1.3rem 1.45rem !important;
+  }
+
+  .yx-clone .pax-protocol .pax-protocol-card .retro-protocol-card__title,
+  .yx-clone .pax-protocol .pax-protocol-card .retro-protocol-card__body {
+    max-width: none !important;
+  }
+
+  .yx-clone .pax-protocol .pax-protocol-card::after {
+    font-size: 4rem;
+    opacity: 0.85;
+  }
+}

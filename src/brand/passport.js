@@ -14,7 +14,7 @@ export const PAX_PASSPORT = {
     legalName: 'Pax Longevity',
     tagline: 'Live longer. Feel younger. Age intentionally.',
     shortName: 'Pax',
-    category: 'Longevity · Peptide Care · Patient Center',
+    category: 'Longevity · Weight Loss · Patient Center',
     locale: 'en-US',
   },
 

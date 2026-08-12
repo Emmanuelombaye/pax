@@ -1,0 +1,198 @@
+/* Pax Longevity — button visibility system
+ * Primary on light: Forest fill + Sand text
+ * Primary on dark / hero scrim: Sand fill + Forest text (never forest-on-forest)
+ * Secondary / ghost: Sand fill + Forest border + Forest text
+ */
+
+:root {
+  --btn-bg: var(--forest);
+  --btn-text: var(--sand);
+  --btn-bg-on-dark: var(--sand);
+  --btn-text-on-dark: var(--forest);
+  --btn-secondary-bg: color-mix(in oklch, var(--sand) 96%, white);
+  --btn-secondary-text: var(--forest);
+  --btn-secondary-border: var(--forest);
+  --btn-hover-opacity: 0.92;
+  --btn-shadow: 0 2px 0 color-mix(in oklch, var(--forest) 28%, transparent),
+    0 10px 22px -14px color-mix(in oklch, var(--forest) 40%, transparent);
+  --btn-shadow-on-dark: 0 2px 0 color-mix(in oklch, var(--forest) 22%, transparent),
+    0 12px 28px -12px color-mix(in oklch, var(--forest) 55%, transparent);
+}
+
+/* —— Nav / shell primaries (on sand chrome) —— */
+.yx-btn--primary,
+button.yx-btn--primary {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: var(--btn-shadow) !important;
+}
+
+.yx-btn--ghost,
+a.yx-btn--ghost {
+  background: transparent !important;
+  color: var(--forest) !important;
+  border: 1.5px solid color-mix(in oklch, var(--forest) 28%, transparent) !important;
+}
+
+.yx-btn--outline {
+  background: var(--btn-secondary-bg) !important;
+  color: var(--btn-secondary-text) !important;
+  border: 2px solid var(--btn-secondary-border) !important;
+}
+
+.yx-btn--dune {
+  background: color-mix(in oklch, var(--dune) 55%, var(--sand)) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+}
+
+/* —— Hero: invert primary so it reads on forest scrim —— */
+.retro-home-hero-btn--primary,
+.yucca-home .retro-home-hero-btn--primary {
+  background: var(--btn-bg-on-dark) !important;
+  color: var(--btn-text-on-dark) !important;
+  border: 2px solid var(--sand) !important;
+  box-shadow: var(--btn-shadow-on-dark) !important;
+}
+
+.retro-home-hero-btn--secondary,
+.yucca-home .retro-home-hero-btn--secondary {
+  background: color-mix(in oklch, var(--sand) 92%, transparent) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: var(--btn-shadow-on-dark) !important;
+}
+
+.yucca-home .retro-home-hero-btn-chevron {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+/* —— Shared marketing CTAs on sand sections —— */
+.yx-clone .explore-hero-cta,
+.retro-explore-tabs-wrap .explore-hero-cta,
+.yx-clone .retro-protocol__cta,
+.yx-clone .retro-knowall__cta,
+.yx-clone .pax-protocol__cta,
+.yx-clone .pax-knowall__cta,
+.yx-clone .retro-home-reviews-cta,
+.yx-clone .retro-home-closing-cta,
+.yucca-home .retro-home-reviews-cta,
+.yucca-home .retro-home-closing-cta,
+.yucca-home .retro-home-treatments-cta,
+.goal-product-cta--primary,
+.yx-clone .retro-clinical__cta,
+.retro-clinical__cta,
+.hiw-page .hiw-cta__btn,
+.pax-advisors .pax-advisors__cta,
+.designed-cta-btn {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+/* Clinical section sits on forest — invert CTA */
+.retro-clinical .retro-clinical__cta,
+.yx-clone .retro-clinical .retro-clinical__cta,
+[data-explore-section-stack] .retro-clinical__cta {
+  background: var(--btn-bg-on-dark) !important;
+  color: var(--btn-text-on-dark) !important;
+  border: 2px solid var(--sand) !important;
+  box-shadow: 3px 4px 0 0 color-mix(in oklch, var(--forest) 55%, black) !important;
+}
+
+/* Longevity clinical was forest fill + forest ink — force sand text when forest fill */
+[data-explore-section-stack='longevity'] .retro-clinical--nad .retro-clinical__cta {
+  background: var(--btn-bg-on-dark) !important;
+  color: var(--btn-text-on-dark) !important;
+}
+
+/* Ghost / secondary product CTAs — never same fill as card */
+.goal-product-cta--ghost,
+.yucca-home .goal-product-cta--ghost {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: 2px 3px 0 0 var(--forest) !important;
+}
+
+.designed-cta-btn,
+.retro-explore-tabs-wrap .designed-cta-btn {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+}
+
+.designed-cta-btn .designed-cta-btn__wrap {
+  color: var(--forest) !important;
+}
+
+/* Review filter pills — active readable, idle outlined */
+.pax-reviews__pill,
+.retro-home-reviews-pill {
+  border: 1.5px solid color-mix(in oklch, var(--forest) 28%, transparent) !important;
+}
+
+.pax-reviews__pill[aria-pressed='true'],
+.retro-home-reviews-pill[aria-pressed='true'],
+.retro-home-reviews-pill.is-active {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+  border-color: var(--forest) !important;
+}
+
+.pax-reviews__pill[aria-pressed='false'],
+.retro-home-reviews-pill[aria-pressed='false'] {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+/* Tabs: active forest/sand, idle sand/forest with clear border */
+.goal-tablist button.is-active,
+.goal-tablist button[aria-selected='true'],
+.goal-tablist button[data-active='true'] {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+  border-color: var(--forest) !important;
+}
+
+.goal-tablist button:not(.is-active):not([aria-selected='true']):not([data-active='true']) {
+  background: transparent !important;
+  color: var(--forest) !important;
+}
+
+/* Closing / footer dark bands only: sand filled CTA */
+.retro-footer-wrap .yx-btn--primary,
+.retro-home-closing[style*='forest'] .retro-home-closing-cta {
+  background: var(--btn-bg-on-dark) !important;
+  color: var(--btn-text-on-dark) !important;
+  border-color: var(--sand) !important;
+}
+
+/* Hover — keep readable, never fade into background */
+.yx-btn--primary:hover,
+.explore-hero-cta:hover,
+.retro-protocol__cta:hover,
+.retro-knowall__cta:hover,
+.retro-home-reviews-cta:hover,
+.goal-product-cta--primary:hover,
+.retro-home-closing-cta:hover {
+  opacity: 1 !important;
+  filter: brightness(1.06);
+}
+
+.retro-home-hero-btn--primary:hover {
+  filter: brightness(0.97);
+  opacity: 1 !important;
+}
+
+/* Kill salmon leftover CTAs from muscle-recovery clone */
+[data-explore-section-stack='muscle-recovery'] .retro-clinical__cta,
+[data-explore-section-stack='muscle-recovery'] .retro-protocol__cta,
+[data-explore-section-stack='muscle-recovery'] .retro-knowall__cta {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--forest) !important;
+}

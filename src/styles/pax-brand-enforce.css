@@ -1,0 +1,326 @@
+/* Pax Longevity — brand kit enforcement
+ * Source: docs/client-brand-kit.md + src/brand/kit.css
+ * Allowed web surfaces: Sand · Forest · Terracotta (accent) · Dune (tint)
+ * Ban: blue / navy / indigo ink · black bands · salmon / brown blocks · pure white canvases
+ */
+
+html,
+body,
+#root {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+/* —— Token aliases used by Yucca clone sheets —— */
+.yx-clone,
+.yucca-home,
+main[data-retro-scope],
+[data-explore-section-stack],
+.retro-explore-tabs-wrap {
+  --color-retro-ink: var(--forest) !important;
+  --color-retro-ink-soft: color-mix(in oklch, var(--forest) 62%, transparent) !important;
+  --color-retro-green: var(--forest) !important;
+  --color-retro-surface: var(--sand) !important;
+  --color-retro-cream: var(--sand) !important;
+  --color-retro-shadow: var(--forest) !important;
+  /* Large tints = dune/sand only — never terracotta wash or purple */
+  --color-retro-purple: color-mix(in oklch, var(--dune) 42%, var(--sand)) !important;
+  --color-retro-lavender: color-mix(in oklch, var(--dune) 38%, var(--sand)) !important;
+  --color-retro-sky-1: color-mix(in oklch, var(--dune) 55%, var(--sand)) !important;
+  --color-retro-sky-2: color-mix(in oklch, var(--dune) 70%, var(--sand)) !important;
+  --color-retro-yellow: color-mix(in oklch, var(--dune) 65%, var(--sand)) !important;
+  --yx-purple: color-mix(in oklch, var(--dune) 42%, var(--sand)) !important;
+  --yx-lavender: color-mix(in oklch, var(--dune) 38%, var(--sand)) !important;
+  background: var(--sand);
+  color: var(--forest);
+}
+
+/* —— Page / section canvases —— */
+.yx-clone,
+.yucca-home,
+.retro-home-hero-section,
+.retro-faqs,
+.retro-protocol,
+.retro-knowall,
+.retro-calculator,
+.retro-clinical,
+.retro-expect,
+.retro-happy,
+.retro-home-reviews,
+.retro-home-why,
+.retro-home-closing,
+.hiw-page,
+.pax-advisors,
+.explore-hero-section,
+.retro-footer-wrap {
+  background-color: var(--sand) !important;
+}
+
+.retro-expect {
+  background: color-mix(in oklch, var(--dune) 28%, var(--sand)) !important;
+}
+
+.retro-home-reviews,
+.yx-clone .retro-home-reviews {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+}
+
+/* —— Hero product card: kill purple / brown / mint washes —— */
+.retro-explore-tabs-wrap .explore-hero-card[data-card='wl'],
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
+  background-image:
+    url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 45%, var(--sand)),
+      color-mix(in oklch, var(--dune) 72%, var(--sand))
+    ) !important;
+  color: var(--forest) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-card[data-card='nad'] {
+  background-image:
+    url(/images/yucca-clone/Nad-Yucca-Image.avif),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--sand) 70%, var(--forest)),
+      color-mix(in oklch, var(--dune) 55%, var(--sand))
+    ) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card[data-card='sermorelin'],
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-card[data-card='sermorelin'],
+.explore-card[data-card='sermorelin'] {
+  background-image:
+    url(/images/yucca-clone/expt-sermorelin-vial.png),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 50%, var(--sand)),
+      color-mix(in oklch, var(--dune) 78%, var(--sand))
+    ) !important;
+}
+
+/* Product picker thumbs */
+.retro-explore-tabs-wrap .explore-hero-product-thumb {
+  background: color-mix(in oklch, var(--dune) 40%, var(--sand)) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product:nth-child(2) .explore-hero-product-thumb {
+  background: color-mix(in oklch, var(--dune) 58%, var(--sand)) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-desc,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-product-desc {
+  color: color-mix(in oklch, var(--forest) 68%, transparent) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-tag--purple,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-product-tag--purple,
+.yx-clone .retro-clinical__eyebrow {
+  color: var(--terracotta) !important;
+}
+
+/* Stock / popular chips — forest + dune, not mint neon */
+.yx-clone .bg-\[\#d4ffd6\],
+.yx-clone .explore-hero-stock,
+.retro-explore-tabs-wrap .explore-hero-stock {
+  background: color-mix(in oklch, var(--dune) 35%, var(--sand)) !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .text-\[\#14884c\],
+.yx-clone .explore-stock-dot,
+.retro-explore-tabs-wrap .explore-stock-dot {
+  color: var(--forest) !important;
+  background-color: var(--forest) !important;
+}
+
+.yx-clone .bg-\[\#fff6e2\] {
+  background: color-mix(in oklch, var(--dune) 40%, var(--sand)) !important;
+}
+
+.yx-clone .text-\[\#6c3e14\] {
+  color: var(--forest) !important;
+}
+
+.yx-clone .bg-white,
+.yx-clone .bg-neutral-200 {
+  background: var(--sand) !important;
+}
+
+.yx-clone .bg-neutral-900,
+.yx-clone .text-neutral-900,
+.yx-clone .text-neutral-900\/40 {
+  background: var(--forest) !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .text-white {
+  color: var(--sand) !important;
+}
+
+/* Guarantee / include chips / CTAs with salmon or purple leftovers */
+.retro-explore-tabs-wrap .explore-hero-guarantee,
+.yx-clone .explore-hero-guarantee {
+  background: color-mix(in oklch, var(--dune) 22%, var(--sand)) !important;
+  border-color: color-mix(in oklch, var(--forest) 18%, transparent) !important;
+  color: var(--forest) !important;
+}
+
+.retro-clinical-product--tirz,
+.retro-clinical-product__thumb--tirz,
+[data-explore-section-stack='muscle-recovery'] .retro-clinical--sermorelin .retro-clinical-product__thumb--sermorelin {
+  --product-accent: color-mix(in oklch, var(--dune) 70%, var(--sand));
+  --product-accent-border: var(--dune);
+  --product-accent-soft: color-mix(in oklch, var(--dune) 28%, transparent);
+  --product-cta: color-mix(in oklch, var(--dune) 55%, var(--sand));
+  background: color-mix(in oklch, var(--dune) 55%, var(--sand)) !important;
+}
+
+.yx-clone .retro-protocol-card,
+.yx-clone .retro-expect-card,
+.yx-clone .retro-home-reviews-card,
+.retro-happy__card {
+  background: color-mix(in oklch, var(--sand) 92%, var(--dune)) !important;
+  border-color: var(--forest) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  color: var(--forest) !important;
+}
+
+.retro-happy__chip--after,
+.retro-explore-tabs-wrap .ba-tag--after {
+  background: color-mix(in oklch, var(--dune) 45%, var(--sand)) !important;
+  color: var(--forest) !important;
+}
+
+.retro-happy__chip--before,
+.retro-explore-tabs-wrap .ba-tag--before {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+/* Clinical pricing band — was navy #2e3d4f */
+.retro-clinical__pricing {
+  background:
+    linear-gradient(var(--forest), var(--forest)) padding-box,
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--dune) 55%, var(--sand)) 0%,
+      var(--forest) 55%,
+      color-mix(in oklch, var(--dune) 70%, var(--sand)) 100%
+    ) border-box !important;
+  color: var(--sand) !important;
+}
+
+/* Explore tabs — sermorelin tone was salmon */
+.explore-tab-link[data-tone='sermorelin'] .explore-tab-border {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--dune) 70%, var(--sand)),
+    var(--dune)
+  ) !important;
+}
+
+.explore-tab-link[data-tone='sermorelin'] .explore-tab-fill {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--dune) 35%, transparent),
+    color-mix(in oklch, var(--dune) 55%, transparent)
+  ) !important;
+}
+
+/* Black / navy bands → forest */
+.yx-clone .retro-calculator,
+.hiw-page [class*='story'] img,
+.yx-clone [style*='background:#111'],
+.yx-clone .bg-\[\#111\] {
+  background-color: var(--forest) !important;
+}
+
+.hiw-page .hiw-stories__media,
+.hiw-page .hiw-step-media,
+.how-it-works-page {
+  --hiw-card: color-mix(in oklch, var(--sand) 94%, var(--dune));
+}
+
+/* Hard blacks in HIW */
+.hiw-page [style*='#0a0a0a'],
+.hiw-faq,
+section.hiw-closing {
+  background-color: var(--sand);
+}
+
+/* Retro utility blacks → forest */
+.yxr-btn,
+.yxr-card {
+  border-color: var(--forest) !important;
+  box-shadow: 4px 4px 0 var(--forest) !important;
+  color: var(--forest) !important;
+}
+
+/* CTA defaults — forest primary on light; never forest-on-forest text */
+.yx-clone .retro-knowall__cta,
+.yx-clone .retro-protocol__cta,
+.yx-clone .retro-home-reviews-cta,
+.yx-clone .retro-home-closing-cta,
+.yx-clone .explore-hero-cta,
+.retro-explore-tabs-wrap .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-cta {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--forest) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+/* Clinical band is forest — invert CTA for visibility */
+.yx-clone .retro-clinical__cta,
+.retro-clinical__cta {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+  border-color: var(--sand) !important;
+  box-shadow: 3px 4px 0 0 color-mix(in oklch, var(--forest) 55%, black) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-stock,
+.yx-clone .explore-hero-stock {
+  background: color-mix(in oklch, var(--dune) 35%, var(--sand)) !important;
+  color: var(--forest) !important;
+}
+
+.retro-explore-tabs-wrap .explore-stock-dot,
+.yx-clone .explore-stock-dot {
+  background: var(--forest) !important;
+}
+
+/* Soft white cards → sand elevated */
+.yx-clone .pax-protocol-card,
+.yx-clone .pax-knowall__item,
+.pax-advisors .pax-advisor-card,
+.pax-reviews .retro-home-reviews-card {
+  background-color: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+}
+
+/* Stars: terracotta, not gold neon */
+.yx-clone .retro-home-reviews-stars,
+.yx-clone .retro-home-reviews-card-stars,
+.pax-reviews .retro-home-reviews-stars svg,
+.pax-reviews .retro-home-reviews-card-stars svg {
+  color: var(--terracotta) !important;
+  fill: var(--terracotta) !important;
+}
+
+/* Footer / dark bands */
+.retro-footer-wrap,
+.yx-clone .retro-footer,
+footer.retro-footer {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+.retro-footer-wrap a,
+.yx-clone .retro-footer a {
+  color: color-mix(in oklch, var(--sand) 88%, var(--dune)) !important;
+}

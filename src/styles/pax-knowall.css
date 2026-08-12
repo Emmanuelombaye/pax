@@ -1,0 +1,310 @@
+/* Pax FAQ / knowall — weight-loss explore (vial image untouched) */
+
+.yx-clone .pax-knowall {
+  background:
+    radial-gradient(90% 70% at 12% 8%, color-mix(in oklch, var(--dune) 18%, transparent), transparent 55%),
+    var(--sand) !important;
+}
+
+.yx-clone .pax-knowall .retro-knowall__inner {
+  gap: clamp(1.75rem, 4vw, 3rem) !important;
+  align-items: start !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__eyebrow {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-body, inherit);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.yx-clone .pax-knowall .retro-knowall__heading {
+  margin: 0 0 1.25rem !important;
+  max-width: 16ch;
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: var(--tracking-display, -0.02em) !important;
+  line-height: 1.08 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .pax-knowall .retro-knowall__vial,
+.yx-clone .pax-knowall .retro-knowall__vial--wl {
+  display: block !important;
+  width: min(280px, 88%) !important;
+  max-width: 280px !important;
+  height: auto !important;
+  margin: 0.5rem 0 0 !important;
+  border-radius: 18px;
+  object-fit: contain;
+}
+
+.yx-clone .pax-knowall .pax-knowall__list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item {
+  --i: 0;
+  position: relative;
+  border: 1px solid color-mix(in oklch, var(--forest) 12%, transparent) !important;
+  border-bottom: 1px solid color-mix(in oklch, var(--forest) 12%, transparent) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--dune) 16%, transparent) 0%,
+      transparent 48%
+    ),
+    #fff !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 65%, transparent) inset,
+    0 10px 26px -16px color-mix(in oklch, var(--forest) 22%, transparent) !important;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease,
+    background 0.3s ease !important;
+  animation: pax-knowall-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.05s * var(--i));
+}
+
+.yx-clone .pax-knowall .pax-knowall__item::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 10px auto 10px 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(
+    180deg,
+    var(--terracotta),
+    color-mix(in oklch, var(--forest) 75%, var(--dune))
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease, inset 0.3s ease;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true'] {
+  border-color: color-mix(in oklch, var(--forest) 24%, transparent) !important;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in oklch, var(--dune) 28%, transparent) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      #fff 0%,
+      color-mix(in oklch, var(--sand) 90%, white) 100%
+    ) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 75%, transparent) inset,
+    0 16px 34px -18px color-mix(in oklch, var(--forest) 30%, transparent),
+    0 6px 14px -10px color-mix(in oklch, var(--terracotta) 18%, transparent) !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true']::before {
+  opacity: 1;
+  inset: 8px auto 8px 0;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklch, var(--forest) 22%, transparent) !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__toggle {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: start !important;
+  gap: 0.85rem !important;
+  width: 100% !important;
+  padding: 1.05rem 1.15rem 1.05rem 1.25rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  text-align: left !important;
+  font: inherit !important;
+  color: var(--forest) !important;
+  cursor: pointer !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  line-height: 1;
+}
+
+.yx-clone .pax-knowall .retro-knowall__question {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: var(--tracking-display, -0.01em) !important;
+  line-height: 1.28 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true'] .retro-knowall__question {
+  color: var(--forest) !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 2rem !important;
+  height: 2rem !important;
+  margin-top: 0.05rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--forest) 14%, transparent);
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in oklch, #fff 65%, transparent), transparent 55%),
+    color-mix(in oklch, var(--sand) 70%, var(--dune));
+  color: var(--forest) !important;
+  font-size: 1.15rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  flex: 0 0 auto;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true'] .pax-knowall__icon {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--sand) !important;
+  transform: rotate(180deg);
+}
+
+.yx-clone .pax-knowall .retro-knowall__panel,
+.yx-clone .pax-knowall .retro-knowall__panel-inner,
+.yx-clone .pax-knowall .retro-knowall__answer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.yx-clone .pax-knowall .retro-knowall__panel {
+  padding: 0 1.15rem 0 3.1rem !important;
+  color: color-mix(in oklch, var(--forest) 72%, transparent) !important;
+  font-size: 0.94rem !important;
+  line-height: 1.58 !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true'] .retro-knowall__panel {
+  padding-bottom: 1.2rem !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__item[data-open='true'] .pax-knowall__toggle {
+  padding-bottom: 0.55rem !important;
+}
+
+.yx-clone .pax-knowall .retro-knowall__answer p {
+  margin: 0 !important;
+  max-width: 48ch;
+  font-family: var(--font-body, inherit) !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 3.25rem !important;
+  height: auto !important;
+  margin-top: 1rem !important;
+  padding: 0 1.5rem !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background: var(--btn-bg, var(--forest)) !important;
+  color: var(--btn-text, var(--sand)) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 18%, transparent) inset,
+    0 10px 24px -12px color-mix(in oklch, var(--forest) 45%, transparent) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.2s ease, box-shadow 0.25s ease !important;
+  animation: pax-knowall-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.32s;
+}
+
+.yx-clone .pax-knowall .pax-knowall__cta:hover,
+.yx-clone .pax-knowall .pax-knowall__cta:active {
+  opacity: var(--btn-hover-opacity, 0.92);
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, #fff 22%, transparent) inset,
+    0 14px 28px -12px color-mix(in oklch, var(--forest) 50%, transparent) !important;
+}
+
+@keyframes pax-knowall-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yx-clone .pax-knowall .pax-knowall__item,
+  .yx-clone .pax-knowall .pax-knowall__cta {
+    animation: none;
+  }
+
+  .yx-clone .pax-knowall .pax-knowall__item:hover,
+  .yx-clone .pax-knowall .pax-knowall__cta:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .yx-clone .pax-knowall .retro-knowall__heading {
+    max-width: none;
+  }
+
+  .yx-clone .pax-knowall .retro-knowall__vial,
+  .yx-clone .pax-knowall .retro-knowall__vial--wl {
+    margin-inline: auto !important;
+  }
+
+  .yx-clone .pax-knowall .retro-knowall__panel {
+    padding-left: 1.15rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .yx-clone .pax-knowall .pax-knowall__toggle {
+    gap: 0.65rem !important;
+    padding: 0.95rem 1rem 0.95rem 1.05rem !important;
+  }
+
+  .yx-clone .pax-knowall .pax-knowall__n {
+    min-width: 1.65rem;
+  }
+}

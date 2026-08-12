@@ -1,0 +1,1099 @@
+/* Mirrored Yucca treatments geometry — Pax brand kit tokens */
+.yx-clone{
+  --color-retro-ink:var(--forest);
+  --color-retro-ink-soft:color-mix(in oklch,var(--forest) 62%,transparent);
+  --color-retro-green:var(--forest);
+  --color-retro-surface:var(--sand);
+  --color-retro-cream:var(--sand);
+  --color-retro-shadow:var(--forest);
+  --color-retro-purple:color-mix(in oklch,var(--dune) 42%,var(--sand));
+  --color-retro-lavender:color-mix(in oklch,var(--dune) 38%,var(--sand));
+  --color-retro-sky-1:color-mix(in oklch,var(--dune) 55%,var(--sand));
+  --color-retro-sky-2:color-mix(in oklch,var(--dune) 75%,var(--sand));
+  --color-retro-yellow:color-mix(in oklch,var(--dune) 70%,var(--sand));
+  --font-retro-display:var(--font-display);
+  --font-retro-body:var(--font-body);
+  font-family:var(--font-retro-body);
+  font-weight:400;
+  color:var(--color-retro-ink);
+  background:var(--sand)
+}
+.yx-clone,.yx-clone *{font-weight:400}
+.yx-clone em,.yx-clone i,.yx-clone .italic{font-style:italic;font-weight:400}
+main:has([data-explore-section-stack]){overflow-x:clip}
+main:has([data-explore-section-stack]) .retro-footer-wrap [class~="tablet:flex-row"]{flex-wrap:wrap}
+[data-explore-section-stack]{display:none}
+html:not([data-explore-active-tab]) [data-explore-section-stack=weight-loss],html[data-explore-active-tab=weight-loss] [data-explore-section-stack=weight-loss],html[data-explore-active-tab=longevity] [data-explore-section-stack=longevity],html[data-explore-active-tab=muscle-recovery] [data-explore-section-stack=muscle-recovery]{display:block;overflow-x:clip}
+.retro-explore-why-wrap section{background:var(--color-retro-surface)}
+.retro-explore-why-wrap article{border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-why-wrap h2{color:var(--color-retro-ink)}
+.retro-explore-sbs-wrap .bg-\[\var(--sand)\]{background:var(--color-retro-cream)!important;border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-sbs-wrap [data-reviews-dot]{background:var(--color-retro-ink)!important}
+.retro-explore-sbs-wrap [data-reviews-dot][data-active=true]{background:color-mix(in oklch, var(--forest) 25%, transparent)!important}
+.retro-explore-sbs-wrap [data-reviews-prev],.retro-explore-sbs-wrap [data-reviews-next]{border-width:2px;border-color:var(--color-retro-ink);background:var(--color-retro-surface);color:var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
+.retro-explore-sbs-wrap [data-reviews-prev]:hover,.retro-explore-sbs-wrap [data-reviews-next]:hover{background:var(--color-retro-surface);color:var(--color-retro-ink);transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-sbs-wrap [data-reviews-prev]:active,.retro-explore-sbs-wrap [data-reviews-next]:active{transform:translate(3px,4px);box-shadow:0 0 0 0 var(--color-retro-shadow)}
+main:has([data-explore-section-stack]) .retro-happy{padding-bottom:32px}
+.retro-expect{background:color-mix(in oklch, var(--dune) 45%, var(--sand));padding:56px 16px}
+.retro-expect{padding:72px 32px}
+.retro-expect{padding:96px 64px}
+.retro-expect__inner{max-width:80rem;margin:0 auto}
+.retro-expect__heading{margin:0 0 12px;font-family:var(--font-body);font-weight:400;font-size:36px;line-height:.95;letter-spacing:-.02em;color:var(--forest);max-width:16ch}
+.retro-expect__heading{font-size:48px}
+.retro-expect__heading{font-size:56px}
+.retro-expect__sub{margin:0 0 24px;font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.45;letter-spacing:-.01em;color:color-mix(in oklch, var(--forest) 65%, transparent);max-width:34ch}
+.retro-expect__sub{font-size:18px;margin-bottom:30px}
+.retro-expect__sub{margin-bottom:36px}
+.retro-expect-card{display:flex;flex-direction:column;background:var(--color-retro-surface);border:2px solid var(--color-retro-ink);border-radius:20px;box-shadow:5px 6px 0 0 var(--color-retro-shadow);padding:14px 14px 22px}
+.retro-expect-card__media{aspect-ratio:16 / 11;border-radius:12px;overflow:hidden;background:#e3ddcf;margin-bottom:18px}
+.retro-expect-card__img{display:block;width:100%;height:100%;object-fit:cover}
+.retro-expect-card__label{margin:0 0 8px;padding:0 4px;font-family:var(--font-body);font-weight:400;font-size:18px;line-height:1.2;letter-spacing:-.01em;color:var(--forest)}
+.retro-expect-card__desc{margin:0;padding:0 4px;font-family:var(--font-body);font-weight:400;font-size:15px;line-height:1.5;color:color-mix(in oklch, var(--forest) 80%, transparent)}
+.retro-expect-card__desc{font-size:16px}
+.retro-expect__grid{display:none}
+.retro-expect__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.retro-expect__carousel{position:relative;margin-left:-16px;margin-right:-16px}
+.retro-expect__carousel{margin-left:-32px;margin-right:-32px}
+.retro-expect__carousel{display:none}
+.retro-expect__track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 10vw;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.retro-expect__track::-webkit-scrollbar{display:none}
+.retro-expect-card--carousel{scroll-snap-align:center;flex:0 0 auto;width:80vw;max-width:26rem}
+.retro-clinical{background:var(--forest);color:var(--color-retro-cream);padding:56px 16px;overflow:hidden}
+.retro-clinical{padding:96px 64px}
+.retro-clinical__inner{max-width:75rem;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+.retro-clinical__eyebrow{margin:0 0 16px;font-family:var(--font-retro-display);font-weight:400;font-size:.9375rem;letter-spacing:.01em;color:color-mix(in oklch, var(--sand) 58%, transparent)}
+.retro-clinical__heading{margin:0 0 20px;font-family:var(--font-retro-display);font-weight:400;font-size:2rem;line-height:1.08;letter-spacing:-.04em;color:var(--color-retro-cream)}
+.retro-clinical__heading{font-size:2.5rem}
+.retro-clinical__heading{font-size:3.25rem;line-height:1.04}
+.retro-clinical__body{margin:0;max-width:34rem;font-family:var(--font-retro-display);font-weight:400;font-size:1rem;line-height:1.6;letter-spacing:-.01em;color:color-mix(in oklch, var(--sand) 72%, transparent)}
+.retro-clinical__body{font-size:1.0625rem}
+.retro-clinical__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:260px}
+.retro-clinical__visual:before{content:"";position:absolute;left:50%;top:82%;transform:translate(-50%,-50%);z-index:0;width:min(560px,116%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in oklch, var(--dune) 45%, var(--sand))99,color-mix(in oklch, var(--dune) 45%, var(--sand))52 40%,color-mix(in oklch, var(--dune) 45%, var(--sand))00 72%);filter:blur(56px);pointer-events:none}
+.retro-clinical__visual:after{content:none}
+.retro-clinical__axis{display:none;position:absolute;z-index:0;pointer-events:none}
+.retro-clinical__axis--v{left:50%;top:-18%;bottom:-18%;border-left:1.5px dashed color-mix(in oklch, var(--sand) 14%, transparent)}
+.retro-clinical__axis--h{top:50%;left:-45%;right:-45%;border-top:1.5px dashed color-mix(in oklch, var(--sand) 14%, transparent)}
+.retro-clinical__vial{position:relative;z-index:1;width:clamp(92px,38%,148px);height:auto;user-select:none;-webkit-user-drag:none}
+.retro-clinical__cross{position:absolute;z-index:2;font-family:var(--font-retro-display);font-weight:400;font-size:1.875rem;line-height:1;color:color-mix(in oklch, var(--sand) 34%, transparent);user-select:none}
+.retro-clinical__cross--top{top:-7%;left:50%;transform:translate(-50%)}
+.retro-clinical__cross--left{top:44%;left:-4%}
+.retro-clinical__cross--bottom{bottom:-5%;left:50%;transform:translate(-50%)}
+.retro-clinical__scroll{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border:1.5px solid color-mix(in oklch, var(--sand) 40%, transparent);border-radius:50%;color:var(--color-retro-cream);transition:border-color .15s ease,transform .15s ease}
+.retro-clinical__scroll{display:none}
+.retro-clinical__scroll:hover{border-color:var(--color-retro-cream);transform:translateY(3px)}
+.retro-clinical__scroll svg{width:20px;height:20px}
+.retro-clinical__pricing{display:flex;flex-direction:column;gap:12px;width:100%;max-width:30rem;align-self:center;padding:18px;background:linear-gradient(var(--forest),var(--forest)) padding-box,linear-gradient(135deg,var(--color-retro-lavender) 0%,var(--color-retro-green) 55%,var(--color-retro-sky-1) 100%) border-box;border:2px solid transparent;border-radius:22px}
+.retro-clinical__pricing{padding:22px}
+.retro-clinical-plan{display:flex;align-items:center;gap:14px;width:100%;padding:13px 15px;background:#3a4b5f;border:2px solid color-mix(in oklch, var(--sand) 16%, transparent);border-radius:14px;text-align:left;cursor:pointer;font-family:var(--font-retro-display);color:var(--color-retro-cream);transition:border-color .15s ease,background .15s ease}
+.retro-clinical-plan[data-selected=true]{background:color-mix(in oklch, var(--forest) 18%, transparent);border-color:var(--color-retro-green)}
+.retro-clinical-plan:hover{border-color:var(--color-retro-green)}
+.retro-clinical-plan__radio{position:relative;flex-shrink:0;width:20px;height:20px;border:2px solid color-mix(in oklch, var(--sand) 45%, transparent);border-radius:50%}
+.retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio{border-color:var(--color-retro-green)}
+.retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio:after{content:"";position:absolute;inset:3px;background:var(--color-retro-green);border-radius:50%}
+.retro-clinical-plan__info{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
+.retro-clinical-plan__name{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-weight:400;font-size:1rem;letter-spacing:-.01em}
+.retro-clinical-plan__badge{display:inline-flex;align-items:center;padding:2px 8px;background:var(--color-retro-green);border:1.5px solid var(--color-retro-ink);border-radius:var(--radius-retro-pill);font-size:.625rem;font-weight:400;letter-spacing:.04em;text-transform:uppercase;color:var(--color-retro-ink)}
+.retro-clinical-plan__save{font-size:.8125rem;font-weight:400;color:var(--terracotta)}
+.retro-clinical-plan__price{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
+.retro-clinical-plan__was{font-size:.8125rem;color:color-mix(in oklch, var(--sand) 45%, transparent);text-decoration:line-through}
+.retro-clinical-plan__now{font-size:1.0625rem;font-weight:400;letter-spacing:-.01em;color:var(--color-retro-cream)}
+.retro-clinical-plan__per-month{font-size:.75rem;font-weight:400;color:#5d6166}
+.retro-clinical__cta{display:flex;align-items:center;justify-content:center;width:100%;margin-top:4px;padding:18px 24px;background:var(--color-retro-green);border:2px solid var(--color-retro-ink);border-radius:999px;box-shadow:5px 6px 0 0 var(--color-retro-ink);font-family:var(--font-retro-display);font-weight:400;font-size:1.0625rem;letter-spacing:-.01em;color:var(--color-retro-ink);text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.retro-clinical__cta:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-ink)}
+.retro-clinical__cta:active{transform:translate(4px,5px);box-shadow:0 0 0 0 var(--color-retro-ink)}
+.retro-clinical__inner{display:block;position:relative;min-height:720px}
+.retro-clinical__text{position:relative;z-index:3;max-width:38%;padding-top:0}
+.retro-clinical__visual{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(220px,22%,320px);min-height:0;z-index:1}
+.retro-clinical__visual .retro-clinical__vial{width:69%}
+.retro-clinical__pricing{position:absolute;right:0;bottom:0;width:clamp(380px,34%,28rem);max-width:28rem;z-index:4}
+.retro-clinical__scroll{position:absolute;left:0;bottom:8px;z-index:3}
+.retro-clinical__visual:before{width:clamp(300px,22vw,380px)}
+.retro-clinical__visual:after{width:clamp(440px,33vw,560px)}
+.retro-clinical__axis{display:block}
+.retro-clinical__vial,.retro-clinical__cross,.retro-clinical__axis--v,.retro-clinical__axis--h,.retro-clinical__visual:before,.retro-clinical__visual:after{transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .8s ease}
+.retro-clinical__vial{transition-delay:.05s}
+.retro-clinical__axis--v{transition-delay:.1s}
+.retro-clinical__axis--h{transition-delay:.2s}
+.retro-clinical__visual:before{transition-delay:.18s}
+.retro-clinical__visual:after{transition-delay:.3s}
+.retro-clinical__cross--top{transition-delay:.4s}
+.retro-clinical__cross--left{transition-delay:.5s}
+.retro-clinical__cross--bottom{transition-delay:.6s}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__vial{opacity:0;transform:translateY(30px) scale(.95)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__cross{opacity:0}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__axis--v{opacity:0;transform:scaleY(0)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__axis--h{opacity:0;transform:scaleX(0)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__visual:before,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__visual:after{opacity:0;transform:translate(-50%,-50%) scale(.5)}
+.retro-clinical__eyebrow,.retro-clinical__heading,.retro-clinical__body,.retro-clinical__pricing{transition:transform .8s cubic-bezier(.22,1,.36,1),opacity .7s ease}
+.retro-clinical__heading{transition-delay:.08s}
+.retro-clinical__body{transition-delay:.16s}
+.retro-clinical__pricing{transition-delay:.28s}
+.retro-clinical-plan:nth-of-type(1),.retro-clinical-plan:nth-of-type(2),.retro-clinical-plan:nth-of-type(3){transition:border-color .15s ease,background .15s ease,transform .6s cubic-bezier(.22,1,.36,1),opacity .5s ease}
+.retro-clinical-plan:nth-of-type(1){transition-delay:0s,0s,.42s,.42s}
+.retro-clinical-plan:nth-of-type(2){transition-delay:0s,0s,.52s,.52s}
+.retro-clinical-plan:nth-of-type(3){transition-delay:0s,0s,.62s,.62s}
+.retro-clinical__cta{transition:transform .15s ease,box-shadow .15s ease,opacity .5s ease;transition-delay:0s,0s,.72s}
+.retro-clinical__scroll{transition:border-color .15s ease,transform .15s ease,opacity .6s ease;transition-delay:0s,0s,.5s}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__eyebrow,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__heading,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__body{opacity:0;transform:translateY(18px)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__pricing{opacity:0;transform:translate(36px)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical-plan{opacity:0;transform:translateY(14px)}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__cta,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__scroll{opacity:0}
+.retro-clinical__cta,.retro-clinical-plan{transition:none}
+.retro-clinical__plan-col{width:100%;max-width:30rem;align-self:center}
+.retro-clinical__plan-col{position:absolute;right:0;bottom:0;width:clamp(380px,34%,28rem);max-width:28rem;z-index:4}
+.retro-clinical__pricing{position:static!important;width:100%!important;max-width:none!important}
+.retro-clinical{background:var(--sand);color:var(--forest);padding:64px 16px;overflow:hidden}
+.retro-clinical{padding:72px 32px}
+.retro-clinical{padding:86px 64px 64px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin){padding-top:60px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin){padding-top:80px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin){padding-top:40px}
+.retro-clinical__inner{max-width:1202px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:36px;align-items:start;position:relative}
+.retro-clinical__inner{grid-template-columns:minmax(0,442px) minmax(240px,320px) minmax(380px,419px);gap:10px;min-height:560px}
+.retro-clinical__inner{grid-template-columns:minmax(0,442px) minmax(220px,300px) minmax(340px,419px);column-gap:clamp(10px,1.4vw,20px)}
+.retro-clinical__text{max-width:442px;position:relative;z-index:2}
+.retro-clinical__eyebrow{margin:0 0 12px;font-family:var(--font-body);font-weight:400;font-size:18px;line-height:1;letter-spacing:0;color:color-mix(in oklch, var(--dune) 45%, var(--sand))}
+.retro-clinical__eyebrow{font-size:20px;white-space:nowrap}
+.retro-clinical__heading{margin:0;font-family:var(--font-body);font-weight:400;font-size:42px;line-height:1;letter-spacing:-.02em;color:var(--forest)}
+.retro-clinical__heading{font-size:52px;max-width:430px}
+.retro-clinical__body{margin:20px 0 0;max-width:442px;font-family:var(--font-body);font-weight:400;font-size:17px;line-height:1.4;letter-spacing:0;color:color-mix(in oklch, var(--forest) 60%, transparent)}
+.retro-clinical__body{margin-top:24px;font-size:18px}
+.retro-clinical__body p{margin:0}
+.retro-clinical__body p+p{margin-top:22px}
+.retro-clinical__body ul{margin:0;padding-left:27px;list-style:disc}
+.retro-clinical__body li{margin:0;padding-left:0}
+.retro-clinical__body strong{font-weight:400;color:color-mix(in oklch, var(--forest) 67%, transparent)}
+.retro-clinical__visual{position:relative;display:block;width:min(320px,72vw);height:430px;min-height:0;justify-self:center;align-self:start;margin-top:0}
+.retro-clinical__visual:before,.retro-clinical__visual:after{content:none}
+.retro-clinical__visual{width:300px;height:430px;margin-top:88px;transform:none;left:auto;top:auto}
+.retro-clinical__visual .retro-clinical__vial{position:absolute;z-index:1;width:156px;height:auto;user-select:none;-webkit-user-drag:none}
+.retro-clinical__visual .retro-clinical__vial--tirz{left:38px;top:0;width:158px}
+.retro-clinical__visual .retro-clinical__vial--sema{left:142px;top:55px;width:156px}
+.retro-clinical__visual{height:360px}
+.retro-clinical__visual .retro-clinical__vial--tirz{left:calc(50% - 116px);width:142px}
+.retro-clinical__visual .retro-clinical__vial--sema{left:calc(50% - 18px);top:48px;width:140px}
+.retro-clinical__products{width:100%;max-width:419px;justify-self:end;display:flex;flex-direction:column;gap:18px}
+.retro-clinical__products{justify-self:center;max-width:30rem}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin){padding:80px clamp(32px,4vw,48px) 72px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__inner{grid-template-columns:auto auto;grid-template-areas:"text text" "visual products";justify-content:center;align-items:center;column-gap:clamp(24px,3.5vw,56px);row-gap:40px;min-height:0}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__text{grid-area:text;max-width:560px;text-align:center}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__eyebrow{white-space:normal}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__heading{max-width:560px;font-size:clamp(46px,4.8vw,52px)}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__body{max-width:520px;text-align:left}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__visual{grid-area:visual;width:min(300px,40vw);height:430px;margin-top:0;justify-self:end;align-self:center}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products{grid-area:products;width:min(419px,44vw);max-width:419px;justify-self:start;align-self:center}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "visual" "products";justify-items:center;row-gap:32px;min-height:0}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__text{grid-area:text;max-width:560px;text-align:left;justify-self:stretch}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__body{text-align:left;justify-self:stretch}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__body ul+p{margin-top:16px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__visual{grid-area:visual;justify-self:center;align-self:auto}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products{grid-area:products;width:min(419px,100%);max-width:419px;justify-self:center;align-self:auto}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical-product__top,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical-product__top{height:auto!important;min-height:117px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema .retro-clinical-product__top,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz .retro-clinical-product__top{height:auto!important;min-height:120px}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz{height:auto!important;min-height:0}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__inner{justify-items:center}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__text{width:min(560px,100%);max-width:560px;justify-self:center;text-align:center}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__heading{max-width:560px;margin-inline:auto}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__body{max-width:520px;margin-inline:auto;text-align:left}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__visual,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products{justify-self:center}
+.retro-clinical-product{--product-accent: color-mix(in oklch, var(--dune) 45%, var(--sand));--product-accent-border: color-mix(in oklch, var(--terracotta) 35%, var(--sand));--product-accent-soft: rgba(185, 169, 254, .2);--product-cta: color-mix(in oklch, var(--dune) 45%, var(--sand));position:relative;background:#fff;border:1.5px solid var(--forest);border-radius:14px;box-shadow:3px 4px var(--forest);overflow:hidden;color:var(--forest)}
+.retro-clinical-product--tirz{--product-accent: color-mix(in oklch, var(--dune) 70%, var(--sand));--product-accent-border: var(--dune);--product-accent-soft: color-mix(in oklch, var(--dune) 28%, transparent);--product-cta: color-mix(in oklch, var(--dune) 55%, var(--sand))}
+.retro-clinical-product--primary{min-height:0}
+.retro-clinical-product--secondary{min-height:120px;box-shadow:none;display:block;padding:0}
+.retro-clinical-product__top{appearance:none;-webkit-appearance:none;position:relative;display:grid;grid-template-columns:85px minmax(0,1fr) 18px;column-gap:21px;width:100%;min-height:115px;padding:14px 12px 14px 14px;margin:0;background:transparent;border:0;border-bottom:1.5px dashed color-mix(in srgb,var(--product-accent-border) 60%,transparent);text-align:left;cursor:pointer}
+.retro-clinical-product__top:focus-visible{outline:3px solid color-mix(in oklch, var(--forest) 28%, transparent);outline-offset:-4px}
+.retro-clinical-product--secondary .retro-clinical-product__top,.retro-clinical-product[data-expanded=false] .retro-clinical-product__top{min-height:120px;height:120px;padding:16px;border-bottom:0;grid-template-columns:85px minmax(0,1fr) 18px}
+.retro-clinical-product__thumb{position:relative;width:85px;height:85px;border-radius:10px;overflow:hidden}
+.retro-clinical-product__thumb--sema{background:#c2b7f1}
+.retro-clinical-product__thumb--tirz{background:color-mix(in oklch, var(--dune) 55%, var(--sand))}
+.retro-clinical-product__thumb img{position:absolute;left:50%;top:8px;width:auto;height:92px;max-width:none;transform:translate(-50%)}
+.retro-clinical-product__intro{min-width:0;padding-top:1px}
+.retro-clinical-product__title{margin:0;font-family:var(--font-body);font-weight:400;font-size:18px;line-height:1.1;letter-spacing:0;color:var(--forest)}
+.retro-clinical-product__sub{margin:4px 0 0;font-family:var(--font-body);font-weight:400;font-size:14px;line-height:1.2;color:color-mix(in oklch, var(--forest) 60%, transparent)}
+.retro-clinical-product__tag{position:relative;margin:4px 0 0;padding-left:20px;font-family:var(--font-body);font-weight:400;font-size:12px;line-height:1.5;letter-spacing:-.01em}
+.retro-clinical-product__tag:before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:14px;height:14px;background-color:currentColor;-webkit-mask:var(--tag-icon, none) center / 14px 14px no-repeat;mask:var(--tag-icon, none) center / 14px 14px no-repeat}
+.retro-clinical-product__tag--purple{color:color-mix(in oklch, var(--dune) 45%, var(--sand));--tag-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M13.3569 3.28145C13.2939 3.24214 13.2219 3.2195 13.1478 3.21568C13.0736 3.21185 12.9997 3.22696 12.933 3.25957C10.5853 4.40801 8.9086 3.86988 7.13617 3.30223C5.27188 2.70887 3.34688 2.09363 0.683047 3.3941C0.609479 3.43002 0.547466 3.48586 0.504059 3.55528C0.460651 3.62469 0.437591 3.70489 0.4375 3.78676V10.3454C0.43749 10.4197 0.456366 10.4927 0.492354 10.5576C0.528341 10.6225 0.580256 10.6772 0.643212 10.7165C0.706169 10.7559 0.778096 10.7785 0.852226 10.7824C0.926355 10.7863 1.00025 10.7712 1.06695 10.7386C3.41469 9.5902 5.09141 10.1283 6.86656 10.696C7.91875 11.0323 8.99063 11.3752 10.2025 11.3752C11.1371 11.3752 12.1565 11.1718 13.3148 10.6063C13.3883 10.5704 13.4503 10.5145 13.4938 10.4451C13.5372 10.3757 13.5602 10.2955 13.5603 10.2136V3.65496C13.561 3.58054 13.5426 3.50718 13.507 3.44182C13.4714 3.37646 13.4198 3.32126 13.3569 3.28145ZM2.625 8.3127C2.625 8.42873 2.57891 8.54001 2.49686 8.62206C2.41481 8.7041 2.30353 8.7502 2.1875 8.7502C2.07147 8.7502 1.96019 8.7041 1.87814 8.62206C1.79609 8.54001 1.75 8.42873 1.75 8.3127V4.8127C1.75 4.69666 1.79609 4.58538 1.87814 4.50334C1.96019 4.42129 2.07147 4.3752 2.1875 4.3752C2.30353 4.3752 2.41481 4.42129 2.49686 4.50334C2.57891 4.58538 2.625 4.69666 2.625 4.8127V8.3127ZM7 8.7502C6.65388 8.7502 6.31554 8.64756 6.02775 8.45527C5.73997 8.26298 5.51566 7.98966 5.38321 7.66989C5.25076 7.35012 5.2161 6.99825 5.28363 6.65879C5.35115 6.31932 5.51782 6.0075 5.76256 5.76276C6.00731 5.51802 6.31913 5.35135 6.65859 5.28382C6.99806 5.2163 7.34993 5.25095 7.6697 5.38341C7.98947 5.51586 8.26278 5.74016 8.45507 6.02795C8.64736 6.31573 8.75 6.65408 8.75 7.0002C8.75 7.46432 8.56563 7.90944 8.23744 8.23763C7.90925 8.56582 7.46413 8.7502 7 8.7502ZM12.25 9.1877C12.25 9.30373 12.2039 9.41501 12.1219 9.49706C12.0398 9.5791 11.9285 9.6252 11.8125 9.6252C11.6965 9.6252 11.5852 9.5791 11.5031 9.49706C11.4211 9.41501 11.375 9.30373 11.375 9.1877V5.6877C11.375 5.57166 11.4211 5.46038 11.5031 5.37834C11.5852 5.29629 11.6965 5.2502 11.8125 5.2502C11.9285 5.2502 12.0398 5.29629 12.1219 5.37834C12.2039 5.46038 12.25 5.57166 12.25 5.6877V9.1877Z'/%3E%3C/svg%3E")}
+.retro-clinical-product__tag--green{color:var(--forest);--tag-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M11.6953 6.86132L5.57032 13.4238C5.50541 13.4931 5.41973 13.5394 5.32621 13.5557C5.2327 13.572 5.13641 13.5574 5.05189 13.5142C4.96737 13.471 4.8992 13.4015 4.85767 13.3161C4.81613 13.2307 4.80349 13.1342 4.82164 13.041L5.62336 9.03078L2.47172 7.84734C2.40404 7.82202 2.34368 7.78033 2.29603 7.72599C2.24839 7.67165 2.21495 7.60636 2.1987 7.53595C2.18245 7.46553 2.1839 7.39218 2.20291 7.32246C2.22193 7.25274 2.25791 7.18882 2.30766 7.1364L8.43266 0.573902C8.49757 0.504633 8.58324 0.458354 8.67676 0.442049C8.77028 0.425744 8.86656 0.440299 8.95108 0.483516C9.0356 0.526732 9.10377 0.596267 9.14531 0.681627C9.18684 0.766986 9.19949 0.863539 9.18133 0.956715L8.37742 4.97132L11.5291 6.15312C11.5963 6.17861 11.6561 6.22025 11.7034 6.27438C11.7507 6.3285 11.7839 6.39343 11.8001 6.46344C11.8163 6.53344 11.815 6.60637 11.7964 6.67576C11.7777 6.74516 11.7423 6.80889 11.6931 6.86132H11.6953Z'/%3E%3C/svg%3E")}
+.retro-clinical-product__patients{position:relative;margin:6px 0 0;padding-left:10px;font-family:var(--font-body);font-weight:400;font-size:11px;line-height:1.2;color:color-mix(in oklch, var(--forest) 60%, transparent)}
+.retro-clinical-product__patients:before{content:"";position:absolute;left:0;top:5px;width:4px;height:4px;border-radius:50%;background:var(--forest)}
+.retro-clinical-product__patients strong{font-weight:400;color:var(--forest)}
+.retro-clinical-product__check{display:none;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--forest);color:#fff}
+.retro-clinical-product[data-expanded=true] .retro-clinical-product__check{display:flex}
+.retro-clinical-product__check svg{width:10px;height:10px}
+.retro-clinical__pricing{display:flex;flex-direction:column;gap:8px;width:auto!important;max-width:none!important;align-self:stretch;padding:16px 27px 20px;background:transparent;border:0;border-radius:0}
+.retro-clinical-plan{display:grid;grid-template-columns:24px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;min-height:70px;padding:12px;background:#f7f9fb;border:1.5px solid color-mix(in oklch, var(--forest) 20%, transparent);border-radius:14px;color:var(--forest);text-align:left;cursor:pointer;font-family:var(--font-body);transition:border-color .15s ease,background .15s ease}
+.retro-clinical-product[data-expanded=false] .retro-clinical__pricing{display:none}
+.retro-clinical-plan[data-selected=true]{background:var(--product-accent-soft);border:2px solid var(--product-accent-border)}
+.retro-clinical-plan:hover{border-color:var(--product-accent-border)}
+.retro-clinical-plan__radio{position:relative;flex-shrink:0;width:24px;height:24px;border:1.5px solid color-mix(in oklch, var(--forest) 40%, transparent);border-radius:50%;background:#fff}
+.retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio{border:2px solid var(--product-accent-border)}
+.retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio:after{content:"";position:absolute;inset:3px;background:var(--product-accent-border);border-radius:50%}
+.retro-clinical-plan__info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.retro-clinical-plan__name{display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px;font-weight:400;font-size:16px;line-height:1.3;letter-spacing:-.01em;color:var(--forest)}
+.retro-clinical-plan__badge{display:inline-flex;align-items:center;padding:2px 7px;background:var(--forest);border:1px solid var(--forest);border-radius:999px;font-size:10px;line-height:1.3;font-weight:400;letter-spacing:.04em;text-transform:uppercase;color:var(--forest)}
+.retro-clinical-plan__save{font-size:13px;line-height:1.3;font-weight:400;letter-spacing:-.05em;color:var(--forest)}
+.retro-clinical-plan__price{display:flex;flex-direction:column;align-items:flex-end;gap:2px;white-space:nowrap}
+.retro-clinical-plan__was{font-size:13px;line-height:1.3;color:color-mix(in oklch, var(--forest) 45%, transparent);text-decoration:line-through}
+.retro-clinical-plan__now{font-size:17px;line-height:1.3;font-weight:400;letter-spacing:-.01em;color:var(--forest)}
+.retro-clinical__cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:62px;margin-top:10px;padding:18px 24px;background:var(--product-cta);border:2px solid var(--forest);border-radius:14px;box-shadow:3px 4px var(--forest);font-family:var(--font-body);font-weight:400;font-size:18px;line-height:1.2;letter-spacing:0;color:var(--forest);text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.retro-clinical__cta:hover{transform:translate(2px,2px);box-shadow:1px 2px var(--forest)}
+.retro-clinical__cta:active{transform:translate(3px,4px);box-shadow:0 0 var(--forest)}
+.retro-clinical__scroll{display:none}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__eyebrow,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__heading,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__body,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__pricing,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical-plan,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__cta{opacity:1;transform:none}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz{min-height:120px;height:120px;box-shadow:none}
+.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema{border-width:2px;box-shadow:3px 4px var(--forest);transition:transform .15s ease-out,box-shadow .15s ease-out}
+.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz:hover,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema:hover{transform:translate(2px,3px);box-shadow:0 0 var(--forest)}
+.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz:active,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema:active{transform:translate(2px,3px);box-shadow:0 0 var(--forest)}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema{min-height:0;height:auto;box-shadow:3px 4px var(--forest)}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz .retro-clinical-product__top{min-height:120px;height:120px;border-bottom:0}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical-product__top{min-height:117px;height:117px;border-bottom:1.5px dashed color-mix(in srgb,var(--product-accent-border) 60%,transparent)}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical__pricing,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical__pricing{display:flex}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema .retro-clinical__pricing,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz .retro-clinical__pricing{display:none}
+.retro-clinical__pricing.clinical-switch-in{animation:clinical-pricing-switch-in .65s cubic-bezier(.22,1,.36,1)}
+.retro-clinical__pricing.clinical-switch-in{animation:none}
+.retro-clinical-product__top,.retro-clinical-product--secondary,.retro-clinical-product--secondary .retro-clinical-product__top,.retro-clinical-product[data-expanded=false] .retro-clinical-product__top,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz .retro-clinical-product__top,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical-product__top{grid-template-columns:72px minmax(0,1fr) 18px;column-gap:16px}
+.retro-clinical-product__top{padding-right:14px}
+.retro-clinical-product__check{position:static;align-self:start;justify-self:end}
+.retro-clinical-product__thumb{grid-column:1;width:72px;height:72px}
+.retro-clinical-product__intro{grid-column:2}
+.retro-clinical-product__check{grid-column:3}
+.retro-clinical-product__title{font-size:16px}
+.retro-clinical__pricing{padding:14px}
+.retro-clinical-plan{gap:9px}
+/* Neutralized Figma absolute canvas (was fixed 776×1440 with abs children) */
+.retro-clinical{height:auto;padding:64px 16px;position:relative}
+.retro-clinical__inner{display:grid;width:min(1120px,100%);max-width:1120px;height:auto;min-height:0;margin:0 auto;position:relative;left:auto;top:auto;transform:none}
+.retro-clinical__text{position:static;max-width:none}
+.retro-clinical__eyebrow{position:static;left:auto;top:auto;width:auto;margin:0 0 16px;font-size:20px;line-height:1.25}
+.retro-clinical__heading{position:static;left:auto;top:auto;width:auto;max-width:none;margin:0 0 20px;font-size:clamp(2rem,3.4vw,3.25rem);line-height:1.04;letter-spacing:-.02em}
+.retro-clinical__body{position:static;left:auto;top:auto;width:auto;max-width:none;height:auto;margin:0;font-size:18px;line-height:1.4}
+.retro-clinical__visual{position:relative;left:auto;top:auto;width:261px;height:430px;margin:0 auto;transform:none;justify-self:auto}
+.retro-clinical__visual .retro-clinical__vial{position:absolute}
+.retro-clinical__visual .retro-clinical__vial--tirz{left:0;top:0;width:158.5px}
+.retro-clinical__visual .retro-clinical__vial--sema{left:105px;top:55px;width:155.5px}
+.retro-clinical__products{position:static;left:auto;top:auto;width:100%;max-width:419px;gap:17px}
+.retro-clinical-product--primary{width:419px;height:auto;min-height:0}
+.retro-clinical-product--secondary{width:422px;height:120px;min-height:120px}
+.retro-clinical-product__top{height:117px;min-height:117px;padding:16px 12px 14px 16px;grid-template-columns:85px minmax(0,1fr) 18px}
+.retro-clinical-product__thumb{width:85px;height:85px}
+.retro-clinical-product__title{line-height:22px}
+.retro-clinical-product__sub{margin-top:0;line-height:17px}
+.retro-clinical-product__tag{margin-top:3px;line-height:18px}
+.retro-clinical-product__patients{margin-top:8px;line-height:13px}
+.retro-clinical-product__check{position:absolute;right:12px;top:12px}
+.retro-clinical-product--secondary{display:block;padding:0}
+.retro-clinical-product[data-expanded=false] .retro-clinical-product__top{height:120px;min-height:120px;padding:16px;border-bottom:0}
+.retro-clinical__pricing{position:static!important;left:auto;top:auto;width:360px!important;padding:16px 0;gap:8px;margin:0 auto}
+.retro-clinical-plan{width:360px;height:auto;min-height:0;padding:16px;grid-template-columns:24px minmax(0,1fr) 68px;gap:10px}
+.retro-clinical-plan__name{flex-wrap:nowrap;white-space:nowrap}
+.retro-clinical-plan__badge{flex:0 0 auto}
+.retro-clinical__cta{width:360px;height:62px;min-height:62px;margin-top:8px;padding:0}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz{height:120px;min-height:120px;box-shadow:none}
+.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz,.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema{border-width:2px;box-shadow:3px 4px var(--forest)}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema{height:auto;min-height:0;box-shadow:3px 4px var(--forest)}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--sema .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--tirz .retro-clinical-product__top{height:120px;min-height:120px;border-bottom:0}
+.retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical-product__top,.retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical-product__top{height:117px;min-height:117px;border-bottom:1.5px dashed color-mix(in srgb,var(--product-accent-border) 60%,transparent)}
+.retro-clinical__scroll{display:none;position:absolute;left:119.5px;top:626px;width:56px;height:56px;border:1px solid color-mix(in oklch, var(--sand) 40%, transparent);color:color-mix(in oklch, var(--forest) 45%, transparent);border-radius:50%;align-items:center;justify-content:center}
+html[data-explore-active-tab=longevity] .retro-home-reviews-filters,html[data-explore-active-tab=muscle-recovery] .retro-home-reviews-filters{display:none}
+html[data-explore-active-tab=weight-loss] .retro-home-closing{align-items:flex-start;height:640px;min-height:640px;padding:249px 20px 110px!important}
+html[data-explore-active-tab=weight-loss] .retro-home-closing-bg--weight-loss{object-position:50% 30%}
+.retro-home-closing-bg--longevity,.retro-home-closing-bg--muscle-recovery,html[data-explore-active-tab=longevity] .retro-home-closing-bg--weight-loss,html[data-explore-active-tab=muscle-recovery] .retro-home-closing-bg--weight-loss{display:none}
+html[data-explore-active-tab=longevity] .retro-home-closing-bg--longevity,html[data-explore-active-tab=muscle-recovery] .retro-home-closing-bg--muscle-recovery{display:block}
+html[data-explore-active-tab=longevity] .retro-home-closing-bg,html[data-explore-active-tab=muscle-recovery] .retro-home-closing-bg{object-position:50% 50%}
+html[data-explore-active-tab=weight-loss] .retro-home-closing:after{background:transparent}
+html[data-explore-active-tab=weight-loss] .retro-home-closing-title{text-shadow:none}
+html[data-explore-active-tab=weight-loss] .retro-home-closing-sub{text-shadow:none}
+[data-explore-section-stack=longevity] .retro-clinical--nad{background:var(--sand);overflow-x:clip}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__eyebrow{color:var(--forest)}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__body{font-size:17px;line-height:1.38}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual .retro-clinical__vial{position:static;display:block;width:clamp(148px,12.7vw,183px);max-width:none;height:auto;margin:0 auto}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__plan-col{position:static;justify-self:end;align-self:center;width:100%;max-width:419px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product{--product-accent: var(--forest);--product-accent-border: var(--forest);--product-accent-soft: rgba(111, 203, 107, .14);--product-cta: var(--forest)}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product--primary{min-height:385px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__top{align-items:start;grid-template-columns:85px minmax(0,1fr) 18px;column-gap:21px;min-height:117px;padding:16px 16px 29px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__intro{padding-top:4px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__thumb--nad{width:85px;height:85px;background:#eff7ec}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__thumb--nad img{top:7px;height:92px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__title{font-size:18px;line-height:1.1}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__sub{margin-top:4px;font-size:14px;line-height:1.2}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__tag{margin-top:4px;font-size:12px;line-height:1.5;--tag-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M13.3569 3.28145C13.2939 3.24214 13.2219 3.2195 13.1478 3.21568C13.0736 3.21185 12.9997 3.22696 12.933 3.25957C10.5853 4.40801 8.9086 3.86988 7.13617 3.30223C5.27188 2.70887 3.34688 2.09363 0.683047 3.3941C0.609479 3.43002 0.547466 3.48586 0.504059 3.55528C0.460651 3.62469 0.437591 3.70489 0.4375 3.78676V10.3454C0.43749 10.4197 0.456366 10.4927 0.492354 10.5576C0.528341 10.6225 0.580256 10.6772 0.643212 10.7165C0.706169 10.7559 0.778096 10.7785 0.852226 10.7824C0.926355 10.7863 1.00025 10.7712 1.06695 10.7386C3.41469 9.5902 5.09141 10.1283 6.86656 10.696C7.91875 11.0323 8.99063 11.3752 10.2025 11.3752C11.1371 11.3752 12.1565 11.1718 13.3148 10.6063C13.3883 10.5704 13.4503 10.5145 13.4938 10.4451C13.5372 10.3757 13.5602 10.2955 13.5603 10.2136V3.65496C13.561 3.58054 13.5426 3.50718 13.507 3.44182C13.4714 3.37646 13.4198 3.32126 13.3569 3.28145ZM2.625 8.3127C2.625 8.42873 2.57891 8.54001 2.49686 8.62206C2.41481 8.7041 2.30353 8.7502 2.1875 8.7502C2.07147 8.7502 1.96019 8.7041 1.87814 8.62206C1.79609 8.54001 1.75 8.42873 1.75 8.3127V4.8127C1.75 4.69666 1.79609 4.58538 1.87814 4.50334C1.96019 4.42129 2.07147 4.3752 2.1875 4.3752C2.30353 4.3752 2.41481 4.42129 2.49686 4.50334C2.57891 4.58538 2.625 4.69666 2.625 4.8127V8.3127ZM7 8.7502C6.65388 8.7502 6.31554 8.64756 6.02775 8.45527C5.73997 8.26298 5.51566 7.98966 5.38321 7.66989C5.25076 7.35012 5.2161 6.99825 5.28363 6.65879C5.35115 6.31932 5.51782 6.0075 5.76256 5.76276C6.00731 5.51802 6.31913 5.35135 6.65859 5.28382C6.99806 5.2163 7.34993 5.25095 7.6697 5.38341C7.98947 5.51586 8.26278 5.74016 8.45507 6.02795C8.64736 6.31573 8.75 6.65408 8.75 7.0002C8.75 7.46432 8.56563 7.90944 8.23744 8.23763C7.90925 8.56582 7.46413 8.7502 7 8.7502ZM12.25 9.1877C12.25 9.30373 12.2039 9.41501 12.1219 9.49706C12.0398 9.5791 11.9285 9.6252 11.8125 9.6252C11.6965 9.6252 11.5852 9.5791 11.5031 9.49706C11.4211 9.41501 11.375 9.30373 11.375 9.1877V5.6877C11.375 5.57166 11.4211 5.46038 11.5031 5.37834C11.5852 5.29629 11.6965 5.2502 11.8125 5.2502C11.9285 5.2502 12.0398 5.29629 12.1219 5.37834C12.2039 5.46038 12.25 5.57166 12.25 5.6877V9.1877Z'/%3E%3C/svg%3E")}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__check{display:flex}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__pricing{gap:7px;padding:28px 29px 24px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan{align-items:center;min-height:68px;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;padding:10px 16px;border-radius:14px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__radio{width:26px;height:26px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio:after{inset:4px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__name{gap:8px;font-size:16px;line-height:1.3;letter-spacing:0}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__badge{padding:2px 7px;font-size:10px;line-height:1.3}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__save{font-size:13px;line-height:1.3;letter-spacing:0}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__price{justify-self:end;min-width:67px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__was{font-size:13px;line-height:1.3}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan__now{font-size:17px;line-height:1.3}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__cta{background:var(--forest);border-radius:14px;min-height:60px;margin-top:7px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__body{top:348px;height:250px;font-size:17px;line-height:1.38}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__body p+p{margin-top:20px}
+[data-explore-section-stack=longevity] .retro-protocol--nad{background:#f7f6f5;padding-bottom:80px}
+[data-explore-section-stack=longevity] .retro-protocol--nad{padding-top:40px!important}
+[data-explore-section-stack=longevity] .retro-protocol--nad{padding-top:60px!important}
+[data-explore-section-stack=longevity] .retro-protocol--nad{padding-top:80px!important}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__inner{max-width:1280px;align-items:start}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__left{min-width:0}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__heading{max-width:560px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__sub{max-width:500px}
+[data-explore-section-stack=longevity] .retro-protocol__nad-vials{width:min(363px,78vw);aspect-ratio:363 / 492;margin:42px auto 0}
+[data-explore-section-stack=longevity] .retro-protocol__nad-vial{display:block;width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__right{gap:12px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card{position:relative;min-height:224px;padding:30px 35px 28px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card__icon{position:static;width:68px;height:68px;margin:0 0 24px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card__title{max-width:none;margin-bottom:8px;font-size:26px;line-height:1.1;letter-spacing:-.02em}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card__body{font-size:16px;line-height:1.55}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__cta{background:var(--forest);min-height:67px}
+[data-explore-section-stack=longevity] .retro-expect--nad{background:color-mix(in oklch, var(--dune) 45%, var(--sand));padding-top:80px;padding-bottom:75px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__inner{max-width:1280px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__heading{max-width:552px;margin:0;text-align:left;font-size:60px;line-height:1;letter-spacing:-.02em;color:var(--forest)}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__sub{max-width:845px;margin:12px 0 0;text-align:left;color:color-mix(in oklch, var(--forest) 63%, transparent)}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:31px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect-card{background:#fff;box-sizing:border-box;width:100%;min-height:0;padding:20px 20px 26px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect-card__media{background:#fff;aspect-ratio:370 / 253}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect-card__img{display:block;width:100%;height:100%;object-fit:cover}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__grid{display:none}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__carousel{display:block;margin-top:30px}
+[data-explore-section-stack=longevity] .retro-knowall--nad{background:var(--sand);padding-top:88px;padding-bottom:88px}
+[data-explore-section-stack=longevity] .retro-knowall--nad .retro-knowall__vial{width:min(150px,42vw);transform:rotate(-8deg)}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual{left:608px;top:166px;width:183px;height:440px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual .retro-clinical__vial{width:183px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__plan-col{position:absolute;inset:193px auto auto 926px;width:419px;max-width:none}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product--primary{width:419px;height:auto;min-height:0}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__top{height:auto;min-height:117px;padding:16px 16px 29px;grid-template-columns:85px minmax(0,1fr) 18px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-product__check{position:static;right:auto;top:auto}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__pricing{position:static!important;left:auto;top:auto;width:auto!important;padding:28px 29px 24px;gap:7px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan{width:auto;height:auto;min-height:68px;padding:10px 16px;grid-template-columns:26px minmax(0,1fr) auto;gap:10px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__cta{width:auto;height:auto;min-height:60px;margin-top:7px}
+[data-explore-section-stack=longevity] .retro-protocol--nad{height:auto;min-height:1024px}
+[data-explore-section-stack=longevity] .retro-expect--nad{height:908px;padding-left:0;padding-right:0}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__grid{grid-template-columns:410px 411px 410px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect-card{height:513px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol__inner{grid-template-columns:minmax(0,536px) minmax(0,673px);column-gap:71px}
+[data-explore-section-stack=longevity] .retro-protocol__nad-vials{margin-top:78px;margin-left:42px;margin-right:0}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card{min-height:256px}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__heading{font-size:clamp(2.5rem,11vw,3.75rem)}
+[data-explore-section-stack=longevity] .retro-expect--nad .retro-expect__sub{margin-top:14px}
+[data-explore-section-stack=longevity] .retro-protocol--nad{padding-top:64px;padding-bottom:68px}
+[data-explore-section-stack=longevity] .retro-protocol__nad-vials{display:block}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card{min-height:0;padding:20px}
+[data-explore-section-stack=longevity] .retro-protocol--nad .retro-protocol-card__icon{width:60px;height:60px;margin-bottom:16px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin{background:var(--sand);overflow-x:clip}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__eyebrow{color:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__body{font-size:17px;line-height:1.38}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual .retro-clinical__vial{position:static;display:block;width:clamp(148px,12.7vw,183px);max-width:none;height:auto;margin:0 auto}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__plan-col{position:static;justify-self:end;align-self:center;width:100%;max-width:419px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product{--product-accent: #ffbc7d;--product-accent-border: #ff9f4f;--product-accent-soft: rgba(255, 188, 125, .18);--product-cta: #ffbc7d}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product--primary{min-height:385px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__top{align-items:start;grid-template-columns:85px minmax(0,1fr) 18px;column-gap:21px;min-height:117px;padding:16px 16px 29px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__intro{padding-top:4px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__thumb--sermorelin{width:85px;height:85px;background:#ffdfc2}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__thumb--sermorelin img{top:0;width:85px;height:85px;object-fit:cover}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__title{font-size:18px;line-height:1.1}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__sub{margin-top:4px;font-size:14px;line-height:1.2}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__tag{margin-top:4px;font-size:12px;line-height:1.5}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__patients{display:flex;align-items:center;gap:4px;margin:3px 0 0;font-family:var(--font-body);font-size:11px;font-weight:400;line-height:1.2;color:color-mix(in oklch, var(--forest) 60%, transparent)}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__patients:before{content:"";width:4px;height:4px;border-radius:999px;background:#f5a86a;flex:0 0 auto}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__patients strong{color:var(--forest);font-weight:400}
+.retro-clinical-product__tag--orange{color:#f5a86a;--tag-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M13.3569 3.28145C13.2939 3.24214 13.2219 3.2195 13.1478 3.21568C13.0736 3.21185 12.9997 3.22696 12.933 3.25957C10.5853 4.40801 8.9086 3.86988 7.13617 3.30223C5.27188 2.70887 3.34688 2.09363 0.683047 3.3941C0.609479 3.43002 0.547466 3.48586 0.504059 3.55528C0.460651 3.62469 0.437591 3.70489 0.4375 3.78676V10.3454C0.43749 10.4197 0.456366 10.4927 0.492354 10.5576C0.528341 10.6225 0.580256 10.6772 0.643212 10.7165C0.706169 10.7559 0.778096 10.7785 0.852226 10.7824C0.926355 10.7863 1.00025 10.7712 1.06695 10.7386C3.41469 9.5902 5.09141 10.1283 6.86656 10.696C7.91875 11.0323 8.99063 11.3752 10.2025 11.3752C11.1371 11.3752 12.1565 11.1718 13.3148 10.6063C13.3883 10.5704 13.4503 10.5145 13.4938 10.4451C13.5372 10.3757 13.5602 10.2955 13.5603 10.2136V3.65496C13.561 3.58054 13.5426 3.50718 13.507 3.44182C13.4714 3.37646 13.4198 3.32126 13.3569 3.28145ZM2.625 8.3127C2.625 8.42873 2.57891 8.54001 2.49686 8.62206C2.41481 8.7041 2.30353 8.7502 2.1875 8.7502C2.07147 8.7502 1.96019 8.7041 1.87814 8.62206C1.79609 8.54001 1.75 8.42873 1.75 8.3127V4.8127C1.75 4.69666 1.79609 4.58538 1.87814 4.50334C1.96019 4.42129 2.07147 4.3752 2.1875 4.3752C2.30353 4.3752 2.41481 4.42129 2.49686 4.50334C2.57891 4.58538 2.625 4.69666 2.625 4.8127V8.3127ZM7 8.7502C6.65388 8.7502 6.31554 8.64756 6.02775 8.45527C5.73997 8.26298 5.51566 7.98966 5.38321 7.66989C5.25076 7.35012 5.2161 6.99825 5.28363 6.65879C5.35115 6.31932 5.51782 6.0075 5.76256 5.76276C6.00731 5.51802 6.31913 5.35135 6.65859 5.28382C6.99806 5.2163 7.34993 5.25095 7.6697 5.38341C7.98947 5.51586 8.26278 5.74016 8.45507 6.02795C8.64736 6.31573 8.75 6.65408 8.75 7.0002C8.75 7.46432 8.56563 7.90944 8.23744 8.23763C7.90925 8.56582 7.46413 8.7502 7 8.7502ZM12.25 9.1877C12.25 9.30373 12.2039 9.41501 12.1219 9.49706C12.0398 9.5791 11.9285 9.6252 11.8125 9.6252C11.6965 9.6252 11.5852 9.5791 11.5031 9.49706C11.4211 9.41501 11.375 9.30373 11.375 9.1877V5.6877C11.375 5.57166 11.4211 5.46038 11.5031 5.37834C11.5852 5.29629 11.6965 5.2502 11.8125 5.2502C11.9285 5.2502 12.0398 5.29629 12.1219 5.37834C12.2039 5.46038 12.25 5.57166 12.25 5.6877V9.1877Z'/%3E%3C/svg%3E")}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product__check{display:flex}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__pricing{gap:7px;padding:28px 29px 24px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan{align-items:center;min-height:68px;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;padding:10px 16px;border-radius:14px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan:hover{border-color:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan[data-selected=true]{background:#f5a86a33;border-color:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__radio{width:26px;height:26px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio{border-color:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan[data-selected=true] .retro-clinical-plan__radio:after{inset:4px;background:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__name{gap:8px;font-size:16px;line-height:1.3;letter-spacing:0}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__badge{padding:2px 7px;background:#f5a86a;font-size:10px;line-height:1.3}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__save{font-size:13px;line-height:1.3;letter-spacing:0;color:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__price{justify-self:end;min-width:67px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__was{font-size:13px;line-height:1.3}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan__now{font-size:17px;line-height:1.3}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__cta{background:#f5a86a;border-radius:14px;min-height:60px;margin-top:7px}
+[data-explore-section-stack=longevity] .retro-clinical--nad,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin{padding:80px clamp(32px,4vw,48px) 72px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__inner{grid-template-columns:auto auto;grid-template-areas:"text text" "visual products";justify-content:center;align-items:center;column-gap:clamp(28px,4.5vw,64px);row-gap:40px;min-height:0}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__text,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__text{grid-area:text;width:min(560px,100%);max-width:560px;justify-self:center;text-align:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__eyebrow,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__eyebrow{white-space:normal}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__heading,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__heading{max-width:560px;margin-inline:auto;font-size:clamp(46px,4.8vw,52px)}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__body,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__body{max-width:520px;margin-inline:auto;text-align:left}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual{grid-area:visual;position:relative;left:auto;top:auto;width:auto;height:auto;margin-top:0;transform:none;justify-self:end;align-self:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__plan-col,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__plan-col{grid-area:products;position:static;width:min(419px,42vw);max-width:419px;justify-self:start;align-self:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__inner,[data-explore-section-stack=weight-loss] .retro-clinical .retro-clinical__inner{max-width:80rem;margin-left:auto;margin-right:auto;justify-content:space-between;min-height:0}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual{height:auto}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__inner{justify-items:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__text,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__text{width:min(560px,100%);max-width:560px;justify-self:center;text-align:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__heading,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__heading{max-width:560px;margin-inline:auto}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__body,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__body{max-width:520px;margin-inline:auto;text-align:left}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual,[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__plan-col,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__plan-col{justify-self:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__inner{grid-template-columns:minmax(0,1fr);grid-template-areas:none;justify-items:center;row-gap:32px}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__text,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__text{justify-self:center}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__visual,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual{grid-area:auto;position:relative;left:auto;top:auto;width:auto;height:auto;margin:0 auto;transform:none;justify-self:center;align-self:auto}
+[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical__plan-col,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__plan-col{grid-area:auto;position:static;width:min(419px,100%);max-width:419px;justify-self:center;align-self:auto}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{background:#f7f6f5;padding-bottom:80px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{padding-top:40px!important}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{padding-top:60px!important}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{padding-top:80px!important}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__inner{max-width:1280px;align-items:start}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__left{min-width:0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__heading{max-width:640px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__nowrap{white-space:nowrap}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__sub{max-width:500px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol__sermorelin-vials{width:min(363px,78vw);aspect-ratio:726 / 983;margin:42px auto 0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol__sermorelin-vial{display:block;width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__right{gap:12px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card{position:relative;min-height:224px;padding:30px 35px 28px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card__icon{position:static;width:68px;height:68px;margin:0 0 24px;color:var(--forest)}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card__icon img{display:block;width:100%;height:100%}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card__title{max-width:none;margin-bottom:8px;font-size:26px;line-height:1.1;letter-spacing:-.02em}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card__body{font-size:16px;line-height:1.55}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__cta{background:#f5a86a;min-height:67px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{height:1050px;min-height:1050px;padding:0;overflow:hidden}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__inner{position:relative;width:1440px;max-width:none;height:1050px;margin:0 auto;display:block}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__left{position:absolute;top:52px;left:74px;width:557px;display:block}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__heading{width:557px;max-width:none}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__sub{width:544px;max-width:none;margin-top:18px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol__sermorelin-vials{position:absolute;top:314px;left:87px;width:363px;margin:0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__right{position:absolute;top:80px;left:680px;width:673px;gap:12px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card{width:673px;height:256px;min-height:256px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__cta{width:672px;height:67px;min-height:67px;margin-top:12px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin{background:color-mix(in oklch, var(--dune) 45%, var(--sand));padding-top:80px;padding-bottom:75px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__inner{max-width:1280px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__heading{max-width:552px;margin:0;text-align:left;font-size:60px;line-height:1;letter-spacing:-.02em;color:var(--forest)}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__sub{max-width:845px;margin:12px 0 0;text-align:left;color:color-mix(in oklch, var(--forest) 63%, transparent)}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:31px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect-card{background:#fff;box-sizing:border-box;width:100%;min-height:0;padding:20px 20px 26px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect-card__media{background:#fff;aspect-ratio:370 / 253}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect-card__img{display:block;width:100%;height:100%;object-fit:cover}
+[data-explore-section-stack=muscle-recovery] .retro-knowall--sermorelin{background:var(--sand);padding-top:88px;padding-bottom:88px}
+[data-explore-section-stack=muscle-recovery] .retro-knowall--sermorelin .retro-knowall__vial{width:min(195px,42vw);transform:none}
+[data-explore-section-stack=muscle-recovery] .retro-knowall--sermorelin .retro-knowall__cta{background:#f5a86a}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__body{top:300px;height:126px;font-size:18px;line-height:1.4}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__body p+p{margin-top:20px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__heading{width:514px;max-width:none}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual{left:628px;top:216px;width:183px;height:440px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__visual .retro-clinical__vial{width:183px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__plan-col{position:absolute;inset:222px auto auto 919px;width:419px;max-width:none}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-product--primary{width:419px;height:385px;min-height:385px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__pricing{left:29px;top:131px;width:360px!important;padding:0;gap:7px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan{width:360px;height:68px;min-height:68px}
+[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical__cta{width:360px;height:62px;min-height:62px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{height:1050px;min-height:1050px;padding:0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol__inner{position:relative;width:1440px;max-width:none;height:1050px;display:block}
+[data-explore-section-stack=muscle-recovery] .retro-protocol__sermorelin-vials{position:absolute;top:314px;left:87px;width:363px;margin:0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card{min-height:256px;height:256px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin{height:908px;padding-left:0;padding-right:0}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__grid{grid-template-columns:410px 411px 410px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect-card{height:513px}
+[data-explore-section-stack=muscle-recovery] .retro-knowall--sermorelin .retro-knowall__inner{max-width:1255px;grid-template-columns:536px 614px;column-gap:86px}
+[data-explore-section-stack=muscle-recovery] .retro-knowall--sermorelin .retro-knowall__vial{margin-top:28px;margin-left:220px;align-self:flex-start}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__grid{display:none}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__carousel{display:block;margin-top:30px}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__heading{font-size:clamp(2.5rem,11vw,3.75rem)}
+[data-explore-section-stack=muscle-recovery] .retro-expect--sermorelin .retro-expect__sub{margin-top:14px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin{padding-top:64px;padding-bottom:68px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol__sermorelin-vials{display:block;position:static;top:auto;left:auto;width:min(363px,78vw);margin:42px auto 0}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card{min-height:0;padding:20px}
+[data-explore-section-stack=muscle-recovery] .retro-protocol--sermorelin .retro-protocol-card__icon{width:60px;height:60px;margin-bottom:16px}
+.retro-protocol__cta,.retro-knowall__cta,.retro-clinical__cta,.retro-home-reviews-cta,.retro-home-closing-cta{box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;font-family:var(--font-retro-body, var(--font-body));font-size:16px!important;font-weight:400!important;letter-spacing:0!important;line-height:1!important;transition:transform .15s ease-out,box-shadow .15s ease-out!important}
+.retro-protocol__cta:hover,.retro-protocol__cta:active,.retro-knowall__cta:hover,.retro-knowall__cta:active,.retro-clinical__cta:hover,.retro-clinical__cta:active,.retro-home-reviews-cta:hover,.retro-home-reviews-cta:active,.retro-home-closing-cta:hover,.retro-home-closing-cta:active{transform:translate(2px,3px)!important;box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-protocol__cta,.retro-knowall__cta,.retro-clinical__cta,.retro-home-reviews-cta{min-height:var(--treatments-btn-lg)!important;height:var(--treatments-btn-lg)!important;padding-block:0!important}
+.retro-clinical-plan,[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan{min-height:var(--treatments-btn-lg)!important;height:var(--treatments-btn-lg)!important}
+.retro-clinical__pricing{padding-top:16px!important;padding-bottom:16px!important}
+.retro-clinical-plan,[data-explore-section-stack=longevity] .retro-clinical--nad .retro-clinical-plan,[data-explore-section-stack=muscle-recovery] .retro-clinical--sermorelin .retro-clinical-plan{min-height:0!important;height:auto!important;padding-top:16px!important;padding-bottom:16px!important}
+.retro-protocol__cta,.retro-knowall__cta,.retro-clinical__cta,.retro-home-reviews-cta{min-height:var(--treatments-btn-md)!important;height:var(--treatments-btn-md)!important}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz{min-height:0!important;height:auto!important}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical__pricing,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical__pricing{padding-top:16px!important;padding-bottom:16px!important}
+.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=sema] .retro-clinical-product--sema .retro-clinical-plan,.retro-clinical:not(.retro-clinical--nad):not(.retro-clinical--sermorelin) .retro-clinical__products[data-active-product=tirz] .retro-clinical-product--tirz .retro-clinical-plan{min-height:0!important;height:auto!important;padding-top:16px!important;padding-bottom:16px!important}
+.explore-hero-section,.retro-happy,.retro-protocol,.retro-calculator,.retro-clinical,.retro-expect,.retro-knowall,.retro-home-reviews,.retro-home-why,.retro-home-closing{padding-bottom:60px!important}
+.retro-clinical,.retro-expect,.retro-knowall,.retro-home-closing,.retro-footer-wrap{padding-top:60px!important}
+.retro-happy,.retro-protocol,.retro-calculator,.retro-home-why,html[data-explore-active-tab=weight-loss] .retro-home-reviews{padding-top:0!important}
+html[data-explore-active-tab=longevity] .retro-home-reviews,html[data-explore-active-tab=muscle-recovery] .retro-home-reviews{padding-top:60px!important}
+.explore-hero-section,.retro-happy,.retro-protocol,.retro-calculator,.retro-clinical,.retro-expect,.retro-knowall,.retro-home-reviews,.retro-home-why,.retro-home-closing{padding-bottom:60px!important}
+.retro-clinical,.retro-expect,.retro-knowall,.retro-home-closing,.retro-footer-wrap,html[data-explore-active-tab=longevity] .retro-home-reviews,html[data-explore-active-tab=muscle-recovery] .retro-home-reviews{padding-top:60px!important}
+.explore-hero-section,.retro-happy,.retro-protocol,.retro-calculator,.retro-clinical,.retro-expect,.retro-knowall,.retro-home-reviews,.retro-home-why,.retro-home-closing{padding-bottom:80px!important}
+.retro-clinical,.retro-expect,.retro-knowall,.retro-home-closing,.retro-footer-wrap,html[data-explore-active-tab=longevity] .retro-home-reviews,html[data-explore-active-tab=muscle-recovery] .retro-home-reviews{padding-top:80px!important}
+.retro-protocol,html[data-explore-active-tab=weight-loss] .retro-happy,html[data-explore-active-tab=longevity] .retro-happy,html[data-explore-active-tab=muscle-recovery] .retro-happy,html[data-explore-active-tab=weight-loss] .retro-calculator{padding-bottom:60px!important}
+html[data-explore-active-tab=weight-loss] .retro-clinical{padding-top:60px!important}
+h1[class*="37.0625rem"],.retro-clinical__heading,.retro-protocol__heading,.retro-expect__heading,.retro-knowall__heading,.retro-home-why-title{font-size:32px!important}
+.retro-happy__heading{font-size:26px!important}
+.retro-clinical__eyebrow,.retro-clinical__body{font-size:16px!important}
+.retro-clinical__products[hidden],.retro-clinical__plan-col[hidden]{display:none!important}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__inner,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__inner{max-width:64rem;min-height:0}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__inner,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__inner{grid-template-columns:minmax(0,35rem) minmax(15rem,20rem);grid-template-areas:"text visual";justify-content:center;align-items:center;column-gap:clamp(32px,6vw,88px);row-gap:0}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__text,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__text,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__text{grid-area:text;width:100%;max-width:35rem;justify-self:end;text-align:left}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__heading,[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__body,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__heading,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__body,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__heading,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__body{max-width:100%;margin-inline:0;text-align:left}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__visual,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__visual,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__visual{grid-area:visual;justify-self:center;align-self:center;margin-top:0}
+[data-explore-section-stack=weight-loss] .retro-clinical.retro-clinical--weight-loss .retro-clinical__inner,[data-explore-section-stack=longevity] .retro-clinical.retro-clinical--nad .retro-clinical__inner,[data-explore-section-stack=muscle-recovery] .retro-clinical.retro-clinical--sermorelin .retro-clinical__inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "visual";row-gap:32px}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true]{background-color:color-mix(in oklch, var(--dune) 40%, var(--sand))!important;border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;color:var(--color-retro-ink);transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true] .explore-tab-border,.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true] .explore-tab-fill{opacity:0!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true]:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true]:active{transform:translate(3px,4px);box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true]:before{content:none!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=true] .explore-tab-img{z-index:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{background-position:50% 62%,0 0;background-size:28% auto,auto;border:2px solid var(--color-retro-ink);box-shadow:none;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-title{color:var(--color-retro-ink);font-weight:400;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title{font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-footer{color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin] span.rounded-full:not(.explore-stock-dot){border:2px solid var(--color-retro-ink);box-shadow:2px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .bg-neutral-200.rounded-full{background:var(--color-retro-cream)!important;border:1.5px solid var(--color-retro-ink);color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .rounded-2xl.bg-neutral-200{background:var(--color-retro-cream)!important;border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-copy{margin-bottom:24px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-products{margin-top:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee{padding-top:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee>img{display:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card{background:var(--sand)!important;border:2px solid #e1dbd6!important;box-shadow:none!important;font-family:var(--font-retro-body, var(--font-body));letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card p{margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card:before{content:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-heading{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-bottom:10px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-logo{display:block;width:56px;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-rule{display:block;width:13px;height:1px;background:var(--forest);opacity:.28;transform:rotate(90deg)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-word{color:var(--color-retro-ink);font-family:var(--font-retro-body, var(--font-body));font-size:14px;font-style:italic;font-weight:400;letter-spacing:0!important;line-height:130%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card{width:265px;height:142px;padding:23px 16px 18px;border-radius:12px;font-size:12px}
+.retro-explore-tabs-wrap .designed-section h2{max-width:12.5em;margin-left:auto;margin-right:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] a.bg-neutral-900{border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] a.bg-neutral-900:hover{transform:translate(2px,2px) scale(1);box-shadow:1px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] a.bg-neutral-900:active{transform:translate(3px,4px) scale(1);box-shadow:0 0 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] section:not(.designed-section) a.bg-neutral-900{background:var(--color-retro-orange)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .designed-section a.bg-neutral-900{background:var(--color-retro-green)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .designed-cta-btn{background:var(--color-retro-surface)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{background-position:50% 65%,0 0;background-size:34% auto,auto}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true]{background-color:#d7f3d3!important;border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;color:var(--color-retro-ink);transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true] .explore-tab-border,.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true] .explore-tab-fill{opacity:0!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true]:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true]:active{transform:translate(3px,4px);box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true]:before{content:none!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=true] .explore-tab-img{z-index:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-card[data-card=nad]{border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-card[data-card=nad] span.rounded-full:not(.explore-stock-dot){border:2px solid var(--color-retro-ink);box-shadow:2px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-stock,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-stock{box-shadow:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .bg-neutral-200.rounded-full{background:var(--color-retro-cream)!important;border:1.5px solid var(--color-retro-ink);color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .rounded-2xl.bg-neutral-200{background:var(--color-retro-cream)!important;border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] a.bg-neutral-900{border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] a.bg-neutral-900:hover{transform:translate(2px,2px) scale(1);box-shadow:1px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] a.bg-neutral-900:active{transform:translate(3px,4px) scale(1);box-shadow:0 0 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] section:not(.designed-section) a.bg-neutral-900{background:var(--forest)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-section a.bg-neutral-900{background:var(--color-retro-green)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-cta-btn{background:var(--color-retro-surface)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-section{font-family:var(--font-retro-body, var(--font-body));letter-spacing:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{color:var(--color-retro-ink);background-image:url(/images/yucca-clone/Nad-Yucca-Image.avif),linear-gradient(180deg,#d7ead6,#a6cca5);background-repeat:no-repeat,repeat;box-shadow:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-copy{font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-label{color:#a8adb4!important;font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-item{font-family:var(--font-retro-body, var(--font-body));font-size:16px;font-weight:400!important;letter-spacing:0!important;line-height:125%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-icon{background:var(--color-retro-cream)!important;border:1.5px solid var(--color-retro-ink);color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee{padding-top:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee>img{display:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card{background:var(--sand)!important;border:2px solid #e1dbd6!important;box-shadow:none!important;font-family:var(--font-retro-body, var(--font-body));letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card p{margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card:before{content:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-heading{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-bottom:10px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-logo{display:block;width:56px;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-rule{display:block;width:13px;height:1px;background:var(--forest);opacity:.28;transform:rotate(90deg)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-word{color:var(--color-retro-ink);font-family:var(--font-retro-body, var(--font-body));font-size:14px;font-style:italic;font-weight:400;letter-spacing:0!important;line-height:130%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-section a.bg-neutral-900,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-cta-btn{align-items:center;border:2px solid var(--color-retro-ink)!important;box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;display:inline-flex!important;font-family:var(--font-retro-body, var(--font-body));font-size:16px!important;font-weight:400!important;justify-content:center;letter-spacing:0!important;line-height:1!important;transition:transform .15s ease-out,box-shadow .15s ease-out!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta:active,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-section a.bg-neutral-900:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-section a.bg-neutral-900:active,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-cta-btn:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .designed-cta-btn:active{transform:translate(2px,3px) scale(1)!important;box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-section{height:676.67px;padding-bottom:0!important;overflow-x:clip}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container{position:relative;left:50%;width:1440px;max-width:none;height:676.67px;margin:0;padding:0;transform:translate(-50%)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid{position:relative;display:block;width:1440px;height:676.67px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{position:absolute;left:168.5px;top:0;width:504.2px;height:576.67px;min-height:0;max-width:none;aspect-ratio:auto;padding:24px 28px 25px;background-position:50% 153px,0 0;background-size:145px auto,auto;border-width:2px;border-radius:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title{max-width:220px;color:var(--color-retro-ink);font-size:42px;font-weight:400;line-height:1;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-footer{color:var(--color-retro-ink);font-size:12px;line-height:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-stock{border:1.5px solid var(--color-retro-ink);box-shadow:none!important;font-size:12px;line-height:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-chip{padding:5.5px 8px;color:#b8437e}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-stock{padding:5px 12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content{position:absolute;left:720px;top:95px;display:block;width:559px;height:403px;max-width:none;padding:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-copy{width:511.36px;margin:0;font-size:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-includes{position:absolute;left:0;top:72px;display:block;width:559px;height:160px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plans{position:absolute;left:0;top:0;width:226px;height:160px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plans-label{font-size:14px;line-height:20px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-list{gap:12px;margin-top:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-item{gap:12px;height:24px;font-size:16px;line-height:20px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-icon{width:24px;min-width:24px;height:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-icon svg{width:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee{position:absolute;left:296px;top:18px;width:265px;height:142px;padding:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card{width:265px;height:142px;padding:23px 16px 18px;border-radius:12px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-divider{position:absolute;left:0;top:256px;display:block;width:561px;height:1px;margin:0;background:#eee}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-pricing{position:absolute;left:0;top:281px;display:block;width:559px;height:122px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-row{height:30px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-label{font-size:14px;line-height:20px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price{gap:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-main{font-size:28px;line-height:28px;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-suffix{font-size:16px;line-height:24px;font-weight:400;color:#8e9399}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-strike{display:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta{position:absolute;left:0;top:42px;width:559px;min-height:0;height:52px;padding:0;border-width:2px!important;background:var(--forest)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-pricing>.text-xs{position:absolute;left:0;top:106px;width:559px;font-size:12px;line-height:16px;text-align:center}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-container{position:static;left:auto;width:calc(100% - 64px);max-width:1110.3px;margin-inline:auto;transform:none;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-grid{position:static;display:grid;grid-template-columns:504px minmax(0,1fr);column-gap:47.3px;align-items:start;width:auto;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin]{position:static;left:auto;top:auto;width:504px!important;max-width:none!important;aspect-ratio:480 / 549!important;min-height:0;height:auto;padding:24px 28px 25px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{background-position:50% 64%,0 0;background-size:clamp(138px,13vw,145px) auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin]{background-position:50% 62%,0 0;background-size:clamp(138px,13vw,145px) auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-title{font-size:42px;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-content{position:static;left:auto;top:auto;width:auto;max-width:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-main,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-price-main{font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container{width:calc(100% - 48px);max-width:900px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid{grid-template-columns:minmax(320px,.95fr) minmax(0,1fr);gap:28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{min-height:560px;background-position:50% 62%,0 0;background-size:150px auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title{font-size:40px;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content{max-width:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-includes{grid-template-columns:1fr;gap:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-section{padding-bottom:56px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container{width:calc(100% - 32px);max-width:430px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid{gap:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{min-height:576px;height:auto;background-position:50% 55%,0 0;background-size:145px auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title{color:var(--color-retro-ink);font-size:38px;letter-spacing:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content{display:flex;gap:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-includes{display:grid;grid-template-columns:1fr;gap:22px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card{border-radius:14px;padding:24px 18px 20px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-row{align-items:flex-start;flex-direction:column;gap:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price{justify-content:flex-start}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta{min-height:52px;background:var(--forest)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true]{background-color:#e6e3ff!important;border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;color:var(--color-retro-ink);transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true] .explore-tab-border,.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true] .explore-tab-fill{opacity:0!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true]:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true]:active{transform:translate(3px,4px);box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true]:before{content:none!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=true] .explore-tab-img{z-index:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-card[data-card=wl]{border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-card[data-card=wl] span.rounded-full:not(.explore-stock-dot){border:2px solid var(--color-retro-ink);box-shadow:2px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .w-\[34px\].rounded-full{border:1.5px solid var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .bg-neutral-200.rounded-full{background:var(--color-retro-cream)!important;border:1.5px solid var(--color-retro-ink);color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .rounded-2xl.bg-neutral-200{background:var(--color-retro-cream)!important;border:2px solid var(--color-retro-ink);box-shadow:6px 8px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] a.bg-neutral-900{border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] a.bg-neutral-900:hover{transform:translate(2px,2px) scale(1);box-shadow:1px 2px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] a.bg-neutral-900:active{transform:translate(3px,4px) scale(1);box-shadow:0 0 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] section:not(.designed-section) a.bg-neutral-900{background:color-mix(in oklch, var(--terracotta) 35%, var(--sand))!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{width:calc(100% - 32px);max-width:1368px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{color:var(--color-retro-ink);background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),linear-gradient(180deg,color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:47%,auto;border-width:3px;box-shadow:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{color:var(--color-retro-ink);font-weight:400;letter-spacing:-.03em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-footer{color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-stock{border:2px solid var(--color-retro-ink);box-shadow:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{align-items:flex-start}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb{width:64px!important;max-width:64px!important;border:0!important;border-radius:14px!important;flex:0 0 64px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:first-child .explore-hero-product-thumb{background:color-mix(in oklch, var(--terracotta) 35%, var(--sand))}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:nth-child(2) .explore-hero-product-thumb{background:#ffc58f}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb img{object-fit:contain!important;object-position:50% 100%;transform:scale(1.18)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-weight:400;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{margin-top:2px;color:#5d6670;line-height:1.2;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:3px 13px;border:2px solid currentColor;border-radius:999px;background:#fff;font-weight:400;font-size:13px;line-height:1;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag--purple{color:var(--terracotta)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag--orange{color:#f07d22}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-label{color:#a8adb4!important;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-icon{background:var(--color-retro-cream)!important;border:1.5px solid var(--color-retro-ink);color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee{padding-top:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee>img{display:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{background:var(--sand)!important;border:2px solid #dedbd4!important;box-shadow:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card:before{content:"Pax Guarantee";display:block;margin-bottom:12px;font-size:22px;line-height:1;font-weight:400;font-style:italic;letter-spacing:-.03em;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{background:#ececec}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{min-height:64px;display:inline-flex!important;align-items:center;justify-content:center;border:3px solid var(--color-retro-ink)!important;border-radius:999px;background:var(--forest)!important;color:var(--sand)!important;box-shadow:0 8px 0 0 var(--color-retro-shadow)!important;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta:hover{transform:translateY(3px) scale(1);box-shadow:0 5px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta:active{transform:translateY(7px) scale(1);box-shadow:0 1px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{width:calc(100% - 56px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-grid{display:grid;grid-template-columns:minmax(520px,.91fr) minmax(0,1fr);gap:36px;align-items:stretch}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card{width:100%;max-width:none;min-height:0;padding:48px 38px 34px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{max-width:520px;font-size:clamp(46px,3.75vw,58px);line-height:.98}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-footer{font-size:15px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-stock{padding:7px 15px;font-size:15px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-content{max-width:none;justify-content:center;padding-top:30px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-copy{margin-bottom:28px;max-width:690px;font-size:clamp(20px,1.72vw,24px);line-height:1.35;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:start;margin:0 0 30px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{gap:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:clamp(19px,1.45vw,23px);line-height:1.08;white-space:nowrap}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-size:clamp(17px,1.22vw,20px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{grid-template-columns:minmax(290px,.95fr) minmax(0,1fr);align-items:center;gap:30px;margin-bottom:28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans-label{font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-list{gap:14px;margin-top:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-item{gap:16px;font-size:clamp(18px,1.55vw,23px);font-weight:400;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-icon{width:34px;min-width:34px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-icon svg{width:20px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{min-height:0;border-radius:18px;padding:24px 24px 22px;font-size:15px;line-height:1.34}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{margin-bottom:34px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{margin-bottom:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-label{font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-main{font-size:clamp(38px,3.1vw,48px);font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-suffix{font-size:22px;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-strike{font-size:20px;font-weight:400;color:#9aa0a8}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{min-height:72px;font-size:22px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{height:520px;padding:30px 22px 22px;background-size:220px,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{max-width:330px;font-size:38px;line-height:.98}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{align-items:flex-start;margin-bottom:28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{width:100%}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-size:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{padding:26px 20px 22px;font-size:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{gap:14px;align-items:flex-end}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price{flex-wrap:wrap;justify-content:flex-end}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-section{height:676.67px;padding-bottom:0!important;overflow-x:clip}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{position:relative;left:50%;width:1440px;max-width:none;height:676.67px;margin:0;padding:0;transform:translate(-50%)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-grid{position:relative;display:block;width:1440px;height:676.67px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{position:absolute;left:168.5px;top:0;width:519.2px;height:593.83px;min-height:0;max-width:none;aspect-ratio:auto;padding:33px 28px 25px;background-position:50% 58%,0 0;background-size:42%,auto;border-radius:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{max-width:390px;font-size:40px;line-height:1;letter-spacing:-.032em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-footer{font-size:13px;line-height:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-stock{padding:5px 12px;font-size:12px;border-width:1.5px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-content{position:absolute;left:720px;top:42px;display:block;width:559px;height:auto;max-width:none;padding:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-copy{width:511.36px;margin:0;font-size:16px;line-height:1.5;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{position:relative;display:block;width:564px;height:71px;margin:16px 0 0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{position:absolute;top:0;display:block;height:71px;gap:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:first-child{left:0;width:264px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:nth-child(2){left:284px;width:280px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb{position:absolute;left:0;top:0;width:48px!important;max-width:48px!important;height:48px;border-radius:8px!important;flex-basis:48px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb img{transform:scale(1.08)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-copy{position:absolute;left:64px;top:0;width:calc(100% - 64px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:16px;line-height:24px;letter-spacing:-.01em;white-space:nowrap}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{margin-top:0;font-size:14px;line-height:17px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tags{gap:6px;margin-top:11px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag{min-height:20px;padding:3px 10px;border-width:1.5px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{position:relative;display:block;width:559px;min-height:160px;margin:20px 0 0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans{position:static;width:226px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans-label{font-size:14px;line-height:20px;height:20px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-list{gap:12px;margin-top:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-item{gap:12px;min-height:24px;font-size:16px;line-height:20px;font-weight:400;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-icon{width:24px;min-width:24px;height:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-icon svg{width:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee{position:absolute;left:296px;top:18px;width:265px;height:142px;padding:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{width:265px;height:142px;padding:21px 16px 20px;border-radius:10px;font-size:12px;line-height:1.5;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card:before{margin-bottom:14px;font-size:16px;line-height:20px;letter-spacing:-.01em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{position:static;display:block;width:559px;height:1px;margin:24px 0 0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing{position:relative;display:block;width:559px;height:122px;margin:24px 0 0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{height:30px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-label{font-size:14px;line-height:20px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-main{font-size:28px;line-height:28px;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-suffix,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-strike{font-size:16px;line-height:24px;font-weight:400}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{position:absolute;left:0;top:42px;width:559px;min-height:0;height:52px;padding:0;border-width:2px!important;box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;font-size:16px;line-height:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing>.text-xs{position:absolute;left:0;top:106px;width:559px;font-size:12px;line-height:16px;text-align:center}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-section{height:calc(676.67px*100vw/1440px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{transform:translate(-50%) scale(calc(100vw/1440px));transform-origin:top center}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-section{font-family:var(--font-retro-body, var(--font-body));letter-spacing:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-copy{font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-title-row{display:flex;align-items:center;gap:8px;min-width:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{min-width:0;flex:0 0 auto;font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tags{display:inline-flex;align-items:center;flex:0 0 auto;gap:6px;margin:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag{font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:1}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-label{font-family:var(--font-retro-body, var(--font-body));letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-item{font-family:var(--font-retro-body, var(--font-body));font-size:16px;font-weight:400!important;letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{font-family:var(--font-retro-body, var(--font-body));letter-spacing:0!important;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card p{margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card:before{content:"Pax Guarantee";font-family:var(--font-retro-body, var(--font-body));font-weight:400;letter-spacing:0!important;line-height:1!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-section a.bg-neutral-900,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-cta-btn{border:2px solid var(--color-retro-ink)!important;box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;font-family:var(--font-retro-body, var(--font-body));font-size:16px!important;font-weight:400!important;letter-spacing:0!important;line-height:1!important;transition:transform .15s ease-out,box-shadow .15s ease-out!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta:active,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-section a.bg-neutral-900:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-section a.bg-neutral-900:active,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-cta-btn:hover,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-cta-btn:active{transform:translate(2px,3px) scale(1)!important;box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{width:672px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:first-child{width:304px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:nth-child(2){left:332px;width:340px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-copy{width:calc(100% - 64px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:14px;line-height:150%;white-space:nowrap}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{margin-top:1px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag{min-height:20px;padding:3px 9px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{padding:23px 16px 18px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card:before{margin-bottom:13px;font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tags{margin-top:8px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card:before{content:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-heading{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-bottom:10px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-logo{display:block;width:56px;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-rule{display:block;width:13px;height:1px;background:var(--forest);opacity:.28;transform:rotate(90deg)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-word{color:var(--color-retro-ink);font-family:var(--font-retro-body, var(--font-body));font-size:14px;font-style:italic;font-weight:400;letter-spacing:0!important;line-height:130%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-item{line-height:125%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{left:168.5px;width:504.2px;height:576.67px;padding:24px 28px 25px;background-position:50% 64%,0 0;background-size:38.7% auto,auto;border-width:2px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{font-size:42px;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{width:559px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:first-child{width:264px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:nth-child(2){left:284px;width:275px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:16px;line-height:150%;white-space:nowrap}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{margin-top:0;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tag{min-height:20px;padding:4px 10px;font-size:10px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{padding:23px 16px 18px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{width:calc(100% - 48px);max-width:900px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-grid{grid-template-columns:minmax(320px,.95fr) minmax(0,1fr);gap:28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{min-height:560px;padding:32px 24px 22px;background-position:50% 66%,0 0;background-size:min(44%,190px) auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{font-size:40px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-footer{display:grid;grid-template-columns:minmax(96px,1fr) auto auto;gap:10px;align-items:end;font-size:16px;line-height:1.18}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-stock{padding:7px 13px;font-size:15px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-content{gap:22px;padding-top:0!important;justify-content:flex-start!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-copy{max-width:none;margin:0;font-size:18px;line-height:150%!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{grid-template-columns:1fr;gap:18px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:start;width:100%}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb{width:64px!important;max-width:64px!important;flex-basis:64px;border-radius:12px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-title-row{flex-wrap:wrap;gap:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:18px;line-height:125%;white-space:normal}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-size:16px;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-tags{margin-top:8px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-label{font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plan-item{gap:14px;font-size:18px;line-height:125%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{padding:22px 18px 20px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{min-height:56px;font-size:16px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-container{width:calc(100% - 48px);max-width:900px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-grid{grid-template-columns:minmax(320px,.95fr) minmax(0,1fr);gap:28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{min-height:560px;padding:32px 24px 22px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad]{background-position:50% 62%,0 0;background-size:150px auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{background-position:50% 64%,0 0;background-size:31% auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-title{font-size:40px;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-footer,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-footer{display:grid;grid-template-columns:minmax(96px,1fr) auto auto;gap:10px;align-items:end;font-size:16px;line-height:1.18}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-stock,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-stock{padding:7px 13px;font-size:15px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-content{gap:22px;max-width:none;padding-top:0!important;justify-content:flex-start!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-copy,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-copy{max-width:none;margin:0;font-size:18px;line-height:150%!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-products,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-includes,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-products,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-includes{grid-template-columns:1fr;gap:18px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-label,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-plans-label,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-price-label{font-size:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-plan-item,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-plan-item{gap:14px;font-size:18px;line-height:125%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card{padding:22px 18px 20px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-row,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-price-row{margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-cta{font-weight:400!important;min-height:56px;font-size:16px!important}
+.retro-explore-tabs-wrap .explore-hero-pricing,.retro-explore-tabs-wrap .explore-hero-copy{margin-bottom:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-section{padding-bottom:32px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{width:calc(100% - 32px);max-width:430px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-grid{gap:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{height:520px;background-position:42% calc(76% - 40px),0 0;background-size:clamp(150px,42vw,180px) auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{font-size:32px;letter-spacing:-.02em}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-content{display:flex;gap:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{display:grid;grid-template-columns:1fr;gap:18px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product{display:flex;align-items:flex-start;gap:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb{width:56px!important;max-width:56px!important;flex:0 0 56px;border-radius:12px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-copy{min-width:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-title-row{flex-wrap:wrap}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:16px;line-height:150%}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-size:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{display:grid;grid-template-columns:1fr;gap:22px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{border-radius:14px;padding:24px 18px 20px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{align-items:flex-start;flex-direction:column;gap:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price{justify-content:flex-start}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{min-height:52px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-section,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-section{padding-bottom:32px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-container,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-container{width:calc(100% - 32px);max-width:430px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-grid,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-grid{gap:24px}
+/* Neutralized fixed 520px card heights that clipped vial art */
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{width:min(504px,100%)!important;max-width:504px!important;height:auto!important;min-height:576px!important;margin-inline:0;padding:32px 28px 28px!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card[data-card=nad],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card[data-card=sermorelin],.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-card[data-card=sermorelin]{height:auto!important;min-height:576px!important;background-position:50% 58%,0 0!important;background-size:145px auto,auto!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-title,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-title{font-size:32px;line-height:1;letter-spacing:-.02em;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-card-footer,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-card-footer{display:grid;grid-template-columns:minmax(96px,1fr) auto auto;align-items:end;gap:10px;font-size:14px;line-height:1.18}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-stock,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-stock{padding:6px 10px;font-size:12px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-content,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-content{display:flex;gap:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-copy,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-copy{margin:0!important;font-size:16px;line-height:150%!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-includes,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-includes{display:grid;grid-template-columns:1fr;gap:22px;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-guarantee-card,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-guarantee-card{border-radius:14px;padding:24px 18px 20px;font-size:14px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price-row,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-price-row{align-items:flex-start;flex-direction:column;gap:8px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-price,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-price{justify-content:flex-start}
+.retro-explore-tabs-wrap [data-explore-tab-pane=longevity] .explore-hero-cta,.retro-explore-tabs-wrap [data-explore-tab-pane=muscle-recovery] .explore-hero-cta{font-weight:400!important;min-height:52px}
+.retro-explore-tabs-wrap .explore-hero-copy{order:1}
+.retro-explore-tabs-wrap .explore-hero-products{order:2}
+.retro-explore-tabs-wrap .explore-hero-includes{display:contents!important}
+.retro-explore-tabs-wrap .explore-hero-plans{order:3;width:100%}
+.retro-explore-tabs-wrap .explore-hero-pricing{order:4!important;width:100%;margin:0!important}
+.retro-explore-tabs-wrap .explore-hero-guarantee{order:5;width:100%;padding-top:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-section a.bg-neutral-900{background:var(--color-retro-green)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .designed-cta-btn{background:var(--color-retro-surface)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .testimonial-card{border:2px solid var(--color-retro-shadow);box-shadow:5px 6px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .bg-neutral-900\/80{border:1.5px solid var(--color-retro-ink)!important;box-shadow:5px 6px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .marquee{overflow-x:clip;overflow-y:visible}
+.retro-explore-tabs-wrap .explore-tab-link[data-active=false]{background-color:#fff!important;border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow)!important;color:var(--color-retro-ink);justify-content:center;text-align:center;transition:transform .15s ease,box-shadow .15s ease}
+.retro-explore-tabs-wrap .explore-tab-link[data-active=false]>span:not(.explore-tab-border):not(.explore-tab-fill){width:100%;text-align:center}
+.retro-explore-tabs-wrap .explore-tab-link[data-active=false] .explore-tab-img{display:none!important;opacity:0!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-active=false]:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-active=false]:active{transform:translate(3px,4px);box-shadow:0 0 0 0 var(--color-retro-shadow)!important}
+.retro-explore-tabs-wrap .explore-tab-link[data-tone=wl][data-active=false],.retro-explore-tabs-wrap .explore-tab-link[data-tone=nad][data-active=false],.retro-explore-tabs-wrap .explore-tab-link[data-tone=sermorelin][data-active=false]{background-color:#fff!important}
+.retro-explore-tabs-wrap .explore-hero-grid{align-items:center!important}
+.retro-explore-tabs-wrap .explore-hero-content{justify-content:center!important;padding-top:0!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-section{height:auto;padding-bottom:72px!important;overflow-x:clip}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{position:relative;left:auto;width:min(calc(100% - 64px),1160px);max-width:1160px;height:auto;margin:0 auto;padding:0;transform:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-grid{position:relative;display:grid;grid-template-columns:minmax(360px,504px) minmax(0,1fr);gap:clamp(32px,4vw,56px);align-items:center!important;width:100%;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{position:relative;left:auto;top:auto;width:100%;height:clamp(540px,43vw,576.67px);max-width:none;padding:24px 28px 25px;background-position:50% 64%,0 0;background-size:min(38.7%,195px) auto,auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{font-size:clamp(36px,3.6vw,42px)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-content{position:static;display:flex;flex-direction:column;width:100%;max-width:none;height:auto;padding:0!important;transform:none!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-copy{width:auto;max-width:none;margin:0;font-size:16px;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;width:100%;height:auto;margin:22px 0 26px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:first-child,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product:nth-child(2){position:relative;left:auto;top:auto;display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:12px;width:auto;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-thumb{position:relative;left:auto;top:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-copy{position:static;width:auto;min-width:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-title-row{flex-wrap:wrap;row-gap:6px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-name{font-size:16px;line-height:125%;white-space:normal}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-product-desc{font-size:14px;line-height:150%!important}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{position:static;display:grid;grid-template-columns:minmax(220px,.9fr) minmax(240px,265px);gap:24px;align-items:center;width:100%;height:auto;margin:0 0 28px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-plans,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee{position:static;width:auto;height:auto;padding:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee-card{width:100%;height:auto;min-height:142px;padding:23px 16px 18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{position:static;width:100%;height:1px;margin:0 0 24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing{position:static;display:block;width:100%;height:auto;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{display:flex;align-items:baseline;justify-content:space-between;height:auto;margin:0}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{position:static;width:100%;height:52px;margin-top:18px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing>.text-xs{position:static;width:100%;margin-top:14px;text-align:center}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-products,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-includes{grid-template-columns:1fr}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-guarantee{max-width:360px}
+.retro-explore-tabs-wrap .designed-section{background:var(--color-retro-cream)!important}
+.retro-explore-tabs-wrap .designed-section .prodpage-main-contain>.text-center>h2{color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap .designed-accordion-panel .min-h-\[19\.375rem\] h2{color:#fff!important}
+.retro-explore-tabs-wrap [data-designed-accordions]>.bg-white{border:2px solid var(--color-retro-ink);box-shadow:4px 6px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-accordion-icon>span{background:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap .designed-section a.bg-neutral-900{border:3px solid var(--color-retro-ink);box-shadow:6px 6px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease}
+.retro-explore-tabs-wrap .designed-section a.bg-neutral-900:hover{transform:translate(3px,3px)!important;box-shadow:3px 3px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-section a.bg-neutral-900:active{transform:translate(6px,6px)!important;box-shadow:0 0 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-cta-btn:before,.retro-explore-tabs-wrap .designed-cta-btn:after{display:none!important}
+.retro-explore-tabs-wrap .designed-cta-btn{padding:0!important;border:3px solid var(--color-retro-ink);background:var(--color-retro-cream)!important;box-shadow:6px 6px 0 0 var(--color-retro-shadow);transition:transform .15s ease,box-shadow .15s ease!important}
+.retro-explore-tabs-wrap .designed-cta-btn .designed-cta-btn__wrap{background:transparent!important;color:var(--color-retro-ink)}
+.retro-explore-tabs-wrap .designed-cta-btn:hover{transform:translate(3px,3px)!important;box-shadow:3px 3px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-cta-btn:active{transform:translate(6px,6px)!important;box-shadow:0 0 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-accordion-panel span.rounded-full{border:1.5px solid var(--color-retro-ink)}
+.retro-explore-tabs-wrap .designed-accordion-panel span[style*="81c777"],.retro-explore-tabs-wrap .designed-accordion-panel .text-\[\var(--forest)\]{color:#166534!important}
+.retro-explore-tabs-wrap .designed-accordion-panel .bg-\[\#f5f5f5\]{background:var(--color-retro-cream)!important;border:2px solid var(--color-retro-ink);box-shadow:4px 6px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-accordion-panel .min-h-\[19\.375rem\]{border:2px solid var(--color-retro-ink);box-shadow:4px 6px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-accordion-panel .rounded-xl.overflow-clip,.retro-explore-tabs-wrap .designed-accordion-panel .min-w-\[6rem\]{border:2px solid var(--color-retro-ink);box-shadow:3px 4px 0 0 var(--color-retro-shadow)}
+.retro-explore-tabs-wrap .designed-accordion-panel .border-\[\color-mix(in oklch, var(--terracotta) 35%, var(--sand))\]{border-color:var(--color-retro-ink)!important;border-left-width:2px!important}
+.retro-explore-tabs-wrap .ba-tag{border:0!important;box-shadow:none!important;font-family:var(--font-retro-body);font-weight:400}
+.retro-explore-tabs-wrap .ba-tag--before{background:var(--color-retro-ink)!important;color:#fff!important}
+.retro-explore-tabs-wrap .ba-tag--after{background:var(--color-retro-lavender)!important;color:var(--color-retro-ink)!important}
+.retro-explore-tabs-wrap .explore-hero-card,.retro-explore-tabs-wrap .explore-hero-chip,.retro-explore-tabs-wrap .explore-hero-stock{border-style:solid!important;border-width:1.5px!important}
+.retro-explore-tabs-wrap .explore-hero-price-main{font-weight:400!important}
+.retro-explore-tabs-wrap .explore-hero-price{align-items:center!important}
+.retro-explore-tabs-wrap .explore-hero-price-badge{display:block;width:59px;height:59px;flex:0 0 59px;object-fit:contain}
+.retro-explore-tabs-wrap .explore-hero-card-price-badge{position:absolute;right:24px;bottom:78px;z-index:2;display:block;width:103.2px;height:103.2px;object-fit:contain}
+.retro-explore-tabs-wrap .explore-hero-card:has(.explore-hero-card-price-badge){position:relative!important;overflow:hidden}
+.retro-explore-tabs-wrap .explore-hero-price-row--badge-only{flex-direction:row!important;align-items:center!important;justify-content:space-between!important}
+.retro-explore-tabs-wrap .explore-hero-price--badge-only{display:flex;align-items:center!important;justify-content:flex-end!important}
+.retro-explore-tabs-wrap .explore-hero-pricing--badge-only{display:grid!important;gap:0!important}
+.retro-explore-tabs-wrap .explore-hero-pricing--badge-only .explore-hero-cta{margin-top:0!important}
+.retro-explore-tabs-wrap .explore-hero-pricing--badge-only .explore-hero-price-row--badge-only{display:none!important;margin-bottom:0!important}
+.retro-explore-tabs-wrap .explore-hero-divider:has(+.explore-hero-pricing--badge-only){margin-bottom:0!important}
+.retro-explore-tabs-wrap .explore-hero-price--badge-only .explore-hero-price-badge{position:static;width:103.2px;height:103.2px;flex:0 0 103.2px}
+.retro-explore-tabs-wrap .explore-hero-cta{font-weight:400!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-copy{letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-price-label{font-size:14px!important;font-weight:400!important;line-height:1.5!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-price-suffix{font-weight:400!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-price-main,.retro-explore-tabs-wrap .explore-hero-pricing>.text-xs{letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-plan-item{font-size:16px!important;font-weight:400!important;line-height:20px!important;letter-spacing:0!important}
+.retro-explore-tabs-wrap .explore-hero-pricing--badge-only{margin-top:0!important;padding-top:24px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing{display:block;height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{height:auto}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-badge{width:clamp(3.8rem,5vw,4.5rem);height:clamp(3.8rem,5vw,4.5rem);flex-basis:clamp(3.8rem,5vw,4.5rem)}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-cta{position:static;margin-top:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing>.text-xs{position:static;display:block;width:100%;margin:14px 0 0;line-height:1.35;text-align:center}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{margin-bottom:-6px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-divider{margin-bottom:16px}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-pricing{margin-top:16px}
+.retro-explore-tabs-wrap .explore-hero-card-price-badge{right:18px;bottom:62px;width:6.825rem;height:6.825rem}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price{flex-wrap:nowrap;gap:.5rem}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-main{font-size:2.35rem;line-height:.95}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-row{margin-bottom:.25rem}
+.retro-explore-tabs-wrap .explore-hero-price-badge{width:6.5rem;height:6.5rem;flex-basis:6.5rem}
+.retro-explore-tabs-wrap .explore-hero-price--badge-only .explore-hero-price-badge{width:6.825rem;height:6.825rem;flex-basis:6.825rem}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-price-badge{width:110px;height:110px;flex-basis:110px}
+.retro-explore-tabs-wrap [data-explore-tab-pane] .explore-hero-price--badge-only .explore-hero-price-badge{width:103.2px;height:103.2px;flex-basis:103.2px}
+.retro-happy{background:var(--color-retro-surface, #fff);padding:0 0 54px}
+.retro-happy{padding-bottom:70px}
+.retro-happy__heading{margin:0 auto 12px;padding:0 16px;max-width:31.25rem;text-align:center;text-wrap:balance;font-family:var(--font-retro-display, inherit);font-weight:400;font-size:1.625rem;line-height:1.1;letter-spacing:-.02em;color:var(--color-retro-ink, #1f2937)}
+.retro-happy__heading{font-size:2.25rem}
+.retro-happy__heading{margin-bottom:18px;max-width:44rem;font-size:2.625rem}
+.retro-happy__heading{margin-bottom:22px;max-width:50rem;font-size:3rem}
+.retro-happy__heading-accent{color:var(--color-retro-ink, #1f2937);font-style:italic;font-weight:400}
+.retro-happy__marquee{width:100%;overflow-x:clip}
+.retro-happy__track{display:flex;gap:24px;width:max-content;animation:retro-happy-scroll 80s linear infinite}
+.retro-happy__track{gap:38px}
+.retro-happy__track{animation:none}
+.retro-happy__marquee:hover .retro-happy__track{animation-play-state:paused}
+.retro-happy__group{list-style:none;margin:0;padding:0;display:flex;gap:24px;flex-shrink:0}
+.retro-happy__group{gap:38px}
+.retro-happy__card{position:relative;flex-shrink:0;width:320px;height:200px;background:var(--color-retro-surface, #fff);border:2px solid var(--color-retro-shadow, #111827);border-radius:16px;box-shadow:3px 4px 0 0 var(--color-retro-shadow, #111827);overflow:hidden;isolation:isolate;transform:translateZ(0)}
+.retro-happy__card{width:480px;height:280px}
+.retro-happy__card{width:660px;height:360px}
+.retro-happy__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:14px;user-select:none;pointer-events:none}
+.retro-happy__photos{position:absolute;inset:0;display:flex;border-radius:inherit;overflow:hidden}
+.retro-happy__photos .retro-happy__photo{position:static;inset:auto;width:50%;height:100%;border-radius:0;object-position:50% 18%}
+.retro-happy__composite-half{position:relative;display:block;width:50%;height:100%;overflow:hidden}
+.retro-happy__composite-photo{position:absolute;top:0;bottom:0;width:calc(200% + 12px);max-width:none;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.retro-happy__composite-photo--before{left:0}
+.retro-happy__composite-photo--after{right:0}
+.retro-happy--nad .retro-happy__heading-accent{color:var(--color-retro-ink, var(--forest))}
+.retro-happy__chip{position:absolute;top:10px;display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;border:0;border-radius:999px;font-family:var(--font-retro-body, inherit);font-weight:400;font-size:12px;line-height:1;letter-spacing:0;z-index:3}
+.retro-happy__chip{top:12px;padding:6px 11px;font-size:14px}
+.retro-happy__chip--before{left:10px;background:var(--color-retro-ink, #1f2937);color:#fff}
+.retro-happy__chip--before{left:12px}
+.retro-happy__chip--after{left:52%;background:var(--color-retro-lavender, #c8bbff);color:var(--color-retro-ink, #1f2937)}
+.retro-happy__scrim{position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.85) 100%);pointer-events:none;z-index:1}
+.retro-happy__metric{position:absolute;left:14px;bottom:14px;z-index:2;color:#fff;user-select:none}
+.retro-happy__metric{left:20px;bottom:18px}
+.retro-happy__metric{left:24px;bottom:22px}
+.retro-happy__metric-row{display:inline-flex;align-items:center;gap:6px}
+.retro-happy__metric-label{font-family:var(--font-retro-body, inherit);font-weight:400;font-size:16px;line-height:1;letter-spacing:-.32px;color:#fff}
+.retro-happy__metric-label{font-size:24px;letter-spacing:-.48px}
+.retro-happy__metric-label{font-size:32px;letter-spacing:-.64px}
+.retro-happy__metric-arrow{width:12px;height:12px;flex-shrink:0}
+.retro-happy__metric-arrow{width:14px;height:14px}
+.retro-happy__metric-arrow{width:15px;height:15px}
+.retro-happy__metric-number{margin-top:2px;font-family:var(--font-retro-body, inherit);font-weight:400;line-height:1;letter-spacing:-1px;color:#fff}
+.retro-happy__metric-lbs{font-size:44px}
+.retro-happy__metric-lbs{font-size:72px;letter-spacing:-1.5px}
+.retro-happy__metric-lbs{font-size:100px;letter-spacing:-2px}
+.retro-happy__metric-unit{margin-left:4px;font-weight:400;font-size:24px;color:#adadad}
+.retro-happy__metric-unit{font-size:44px}
+.retro-happy__metric-unit{font-size:64px}
+.retro-happy__metric-time{margin-top:2px;font-family:var(--font-retro-body, inherit);font-weight:400;font-size:12px;line-height:1;letter-spacing:-.24px;color:#fff}
+.retro-happy__metric-time{font-size:15px;letter-spacing:-.3px}
+.retro-happy__metric-time{font-size:18px;letter-spacing:-.36px}
+.retro-happy__pill{position:absolute;right:12px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:#ffffff2e;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);color:#fff;user-select:none}
+.retro-happy__pill{right:18px;bottom:18px;gap:8px;padding:8px 14px}
+.retro-happy__pill{right:22px;bottom:22px}
+.retro-happy__pill-name{font-family:var(--font-retro-body, inherit);font-weight:400;font-size:12px;line-height:1.3;letter-spacing:normal;color:#fff;white-space:nowrap}
+.retro-happy__pill-name{font-size:15px}
+.retro-happy__pill-name{font-size:18px}
+.retro-happy__pill-check{flex-shrink:0;width:14px;height:14px}
+.retro-happy__pill-check{width:18px;height:18px}
+.retro-happy__pill-check{width:20px;height:20px}
+.retro-happy__pill-verified{font-family:var(--font-retro-body, inherit);font-weight:400;font-style:italic;font-size:11px;line-height:1.3;letter-spacing:-.44px;color:#fff;white-space:nowrap}
+.retro-happy__pill-verified{font-size:13px;letter-spacing:-.52px}
+.retro-happy__pill-verified{font-size:16px;letter-spacing:-.64px}
+.retro-happy__reviews-wrap{margin:32px auto 0;padding:0 16px;display:flex;justify-content:center}
+.retro-happy__reviews-wrap{margin-top:48px}
+.retro-happy__reviews-card{max-width:100%;border-radius:.75rem;overflow:clip;border:1.5px solid var(--color-retro-ink, #1f2937);background:color-mix(in oklch, var(--forest) 80%, transparent);box-shadow:3px 4px 0 0 var(--color-retro-shadow, #111827)}
+.retro-happy__reviews-inner{display:flex;align-items:center;justify-content:center;gap:1rem;padding:12px 16px;background:var(--color-retro-ink, #1f2937)}
+.retro-happy__reviews-inner{gap:1.5rem;padding:14px 20px}
+.retro-happy__reviews-divider{align-self:stretch;width:1px;background:#6d84a0;flex-shrink:0}
+.retro-happy__reviews-google{display:inline-flex;align-items:center;gap:.375rem;color:#fff;font-family:var(--font-retro-body, inherit);font-size:11px;line-height:1;font-weight:400;cursor:pointer;background:transparent;border:0;padding:0;transition:opacity .2s ease}
+.retro-happy__reviews-google:hover{opacity:.85}
+.retro-happy__reviews-google>svg{width:36px;height:36px;aspect-ratio:1;flex-shrink:0}
+.retro-happy__reviews-google-text{display:flex;flex-direction:column;gap:4px;text-align:left}
+.retro-happy__reviews-google-label{white-space:nowrap}
+.retro-happy__reviews-google-rating{display:flex;align-items:center;gap:4px}
+.retro-happy__reviews-google-rating strong{font-weight:400}
+.retro-happy__reviews-stars{display:inline-flex;align-items:center;gap:1px;color:#ffb300}
+.retro-happy__reviews-stars svg{width:10px;height:10px}
+.retro-happy__reviews-google-count{color:#b4bdc7;white-space:nowrap}
+.explore-hero-price-badge{display:block;width:72px;height:72px;flex:0 0 72px;object-fit:contain}
+.explore-hero-price-badge{width:76px;height:76px;flex-basis:76px}
+.explore-tab-menu{max-width:606px;grid-template-columns:240px 175px 175px;gap:8px;transition:grid-template-columns .3s ease,margin-left .3s ease}
+.explore-tab-menu[data-active-index="0"]{grid-template-columns:240px 175px 175px}
+.explore-tab-menu[data-active-index="1"]{grid-template-columns:175px 240px 175px}
+.explore-tab-menu[data-active-index="2"]{grid-template-columns:175px 175px 240px}
+.explore-tab-link{box-shadow:0 0 0 .75px #00000014,-64px 64px 64px -32px #00000005,-32px 32px 32px -16px #00000005,-16px 16px 16px -8px #00000005,-8px 8px 8px -4px #00000005,-4px 4px 4px -2px #00000005,-2px 2px 2px -1px #00000005,-1px 1px 1px -.5px #00000005}
+.explore-tab-link[data-active=true]{background-color:transparent;box-shadow:none}
+.explore-tab-border{position:absolute;inset:0;border-radius:12px;padding:2px;pointer-events:none;opacity:0;z-index:1;transition:opacity .3s ease;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude}
+.explore-tab-link[data-tone=wl] .explore-tab-border{background:linear-gradient(135deg,color-mix(in oklch, var(--terracotta) 35%, var(--sand)),#fee9d4)}
+.explore-tab-link[data-tone=nad] .explore-tab-border{background:linear-gradient(135deg,var(--forest),#a6d69f)}
+.explore-tab-link[data-tone=sermorelin] .explore-tab-border{background:linear-gradient(135deg,color-mix(in oklch,var(--dune) 70%,var(--sand)),var(--dune))}
+.explore-tab-link[data-active=true] .explore-tab-border{opacity:1}
+.explore-tab-fill{position:absolute;inset:2px;border-radius:10px;pointer-events:none;opacity:0;z-index:0;transition:opacity .3s ease}
+.explore-tab-link[data-tone=wl] .explore-tab-fill{background:linear-gradient(135deg,color-mix(in oklch, var(--terracotta) 35%, var(--sand))40,#fee9d440)}
+.explore-tab-link[data-tone=nad] .explore-tab-fill{background:linear-gradient(135deg,var(--forest)40,#a6d69f40)}
+.explore-tab-link[data-tone=sermorelin] .explore-tab-fill{background:linear-gradient(135deg,color-mix(in oklch,var(--dune) 35%,transparent),color-mix(in oklch,var(--dune) 55%,transparent))}
+.explore-tab-link[data-active=true] .explore-tab-fill{opacity:1}
+.explore-tab-link .explore-tab-img{opacity:0;transition:opacity .3s ease}
+.explore-tab-link[data-active=true] .explore-tab-img{opacity:1}
+.explore-tab-menu{width:min(68rem,100% - var(--container-gutter, 1.5rem));max-width:none}
+.explore-tab-menu[data-active-index="0"]{grid-template-columns:48fr 35fr 35fr}
+.explore-tab-menu[data-active-index="1"]{grid-template-columns:35fr 48fr 35fr}
+.explore-tab-menu[data-active-index="2"]{grid-template-columns:35fr 35fr 48fr}
+.explore-tab-menu{width:418px;max-width:none;grid-template-columns:184px 109px 109px}
+.explore-tab-menu[data-active-index="0"]{grid-template-columns:184px 109px 109px;margin-left:18px;margin-right:auto}
+.explore-tab-menu[data-active-index="1"]{grid-template-columns:109px 184px 109px;margin-left:calc(50vw - 209px);margin-right:auto}
+.explore-tab-menu[data-active-index="2"]{grid-template-columns:109px 109px 184px;margin-left:calc(100vw - 436px);margin-right:auto}
+.explore-tab-pane{display:none}
+.explore-tab-pane[data-active=true]{display:block}
+.explore-card[data-card=wl]{background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),linear-gradient(color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:39%,auto}
+.explore-card[data-card=nad]{background-image:url(/images/yucca-clone/yucca-health-product-nad.avif);background-position:50%;background-repeat:no-repeat;background-size:cover}
+.explore-card[data-card=sermorelin]{background-image:url(/images/yucca-clone/expt-sermorelin-vial.png),linear-gradient(color-mix(in oklch,var(--dune) 50%,var(--sand)),color-mix(in oklch,var(--dune) 78%,var(--sand)));background-position:50% 58%,0 0;background-repeat:no-repeat,repeat;background-size:40%,auto}
+.explore-card[data-card=wl]{background-position:50% 65%,0 0;background-size:142px,auto}
+.explore-card[data-card=nad]{background-image:url(/images/yucca-clone/yucca-health-product-nad.avif),linear-gradient(color-mix(in oklch,var(--sand) 70%,var(--forest)),color-mix(in oklch,var(--dune) 55%,var(--sand)));background-position:50%,0 0;background-repeat:no-repeat,repeat;background-size:contain,auto}
+.explore-card[data-card=sermorelin]{background-image:url(/images/yucca-clone/expt-sermorelin-vial.png),linear-gradient(color-mix(in oklch,var(--dune) 55%,var(--sand)),color-mix(in oklch,var(--dune) 80%,var(--sand)));background-position:50% 58%,0 0;background-repeat:no-repeat,repeat;background-size:48%,auto}
+.explore-stock-dot{animation:explore-stock-pulse 2s ease-in-out infinite}
+.explore-stock-dot{animation:none}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__vial,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__axis--v,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__axis--h,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__eyebrow,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__heading,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__body,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__pricing,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical-plan{opacity:1!important;transition:none!important;transform:none!important}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__visual:before,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__visual:after{opacity:1!important;transition:none!important;transform:translate(-50%,-50%)scale(1)!important}
+.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__cross,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__cta,.retro-clinical.clinical-anim:not(.clinical-in) .retro-clinical__scroll{opacity:1!important;transition:none!important}

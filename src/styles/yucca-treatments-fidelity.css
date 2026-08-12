@@ -1,0 +1,1338 @@
+/**
+ * Final fidelity overrides for #/treatments — beats conflicting absolute/contents
+ * rules scraped into yucca-treatments-mirror.css.
+ */
+.yx-clone,
+.yx-clone * {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Shell already has trust marquee — drop the duplicate inside the page */
+.yx-shell .yx-clone__trust {
+  display: none !important;
+}
+
+.yx-clone__intro {
+  padding: 2.75rem 1rem 1.5rem;
+  background: #fff;
+}
+
+.yx-clone__intro h1,
+.yx-clone__intro h1 * {
+  font-family: var(--font-body) !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone__intro h1 em {
+  font-style: italic;
+  font-family: var(--font-body) !important;
+}
+
+/* ---- Hero layout: clean flex, no absolute Figma dump ---- */
+/* Kill remaining Figma absolute dumps for longevity / muscle-recovery heroes */
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-section,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-section,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-section {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  padding-bottom: 3.5rem !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-container,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-container,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-container,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-grid,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-grid,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-grid {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: min(1120px, calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  height: auto !important;
+  margin-inline: auto !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-content,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-content,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-content,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-includes,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-includes,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-includes,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-guarantee,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-guarantee,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-guarantee,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-divider,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-divider,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-divider,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-pricing,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-pricing,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-pricing,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-pricing > .text-xs,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-pricing > .text-xs,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-pricing > .text-xs {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-grid,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-grid,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 2.25rem !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-container,
+.retro-explore-tabs-wrap .u-container {
+  width: min(1120px, calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin-inline: auto !important;
+  transform: none !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 2.25rem !important;
+  width: 100% !important;
+  height: auto !important;
+  position: static !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card,
+.retro-explore-tabs-wrap [data-explore-tab-pane] .explore-hero-card {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  width: min(504px, 46%) !important;
+  max-width: 504px !important;
+  height: auto !important;
+  min-height: 576px !important;
+  aspect-ratio: 480 / 549 !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 28px 28px 28px !important;
+  border: 2px solid var(--forest) !important;
+  border-radius: 24px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  color: var(--forest) !important;
+  background-repeat: no-repeat, repeat !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
+  background-image: url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 45%, var(--sand)),
+      color-mix(in oklch, var(--dune) 72%, var(--sand))
+    ) !important;
+  background-position: 50% 58%, 0 0 !important;
+  background-size: 42% auto, auto !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-card[data-card='nad'] {
+  background-image: url(/images/yucca-clone/Nad-Yucca-Image.avif),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--sand) 70%, var(--forest)),
+      color-mix(in oklch, var(--dune) 55%, var(--sand))
+    ) !important;
+  background-position: 50% 55%, 0 0 !important;
+  background-size: 145px auto, auto !important;
+  height: auto !important;
+  min-height: 576px !important;
+  max-width: 504px !important;
+  width: min(504px, 46%) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card[data-card='sermorelin'],
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-card[data-card='sermorelin'] {
+  background-image: url(/images/yucca-clone/expt-sermorelin-vial.png),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 50%, var(--sand)),
+      color-mix(in oklch, var(--dune) 78%, var(--sand))
+    ) !important;
+  background-position: 50% 55%, 0 0 !important;
+  background-size: 145px auto, auto !important;
+  height: auto !important;
+  min-height: 576px !important;
+  max-width: 504px !important;
+  width: min(504px, 46%) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card-footer {
+  color: var(--forest) !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  margin-top: auto !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card::before,
+.retro-explore-tabs-wrap .explore-hero-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card-title {
+  color: var(--forest) !important;
+  font-family: var(--font-body) !important;
+  font-weight:400 !important;
+  font-size: clamp(2rem, 2.6vw, 2.625rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  max-width: 15ch !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card-price-badge {
+  position: absolute !important;
+  right: 24px !important;
+  bottom: 78px !important;
+  z-index: 2 !important;
+  width: 103.2px !important;
+  height: 103.2px !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card-footer {
+  color: var(--forest) !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-content {
+  display: flex !important;
+  flex-direction: column !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  flex: 1 1 0% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 0 !important;
+  padding: 0 !important;
+}
+
+/* Exact Yucca stack order: copy → products → includes → divider → pricing/CTA */
+.retro-explore-tabs-wrap .explore-hero-copy { order: 1 !important; }
+.retro-explore-tabs-wrap .explore-hero-products { order: 2 !important; }
+.retro-explore-tabs-wrap .explore-hero-includes { order: 3 !important; }
+.retro-explore-tabs-wrap .explore-hero-divider { order: 4 !important; }
+.retro-explore-tabs-wrap .explore-hero-pricing { order: 5 !important; }
+
+.retro-explore-tabs-wrap .explore-hero-copy {
+  margin: 0 0 1.25rem !important;
+  color: var(--forest) !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Products: two compact columns side-by-side */
+.retro-explore-tabs-wrap .explore-hero-products {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  gap: 1.25rem 2rem !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0.5rem 0 1.5rem !important;
+  position: static !important;
+  grid-template-columns: none !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  width: auto !important;
+  max-width: calc(50% - 1rem) !important;
+  min-width: 220px !important;
+  height: auto !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  grid-template-columns: none !important;
+  text-align: left !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product.is-active {
+  outline: none !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-thumb {
+  width: 48px !important;
+  height: 48px !important;
+  max-width: 48px !important;
+  flex: 0 0 48px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: color-mix(in oklch, var(--dune) 40%, var(--sand)) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product:nth-child(2) .explore-hero-product-thumb {
+  background: color-mix(in oklch, var(--dune) 58%, var(--sand)) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transform: none !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-name {
+  font-size: 0.95rem !important;
+  font-weight:400 !important;
+  color: var(--forest) !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-product-desc {
+  font-size: 0.85rem !important;
+  color: color-mix(in oklch, var(--forest) 68%, transparent) !important;
+  line-height: 1.3 !important;
+  margin-top: 2px !important;
+}
+
+/* Includes + guarantee — NEVER display:contents */
+.retro-explore-tabs-wrap .explore-hero-includes {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(240px, 265px) !important;
+  align-items: center !important;
+  gap: 1.25rem 1.5rem !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 0 1.5rem !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-plans,
+.retro-explore-tabs-wrap .explore-hero-guarantee {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding-top: 0 !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-guarantee-card {
+  width: 265px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 142px !important;
+  padding: 20px 16px 18px !important;
+  border-radius: 12px !important;
+  background: var(--sand) !important;
+  border: 2px solid #dedbd4 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: var(--forest) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-guarantee-logo,
+.retro-explore-tabs-wrap .explore-hero-guarantee > img,
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-guarantee > img,
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-guarantee > img,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-guarantee > img {
+  display: inline-block !important;
+  width: auto !important;
+  height: 1rem !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-divider {
+  display: block !important;
+  width: 100% !important;
+  height: 1px !important;
+  margin: 0 0 1.25rem !important;
+  background: color-mix(in oklch, var(--dune) 28%, var(--sand)) !important;
+  border: 0 !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-pricing {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  order: 5 !important;
+  text-align: left !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-price-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-price-badge {
+  width: 72px !important;
+  height: 72px !important;
+  flex: 0 0 72px !important;
+  object-fit: contain !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-price--badge-only .explore-hero-price-badge {
+  width: 103px !important;
+  height: 103px !important;
+  flex-basis: 103px !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  height: 52px !important;
+  padding: 0 1.5rem !important;
+  margin: 0 !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  border-radius: 999px !important;
+  border: 2px solid var(--forest) !important;
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  font-size: 16px !important;
+  font-weight:400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-section-stack='longevity'] .explore-hero-cta {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-cta,
+.retro-explore-tabs-wrap [data-explore-section-stack='muscle-recovery'] .explore-hero-cta {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-cta:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 2px 0 0 var(--forest) !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-cta:active {
+  transform: translate(3px, 4px) !important;
+  box-shadow: 0 0 0 0 var(--forest) !important;
+}
+
+/* Tabs stay compact and centered */
+.retro-explore-tabs-wrap .explore-tab-menu {
+  max-width: 606px !important;
+  width: 606px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.retro-explore-tabs-wrap .explore-tab-link {
+  font-weight:400 !important;
+  font-size: 14px !important;
+}
+
+@media (max-width: 991px) {
+  .retro-explore-tabs-wrap .explore-hero-grid {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-hero-card,
+  .retro-explore-tabs-wrap [data-explore-tab-pane] .explore-hero-card {
+    width: 100% !important;
+    max-width: 430px !important;
+    margin-inline: auto !important;
+    min-height: 520px !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-hero-includes {
+    grid-template-columns: 1fr !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-hero-guarantee-card {
+    width: 100% !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-hero-product {
+    max-width: 100% !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-tab-menu {
+    width: min(606px, calc(100% - 2rem)) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .retro-explore-tabs-wrap .explore-hero-container,
+  .retro-explore-tabs-wrap .u-container {
+    width: min(1120px, calc(100% - 2rem)) !important;
+  }
+
+  .retro-explore-tabs-wrap .explore-hero-card-price-badge {
+    right: 18px !important;
+    bottom: 62px !important;
+    width: 6.825rem !important;
+    height: 6.825rem !important;
+  }
+}
+
+/* ============================================================
+   BELOW-HERO SECTIONS — kill SVG/layout blowouts
+   ============================================================ */
+
+.yx-clone svg {
+  max-width: 100%;
+  height: auto;
+  flex: none;
+}
+
+.yx-clone .retro-protocol-card__icon svg,
+.yx-clone .retro-protocol-card__icon {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  display: block !important;
+}
+
+.yx-clone .retro-home-reviews-stars svg,
+.yx-clone .retro-home-reviews-card-stars svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+}
+
+.yx-clone .retro-home-reviews-card-shield {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.yx-clone .retro-happy__pill-check,
+.yx-clone .retro-happy__metric-arrow {
+  width: auto !important;
+  height: auto !important;
+  max-width: 24px !important;
+}
+
+/* Results marquee */
+.yx-clone .retro-happy {
+  overflow: hidden !important;
+  padding: 2.5rem 0 3rem !important;
+  background: #fff !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.yx-clone .retro-happy__heading {
+  text-align: center !important;
+  max-width: 18ch !important;
+  margin: 0 auto 1.75rem !important;
+  font-size: clamp(1.75rem, 3vw, 2.5rem) !important;
+  line-height: 1.05 !important;
+  color: var(--forest) !important;
+  font-weight:400 !important;
+}
+
+.yx-clone .retro-happy__marquee {
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+.yx-clone .retro-happy__track {
+  display: flex !important;
+  width: max-content !important;
+  gap: 1rem !important;
+  animation: yx-happy-marquee 40s linear infinite;
+}
+
+.yx-clone .retro-happy__group {
+  display: flex !important;
+  gap: 1rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  width: max-content !important;
+}
+
+.yx-clone .retro-happy__card {
+  position: relative !important;
+  flex: 0 0 320px !important;
+  width: 320px !important;
+  height: 360px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 2px solid var(--forest) !important;
+  background: var(--forest) !important;
+}
+
+.yx-clone .retro-happy__photo,
+.yx-clone .retro-happy__photos {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+
+.yx-clone .retro-happy__photos {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.yx-clone .retro-happy__photos .retro-happy__photo {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@keyframes yx-happy-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Protocol */
+.yx-clone .retro-protocol,
+.yx-clone .retro-protocol--nad,
+.yx-clone .retro-protocol--sermorelin {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  padding: 4rem 1.5rem !important;
+  background: var(--sand) !important;
+}
+
+.yx-clone .retro-protocol__inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important;
+  gap: 2.5rem 3.5rem !important;
+  align-items: start !important;
+  width: min(1120px, 100%) !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  height: auto !important;
+}
+
+.yx-clone .retro-protocol__left,
+.yx-clone .retro-protocol__right {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.yx-clone .retro-protocol__heading {
+  margin: 0 0 1rem !important;
+  max-width: 16ch !important;
+  font-size: clamp(1.75rem, 3vw, 2.75rem) !important;
+  line-height: 1.05 !important;
+  font-weight:400 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-protocol__sub {
+  margin: 0 0 1.5rem !important;
+  max-width: 42ch !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-protocol__vials,
+.yx-clone .retro-protocol__nad-vials,
+.yx-clone .retro-protocol__sermorelin-vials,
+.yx-clone [data-explore-section-stack] .retro-protocol__nad-vials,
+.yx-clone [data-explore-section-stack] .retro-protocol__sermorelin-vials {
+  display: block !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: min(363px, 100%) !important;
+  height: auto !important;
+  margin-top: 1.5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.yx-clone .retro-protocol__vials-img,
+.yx-clone .retro-protocol__nad-vial,
+.yx-clone .retro-protocol__sermorelin-vial {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 420px !important;
+  object-fit: contain !important;
+}
+
+.yx-clone .retro-protocol__right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+}
+
+.yx-clone .retro-protocol-card {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 1.25rem 1.5rem !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+.yx-clone .retro-protocol-card__title {
+  margin: 0.75rem 0 0.35rem !important;
+  font-size: 1.15rem !important;
+  line-height: 1.2 !important;
+  font-weight:400 !important;
+  color: var(--forest) !important;
+  max-width: none !important;
+}
+
+.yx-clone .retro-protocol-card__body {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-protocol__cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: flex-start !important;
+  min-width: 12rem !important;
+  min-height: 52px !important;
+  margin-top: 0.75rem !important;
+  padding: 0 1.5rem !important;
+  border-radius: 999px !important;
+  border: 2px solid var(--forest) !important;
+  background: color-mix(in oklch, var(--terracotta) 35%, var(--sand)) !important;
+  color: var(--forest) !important;
+  font-weight:400 !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  cursor: pointer !important;
+}
+
+.yx-clone .retro-protocol--nad .retro-protocol__cta,
+.yx-clone .retro-protocol--sermorelin .retro-protocol__cta {
+  background: var(--forest) !important;
+}
+
+/* Calculator */
+.yx-clone .retro-calculator {
+  padding: 3.5rem 1.5rem 4rem !important;
+  padding-top: 3.5rem !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: var(--forest) !important;
+  color: #fff !important;
+}
+
+.yx-clone .retro-calculator__panel {
+  display: grid !important;
+  grid-template-columns: 1.1fr auto 1fr !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+  width: min(1120px, 100%) !important;
+  margin: 0 auto !important;
+}
+
+.yx-clone .retro-calculator__heading {
+  margin: 0 0 1.25rem !important;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem) !important;
+  line-height: 1.1 !important;
+  color: #fff !important;
+}
+
+.yx-clone .retro-calculator__control {
+  position: relative !important;
+  width: min(320px, 100%) !important;
+}
+
+.yx-clone .retro-calculator__control .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.yx-clone .retro-calculator__input {
+  display: block !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 12px !important;
+  border: 2px solid #fff !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+}
+
+.yx-clone .retro-calculator__arrow {
+  display: flex !important;
+  width: 88px !important;
+  height: auto !important;
+  color: #fff !important;
+}
+
+.yx-clone .retro-calculator__arrow svg {
+  width: 88px !important;
+  height: 16px !important;
+}
+
+.yx-clone .retro-calculator__right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.35rem !important;
+}
+
+.yx-clone .retro-calculator__readout-label {
+  color: #fff !important;
+  font-size: 1rem !important;
+}
+
+.yx-clone .retro-calculator__readout {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.35rem !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  font-weight:400 !important;
+  line-height: 1 !important;
+  color: #fff !important;
+}
+
+.yx-clone .retro-calculator__readout-caption {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+  max-width: 28ch !important;
+}
+
+/* Clinical / expect / knowall — kill Figma absolute canvas dumps */
+.yx-clone .retro-clinical,
+.yx-clone .retro-expect,
+.yx-clone .retro-knowall {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  padding: 3.5rem 1.5rem !important;
+  position: relative !important;
+}
+
+.yx-clone .retro-clinical {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-clinical__inner,
+.yx-clone .retro-expect__inner,
+.yx-clone .retro-knowall__inner,
+.yx-clone [data-explore-section-stack] .retro-clinical__inner {
+  width: min(1120px, 100%) !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+}
+
+.yx-clone .retro-clinical__inner,
+.yx-clone [data-explore-section-stack] .retro-clinical__inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 300px) !important;
+  grid-template-areas: 'text visual' !important;
+  gap: clamp(1.5rem, 4vw, 3.5rem) !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.yx-clone .retro-clinical__text,
+.yx-clone [data-explore-section-stack] .retro-clinical__text {
+  grid-area: text !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: 35rem !important;
+  height: auto !important;
+  justify-self: end !important;
+}
+
+.yx-clone .retro-clinical__eyebrow,
+.yx-clone .retro-clinical__heading,
+.yx-clone .retro-clinical__body {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.yx-clone .retro-clinical__eyebrow {
+  margin: 0 0 0.75rem !important;
+  color: var(--terracotta) !important;
+  font-weight:400 !important;
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+.yx-clone .retro-clinical__heading {
+  margin: 0 0 1.25rem !important;
+  font-size: clamp(2rem, 3.4vw, 3.25rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.03em !important;
+  font-weight:400 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-clinical__body {
+  font-size: 1.0625rem !important;
+  line-height: 1.55 !important;
+  color: var(--forest) !important;
+}
+
+.yx-clone .retro-clinical__body p,
+.yx-clone .retro-clinical__body ul {
+  margin: 0 0 1rem !important;
+}
+
+.yx-clone .retro-clinical__body ul {
+  padding-left: 1.15rem !important;
+}
+
+.yx-clone .retro-clinical__visual,
+.yx-clone [data-explore-section-stack] .retro-clinical__visual {
+  grid-area: visual !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: 261px !important;
+  max-width: 100% !important;
+  height: 430px !important;
+  min-height: 430px !important;
+  margin: 0 auto !important;
+  justify-self: center !important;
+}
+
+.yx-clone .retro-clinical__vial {
+  position: absolute !important;
+  display: block !important;
+  width: 158px !important;
+  max-width: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  z-index: 1 !important;
+}
+
+.yx-clone .retro-clinical__vial--tirz {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.yx-clone .retro-clinical__vial--sema {
+  left: 105px !important;
+  top: 55px !important;
+  width: 156px !important;
+  z-index: 2 !important;
+}
+
+.yx-clone .retro-clinical__visual > .retro-clinical__vial:only-child {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: min(180px, 70%) !important;
+}
+
+@media (max-width: 900px) {
+  .yx-clone .retro-clinical__inner,
+  .yx-clone [data-explore-section-stack] .retro-clinical__inner {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: 'text' 'visual' !important;
+  }
+
+  .yx-clone .retro-clinical__text,
+  .yx-clone [data-explore-section-stack] .retro-clinical__text {
+    justify-self: stretch !important;
+    max-width: none !important;
+  }
+}
+
+.yx-clone .retro-expect__grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  margin-top: 1.75rem !important;
+}
+
+.yx-clone .retro-expect--nad .retro-expect__grid,
+.yx-clone .retro-expect--sermorelin .retro-expect__grid,
+.yx-clone [data-explore-section-stack='longevity'] .retro-expect__grid,
+.yx-clone [data-explore-section-stack='muscle-recovery'] .retro-expect__grid {
+  display: grid !important;
+}
+
+.yx-clone .retro-expect__carousel {
+  display: none !important;
+}
+
+.yx-clone .retro-expect-card {
+  background: #fff !important;
+  border: 2px solid var(--forest) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.yx-clone .retro-expect-card__img,
+.yx-clone .retro-expect-card__media img {
+  display: block !important;
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+}
+
+.yx-clone .retro-expect-card__label,
+.yx-clone .retro-expect-card h3 {
+  margin: 1rem 1rem 0.5rem !important;
+  font-size: 1.05rem !important;
+  font-weight:400 !important;
+}
+
+.yx-clone .retro-expect-card__desc,
+.yx-clone .retro-expect-card p {
+  margin: 0 1rem 1.25rem !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+}
+
+.yx-clone .retro-knowall__inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) !important;
+  gap: 2rem !important;
+  align-items: start !important;
+}
+
+.yx-clone .retro-knowall__vial {
+  display: block !important;
+  width: min(180px, 45%) !important;
+  height: auto !important;
+  margin: 1rem auto 0 !important;
+}
+
+.yx-clone .retro-knowall__list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.yx-clone .retro-knowall__item {
+  border-bottom: 1px solid color-mix(in oklch, var(--forest) 14%, transparent) !important;
+}
+
+.yx-clone .retro-knowall__toggle {
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  padding: 1rem 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  text-align: left !important;
+  font: inherit !important;
+  font-weight:400 !important;
+  color: var(--forest) !important;
+  cursor: pointer !important;
+}
+
+.yx-clone .retro-knowall__answer,
+.yx-clone .retro-knowall__panel {
+  color: var(--forest) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Reviews — was 56k px tall from star SVG blowout */
+.yx-clone .retro-home-reviews {
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  padding: 3.5rem 1.5rem !important;
+  background: #fff !important;
+}
+
+.yx-clone .retro-home-reviews-head {
+  text-align: center !important;
+  max-width: 40rem !important;
+  margin: 0 auto 1.5rem !important;
+  height: auto !important;
+}
+
+.yx-clone .retro-home-reviews-stars,
+.yx-clone .retro-home-reviews-card-stars {
+  display: inline-flex !important;
+  gap: 0.25rem !important;
+  height: auto !important;
+  width: auto !important;
+  color: var(--terracotta) !important;
+}
+
+.yx-clone .retro-home-reviews-filters {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.yx-clone .retro-home-reviews-pill {
+  border: 2px solid var(--forest) !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  padding: 0.45rem 0.9rem !important;
+  font-weight:400 !important;
+  cursor: pointer !important;
+}
+
+.yx-clone .retro-home-reviews-pill[data-active='true'] {
+  background: color-mix(in oklch, var(--terracotta) 35%, var(--sand)) !important;
+}
+
+.yx-clone .retro-home-reviews-track {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  width: min(1120px, 100%) !important;
+  margin: 0 auto !important;
+  height: auto !important;
+}
+
+.yx-clone .retro-home-reviews-slide,
+.yx-clone .retro-home-reviews-card {
+  height: auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.yx-clone .retro-home-reviews-card {
+  padding: 1.25rem 1.35rem !important;
+  border: 2px solid var(--forest) !important;
+  border-radius: 16px !important;
+  background: var(--sand) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+.yx-clone .retro-home-reviews-card-title {
+  margin: 0 0 0.65rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.3 !important;
+}
+
+.yx-clone .retro-home-reviews-card-body {
+  margin: 0 0 1rem !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+}
+
+.yx-clone .retro-home-reviews-card-foot {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  height: auto !important;
+  margin-top: 0.75rem !important;
+}
+
+.yx-clone .retro-home-reviews-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 14rem !important;
+  min-height: 52px !important;
+  border-radius: 999px !important;
+  border: 2px solid var(--forest) !important;
+  background: color-mix(in oklch, var(--terracotta) 35%, var(--sand)) !important;
+  color: var(--forest) !important;
+  font-weight:400 !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  cursor: pointer !important;
+}
+
+/* Why + closing */
+.yx-clone .retro-home-why {
+  height: auto !important;
+  overflow: hidden !important;
+  padding: 3.5rem 1.5rem !important;
+}
+
+.yx-clone .retro-home-why-inner {
+  width: min(1120px, 100%) !important;
+  margin: 0 auto !important;
+}
+
+.yx-clone .retro-home-why-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+.yx-clone .retro-home-why-card {
+  padding: 1.25rem !important;
+  border: 2px solid var(--forest) !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+.yx-clone .retro-home-why-pill-img,
+.yx-clone .retro-home-why-media img,
+.yx-clone .retro-home-why-portal img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 180px !important;
+  object-fit: contain !important;
+}
+
+.yx-clone .retro-home-closing {
+  position: relative !important;
+  height: auto !important;
+  min-height: 420px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 4rem 1.5rem !important;
+  color: #fff !important;
+}
+
+.yx-clone .retro-home-closing-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+.yx-clone .retro-home-closing-inner {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 36rem !important;
+}
+
+.yx-clone .retro-home-closing-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 14rem !important;
+  min-height: 52px !important;
+  margin-top: 1.25rem !important;
+  border-radius: 999px !important;
+  border: 2px solid var(--forest) !important;
+  background: var(--forest) !important;
+  color: var(--forest) !important;
+  font-weight:400 !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+  cursor: pointer !important;
+}
+
+@media (max-width: 991px) {
+  .yx-clone .retro-protocol__inner,
+  .yx-clone .retro-clinical__inner,
+  .yx-clone .retro-knowall__inner,
+  .yx-clone .retro-calculator__panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  .yx-clone .retro-expect__grid,
+  .yx-clone .retro-home-reviews-track,
+  .yx-clone .retro-home-why-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .yx-clone .retro-calculator__arrow {
+    display: none !important;
+  }
+
+  .yx-clone .retro-happy__card {
+    flex-basis: 260px !important;
+    width: 260px !important;
+    height: 300px !important;
+  }
+}
+

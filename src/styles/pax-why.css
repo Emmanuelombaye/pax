@@ -1,0 +1,369 @@
+/* Why Pax Longevity — branded bento, no clipped media */
+
+.pax-why {
+  --why-ink: var(--forest);
+  --why-muted: color-mix(in oklch, var(--forest) 66%, transparent);
+  background:
+    radial-gradient(90% 60% at 10% 0%, color-mix(in oklch, var(--dune) 30%, transparent), transparent 55%),
+    radial-gradient(70% 50% at 100% 20%, color-mix(in oklch, var(--terracotta) 10%, transparent), transparent 50%),
+    var(--sand) !important;
+  color: var(--why-ink);
+  padding: clamp(2.75rem, 5vw, 4.25rem) 0 !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.pax-why__inner {
+  width: min(72rem, calc(100% - 2.5rem)) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.pax-why__head {
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto 1.75rem;
+}
+
+.pax-why__eyebrow {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-body, inherit);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.pax-why .retro-home-why-title {
+  margin: 0 0 0.55rem !important;
+  font-family: var(--font-display, inherit) !important;
+  font-weight: 400 !important;
+  font-size: clamp(1.7rem, 3.4vw, 2.35rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--why-ink) !important;
+}
+
+.pax-why .retro-home-why-title em {
+  font-style: italic;
+  color: color-mix(in oklch, var(--forest) 82%, var(--terracotta));
+}
+
+.pax-why__sub {
+  margin: 0;
+  font-family: var(--font-body, inherit);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--why-muted);
+}
+
+.pax-why__grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.9rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  height: auto !important;
+}
+
+@media (min-width: 760px) {
+  .pax-why__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1100px) {
+  .pax-why__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+.pax-why__card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  min-height: 22rem !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 1.2rem 1.15rem 1.1rem !important;
+  border: 1px solid color-mix(in oklch, var(--forest) 12%, transparent) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 12px 28px color-mix(in oklch, var(--forest) 7%, transparent) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  color: var(--why-ink) !important;
+}
+
+.pax-why__card--sand {
+  background:
+    linear-gradient(165deg, color-mix(in oklch, var(--sand) 70%, #fff), #fff 55%) !important;
+}
+
+.pax-why__card--dune {
+  background:
+    linear-gradient(165deg, color-mix(in oklch, var(--dune) 42%, #fff), #fff 60%) !important;
+}
+
+.pax-why__card--light {
+  background: #fff !important;
+}
+
+.pax-why__card--forest {
+  background:
+    linear-gradient(165deg, color-mix(in oklch, var(--forest) 94%, #000), var(--forest)) !important;
+  border-color: transparent !important;
+  color: var(--sand) !important;
+}
+
+.pax-why__card--forest .pax-why__card-body,
+.pax-why__card--forest .pax-why__n {
+  color: color-mix(in oklch, var(--sand) 78%, transparent) !important;
+}
+
+.pax-why__card--forest .pax-why__card-title {
+  color: var(--sand) !important;
+}
+
+.pax-why__card--forest .pax-why__card-title em {
+  color: color-mix(in oklch, var(--dune) 80%, var(--sand)) !important;
+}
+
+.pax-why__n {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-body, inherit);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.pax-why__card-title {
+  margin: 0 0 0.55rem !important;
+  font-family: var(--font-display, inherit) !important;
+  font-size: clamp(1.25rem, 1.6vw, 1.45rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--why-ink) !important;
+}
+
+.pax-why__card-title em {
+  font-style: italic;
+}
+
+.pax-why__card-body {
+  margin: 0 !important;
+  font-family: var(--font-body, inherit) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.45 !important;
+  color: var(--why-muted) !important;
+}
+
+.pax-why__card-media {
+  margin-top: auto;
+  min-height: 9.5rem;
+}
+
+.pax-why__checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.pax-why__checks li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.8rem;
+  background: color-mix(in oklch, #fff 70%, var(--sand));
+  border: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
+}
+
+.pax-why__check-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  background: var(--forest);
+  color: var(--sand);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.pax-why__checks strong {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--why-ink);
+}
+
+.pax-why__checks small {
+  display: block;
+  margin-top: 0.08rem;
+  font-size: 0.72rem;
+  color: var(--why-muted);
+}
+
+.pax-why__metric {
+  position: relative;
+  padding: 0.85rem 0.75rem 0.65rem;
+  border-radius: 0.95rem;
+  background: color-mix(in oklch, #fff 75%, var(--sand));
+  border: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
+  overflow: hidden;
+}
+
+.pax-why__metric-value {
+  display: block;
+  font-family: var(--font-display, inherit);
+  font-size: 2.35rem;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--forest);
+}
+
+.pax-why__metric-unit {
+  display: block;
+  margin: 0.2rem 0 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--why-muted);
+}
+
+.pax-why__metric-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 0.4rem;
+  height: 4.25rem;
+}
+
+.pax-why__metric-bars i {
+  display: block;
+  height: var(--h);
+  border-radius: 0.35rem 0.35rem 0.15rem 0.15rem;
+  background: linear-gradient(180deg, var(--terracotta), color-mix(in oklch, var(--forest) 75%, var(--terracotta)));
+}
+
+.pax-why__metric-axis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  color: var(--why-muted);
+  text-align: center;
+}
+
+.pax-why__media-frame {
+  display: grid;
+  place-items: center;
+  height: 11rem;
+  padding: 0.55rem;
+  border-radius: 0.95rem;
+  background: color-mix(in oklch, var(--sand) 55%, #fff);
+  border: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
+  overflow: hidden;
+}
+
+.pax-why__media-frame img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.pax-why__card--forest .pax-why__media-frame {
+  background: color-mix(in oklch, #000 18%, var(--forest));
+  border-color: color-mix(in oklch, var(--sand) 16%, transparent);
+}
+
+.pax-why__media-frame--portal {
+  height: 12rem;
+}
+
+/* Kill Yucca dark-card / clip geometry inside this redesign */
+.yx-clone .retro-home-why.pax-why,
+.yucca-home .retro-home-why.pax-why {
+  overflow: visible !important;
+  background:
+    radial-gradient(90% 60% at 10% 0%, color-mix(in oklch, var(--dune) 30%, transparent), transparent 55%),
+    radial-gradient(70% 50% at 100% 20%, color-mix(in oklch, var(--terracotta) 10%, transparent), transparent 50%),
+    var(--sand) !important;
+  padding: clamp(2.75rem, 5vw, 4.25rem) 0 !important;
+}
+
+.yx-clone .pax-why__grid,
+.yucca-home .pax-why__grid {
+  display: grid !important;
+  height: auto !important;
+}
+
+@media (min-width: 1100px) {
+  .yx-clone .pax-why__grid,
+  .yucca-home .pax-why__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+.yx-clone .pax-why__card,
+.yucca-home .pax-why__card {
+  height: auto !important;
+  min-height: 22rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 28px color-mix(in oklch, var(--forest) 7%, transparent) !important;
+  border: 1px solid color-mix(in oklch, var(--forest) 12%, transparent) !important;
+}
+
+.yx-clone .pax-why__card--sand,
+.yucca-home .pax-why__card--sand {
+  background: linear-gradient(165deg, color-mix(in oklch, var(--sand) 70%, #fff), #fff 55%) !important;
+}
+
+.yx-clone .pax-why__card--dune,
+.yucca-home .pax-why__card--dune {
+  background: linear-gradient(165deg, color-mix(in oklch, var(--dune) 42%, #fff), #fff 60%) !important;
+}
+
+.yx-clone .pax-why__card--light,
+.yucca-home .pax-why__card--light {
+  background: #fff !important;
+}
+
+.yx-clone .pax-why__card--forest,
+.yucca-home .pax-why__card--forest {
+  background: linear-gradient(165deg, color-mix(in oklch, var(--forest) 94%, #000), var(--forest)) !important;
+  border-color: transparent !important;
+  color: var(--sand) !important;
+}
+
+.yx-clone .pax-why__media-frame img,
+.yucca-home .pax-why__media-frame img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 759px) {
+  .pax-why__card,
+  .yx-clone .pax-why__card,
+  .yucca-home .pax-why__card {
+    min-height: 0 !important;
+  }
+}

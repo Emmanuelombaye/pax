@@ -1,0 +1,156 @@
+/* How it works — Hims-like floating cards, Pax brand, equal size, full images */
+
+.goal-hiw-section.pax-hiw {
+  --hiw-ink: var(--forest);
+  --hiw-muted: color-mix(in oklch, var(--forest) 58%, transparent);
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 !important;
+  background: var(--sand) !important;
+  color: var(--hiw-ink);
+  font-family: var(--font-body);
+  border-top: none !important;
+  scroll-margin-top: 5.5rem;
+  overflow: visible !important;
+}
+
+.pax-hiw__container {
+  width: min(72rem, calc(100% - 2.75rem)) !important;
+  margin-inline: auto !important;
+}
+
+.pax-hiw__heading {
+  text-align: center;
+  max-width: 34rem;
+  margin: 0 auto 2.5rem !important;
+}
+
+.pax-hiw__eyebrow {
+  margin: 0 0 0.75rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--forest) 55%, transparent) !important;
+}
+
+.pax-hiw__heading h2 {
+  margin: 0 !important;
+  font-family: var(--font-display, inherit) !important;
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--hiw-ink) !important;
+}
+
+.pax-hiw__heading h2 em {
+  font-style: italic;
+  color: var(--hiw-ink) !important;
+}
+
+.pax-hiw__grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.25rem !important;
+  align-items: stretch !important;
+}
+
+@media (min-width: 900px) {
+  .pax-hiw__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.35rem !important;
+  }
+}
+
+/* Floating white card — soft radius, soft shadow, no heavy border */
+.pax-hiw__card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  border-radius: 2rem !important;
+  border: none !important;
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  box-shadow:
+    0 1px 0 color-mix(in oklch, var(--forest) 4%, transparent),
+    0 18px 40px color-mix(in oklch, var(--forest) 7%, transparent) !important;
+  padding: 1.5rem 1.35rem 1.35rem !important;
+  text-align: left !important;
+  overflow: hidden !important;
+}
+
+.pax-hiw__copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.pax-hiw__step {
+  display: inline-grid !important;
+  place-items: center !important;
+  align-self: flex-start !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+  font-family: var(--font-body, inherit) !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  border: none !important;
+  line-height: 1 !important;
+}
+
+.pax-hiw__card h3 {
+  margin: 1rem 0 0 !important;
+  font-family: var(--font-display, inherit) !important;
+  font-size: clamp(1.2rem, 1.55vw, 1.4rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--hiw-ink) !important;
+}
+
+.pax-hiw__card > .pax-hiw__copy > p,
+.pax-hiw__copy > p {
+  margin: 0.55rem 0 0 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+  color: var(--hiw-muted) !important;
+  flex: 1 1 auto !important;
+}
+
+/* Photo well — soft inset, full image visible */
+.pax-hiw__media {
+  margin-top: 1.35rem !important;
+  border-radius: 1.35rem !important;
+  overflow: hidden !important;
+  border: none !important;
+  background: color-mix(in oklch, var(--sand) 70%, var(--dune)) !important;
+  aspect-ratio: 4 / 3 !important;
+  min-height: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+.pax-hiw__media img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (max-width: 899px) {
+  .pax-hiw__card {
+    max-width: 26rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+}

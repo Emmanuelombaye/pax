@@ -1,0 +1,372 @@
+/* Personalized treatments — Vitalwell GoalTreatments layout (Yucca content) */
+
+.goal-treatments-section {
+  --gt-ink: var(--forest);
+  --gt-muted: color-mix(in oklch, var(--forest) 62%, transparent);
+  --gt-soft: color-mix(in oklch, var(--forest) 48%, transparent);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 0;
+  background:
+    radial-gradient(ellipse at 12% -5%, color-mix(in oklch, var(--dune) 40%, transparent) 0%, transparent 48%),
+    radial-gradient(ellipse at 88% 100%, color-mix(in oklch, var(--dune) 28%, transparent) 0%, transparent 45%),
+    linear-gradient(180deg, color-mix(in oklch, var(--dune) 28%, var(--sand)) 0%, color-mix(in oklch, var(--dune) 48%, var(--sand)) 100%);
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--gt-ink);
+}
+
+.goal-treatments-container {
+  width: min(68rem, calc(100% - 2rem));
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.goal-treatments-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 1.75rem;
+}
+
+.goal-treatments-heading h2 {
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight:400;
+  line-height: 1.15;
+  color: var(--gt-ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.goal-treatments-heading h2 em {
+  font-style: italic;
+  font-weight:400;
+  color: var(--terracotta);
+}
+
+.goal-treatments-heading p {
+  font-size: 1.1rem;
+  margin: 1rem 0 0;
+  line-height: 1.55;
+  color: var(--gt-muted);
+}
+
+.goal-tablist-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.goal-tablist {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px;
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune));
+  border-radius: 999px;
+  border: 2px solid var(--gt-ink);
+  box-shadow: 3px 4px 0 var(--gt-ink);
+}
+
+.goal-tablist button {
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--gt-ink);
+  font-weight:400;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.goal-tablist button.is-active {
+  border-color: var(--gt-ink);
+}
+
+.goal-treatments-pane {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.05fr);
+  gap: 1rem 1.5rem;
+  align-items: end;
+  padding-top: 0.5rem;
+  animation: goal-pane-in 0.3s ease;
+}
+
+@keyframes goal-pane-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.goal-cutouts {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.goal-cutouts-stat {
+  position: absolute;
+  left: 42%;
+  top: 8%;
+  transform: translateX(-50%);
+  font-size: clamp(5.5rem, 15vw, 10rem);
+  font-weight:400;
+  color: color-mix(in oklch, var(--forest) 8%, transparent);
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 0;
+}
+
+.goal-cutouts-man,
+.goal-cutouts-woman {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 10px 24px color-mix(in oklch, var(--forest) 18%, transparent));
+}
+
+.goal-cutouts-man {
+  left: 4%;
+  width: min(58%, 320px);
+  z-index: 1;
+}
+
+.goal-cutouts-woman {
+  right: 2%;
+  width: min(48%, 260px);
+  z-index: 2;
+}
+
+.goal-product-card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune));
+  border: 2px solid var(--gt-ink);
+  border-radius: 1.5rem;
+  padding: 1.45rem 1.45rem 1.35rem;
+  box-shadow: 3px 4px 0 var(--gt-ink);
+  color: var(--gt-ink);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.goal-product-tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.goal-product-tags-left {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.goal-product-tag {
+  border: 1.5px solid;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight:400;
+}
+
+.goal-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight:400;
+  color: var(--gt-muted);
+}
+
+.goal-product-top {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.goal-product-vial {
+  position: relative;
+  height: 168px;
+}
+
+.goal-vial {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
+}
+
+.goal-vial--back {
+  left: 28%;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.goal-vial--front {
+  left: 0;
+  z-index: 2;
+}
+
+.goal-product-enrolled {
+  font-size: 0.75rem;
+  color: var(--gt-soft);
+  font-weight:400;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.goal-product-price {
+  display: inline-block;
+  color: var(--gt-ink);
+  font-weight: 900;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  padding: 0.85rem 0.8rem;
+  border-radius: 999px 999px 999px 1.1rem;
+  box-shadow: 0 8px 20px rgba(150, 134, 236, 0.28);
+  transform: rotate(3deg);
+  text-align: center;
+  border: 1.5px solid var(--gt-ink);
+}
+
+.goal-product-price span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight:400;
+  margin-top: 2px;
+}
+
+.goal-product-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.55rem;
+  font-weight:400;
+  line-height: 1.15;
+}
+
+.goal-product-desc {
+  margin: 0 0 0.55rem;
+  color: var(--gt-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.goal-product-detail {
+  margin: 0 0 1.1rem;
+  font-size: 0.9rem;
+  font-weight:400;
+  color: var(--gt-ink);
+}
+
+.goal-product-ctas {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.goal-product-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  font-weight:400;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1.5px solid var(--gt-ink);
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--gt-ink);
+}
+
+.goal-product-cta--primary {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-color: var(--forest);
+  box-shadow: 2px 3px 0 var(--forest);
+}
+
+.goal-product-cta--ghost {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune));
+  font-weight:400;
+}
+
+@media (max-width: 900px) {
+  .goal-treatments-pane {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .goal-cutouts {
+    display: none;
+  }
+
+  .goal-product-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .goal-tablist {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 1.25rem;
+  }
+
+  .goal-tablist::-webkit-scrollbar {
+    display: none;
+  }
+
+  .goal-tablist button {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .goal-treatments-section {
+    padding: 3.5rem 0 0;
+  }
+
+  .goal-product-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .goal-product-vial {
+    height: 140px;
+  }
+
+  .goal-product-ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .goal-product-cta {
+    width: 100%;
+    padding: 0.75rem 0.7rem;
+    font-size: 0.82rem;
+  }
+}

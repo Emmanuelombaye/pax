@@ -1,0 +1,239 @@
+/* Pax Longevity — homepage brand kit enforcement
+ * Sand canvas · Forest ink/CTAs · Terracotta accents · Dune tints
+ * Kill: pure white cards · navy/black · salmon · neon mint · cool gray borders
+ */
+
+.yucca-home,
+.yucca-home[data-retro-scope] {
+  --color-retro-surface: var(--sand) !important;
+  --color-retro-cream: var(--sand) !important;
+  --color-retro-ink: var(--forest) !important;
+  --color-retro-shadow: var(--forest) !important;
+  --color-retro-purple: color-mix(in oklch, var(--dune) 42%, var(--sand)) !important;
+  --color-retro-lavender: color-mix(in oklch, var(--dune) 38%, var(--sand)) !important;
+  --color-retro-yellow: color-mix(in oklch, var(--dune) 70%, var(--sand)) !important;
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+/* Top promo banner — forest only (no navy hover #2a3540) */
+.yucca-home .retro-home-banner,
+.retro-home-banner {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+.yucca-home .retro-home-banner:hover,
+.retro-home-banner:hover {
+  background: color-mix(in oklch, var(--forest) 88%, var(--dune)) !important;
+}
+
+.yucca-home .retro-home-banner__text strong,
+.retro-home-banner__text strong {
+  color: var(--dune) !important;
+}
+
+.yucca-home .retro-home-trustbar,
+.retro-home-trustbar {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+  border-bottom-color: color-mix(in oklch, var(--forest) 14%, transparent) !important;
+}
+
+/* Hero section canvas */
+.yucca-home .retro-home-hero-section {
+  background: #fff !important;
+}
+
+.yucca-home .retro-home-hero-wrap {
+  color: var(--sand) !important;
+}
+
+.yucca-home .retro-home-hero-btn--primary {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--sand) !important;
+  box-shadow:
+    0 2px 0 color-mix(in oklch, var(--forest) 25%, transparent),
+    0 14px 28px -12px color-mix(in oklch, var(--forest) 50%, transparent) !important;
+}
+
+.yucca-home .retro-home-hero-btn--secondary {
+  background: color-mix(in oklch, var(--sand) 94%, transparent) !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow:
+    0 2px 0 color-mix(in oklch, var(--forest) 22%, transparent),
+    0 12px 24px -12px color-mix(in oklch, var(--forest) 40%, transparent) !important;
+}
+
+/* Social proof — was pure white + cool gray + salmon #ffbc7d */
+.yucca-home .retro-social-proof__card,
+.retro-social-proof__card {
+  background: color-mix(in oklch, var(--sand) 92%, var(--dune)) !important;
+  border: 1px solid color-mix(in oklch, var(--forest) 14%, transparent) !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-social-proof__value,
+.retro-social-proof__value {
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-social-proof__value--prescriptions,
+.retro-social-proof__value--prescriptions {
+  color: var(--terracotta) !important;
+}
+
+.yucca-home .retro-social-proof__rating strong,
+.yucca-home .retro-social-proof__rating em {
+  color: var(--forest) !important;
+}
+
+/* Happy / results */
+.yucca-home .retro-happy,
+.yucca-home .retro-happy__heading {
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-happy__heading-accent {
+  color: var(--terracotta) !important;
+}
+
+.yucca-home .retro-happy__card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  border-color: var(--forest) !important;
+  box-shadow: 3px 4px 0 0 var(--forest) !important;
+}
+
+.yucca-home .retro-happy__chip--after {
+  background: color-mix(in oklch, var(--dune) 45%, var(--sand)) !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-happy__chip--before {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+.yucca-home .retro-happy__reviews-card {
+  background: var(--forest) !important;
+  border-color: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+/* Treatments (goal) — no terracotta wash / no pure white */
+.yucca-home .goal-treatments-section,
+.goal-treatments-section {
+  background:
+    radial-gradient(ellipse at 12% -5%, color-mix(in oklch, var(--dune) 40%, transparent) 0%, transparent 48%),
+    radial-gradient(ellipse at 88% 100%, color-mix(in oklch, var(--dune) 28%, transparent) 0%, transparent 45%),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 28%, var(--sand)) 0%,
+      color-mix(in oklch, var(--dune) 48%, var(--sand)) 100%
+    ) !important;
+}
+
+.yucca-home .goal-tablist,
+.goal-tablist,
+.yucca-home .goal-product-card,
+.goal-product-card,
+.yucca-home .goal-product-cta--ghost,
+.goal-product-cta--ghost {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  color: var(--forest) !important;
+  border-color: var(--forest) !important;
+}
+
+.yucca-home .goal-tablist button[aria-selected='true'],
+.goal-tablist button[aria-selected='true'],
+.yucca-home .goal-tablist button[data-active='true'],
+.goal-tablist button[data-active='true'] {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+.yucca-home .goal-product-cta:not(.goal-product-cta--ghost),
+.goal-product-cta:not(.goal-product-cta--ghost) {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--forest) !important;
+}
+
+.yucca-home .retro-home-treatments-card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+}
+
+/* HIW cards on home */
+.yucca-home .pax-hiw__card,
+.yucca-home .goal-hiw-card,
+.pax-hiw__card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  color: var(--forest) !important;
+}
+
+/* Doctors band */
+.yucca-home .retro-home-doctors {
+  background: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-home-doctor-card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  border-color: var(--forest) !important;
+  color: var(--forest) !important;
+}
+
+/* Why / FAQ / closing */
+.yucca-home .retro-home-why,
+.yucca-home .pax-why,
+.yucca-home .retro-faqs,
+.yucca-home .retro-home-closing,
+.yucca-home .retro-home-statband {
+  background-color: var(--sand) !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-faqs__item {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+  border-color: var(--forest) !important;
+  box-shadow: 4px 5px 0 0 var(--forest) !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .pax-why__card--light,
+.yucca-home .retro-home-why-card {
+  background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
+}
+
+.yucca-home .retro-home-closing-cta,
+.yucca-home .retro-home-reviews-cta,
+.yucca-home .retro-home-treatments-cta {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--forest) !important;
+}
+
+/* Trustpilot / badge blacks → forest */
+.yucca-home .tp-badge--light,
+.yucca-home .tp-badge--light .tp-badge__meta,
+.yucca-home .tp-badge--light .tp-badge__meta-strong {
+  color: var(--forest) !important;
+}
+
+.yucca-home .tp-badge--dark,
+.yucca-home .tp-badge--dark .tp-badge__meta-strong {
+  color: var(--sand) !important;
+}
+
+.yucca-home .tp-badge--dark .tp-badge__meta {
+  color: color-mix(in oklch, var(--sand) 78%, transparent) !important;
+}
+
+/* Footer on home */
+.yucca-home .retro-footer-wrap,
+.yucca-home footer {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+}
