@@ -712,7 +712,7 @@ export default function StartFlow({ onComplete }) {
                   className={`sf-plan ${planId === p.id ? 'active' : ''}`}
                   onClick={() => setPlanId(p.id)}
                 >
-                  {p.popular && <span className="sf-plan__tag">Most popular</span>}
+                  {p.popular && <span className="sf-plan__tag">3-month</span>}
                   <h2>{p.label}</h2>
                   <p className="sf-plan__price">
                     <strong>${p.perMonth}</strong>

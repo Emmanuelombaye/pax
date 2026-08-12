@@ -1,81 +1,19 @@
-import { ADVISOR_PILLARS, ADVISORS } from './advisorsData.js';
+import { ADVISOR_PILLARS } from './advisorsData.js';
 
+/** Providers page — clinical process only (no fabricated named clinicians). */
 export default function AdvisorsPage({ openStart }) {
-  const featured = ADVISORS.find((a) => a.featured) || ADVISORS[0];
-  const others = ADVISORS.filter((a) => a.id !== featured.id);
-
   return (
     <div className="pax-advisors fade-in">
       <section className="pax-advisors__hero">
         <div className="pax-advisors__shell">
-          <p className="pax-advisors__eyebrow">Medical direction</p>
+          <p className="pax-advisors__eyebrow">Clinical care</p>
           <h1 className="pax-advisors__title">
-            Guided by pioneering <em>clinical minds</em>
+            Licensed clinicians, <em>patient-first</em> standards
           </h1>
           <p className="pax-advisors__sub">
-            Semaglutide and Tirzepatide protocols shaped with licensed oversight — clear criteria,
-            careful review, and care that stays accountable after day one.
+            Pax Longevity connects eligible adults with licensed U.S. providers who review your intake
+            before any prescription decision. Completing a questionnaire does not guarantee treatment.
           </p>
-        </div>
-      </section>
-
-      <section className="pax-advisors__board" aria-labelledby="pax-advisors-board-title">
-        <div className="pax-advisors__shell">
-          <div className="pax-advisors__board-head">
-            <h2 id="pax-advisors-board-title">
-              Clinical <em>advisory board</em>
-            </h2>
-            <p>Real providers. Real standards. No template medicine.</p>
-          </div>
-
-          <div className="pax-advisors__stage">
-            <article className="pax-advisor-lead">
-              <div className="pax-advisor-lead__media">
-                <img src={featured.img} alt={featured.name} loading="eager" decoding="async" />
-                <span className="pax-advisor-lead__badge">Lead advisor</span>
-              </div>
-              <div className="pax-advisor-lead__copy">
-                <p className="pax-advisor-lead__role">{featured.role}</p>
-                <h3>
-                  {featured.name},{' '}
-                  <em>{featured.credentials}</em>
-                </h3>
-                <p className="pax-advisor-lead__bio">{featured.bio}</p>
-                <ul className="pax-advisor-lead__focus">
-                  {featured.focus.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-
-            <div className="pax-advisors__grid">
-              {others.map((advisor, i) => (
-                <article
-                  key={advisor.id}
-                  className="pax-advisor-card"
-                  style={{ '--i': i }}
-                >
-                  <div className="pax-advisor-card__media">
-                    <img src={advisor.img} alt={advisor.name} loading="lazy" decoding="async" />
-                  </div>
-                  <div className="pax-advisor-card__body">
-                    <p className="pax-advisor-card__role">{advisor.role}</p>
-                    <h3>
-                      {advisor.name},{' '}
-                      <em>{advisor.credentials}</em>
-                    </h3>
-                    <p>{advisor.bio}</p>
-                    <ul>
-                      {advisor.focus.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -84,8 +22,13 @@ export default function AdvisorsPage({ openStart }) {
           <div className="pax-advisors__pillars-head">
             <p className="pax-advisors__eyebrow">How oversight works</p>
             <h2 id="pax-advisors-pillars-title">
-              Strict medical safety — <em>built in</em>
+              Medical safety — <em>built in</em>
             </h2>
+            <p>
+              Clinician identities, credentials, and state licensure are confirmed inside the secure
+              clinical workflow during evaluation. Named profiles will appear here as the provider
+              network is published for each state and program.
+            </p>
           </div>
 
           <ol className="pax-advisors__pillar-list">
@@ -103,7 +46,7 @@ export default function AdvisorsPage({ openStart }) {
           <div className="pax-advisors__cta">
             <div className="pax-advisors__cta-copy">
               <h2>Ready for provider-led care?</h2>
-              <p>Complete your intake. A licensed provider reviews within 24 hours.</p>
+              <p>Complete your intake. A licensed provider reviews within 24 hours when available.</p>
             </div>
             <div className="pax-advisors__cta-actions">
               <button type="button" className="pax-advisors__btn" onClick={openStart}>

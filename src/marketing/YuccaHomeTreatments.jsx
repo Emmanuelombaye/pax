@@ -8,7 +8,7 @@ const TREATMENTS = [
     label: 'Semaglutide',
     tone: 'var(--forest)',
     toneSoft: 'color-mix(in oklch, var(--forest) 18%, transparent)',
-    badge: 'Most Popular',
+    badge: 'GLP-1',
     badgeTone: 'var(--terracotta)',
     badgeSoft: 'color-mix(in oklch, var(--terracotta) 18%, transparent)',
     title: 'Personalized Semaglutide',

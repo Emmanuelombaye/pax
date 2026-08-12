@@ -92,8 +92,8 @@ export const HOW_WHY = [
       src: `${HIW}/pax-why-science-results.png?v=pax3`,
       alt: 'Patient on a Pax Longevity weight loss journey',
     },
-    title: 'Science-backed Results',
-    body: 'Clinically guided weekly protocols designed for appetite regulation and durable metabolic support.',
+    title: 'Clinically Guided Care',
+    body: 'Clinically guided weekly protocols designed for appetite regulation support under licensed oversight.',
   },
 ];
 

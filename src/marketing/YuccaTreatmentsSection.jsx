@@ -101,7 +101,7 @@ export default function YuccaTreatmentsSection({
             <div className="yxr-rtt__tags">
               <div className="yxr-rtt__tag-group">
                 <span className={`yxr-rtt__chip yxr-rtt__chip--tone`}>{goal.label}</span>
-                <span className="yxr-rtt__chip yxr-rtt__chip--seller">Best Seller</span>
+                <span className="yxr-rtt__chip yxr-rtt__chip--seller">Provider-guided</span>
               </div>
             </div>
 

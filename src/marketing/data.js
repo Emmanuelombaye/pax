@@ -125,7 +125,7 @@ const HOME_PROGRAMS = [
     id: 'semaglutide',
     title: 'Semaglutide',
     blurb: 'Weekly GLP-1 for steady appetite and weight support',
-    badge: 'Most popular',
+    badge: 'GLP-1',
     tone: 'amber',
     image: MARKETING_IMAGES.cards.glpPen,
     href: '#/start?treatment=semaglutide',
@@ -146,19 +146,6 @@ const HOME_CHIPS = [
   { label: 'Tirzepatide', href: '#/start?treatment=tirzepatide' },
   { label: 'Weight Loss Treatments', href: '#/treatments/weight-loss' },
   { label: 'See if I qualify', href: '#/start' },
-];
-
-const HOME_DOCTORS = [
-  {
-    name: 'Dr. Mark Hamilton, MD',
-    bio: 'Specialist in GLP-1 weight management and metabolic optimization.',
-    image: MARKETING_IMAGES.cards.doctorMale,
-  },
-  {
-    name: 'Dr. Sarah Jenkins, MD',
-    bio: 'Expert in advanced endocrinology, GLP-1 weight management, and metabolic health.',
-    image: MARKETING_IMAGES.cards.doctorFemale,
-  },
 ];
 
 const THREAT_DOMAINS = [
@@ -212,7 +199,6 @@ export {
   HERO_SLIDES,
   HOME_PROGRAMS,
   HOME_CHIPS,
-  HOME_DOCTORS,
   THREAT_DOMAINS,
   ROUTE_TABS,
 };

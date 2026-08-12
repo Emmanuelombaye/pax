@@ -65,8 +65,8 @@ const TABS = [
     card: 'wl',
     tabImg: `${IMG}/Weight-Loss-Image-from-TinyPNG.avif`,
     cardTitle: 'Personalized GLP‑1 Injections',
-    priceBadge: `${IMG}/lowest-price-ever-badge-6-mo.png`,
-    priceAlt: 'From $125 per month on a 6 month plan',
+    priceFrom: '$125',
+    priceAlt: 'From $125 per month on a 6-month plan — charged only if prescribed',
     chip: 'Provider-guided',
     chipClass: 'bg-pax-chip text-white',
     blurb:
@@ -168,7 +168,7 @@ const WL_EXPECT = {
     },
     {
       tag: 'Week 4 → 12 · The protocol starts to settle',
-      text: 'This is when most patients begin to feel the treatment working more consistently. The signals that drove constant hunger — the food noise, the cravings — start to quiet. Fullness arrives earlier and stays longer. Your dose may be reviewed and adjusted based on how your body is responding.',
+      text: 'As titration continues, your provider monitors how you respond. Appetite signals and dosing may be adjusted based on your individual course — experiences vary, and treatment is not guaranteed to produce a specific outcome.',
       img: `${IMG}/GLP1-Retro/expect-week-4-12.avif`,
     },
     {
@@ -190,7 +190,7 @@ const NAD_EXPECT = {
     },
     {
       tag: 'Week 4 → 12 · Cellular energy builds',
-      text: 'This is when most patients begin to feel the protocol working more consistently. Energy holds steadier through the day. Recovery comes back faster. Focus stays sharper for longer. Your dose may be reviewed and adjusted based on how your body is responding.',
+      text: 'As titration continues, your provider monitors how you respond. Energy, recovery, and dosing may be adjusted based on your individual course — experiences vary, and treatment is not guaranteed to produce a specific outcome.',
       img: `${IMG}/exp-hiw-lon-week-2.avif`,
     },
     {
@@ -308,14 +308,10 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
             <h2 className="explore-hero-card-title mx-auto m-0 text-center text-[1.75rem] tablet:text-[2.5rem] desktop:text-[2.625rem] leading-[1] tracking-[-0.04em] font-medium max-w-[15ch]">
               {pane.cardTitle}
             </h2>
-            <img
-              src={pane.priceBadge}
-              alt={pane.priceAlt}
-              className="explore-hero-card-price-badge"
-              width="613"
-              height="615"
-              loading="lazy"
-            />
+            <div className="explore-hero-card-price explore-hero-card-price--text" aria-label={pane.priceAlt}>
+              <span className="explore-hero-card-price-main">FROM {pane.priceFrom}</span>
+              <span className="explore-hero-card-price-sub">/mo · 6-month plan</span>
+            </div>
             <div className="explore-hero-card-footer flex items-center justify-between gap-3">
               <div>Licensed U.S. provider review required</div>
               <div className="flex items-center gap-1.5">
@@ -377,13 +373,13 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
 
               <div
                 className="explore-hero-guarantee relative pt-5"
-                aria-label="Guarantee badge — provider-guided care from U.S. licensed pharmacies."
+                aria-label="Care commitment — provider-guided care from U.S. licensed pharmacies."
               >
                 <div className="explore-hero-guarantee-card rounded-2xl bg-neutral-200 px-3 pt-8 pb-4 text-center text-xs leading-[1.5] tracking-[-0.01em] text-neutral-900">
                   <div className="explore-hero-guarantee-heading" aria-hidden="true">
                     <img src="/brand/pax-horizontal.svg?v=2" alt="Pax Longevity" loading="lazy" className="explore-hero-guarantee-logo" />
                     <span className="explore-hero-guarantee-rule" />
-                    <span className="explore-hero-guarantee-word">Guarantee</span>
+                    <span className="explore-hero-guarantee-word">Commitment</span>
                   </div>
                   <p>
                     Provider-guided care, medications from U.S. licensed pharmacies, and only charged if treatment is
@@ -395,20 +391,14 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
 
             <div className="explore-hero-divider mb-9 hidden h-px w-full bg-[#eee] tablet:block" />
 
-            <div className="explore-hero-pricing mb-6 grid grid-cols-1 gap-3 text-center tablet:mb-0 explore-hero-pricing--badge-only">
-              <div className="explore-hero-price-row flex items-center justify-between explore-hero-price-row--badge-only">
+            <div className="explore-hero-pricing mb-6 grid grid-cols-1 gap-3 text-center tablet:mb-0">
+              <div className="explore-hero-price-row flex items-center justify-between">
                 <div className="explore-hero-price-label text-sm tracking-[-0.01em] text-neutral-900/40">
                   Starting as low as:
                 </div>
-                <div className="explore-hero-price flex items-baseline gap-2 text-neutral-900 explore-hero-price--badge-only">
-                  <img
-                    src={pane.priceBadge}
-                    alt={pane.priceAlt}
-                    className="explore-hero-price-badge"
-                    width="613"
-                    height="615"
-                    loading="lazy"
-                  />
+                <div className="explore-hero-price flex items-baseline gap-2 text-neutral-900">
+                  <span className="text-2xl font-medium tracking-tight">{pane.priceFrom}</span>
+                  <span className="text-sm text-neutral-900/50">/mo on 6-month plan</span>
                 </div>
               </div>
               <button
@@ -688,7 +678,7 @@ function KnowallSection({ variant, faqs, vialSrc, onCta }) {
         <div className="retro-knowall__left">
           {isWl ? <p className="pax-knowall__eyebrow">Before you begin</p> : null}
           <h2 id={`retro-knowall-heading-${variant}`} className="retro-knowall__heading">
-            What most patients want to know before they begin.
+            Common questions before you begin.
           </h2>
           <img className={vialClass} src={vialSrc} alt="" loading="lazy" />
         </div>
@@ -812,7 +802,7 @@ export function WhySection() {
       n: '03',
       title: (
         <>
-          Science-backed <em>GLP-1</em>
+          Clinically guided <em>GLP-1</em>
         </>
       ),
       body: 'Weekly protocols guided by licensed clinicians for appetite regulation support — not guaranteed outcomes.',
