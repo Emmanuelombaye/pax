@@ -10,7 +10,8 @@ export default defineConfig({
   },
   build: {
     target: 'es2020',
-    cssMinify: true,
+    // Scraped Yucca CSS embeds CSS functions in class selectors; lightningcss minify rejects them.
+    cssMinify: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
