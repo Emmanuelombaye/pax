@@ -267,3 +267,76 @@
   background: var(--forest) !important;
   color: var(--sand) !important;
 }
+
+/* Provider process (replaces fake doctor cards) */
+.pax-home-providers__lede {
+  max-width: 40rem;
+  margin: 1rem auto 0;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: color-mix(in oklch, var(--forest) 78%, transparent);
+}
+
+.pax-home-providers__pillars {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem auto 0;
+  max-width: 64rem;
+  padding: 0 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .pax-home-providers__pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pax-home-providers__card {
+  border: 1.5px solid var(--forest);
+  border-radius: 1rem;
+  background: color-mix(in oklch, var(--dune) 28%, var(--sand));
+  padding: 1.25rem 1.35rem;
+  color: var(--forest);
+}
+
+.pax-home-providers__n {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 0.5rem;
+}
+
+.pax-home-providers__card h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.pax-home-providers__card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.88;
+}
+
+.pax-home-providers__link-wrap {
+  text-align: center;
+  margin: 1.5rem 0 0;
+}
+
+.pax-home-providers__link {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.95rem;
+}
+
+.goal-cutouts-stat {
+  display: none !important;
+}
+

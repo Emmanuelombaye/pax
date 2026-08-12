@@ -15,9 +15,8 @@ export const TREATMENT_INCLUDES = [
 export const GLP_PRODUCT = {
   title: 'Personalized GLP-1 Injections',
   blurb:
-    'A weekly injection designed to support appetite control, metabolic balance, and long-term weight management through GLP-1 pathway activation — prescribed only when medically appropriate.',
-  socialProof: '1,000+ started in the past week',
-  badges: ['Most popular', 'In stock'],
+    'A weekly injection that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when medically appropriate.',
+  badges: ['Provider-guided', 'In stock'],
   image: '/images/cards/pax-yucca-vials.png',
   finePrint:
     'Provider-guided care from U.S. licensed pharmacies. Charged only if prescribed — change or cancel anytime.',
@@ -135,47 +134,119 @@ export function resolveTreatmentId(raw) {
   return TREATMENTS.some((t) => t.id === value) ? value : '';
 }
 
-export const INTAKE_STEPS = [
-  {
-    id: 'goal',
-    question: 'What is your primary health goal?',
-    type: 'choice',
-    options: [
-      { value: 'lose-weight', label: 'Lose weight & curb appetite' },
-      { value: 'energy', label: 'More energy & cellular vitality' },
-      { value: 'recovery', label: 'Better recovery, sleep & muscle support' },
-      { value: 'metabolic', label: 'Improve metabolic health markers' },
-    ],
-  },
-  {
-    id: 'bmi',
-    question: 'Tell us a bit about your body metrics',
-    type: 'metrics',
-  },
-  {
-    id: 'conditions',
-    question: 'Do any of these apply to you?',
-    type: 'choice',
-    options: [
-      { value: 'none', label: 'None of these' },
-      { value: 'diabetes', label: 'Type 2 diabetes' },
-      { value: 'hypertension', label: 'High blood pressure' },
-      { value: 'cholesterol', label: 'High cholesterol' },
-      { value: 'other', label: 'Another related condition' },
-    ],
-  },
-  {
-    id: 'meds',
-    question: 'Are you currently taking any related medications or peptides?',
-    type: 'choice',
-    options: [
-      { value: 'no', label: 'No — starting fresh' },
-      { value: 'yes-sema', label: 'Yes — Semaglutide / Wegovy / Ozempic' },
-      { value: 'yes-tirz', label: 'Yes — Tirzepatide / Zepbound / Mounjaro' },
-      { value: 'yes-other', label: 'Yes — another related medication' },
-    ],
-  },
+import QUESTIONNAIRE from './questionnaire.json';
+
+/** LegitScript-oriented clinical intake phases (mock provider review). */
+export const INTAKE_PHASES = [
+  { id: 'metrics', title: 'Body metrics', eyebrow: 'Clinical intake' },
+  { id: 'screening', title: 'Medical screening', eyebrow: 'Clinical intake' },
+  { id: 'patient', title: 'Patient information', eyebrow: 'Clinical intake' },
+  { id: 'shipping', title: 'Shipping address', eyebrow: 'Clinical intake' },
+  { id: 'consent', title: 'Agreements & consent', eyebrow: 'Clinical intake' },
 ];
+
+/** Kept for any legacy imports — prefer INTAKE_PHASES + QUESTIONNAIRE. */
+export const INTAKE_STEPS = INTAKE_PHASES;
+
+export { QUESTIONNAIRE };
+
+const METRICS_IDS = new Set(['weight', 'height', 'gender', 'dob']);
+
+export const US_STATES = [
+  { value: 'AL', label: 'Alabama' }, { value: 'AK', label: 'Alaska' }, { value: 'AZ', label: 'Arizona' },
+  { value: 'AR', label: 'Arkansas' }, { value: 'CA', label: 'California' }, { value: 'CO', label: 'Colorado' },
+  { value: 'CT', label: 'Connecticut' }, { value: 'DE', label: 'Delaware' }, { value: 'FL', label: 'Florida' },
+  { value: 'GA', label: 'Georgia' }, { value: 'HI', label: 'Hawaii' }, { value: 'ID', label: 'Idaho' },
+  { value: 'IL', label: 'Illinois' }, { value: 'IN', label: 'Indiana' }, { value: 'IA', label: 'Iowa' },
+  { value: 'KS', label: 'Kansas' }, { value: 'KY', label: 'Kentucky' }, { value: 'LA', label: 'Louisiana' },
+  { value: 'ME', label: 'Maine' }, { value: 'MD', label: 'Maryland' }, { value: 'MA', label: 'Massachusetts' },
+  { value: 'MI', label: 'Michigan' }, { value: 'MN', label: 'Minnesota' }, { value: 'MS', label: 'Mississippi' },
+  { value: 'MO', label: 'Missouri' }, { value: 'MT', label: 'Montana' }, { value: 'NE', label: 'Nebraska' },
+  { value: 'NV', label: 'Nevada' }, { value: 'NH', label: 'New Hampshire' }, { value: 'NJ', label: 'New Jersey' },
+  { value: 'NM', label: 'New Mexico' }, { value: 'NY', label: 'New York' }, { value: 'NC', label: 'North Carolina' },
+  { value: 'ND', label: 'North Dakota' }, { value: 'OH', label: 'Ohio' }, { value: 'OK', label: 'Oklahoma' },
+  { value: 'OR', label: 'Oregon' }, { value: 'PA', label: 'Pennsylvania' }, { value: 'RI', label: 'Rhode Island' },
+  { value: 'SC', label: 'South Carolina' }, { value: 'SD', label: 'South Dakota' }, { value: 'TN', label: 'Tennessee' },
+  { value: 'TX', label: 'Texas' }, { value: 'UT', label: 'Utah' }, { value: 'VT', label: 'Vermont' },
+  { value: 'VA', label: 'Virginia' }, { value: 'WA', label: 'Washington' }, { value: 'WV', label: 'West Virginia' },
+  { value: 'WI', label: 'Wisconsin' }, { value: 'WY', label: 'Wyoming' },
+];
+
+export function emptyIntake() {
+  return {
+    answers: {},
+    height: '',
+    weight: '',
+    sexAtBirth: '',
+    dob: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zip: '',
+    consentTelehealth: false,
+    consentReview: false,
+  };
+}
+
+function answerForCondition(condition, intake) {
+  if (!condition) return '';
+  if (condition.question_id === 'gender') return intake.sexAtBirth || '';
+  return intake.answers?.[condition.question_id] || '';
+}
+
+export function getActiveScreeningQuestions(intake) {
+  return QUESTIONNAIRE.filter((q) => {
+    if (METRICS_IDS.has(q.id)) return false;
+    if (!q.condition) return true;
+    const related = answerForCondition(q.condition, intake);
+    return String(related).toLowerCase() === String(q.condition.value).toLowerCase();
+  });
+}
+
+export function questionIsDisqualified(q, answer) {
+  if (!q?.disqualifier) return false;
+  return String(answer || '').toLowerCase() === String(q.disqualifier_value || '').toLowerCase();
+}
+
+export function screeningHasDisqualifier(intake) {
+  return getActiveScreeningQuestions(intake).some((q) =>
+    questionIsDisqualified(q, intake.answers?.[q.id]),
+  );
+}
+
+export function isScreeningComplete(intake) {
+  const questions = getActiveScreeningQuestions(intake);
+  const answered = questions.every((q) => {
+    if (!q.required) return true;
+    const ans = intake.answers?.[q.id];
+    return ans != null && String(ans).trim().length > 0;
+  });
+  return answered && !screeningHasDisqualifier(intake);
+}
+
+export function isValidAdultDob(val) {
+  if (!val) return false;
+  const birthDate = new Date(val);
+  if (Number.isNaN(birthDate.getTime())) return false;
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age -= 1;
+  return age >= 18 && age <= 120;
+}
+
+export function isValidZip(val) {
+  return /^\d{5}(-\d{4})?$/.test(String(val || '').trim());
+}
+
+export function isValidEmail(val) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(val || '').trim());
+}
+
+export function isValidPhone(val) {
+  return String(val || '').replace(/\D/g, '').length >= 10;
+}
 
 export const TRUST_POINTS = [
   'U.S. licensed providers',

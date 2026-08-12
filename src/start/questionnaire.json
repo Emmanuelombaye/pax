@@ -1,0 +1,114 @@
+[
+  {
+    "id": "weight",
+    "question": "What is your current weight (in lbs)?",
+    "type": "number",
+    "required": true
+  },
+  {
+    "id": "height",
+    "question": "What is your height? (e.g. 5ft 10in)",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "gender",
+    "question": "What is your biological sex?",
+    "type": "select",
+    "options": ["Male", "Female", "Other"],
+    "required": true
+  },
+  {
+    "id": "pregnant_breastfeeding",
+    "question": "Are you currently pregnant or breastfeeding?",
+    "type": "boolean",
+    "required": true,
+    "condition": { "question_id": "gender", "value": "Female" },
+    "disqualifier": true,
+    "disqualifier_value": "yes"
+  },
+  {
+    "id": "allergies",
+    "question": "Please list all allergies (medications, over-the-counter medications, latex, food dyes). Include the reaction you had. If none, type \"none\".",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "medical_conditions",
+    "question": "Please list all medical conditions and diseases you have been diagnosed with.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "kidney_liver",
+    "question": "Do you have any problems with your kidney or liver?",
+    "type": "boolean",
+    "required": true
+  },
+  {
+    "id": "kidney_liver_details",
+    "question": "Please describe your kidney or liver condition.",
+    "type": "text",
+    "required": true,
+    "condition": { "question_id": "kidney_liver", "value": "yes" }
+  },
+  {
+    "id": "current_medications",
+    "question": "List all medications you currently take (prescribed and over-the-counter) and the dosage for each.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "supplements",
+    "question": "List all supplements you currently take (including NAD+ oral or IV).",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "smoker",
+    "question": "Do you smoke?",
+    "type": "boolean",
+    "required": true
+  },
+  {
+    "id": "glp1_men_syndrome",
+    "question": "Do you have, or has someone in your immediate family had a history of Multiple Endocrine Neoplasia Syndrome (MEN), MTC, or other thyroid cancers?",
+    "type": "boolean",
+    "required": true,
+    "disqualifier": true,
+    "disqualifier_value": "yes"
+  },
+  {
+    "id": "glp1_thyroid_tumors",
+    "question": "Have you ever been diagnosed with thyroid tumors?",
+    "type": "boolean",
+    "required": true,
+    "disqualifier": true,
+    "disqualifier_value": "yes"
+  },
+  {
+    "id": "glp1_gastroparesis",
+    "question": "Have you been diagnosed with gastroparesis now or in the past?",
+    "type": "boolean",
+    "required": true
+  },
+  {
+    "id": "glp1_gallbladder",
+    "question": "Do you have any gallbladder, pancreatic, or liver problems?",
+    "type": "boolean",
+    "required": true
+  },
+  {
+    "id": "glp1_symptoms",
+    "question": "Are you currently experiencing any of the following that are NOT normal for you: nausea, vomiting, or constipation?",
+    "type": "boolean",
+    "required": true
+  },
+  {
+    "id": "glp1_symptoms_details",
+    "question": "Please describe the symptoms you are experiencing.",
+    "type": "text",
+    "required": true,
+    "condition": { "question_id": "glp1_symptoms", "value": "yes" }
+  }
+]

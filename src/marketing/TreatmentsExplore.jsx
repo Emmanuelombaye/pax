@@ -57,49 +57,6 @@ const PROTOCOL_ICON_LINES = (
   </svg>
 );
 
-const STAR = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M12 2l3 7 7 .6-5.4 4.6 1.8 7-7.4-4.4-7.4 4.4 1.8-7L1 9.6 8 9z" />
-  </svg>
-);
-
-const PILL_CHECK = (
-  <svg className="retro-happy__pill-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path
-      d="M10 2.25L3.5 4.5v5.25c0 3.75 2.6 7.05 6.5 8.25 3.9-1.2 6.5-4.5 6.5-8.25V4.5L10 2.25z"
-      stroke="#ffffff"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M7 10.25l2.25 2.25L13.5 8"
-      stroke="#ffffff"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const METRIC_ARROW = (
-  <svg className="retro-happy__metric-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-    <path
-      d="M7.5 1.5v12M2.5 8.5l5 5 5-5"
-      stroke="var(--forest)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const SHIELD = (
-  <svg className="retro-home-reviews-card-shield" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M10 1.8l6.4 2.3v4.2c0 3.9-2.7 7.2-6.4 8.4-3.7-1.2-6.4-4.5-6.4-8.4V4.1L10 1.8z" fill="#c6c9cc" />
-    <path d="M6.8 9.9l2.1 2.1 4.3-4.5" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 const TABS = [
   {
     id: 'weight-loss',
@@ -109,35 +66,25 @@ const TABS = [
     tabImg: `${IMG}/Weight-Loss-Image-from-TinyPNG.avif`,
     cardTitle: 'Personalized GLP‑1 Injections',
     priceBadge: `${IMG}/lowest-price-ever-badge-6-mo.png`,
-    priceAlt: 'Exclusive $125 per month lowest price ever, 6 month plan',
-    proof: '1000+',
-    chip: 'Most Popular',
+    priceAlt: 'From $125 per month on a 6 month plan',
+    chip: 'Provider-guided',
     chipClass: 'bg-pax-chip text-white',
     blurb:
-      'A weekly treatment designed to support appetite suppression, metabolic optimization, and long-term weight management through GLP-1 receptor activation.',
+      'A weekly treatment that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when a licensed provider determines it is appropriate.',
     products: [
       {
         id: 'semaglutide',
         name: 'GLP-1 (Semaglutide)',
-        desc: 'Gradual, effective results.',
+        desc: 'Weekly GLP-1 pathway support.',
         thumb: `${IMG}/expt-wl-sema.jpg`,
       },
       {
         id: 'tirzepatide',
         name: 'GLP-1 + GIP (Tirzepatide)',
-        desc: 'Faster Results. Dual-action support.',
+        desc: 'Dual-pathway weekly support.',
         thumb: `${IMG}/expt-wl-tirz.jpg`,
       },
     ],
-    results: [
-      { name: 'Lisa C.', lbs: 75, time: 'in 10 Months', image: `${IMG}/Lisa-C.-p-800.avif`, verified: 'Verified GLP-1 Patient' },
-      { name: 'Blaze B.', lbs: 50, time: 'in 6 Months', image: `${IMG}/Blaze-B.-p-800.avif`, verified: 'Verified GLP-1 Patient' },
-      { name: 'Crystal G.', lbs: 50, time: 'in 6 Months', image: `${IMG}/Crystal-G.-p-800.avif`, verified: 'Verified GLP-1 Patient' },
-      { name: 'JamiLyn O.', lbs: 36, time: 'in 14 Weeks', image: `${IMG}/Jamilyn-C.-p-800.avif`, verified: 'Verified GLP-1 Patient' },
-      { name: 'Kim B.', lbs: 8, time: 'in 6 Weeks', image: `${IMG}/Kim-B.-p-800.avif`, verified: 'Verified GLP-1 Patient' },
-    ],
-    resultMode: 'metric',
-    happyClass: '',
   },
 ];
 
@@ -349,85 +296,6 @@ const SER_FAQS = [
   },
 ];
 
-const REVIEWS = [
-  {
-    cat: 'results',
-    title: 'I switched to Pax Longevity about a year ago and they have helped me so much.',
-    body: "Hazel has gone above and beyond for me with all her help. I'm down 100lbs total this year and was able to get my life back.",
-    name: 'Susan',
-    result: '−100 lbs',
-  },
-  {
-    cat: 'results',
-    title: "I've lost over 100 pounds so far and am continuing on the program with strong results and support.",
-    body: "I've been on a GLP-1 program through Pax Longevity for about a year now, and my experience has been genuinely life-changing. I've already referred several people because of how positive my experience has been.",
-    name: 'Benjamin N.',
-    result: '−100 lbs',
-  },
-  {
-    cat: 'results',
-    title: "I've lost 25 pounds in three months and I'm feeling great.",
-    body: "I ordered another three months and am looking forward to more results. I tried the three-month supply thinking it might not work for me — and it did.",
-    name: 'Rosemary R.',
-    result: '−25 lbs',
-  },
-  {
-    cat: 'results',
-    title: "I've lost 42 pounds with no side effects so far.",
-    body: 'I just ordered my next treatment. They have beyond great customer service, and are always very attentive.',
-    name: 'Tonya V.',
-    result: '−42 lbs',
-  },
-  {
-    cat: 'support',
-    title: 'The care team actually answers — and follows up.',
-    body: 'Whenever I had a dosing question, someone got back to me the same day. It feels like a real clinic, not a checkout page that disappears after you pay.',
-    name: 'Maya L.',
-    result: 'Same-day replies',
-  },
-  {
-    cat: 'support',
-    title: 'Support that stayed with me past week one.',
-    body: 'I was nervous starting Semaglutide. My care team checked in, explained what was normal, and helped me stay consistent without pressure.',
-    name: 'Chris P.',
-    result: 'Guided onboarding',
-  },
-  {
-    cat: 'process',
-    title: 'Intake was clear. Provider review was fast.',
-    body: 'The questionnaire took a few minutes, identity check was straightforward, and I had a decision within a day. No surprise calls or runaround.',
-    name: 'Elena R.',
-    result: 'Under 24 hrs',
-  },
-  {
-    cat: 'process',
-    title: 'From approval to delivery felt organized.',
-    body: 'Once prescribed, shipping was discreet and on time. The patient portal made it easy to see my plan, next shipment, and who to message.',
-    name: 'Jordan K.',
-    result: 'Doorstep delivery',
-  },
-];
-
-function Stars({ className = '', count = 5 }) {
-  return (
-    <div className={className} aria-hidden="true">
-      {Array.from({ length: count }, (_, i) => (
-        <span key={i}>{STAR}</span>
-      ))}
-    </div>
-  );
-}
-
-function reviewInitials(name) {
-  const parts = String(name || '')
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean);
-  if (!parts.length) return 'P';
-  if (parts.length === 1) return parts[0].slice(0, 1).toUpperCase();
-  return `${parts[0].slice(0, 1)}${parts[parts.length - 1].slice(0, 1)}`.toUpperCase();
-}
-
 function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
   return (
     <section className="explore-hero-section bg-white pb-10">
@@ -449,9 +317,7 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
               loading="lazy"
             />
             <div className="explore-hero-card-footer flex items-center justify-between gap-3">
-              <div>
-                <strong className="font-medium">{pane.proof}</strong> bought in past week
-              </div>
+              <div>Licensed U.S. provider review required</div>
               <div className="flex items-center gap-1.5">
                 <span
                   className={`explore-hero-chip inline-flex items-center justify-center rounded-full text-xs font-medium leading-none tracking-tight px-1.5 py-1 whitespace-nowrap ${pane.chipClass}`}
@@ -460,7 +326,7 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
                 </span>
                 <span className="explore-hero-stock inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-xs font-medium leading-none tracking-tight whitespace-nowrap">
                   <span className="explore-stock-dot block w-1.5 h-1.5 rounded-full" />
-                  In Stock
+                  Available
                 </span>
               </div>
             </div>
@@ -554,68 +420,6 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HappyResults({ pane }) {
-  const cards = pane.results;
-  return (
-    <section className={`retro-happy${pane.happyClass}`} aria-label="Patient results">
-      <h2 className="retro-happy__heading">
-        Our <em className="retro-happy__heading-accent">patients&rsquo; incredible results</em>
-        <br />- built to last!
-      </h2>
-      <div className="retro-happy__marquee">
-        <div className="retro-happy__track" role="list">
-          {[0, 1].map((loop) => (
-            <ul key={loop} className="retro-happy__group" role="list">
-              {cards.map((r) => (
-                <li key={`${loop}-${r.name}`} className="retro-happy__card">
-                  {pane.resultMode === 'dual' ? (
-                    <div className="retro-happy__photos">
-                      <img className="retro-happy__photo" src={r.before} alt={`${r.name} — before`} loading="lazy" />
-                      <img className="retro-happy__photo" src={r.after} alt={`${r.name} — after`} loading="lazy" />
-                    </div>
-                  ) : pane.resultMode === 'composite' ? (
-                    <div className="retro-happy__photos">
-                      <span aria-hidden="true" className="retro-happy__composite-half">
-                        <img className="retro-happy__composite-photo retro-happy__composite-photo--before" src={r.image} alt="" loading="lazy" />
-                      </span>
-                      <span className="retro-happy__composite-half">
-                        <img className="retro-happy__composite-photo retro-happy__composite-photo--after" src={r.image} alt="" loading="lazy" />
-                      </span>
-                    </div>
-                  ) : (
-                    <img className="retro-happy__photo" src={r.image} alt="" loading="lazy" />
-                  )}
-                  <span className="retro-happy__chip retro-happy__chip--before">Before</span>
-                  <span className="retro-happy__chip retro-happy__chip--after">After</span>
-                  <div className="retro-happy__scrim" aria-hidden="true" />
-                  {pane.resultMode === 'metric' && (
-                    <div className="retro-happy__metric">
-                      <div className="retro-happy__metric-row">
-                        <span className="retro-happy__metric-label">Lost</span>
-                        {METRIC_ARROW}
-                      </div>
-                      <div className="retro-happy__metric-number">
-                        <span className="retro-happy__metric-lbs">{r.lbs}</span>
-                        <span className="retro-happy__metric-unit">lbs</span>
-                      </div>
-                      <div className="retro-happy__metric-time">{r.time}</div>
-                    </div>
-                  )}
-                  <div className="retro-happy__pill">
-                    <span className="retro-happy__pill-name">{r.name}</span>
-                    {PILL_CHECK}
-                    <span className="retro-happy__pill-verified">{r.verified}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ))}
         </div>
       </div>
     </section>
@@ -998,81 +802,6 @@ function KnowallSection({ variant, faqs, vialSrc, onCta }) {
   );
 }
 
-export function ReviewsSection({ onCta }) {
-  const [cat, setCat] = useState('results');
-  const visible = REVIEWS.filter((r) => r.cat === cat);
-
-  return (
-    <section className="retro-home-reviews pax-reviews" data-reviews-filter="">
-      <div className="retro-home-reviews-head pax-reviews__head">
-        <Stars className="retro-home-reviews-stars" />
-        <p className="retro-home-reviews-rating pax-reviews__rating">
-          <strong>4.7/5.0</strong>
-          <span aria-hidden="true"> · </span>
-          1000+ reviews
-          <span aria-hidden="true"> · </span>
-          20,000+ patients
-        </p>
-        <h2 className="retro-home-reviews-title">What people love about Pax Longevity</h2>
-      </div>
-
-      <div className="retro-home-reviews-filters pax-reviews__filters" role="group" aria-label="Filter reviews by topic">
-        {[
-          ['results', 'Product & Results'],
-          ['support', 'Patient Support'],
-          ['process', 'Process'],
-        ].map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            className="retro-home-reviews-pill pax-reviews__pill"
-            data-reviews-cat={id}
-            data-active={cat === id ? 'true' : 'false'}
-            aria-pressed={cat === id}
-            onClick={() => setCat(id)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-
-      <div className="retro-home-reviews-track pax-reviews__track" data-reviews-track="" aria-live="polite">
-        {(visible.length ? visible : REVIEWS).map((r) => (
-          <div key={`${r.cat}-${r.name}`} className="retro-home-reviews-slide pax-reviews__slide" data-cat={r.cat}>
-            <article className="retro-home-reviews-card pax-reviews__card">
-              <div className="pax-reviews__card-top">
-                <Stars className="retro-home-reviews-card-stars pax-reviews__card-stars" />
-                {r.result ? <span className="pax-reviews__chip">{r.result}</span> : null}
-              </div>
-              <h3 className="retro-home-reviews-card-title pax-reviews__quote">{r.title}</h3>
-              <p className="retro-home-reviews-card-body pax-reviews__body">{r.body}</p>
-              <div className="retro-home-reviews-card-foot pax-reviews__foot">
-                <span className="pax-reviews__avatar" aria-hidden="true">
-                  {reviewInitials(r.name)}
-                </span>
-                <div className="pax-reviews__identity">
-                  <span className="retro-home-reviews-card-name pax-reviews__name">{r.name}</span>
-                  <span className="retro-home-reviews-card-verified pax-reviews__verified">
-                    {SHIELD}
-                    Verified Patient
-                  </span>
-                </div>
-              </div>
-            </article>
-          </div>
-        ))}
-      </div>
-
-      <p className="retro-home-reviews-note pax-reviews__note">Individual patient experiences and results may vary.</p>
-      <div className="pax-reviews__cta-wrap">
-        <button type="button" className="retro-home-reviews-cta" onClick={onCta}>
-          See if I qualify
-        </button>
-      </div>
-    </section>
-  );
-}
-
 export function WhySection() {
   const pillars = [
     {
@@ -1116,22 +845,23 @@ export function WhySection() {
       body: 'Semaglutide or Tirzepatide — protocols tailored to your goals, history, and how your body responds.',
       tone: 'dune',
       media: (
-        <div className="pax-why__metric" aria-hidden="true">
-          <span className="pax-why__metric-value">−30.5</span>
-          <span className="pax-why__metric-unit">lbs journey marker</span>
-          <div className="pax-why__metric-bars">
-            <i style={{ '--h': '38%' }} />
-            <i style={{ '--h': '58%' }} />
-            <i style={{ '--h': '76%' }} />
-            <i style={{ '--h': '92%' }} />
-          </div>
-          <div className="pax-why__metric-axis">
-            <span>Wk 1</span>
-            <span>Wk 3</span>
-            <span>Wk 6</span>
-            <span>Mo 3</span>
-          </div>
-        </div>
+        <ul className="pax-why__checks">
+          {[
+            ['Medical intake', 'Clinical questionnaire first'],
+            ['Provider decision', 'Prescribe only if appropriate'],
+            ['Ongoing titration', 'Dose adjusted as needed'],
+          ].map(([label, hint]) => (
+            <li key={label}>
+              <span className="pax-why__check-mark" aria-hidden="true">
+                ✓
+              </span>
+              <span>
+                <strong>{label}</strong>
+                <small>{hint}</small>
+              </span>
+            </li>
+          ))}
+        </ul>
       ),
     },
     {
@@ -1142,7 +872,7 @@ export function WhySection() {
           Science-backed <em>GLP-1</em>
         </>
       ),
-      body: 'Clinically guided weekly protocols designed for appetite regulation and durable metabolic support.',
+      body: 'Weekly protocols guided by licensed clinicians for appetite regulation support — not guaranteed outcomes.',
       tone: 'light',
       media: (
         <div className="pax-why__media-frame">
@@ -1217,10 +947,10 @@ export function ClosingSection({ onCta }) {
           Semaglutide &amp; Tirzepatide, <em>guided by your goals</em>
         </h2>
         <p className="retro-home-closing-sub">
-          Licensed U.S. providers. Weekly GLP-1 protocols. Delivered to your door.
+          Licensed U.S. providers review every intake before prescribing. Weekly GLP-1 protocols when appropriate.
         </p>
         <button type="button" className="retro-home-closing-cta" onClick={onCta}>
-          Start your plan
+          Start medical intake
         </button>
       </div>
     </section>
@@ -1352,7 +1082,6 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
               p.id === paneId ? (
                 <div key={p.id} data-explore-tab-pane={p.id} data-active="true" className="explore-tab-pane">
                   <ExploreHero pane={p} selectedTx={selectedTx} setSelectedTx={setSelectedTx} onCta={cta} />
-                  <HappyResults pane={p} />
                 </div>
               ) : null,
             )}
@@ -1368,7 +1097,6 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png`} onCta={cta} />
       </div>
 
-      <ReviewsSection onCta={cta} />
       <WhySection />
       <ClosingSection onCta={cta} />
     </div>

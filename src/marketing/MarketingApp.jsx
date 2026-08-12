@@ -206,7 +206,7 @@ export default function MarketingApp({ currentTab }) {
           {[0, 1].map((loop) => (
             <div key={loop} className="yxr-trustbar__group">
               <span className="yxr-trustbar__item">U.S. Licensed Pharmacies</span>
-              <span className="yxr-trustbar__item">Licensed Providers in all 50 States</span>
+              <span className="yxr-trustbar__item">Licensed U.S. Provider Review</span>
               <span className="yxr-trustbar__item">Free Expedited Shipment</span>
               <span className="yxr-trustbar__item">Pax Longevity Patient Center</span>
             </div>
@@ -405,19 +405,6 @@ export default function MarketingApp({ currentTab }) {
                     <p className="step-text" style={{ marginTop: 'var(--space-xs)' }}>
                       Inspired by Miami's active, sun-drenched outdoor lifestyle, we view longevity not as the simple absence of disease, but as the active presence of raw physical energy, structural mobility, and cognitive clarity.
                     </p>
-                  </div>
-                </div>
-
-                <div className="testimonial-wrap" style={{ marginTop: 'var(--space-3xl)' }}>
-                  <div className="testimonial-player">
-                    <img src="/images/sermorelin-recovery.webp" alt="Patient stretching on Miami beach" loading="lazy" />
-                  </div>
-                  <div className="testimonial-copy-side">
-                    <span className="section-label">Aspirational Living</span>
-                    <blockquote className="testimonial-quote">
-                      “We believe in extending your healthspan to match your lifespan. Vitality is a active commitment, not a heritable guarantee.”
-                    </blockquote>
-                    <p className="step-text">— Clinical Advisory Board, Pax Longevity</p>
                   </div>
                 </div>
               </div>

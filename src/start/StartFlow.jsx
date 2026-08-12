@@ -8,12 +8,21 @@ import {
 } from '../brand/connect.js';
 import {
   FLOW_STEPS,
-  INTAKE_STEPS,
+  INTAKE_PHASES,
   TREATMENT_INCLUDES,
   TREATMENTS,
   TRUST_POINTS,
+  US_STATES,
+  emptyIntake,
+  getActiveScreeningQuestions,
   getGoalForTreatment,
   getPlansForTreatment,
+  isScreeningComplete,
+  isValidAdultDob,
+  isValidEmail,
+  isValidPhone,
+  isValidZip,
+  questionIsDisqualified,
   resolveTreatmentId,
 } from './startFlowData.js';
 import GlpTreatmentPicker from './GlpTreatmentPicker.jsx';
@@ -60,6 +69,21 @@ function TrustStrip() {
   );
 }
 
+function normalizeIntake(raw) {
+  const base = emptyIntake();
+  if (!raw || typeof raw !== 'object') return base;
+  return {
+    ...base,
+    ...raw,
+    answers: { ...base.answers, ...(raw.answers || {}) },
+    height: raw.height || raw.answers?.height || '',
+    weight: raw.weight || raw.answers?.weight || '',
+    sexAtBirth: raw.sexAtBirth || raw.answers?.gender || '',
+    consentTelehealth: Boolean(raw.consentTelehealth),
+    consentReview: Boolean(raw.consentReview),
+  };
+}
+
 export default function StartFlow({ onComplete }) {
   const pending = getPendingOrder();
   const hashTreatmentId = (() => {
@@ -73,14 +97,10 @@ export default function StartFlow({ onComplete }) {
   const [treatmentId, setTreatmentId] = useState(
     resolveTreatmentId(pending?.treatmentId) || hashTreatmentId || 'semaglutide',
   );
-  const [intakeIndex, setIntakeIndex] = useState(0);
-  const [intake, setIntake] = useState(pending?.intake || {
-    goal: '',
-    height: '',
-    weight: '',
-    conditions: '',
-    meds: '',
-  });
+  const [intakeIndex, setIntakeIndex] = useState(
+    Number.isFinite(pending?.intakeIndex) ? pending.intakeIndex : 0,
+  );
+  const [intake, setIntake] = useState(() => normalizeIntake(pending?.intake));
   const [planId, setPlanId] = useState(pending?.planId || '3mo');
   const [checkout, setCheckout] = useState({
     firstName: pending?.firstName || '',
@@ -108,7 +128,9 @@ export default function StartFlow({ onComplete }) {
     () => plans.find((p) => p.id === planId) || plans.find((p) => p.popular) || plans[0],
     [plans, planId],
   );
-  const intakeStep = INTAKE_STEPS[intakeIndex];
+  const intakePhase = INTAKE_PHASES[intakeIndex] || INTAKE_PHASES[0];
+  const screeningQuestions = useMemo(() => getActiveScreeningQuestions(intake), [intake]);
+  const supportEmail = PAX_PASSPORT.identity.supportEmail;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -125,6 +147,7 @@ export default function StartFlow({ onComplete }) {
       treatmentId,
       planId,
       intake,
+      intakeIndex,
       firstName: checkout.firstName,
       lastName: checkout.lastName,
       email: checkout.email,
@@ -134,18 +157,20 @@ export default function StartFlow({ onComplete }) {
     });
   };
 
-  const go = (next) => {
+  const go = (next, extra = {}) => {
     setError('');
     setStep(next);
     savePendingOrder({
       treatmentId,
       planId,
       intake,
+      intakeIndex,
       firstName: checkout.firstName,
       lastName: checkout.lastName,
       email: checkout.email,
       phone: checkout.phone,
       resumeStep: next,
+      ...extra,
     });
   };
 
@@ -164,30 +189,86 @@ export default function StartFlow({ onComplete }) {
       setError('Select a treatment to continue.');
       return;
     }
-    go('intake');
+    setIntakeIndex(0);
+    go('intake', { intakeIndex: 0 });
+  };
+
+  const setAnswer = (id, value) => {
+    setIntake((prev) => ({
+      ...prev,
+      answers: { ...prev.answers, [id]: value },
+    }));
+  };
+
+  const validateIntakePhase = () => {
+    if (intakePhase.id === 'metrics') {
+      if (!intake.height?.trim() || !intake.weight || !intake.sexAtBirth || !intake.dob) {
+        return 'Enter height, weight, date of birth, and sex assigned at birth.';
+      }
+      if (!isValidAdultDob(intake.dob)) {
+        return 'You must be 18 or older to continue.';
+      }
+      return '';
+    }
+    if (intakePhase.id === 'screening') {
+      if (!isScreeningComplete(intake)) {
+        if (screeningQuestions.some((q) => questionIsDisqualified(q, intake.answers?.[q.id]))) {
+          return `Based on your answers, a physician must review before you can continue. Contact ${supportEmail}.`;
+        }
+        return 'Please answer all medical screening questions to continue.';
+      }
+      return '';
+    }
+    if (intakePhase.id === 'patient') {
+      if (!checkout.firstName?.trim() || !checkout.lastName?.trim() || !checkout.email?.trim() || !checkout.phone?.trim()) {
+        return 'Enter your full name, email, and phone number.';
+      }
+      if (!isValidEmail(checkout.email)) return 'Enter a valid email address.';
+      if (!isValidPhone(checkout.phone)) return 'Enter a valid phone number.';
+      return '';
+    }
+    if (intakePhase.id === 'shipping') {
+      if (!intake.address1?.trim() || !intake.city?.trim() || !intake.state || !intake.zip?.trim()) {
+        return 'Enter a complete shipping address.';
+      }
+      if (!US_STATES.some((s) => s.value === intake.state)) return 'Select a valid U.S. state.';
+      if (!isValidZip(intake.zip)) return 'Enter a valid ZIP code.';
+      return '';
+    }
+    if (intakePhase.id === 'consent') {
+      if (!intake.consentTelehealth || !intake.consentReview) {
+        return 'Please accept both agreements to submit your intake for provider review.';
+      }
+      return '';
+    }
+    return '';
   };
 
   const continueIntake = () => {
-    if (intakeStep.type === 'choice') {
-      const key = intakeStep.id === 'conditions' ? 'conditions' : intakeStep.id === 'meds' ? 'meds' : 'goal';
-      if (!intake[key]) {
-        setError('Please choose an option to continue.');
-        return;
-      }
-    }
-    if (intakeStep.type === 'metrics') {
-      if (!intake.height || !intake.weight) {
-        setError('Enter height and weight to continue.');
-        return;
-      }
+    const msg = validateIntakePhase();
+    if (msg) {
+      setError(msg);
+      return;
     }
     setError('');
-    if (intakeIndex < INTAKE_STEPS.length - 1) {
-      setIntakeIndex((i) => i + 1);
-      persist();
+    if (intakeIndex < INTAKE_PHASES.length - 1) {
+      const nextIndex = intakeIndex + 1;
+      setIntakeIndex(nextIndex);
+      persist({ intakeIndex: nextIndex });
       return;
     }
     go('plan');
+  };
+
+  const backIntake = () => {
+    setError('');
+    if (intakeIndex === 0) {
+      go('treatment');
+      return;
+    }
+    const nextIndex = intakeIndex - 1;
+    setIntakeIndex(nextIndex);
+    persist({ intakeIndex: nextIndex });
   };
 
   const continueCheckout = (e) => {
@@ -341,37 +422,24 @@ export default function StartFlow({ onComplete }) {
         )}
 
         {step === 'intake' && (
-          <section className="sf-panel sf-panel--narrow">
-            <p className="pp-eyebrow">Clinical intake · {intakeIndex + 1}/{INTAKE_STEPS.length}</p>
-            <h1>{intakeStep.question}</h1>
-            <p className="sf-lede">Takes a few minutes. A licensed U.S. provider reviews within 24 hours.</p>
+          <section className="sf-panel sf-panel--intake">
+            <p className="pp-eyebrow">
+              {intakePhase.eyebrow} · {intakeIndex + 1}/{INTAKE_PHASES.length}
+            </p>
+            <h1>{intakePhase.title}</h1>
+            <p className="sf-lede">
+              A licensed U.S. provider reviews your answers before any prescription is issued — typically within 24 hours.
+            </p>
 
-            {intakeStep.type === 'choice' && (
-              <div className="sf-choices">
-                {intakeStep.options.map((opt) => {
-                  const key = intakeStep.id === 'conditions' ? 'conditions' : intakeStep.id === 'meds' ? 'meds' : 'goal';
-                  return (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      className={`sf-choice ${intake[key] === opt.value ? 'active' : ''}`}
-                      onClick={() => setIntake({ ...intake, [key]: opt.value })}
-                    >
-                      {opt.label}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-
-            {intakeStep.type === 'metrics' && (
+            {intakePhase.id === 'metrics' && (
               <div className="sf-metrics">
                 <label>
-                  Height (e.g. 5&apos;7&quot;)
+                  Height (e.g. 5&apos;10&quot;)
                   <input
                     value={intake.height}
                     onChange={(e) => setIntake({ ...intake, height: e.target.value })}
-                    placeholder={'5\'7"'}
+                    placeholder={'5\'10"'}
+                    required
                   />
                 </label>
                 <label>
@@ -383,33 +451,247 @@ export default function StartFlow({ onComplete }) {
                     placeholder="185"
                     min="50"
                     max="500"
+                    required
+                  />
+                </label>
+                <label>
+                  Date of birth
+                  <input
+                    type="date"
+                    value={intake.dob}
+                    onChange={(e) => setIntake({ ...intake, dob: e.target.value })}
+                    required
+                  />
+                </label>
+                <div className="sf-field">
+                  <span className="sf-field__label">Sex assigned at birth</span>
+                  <div className="sf-choices sf-choices--row">
+                    {['Male', 'Female', 'Other'].map((sex) => (
+                      <button
+                        key={sex}
+                        type="button"
+                        className={`sf-choice ${intake.sexAtBirth === sex ? 'active' : ''}`}
+                        onClick={() => setIntake({ ...intake, sexAtBirth: sex })}
+                      >
+                        {sex}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {intakePhase.id === 'screening' && (
+              <div className="sf-q-list">
+                {screeningQuestions.map((q) => {
+                  const value = intake.answers?.[q.id] || '';
+                  const disqualified = questionIsDisqualified(q, value);
+                  return (
+                    <div key={q.id} className={`sf-q ${disqualified ? 'sf-q--warn' : ''}`}>
+                      <p className="sf-q__prompt">
+                        {q.question}
+                        {q.required ? <span aria-hidden="true"> *</span> : null}
+                      </p>
+
+                      {q.type === 'boolean' && (
+                        <div className="sf-choices sf-choices--row">
+                          {['yes', 'no'].map((opt) => (
+                            <button
+                              key={opt}
+                              type="button"
+                              className={`sf-choice ${value === opt ? 'active' : ''} ${disqualified && value === opt ? 'sf-choice--danger' : ''}`}
+                              onClick={() => setAnswer(q.id, opt)}
+                            >
+                              {opt === 'yes' ? 'Yes' : 'No'}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {q.type === 'select' && (
+                        <div className="sf-choices">
+                          {(q.options || []).map((opt) => (
+                            <button
+                              key={opt}
+                              type="button"
+                              className={`sf-choice ${value === opt ? 'active' : ''}`}
+                              onClick={() => setAnswer(q.id, opt)}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {(q.type === 'text' || q.type === 'number') && (
+                        q.type === 'text' && String(q.question).length > 80 ? (
+                          <textarea
+                            value={value}
+                            onChange={(e) => setAnswer(q.id, e.target.value)}
+                            rows={3}
+                            placeholder="Enter your answer…"
+                          />
+                        ) : (
+                          <input
+                            type={q.type === 'number' ? 'number' : 'text'}
+                            value={value}
+                            onChange={(e) => setAnswer(q.id, e.target.value)}
+                            placeholder="Enter your answer…"
+                          />
+                        )
+                      )}
+
+                      {disqualified && (
+                        <div className="sf-q__alert" role="alert">
+                          <strong>Medical review required</strong>
+                          <p>
+                            Based on this response, a physician review is required before you can proceed.
+                            Contact {supportEmail} for next steps.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {intakePhase.id === 'patient' && (
+              <div className="pp-auth__form sf-intake-form">
+                <div className="pp-auth__row">
+                  <label>
+                    First name
+                    <input
+                      value={checkout.firstName}
+                      onChange={(e) => setCheckout({ ...checkout, firstName: e.target.value })}
+                      required
+                    />
+                  </label>
+                  <label>
+                    Last name
+                    <input
+                      value={checkout.lastName}
+                      onChange={(e) => setCheckout({ ...checkout, lastName: e.target.value })}
+                      required
+                    />
+                  </label>
+                </div>
+                <label>
+                  Email
+                  <input
+                    type="email"
+                    value={checkout.email}
+                    onChange={(e) => setCheckout({ ...checkout, email: e.target.value })}
+                    required
+                  />
+                </label>
+                <label>
+                  Phone
+                  <input
+                    value={checkout.phone}
+                    onChange={(e) => setCheckout({ ...checkout, phone: e.target.value })}
+                    placeholder="(305) 555-0142"
+                    required
                   />
                 </label>
               </div>
             )}
 
+            {intakePhase.id === 'shipping' && (
+              <div className="pp-auth__form sf-intake-form">
+                <label>
+                  Street address
+                  <input
+                    value={intake.address1}
+                    onChange={(e) => setIntake({ ...intake, address1: e.target.value })}
+                    placeholder="123 Main St"
+                    required
+                  />
+                </label>
+                <label>
+                  Apartment / suite
+                  <input
+                    value={intake.address2}
+                    onChange={(e) => setIntake({ ...intake, address2: e.target.value })}
+                    placeholder="Optional"
+                  />
+                </label>
+                <div className="pp-auth__row sf-intake-form__city-row">
+                  <label>
+                    City
+                    <input
+                      value={intake.city}
+                      onChange={(e) => setIntake({ ...intake, city: e.target.value })}
+                      required
+                    />
+                  </label>
+                  <label>
+                    State
+                    <select
+                      value={intake.state}
+                      onChange={(e) => setIntake({ ...intake, state: e.target.value })}
+                      required
+                    >
+                      <option value="" disabled>Select</option>
+                      {US_STATES.map((s) => (
+                        <option key={s.value} value={s.value}>{s.label}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    ZIP
+                    <input
+                      value={intake.zip}
+                      onChange={(e) => setIntake({ ...intake, zip: e.target.value })}
+                      placeholder="33101"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+            )}
+
+            {intakePhase.id === 'consent' && (
+              <div className="sf-consent">
+                <label className="sf-consent__item">
+                  <input
+                    type="checkbox"
+                    checked={intake.consentTelehealth}
+                    onChange={(e) => setIntake({ ...intake, consentTelehealth: e.target.checked })}
+                  />
+                  <span>
+                    I agree to the{' '}
+                    <a href="#/terms">Terms of Service</a>, Medical Consent, and Telehealth Informed Consent
+                    for provider-guided treatment.
+                  </span>
+                </label>
+                <label className="sf-consent__item">
+                  <input
+                    type="checkbox"
+                    checked={intake.consentReview}
+                    onChange={(e) => setIntake({ ...intake, consentReview: e.target.checked })}
+                  />
+                  <span>
+                    I authorize {PAX_PASSPORT.product.legalName}&apos;s affiliated clinicians to securely review
+                    my medical information and prescribe medication only if clinically appropriate.
+                  </span>
+                </label>
+                <p className="sf-consent__note">
+                  Submitting this intake does not guarantee a prescription. A licensed provider must approve treatment.
+                </p>
+              </div>
+            )}
+
             {error && <p className="pp-auth__error">{error}</p>}
             <div className="sf-nav-row sf-nav-row--triple">
-              <button
-                type="button"
-                className="pp-btn pp-btn--ghost"
-                onClick={cancelFlow}
-              >
+              <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>
                 Cancel
               </button>
-              <button
-                type="button"
-                className="pp-btn pp-btn--outline"
-                onClick={() => {
-                  setError('');
-                  if (intakeIndex === 0) go('treatment');
-                  else setIntakeIndex((i) => i - 1);
-                }}
-              >
+              <button type="button" className="pp-btn pp-btn--outline" onClick={backIntake}>
                 Back
               </button>
               <button type="button" className="pp-btn pp-btn--primary" onClick={continueIntake}>
-                Continue →
+                {intakePhase.id === 'consent' ? 'Continue to plan →' : 'Continue →'}
               </button>
             </div>
           </section>
@@ -443,7 +725,16 @@ export default function StartFlow({ onComplete }) {
             </div>
             <div className="sf-nav-row sf-nav-row--triple">
               <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
-              <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('intake')}>Back</button>
+              <button
+                type="button"
+                className="pp-btn pp-btn--outline"
+                onClick={() => {
+                  setIntakeIndex(INTAKE_PHASES.length - 1);
+                  go('intake', { intakeIndex: INTAKE_PHASES.length - 1 });
+                }}
+              >
+                Back
+              </button>
               <button type="button" className="pp-btn pp-btn--primary" onClick={() => go('checkout')}>
                 Continue to checkout →
               </button>

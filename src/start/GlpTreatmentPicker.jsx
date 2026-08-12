@@ -40,7 +40,6 @@ export default function GlpTreatmentPicker({
       </div>
 
       <div className="glp-pick__body">
-        <p className="glp-pick__proof">{GLP_PRODUCT.socialProof}</p>
         <h2 className="glp-pick__title">{GLP_PRODUCT.title}</h2>
         <p className="glp-pick__blurb">{GLP_PRODUCT.blurb}</p>
 

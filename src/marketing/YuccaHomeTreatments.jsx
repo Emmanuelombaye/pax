@@ -12,16 +12,12 @@ const TREATMENTS = [
     badgeTone: 'var(--terracotta)',
     badgeSoft: 'color-mix(in oklch, var(--terracotta) 18%, transparent)',
     title: 'Personalized Semaglutide',
-    resultStat: '20%',
     description:
-      'A weekly GLP-1 injection designed to support weight management by helping regulate appetite and reduce hunger signals.',
-    detail: 'GLP-1 (Semaglutide) · Steady, gradual results.',
+      'A weekly GLP-1 injection that may support weight management by helping regulate appetite — prescribed only after a licensed provider reviews your intake.',
+    detail: 'GLP-1 (Semaglutide) · Provider-guided dosing.',
     price: '$125',
     period: '/mo',
-    priceNote: 'lowest price ever · 6 month plan',
-    enrolled: '1000+ Patients enrolled in last 7 days',
-    rating: '4.7/5',
-    reviews: '1000+ Reviews',
+    priceNote: '6-month plan · charged only if prescribed',
     vials: [`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif`],
     cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
     startTx: 'semaglutide',
@@ -36,16 +32,12 @@ const TREATMENTS = [
     badgeTone: 'var(--terracotta)',
     badgeSoft: 'color-mix(in oklch, var(--terracotta) 16%, transparent)',
     title: 'Personalized Tirzepatide',
-    resultStat: '20%',
     description:
-      'A weekly dual-action GLP-1 + GIP injection for stronger appetite regulation and more pronounced weight-loss support.',
-    detail: 'GLP-1 + GIP (Tirzepatide) · Faster dual-action support.',
+      'A weekly dual-action GLP-1 + GIP injection for appetite regulation support — prescribed only after a licensed provider reviews your intake.',
+    detail: 'GLP-1 + GIP (Tirzepatide) · Provider-guided dosing.',
     price: '$225',
     period: '/mo',
-    priceNote: 'lowest price ever · 6 month plan',
-    enrolled: '1000+ Patients enrolled in last 7 days',
-    rating: '4.7/5',
-    reviews: '1000+ Reviews',
+    priceNote: '6-month plan · charged only if prescribed',
     vials: [`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif`],
     cutoutPair: `${IMG}/pax-glp1-couple-cutout-tirz.avif`,
     startTx: 'tirzepatide',
@@ -63,9 +55,9 @@ export default function YuccaHomeTreatments({ openStart }) {
       <div className="goal-treatments-container">
         <div className="goal-treatments-heading">
           <h2>
-            <em>Personalized treatments</em> to help achieve your goals
+            <em>Personalized treatments</em> reviewed by licensed providers
           </h2>
-          <p>Choose Semaglutide or Tirzepatide to build your plan.</p>
+          <p>Choose Semaglutide or Tirzepatide, then complete a medical intake.</p>
         </div>
 
         <div className="goal-tablist-wrap">
@@ -95,7 +87,6 @@ export default function YuccaHomeTreatments({ openStart }) {
 
         <div className="goal-treatments-pane" key={active.id}>
           <div className="goal-cutouts" aria-hidden="true">
-            <div className="goal-cutouts-stat">↓{active.resultStat}</div>
             <img className="goal-cutouts-pair" src={active.cutoutPair} alt="" loading="lazy" />
           </div>
 
@@ -119,15 +110,6 @@ export default function YuccaHomeTreatments({ openStart }) {
                   {active.badge}
                 </span>
               </div>
-              <div className="goal-product-rating">
-                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
-                  <path
-                    fill="var(--forest)"
-                    d="M12 2l3 7 7 .6-5.4 4.6 1.8 7-7.4-4.4-7.4 4.4 1.8-7L1 9.6 8 9z"
-                  />
-                </svg>
-                {active.rating} · {active.reviews}
-              </div>
             </div>
 
             <div className="goal-product-top">
@@ -143,7 +125,6 @@ export default function YuccaHomeTreatments({ openStart }) {
                 ))}
               </div>
               <div className="goal-product-meta">
-                <div className="goal-product-enrolled">{active.enrolled}</div>
                 <div
                   className="goal-product-price"
                   style={{
