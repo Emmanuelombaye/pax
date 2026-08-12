@@ -305,13 +305,34 @@
   .goal-treatments-pane {
     grid-template-columns: 1fr;
     gap: 0;
+    position: relative;
   }
 
   .goal-cutouts {
-    display: none;
+    display: flex;
+    min-height: 280px;
+    height: 42vw;
+    max-height: 360px;
+    z-index: 0;
+  }
+
+  .goal-cutouts-stat {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+    top: 4%;
+    left: 50%;
+  }
+
+  .goal-cutouts-pair {
+    width: min(92%, 420px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
 
   .goal-product-card {
+    position: relative;
+    z-index: 2;
+    margin-top: -4.5rem;
     margin-bottom: 1.5rem;
   }
 

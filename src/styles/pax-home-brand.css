@@ -16,6 +16,14 @@
   color: var(--forest) !important;
 }
 
+/* Nav + logo bar — clear white (promo stays forest) */
+.yx-shell .header,
+.yx-shell .header.scrolled,
+.yx-shell .header .container.yx-header-bar,
+.yx-shell .yx-header-bar {
+  background: #fff !important;
+}
+
 /* Top promo banner — forest only (no navy hover #2a3540) */
 .yucca-home .retro-home-banner,
 .retro-home-banner {

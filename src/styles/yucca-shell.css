@@ -23,7 +23,7 @@
 }
 
 .yx-shell .header {
-  background: transparent;
+  background: #fff;
   border-bottom: 0;
   padding: 0.65rem 0;
   position: sticky;
@@ -33,7 +33,7 @@
 
 .yx-shell .header.scrolled {
   padding: 0.45rem 0;
-  background: color-mix(in oklch, var(--sand) 94%, white);
+  background: #fff;
   box-shadow: var(--shadow-sm);
 }
 
@@ -50,7 +50,7 @@
   margin-top: 0.65rem;
   margin-bottom: 0.35rem;
   padding: 0.55rem 0.7rem 0.55rem 1.15rem;
-  background: color-mix(in oklch, var(--sand) 94%, white);
+  background: #fff;
   backdrop-filter: blur(14px);
   box-sizing: border-box;
   overflow: visible;

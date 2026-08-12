@@ -42,7 +42,7 @@
     height: 2.5rem;
     border-radius: 999px;
     border: 1.5px solid color-mix(in oklch, var(--forest) 22%, transparent);
-    background: color-mix(in oklch, var(--sand) 92%, var(--dune));
+    background: #fff;
     grid-column: 3;
     justify-self: end;
   }

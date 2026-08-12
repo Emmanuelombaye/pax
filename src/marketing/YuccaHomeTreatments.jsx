@@ -47,7 +47,7 @@ const TREATMENTS = [
     rating: '4.7/5',
     reviews: '1000+ Reviews',
     vials: [`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif`],
-    cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
+    cutoutPair: `${IMG}/pax-glp1-couple-cutout-tirz.avif`,
     startTx: 'tirzepatide',
     learnHref: '#/treatments/weight-loss',
   },
