@@ -195,6 +195,28 @@
   color: var(--forest) !important;
 }
 
+.yucca-home .retro-home-statband-num,
+.yucca-home .retro-home-statband-copy {
+  color: var(--forest) !important;
+}
+
+.yucca-home .retro-home-statband-em {
+  color: var(--terracotta) !important;
+}
+
+.yucca-home .retro-home-statband-bulb {
+  background: var(--sand) !important;
+  border-color: var(--forest) !important;
+  color: var(--forest) !important;
+  box-shadow: 3px 3px 0 0 var(--forest) !important;
+}
+
+.yucca-home .retro-home-statband-bulb svg {
+  color: var(--forest) !important;
+  stroke: var(--forest) !important;
+  fill: var(--forest) !important;
+}
+
 .yucca-home .retro-faqs__item {
   background: color-mix(in oklch, var(--sand) 94%, var(--dune)) !important;
   border-color: var(--forest) !important;
