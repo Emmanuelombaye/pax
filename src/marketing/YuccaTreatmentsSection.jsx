@@ -55,8 +55,6 @@ export default function YuccaTreatmentsSection({
   };
 
   const tone = TONE_BY_GOAL[goal.id] || 'wl';
-  const enrolled =
-    goal.id === 'weight-loss' ? '1,000+ patients enrolled in the last 7 days' : '100+ patients enrolled in the last 7 days';
 
   return (
     <section
@@ -108,15 +106,6 @@ export default function YuccaTreatmentsSection({
             </div>
 
             <div className="yxr-rtt__product">
-              <div className="yxr-rtt__reviews">
-                <p className="yxr-rtt__enrolled">{enrolled}</p>
-                <div className="yxr-rtt__stars" aria-label="4.7 out of 5 stars">
-                  <span aria-hidden="true">★★★★★</span>
-                  <strong>4.7</strong>
-                </div>
-                <p className="yxr-rtt__reviews-count">(1,000+ reviews)</p>
-              </div>
-
               <div className="yxr-rtt__vials">
                 <img src={goal.image} alt="" loading="lazy" />
               </div>

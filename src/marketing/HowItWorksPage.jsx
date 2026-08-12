@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { HOW_FAQS, HOW_MEDIA, HOW_STEPS, HOW_STORIES, HOW_WHY } from './howItWorksData.js';
+import { HOW_FAQS, HOW_MEDIA, HOW_STEPS, HOW_WHY } from './howItWorksData.js';
 
 /**
  * Sticky step stack — Vitalwell/Yucca how-it-works pattern.
@@ -167,61 +167,37 @@ export default function HowItWorksPage({ openStart }) {
 
             <section className="hiw-story" aria-labelledby="hiw-story-title">
               <div className="hiw-story__head">
-                <p className="hiw-story__eyebrow">Care chapters</p>
+                <p className="hiw-story__eyebrow">Clinical process</p>
                 <h2 className="hiw-story__title" id="hiw-story-title">
-                  Every treatment has a <em>story</em>
+                  Every plan starts with a <em>provider review</em>
                 </h2>
                 <p className="hiw-story__sub">
-                  Real patients. Provider-guided protocols. Clear follow-through from first dose to month six.
+                  Complete intake, clinician review, and pharmacy fulfillment — only when treatment is appropriate.
                 </p>
               </div>
 
-              <div className="hiw-story__stage">
-                <figure className="hiw-story__lead">
-                  <img
-                    src={HOW_MEDIA.storyHero.src}
-                    alt={HOW_MEDIA.storyHero.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption className="hiw-story__lead-caption">
-                    <span className="hiw-story__lead-mark" aria-hidden="true">
-                      “
-                    </span>
-                    <p>
-                      Provider-directed care — dosing that follows how you respond, not a template.
-                    </p>
-                    <span className="hiw-story__lead-meta">Verified Pax patients</span>
-                  </figcaption>
-                </figure>
-
-                <ol className="hiw-story__chapters">
-                  {HOW_STORIES.map((story, i) => (
-                    <li key={story.title} className="hiw-story-chapter" style={{ '--i': i }}>
-                      <div className="hiw-story-chapter__rail" aria-hidden="true">
-                        <span className="hiw-story-chapter__dot" />
-                      </div>
-                      <div className="hiw-story-chapter__portrait">
-                        <img src={story.img} alt="" loading="lazy" decoding="async" />
-                        <span className="hiw-story-chapter__n">{story.step}</span>
-                      </div>
-                      <div className="hiw-story-chapter__copy">
-                        <p className="hiw-story-chapter__meta">
-                          <span>{story.metric}</span>
-                          <span aria-hidden="true">·</span>
-                          <span>{story.timeline}</span>
-                        </p>
-                        <h3>{story.title}</h3>
-                        <blockquote>&ldquo;{story.quote}&rdquo;</blockquote>
-                        <footer>
-                          <strong>{story.patient}</strong>
-                          <span>Verified Patient</span>
-                        </footer>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <ol className="hiw-story__chapters hiw-story__chapters--process">
+                {[
+                  { step: '01', title: 'Intake & lab review', meta: 'Secure questionnaire' },
+                  { step: '02', title: 'Licensed provider review', meta: 'Typically within 24 hours' },
+                  { step: '03', title: 'Pharmacy fulfillment', meta: 'When prescribed' },
+                  { step: '04', title: 'Ongoing care', meta: 'Follow-up & support' },
+                ].map((item, i) => (
+                  <li key={item.step} className="hiw-story-chapter" style={{ '--i': i }}>
+                    <div className="hiw-story-chapter__rail" aria-hidden="true">
+                      <span className="hiw-story-chapter__dot" />
+                    </div>
+                    <div className="hiw-story-chapter__copy">
+                      <p className="hiw-story-chapter__meta">
+                        <span>Phase {item.step}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>{item.meta}</span>
+                      </p>
+                      <h3>{item.title}</h3>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </section>
 
             <section className="hiw-why">

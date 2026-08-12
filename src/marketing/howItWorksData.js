@@ -70,45 +70,6 @@ export const HOW_STEPS = [
   },
 ];
 
-export const HOW_STORIES = [
-  {
-    step: '01',
-    img: `${YC}/Blaze-B.-p-800.avif`,
-    title: 'Tirzepatide Progress',
-    timeline: 'Month 3 · Dual GIP/GLP-1',
-    quote: 'My provider adjusted my dosing based on how I responded — not a template.',
-    patient: 'Blaze B.',
-    metric: 'Tirzepatide',
-  },
-  {
-    step: '02',
-    img: `${YC}/Crystal-G.-p-800.avif`,
-    title: 'Semaglutide Steady Loss',
-    timeline: 'Month 2 · GLP-1 Protocol',
-    quote: 'Clear instructions and direct communication with my care team on Semaglutide.',
-    patient: 'Crystal G.',
-    metric: 'Semaglutide',
-  },
-  {
-    step: '03',
-    img: `${YC}/Lisa-C.-p-800.avif`,
-    title: 'Discreet Delivery',
-    timeline: 'Month 1 · Fulfillment',
-    quote: 'Fulfillment was calm, cold-chain shipped, and completely discreet.',
-    patient: 'Lisa C.',
-    metric: 'Pharmacy Direct',
-  },
-  {
-    step: '04',
-    img: `${YC}/Kim-B.-p-800.avif`,
-    title: 'Ongoing GLP-1 Care',
-    timeline: 'Month 6 · Optimization',
-    quote: 'Ongoing check-ins kept my goals on track long term.',
-    patient: 'Kim B.',
-    metric: 'Ongoing Support',
-  },
-];
-
 export const HOW_WHY = [
   {
     image: {
@@ -120,8 +81,8 @@ export const HOW_WHY = [
   },
   {
     image: {
-      src: `${YC}/dr-michael-wasef-md-pax.png?v=pax3`,
-      alt: 'Licensed Pax Longevity provider',
+      src: `${HIW}/Provider-reviews-intake_2.avif?v=pax2`,
+      alt: 'Licensed provider reviewing Pax patient intake',
     },
     title: 'Care Built Around You',
     body: 'Semaglutide or Tirzepatide — protocols tailored to your goals, history, and how your body responds.',
@@ -137,10 +98,6 @@ export const HOW_WHY = [
 ];
 
 export const HOW_MEDIA = {
-  storyHero: {
-    src: `${HIW}/Every-Treatment-Has-A-Story.avif`,
-    alt: 'Patients sharing their personalized treatment journey and results',
-  },
   priority: {
     src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif`,
     alt: 'Pax Patient Center dashboard showing treatment plan and health records',

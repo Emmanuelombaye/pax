@@ -497,63 +497,6 @@ function ProtocolSection({ variant = 'wl', data, onCta }) {
   );
 }
 
-function CalculatorSection() {
-  const [weight, setWeight] = useState('');
-  const loss = useMemo(() => {
-    const n = Number(weight);
-    if (!Number.isFinite(n) || n <= 0) return null;
-    return (n * 0.2).toFixed(1);
-  }, [weight]);
-
-  return (
-    <section className="retro-calculator" aria-labelledby="retro-calculator-heading">
-      <div className="retro-calculator__panel">
-        <div className="retro-calculator__left">
-          <h2 id="retro-calculator-heading" className="retro-calculator__heading">
-            Let&rsquo;s see your <em>potential</em> with GLP-1s
-          </h2>
-          <div className="retro-calculator__control">
-            <label className="sr-only" htmlFor="retro-calculator-weight">
-              Enter your weight (lbs)
-            </label>
-            <input
-              id="retro-calculator-weight"
-              className="retro-calculator__input"
-              type="number"
-              inputMode="decimal"
-              min="120"
-              max="400"
-              step="1"
-              placeholder="Enter your weight (lbs)"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="retro-calculator__arrow" aria-hidden="true">
-          <svg width="88" height="16" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="6" cy="8" r="4.5" stroke="currentColor" strokeWidth="2" />
-            <path d="M13 8h66" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="m73 2 7 6-7 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div className="retro-calculator__right">
-          <span className="retro-calculator__readout-label">
-            You could <em>lose up to</em>
-          </span>
-          <span className="retro-calculator__readout" aria-live="polite">
-            <span>{loss ?? '00.0'}</span>
-            <span className="retro-calculator__readout-unit">lbs</span>
-          </span>
-          <span className="retro-calculator__readout-caption">
-            *Based on our patients results in 6-month plans. Results may vary.
-          </span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ClinicalSection({ variant }) {
   if (variant === 'wl') {
     return (
@@ -1091,7 +1034,6 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
 
       <div data-explore-section-stack="weight-loss">
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
-        <CalculatorSection />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
         <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png`} onCta={cta} />
