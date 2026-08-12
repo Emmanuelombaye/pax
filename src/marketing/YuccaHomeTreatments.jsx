@@ -23,8 +23,7 @@ const TREATMENTS = [
     rating: '4.7/5',
     reviews: '1000+ Reviews',
     vials: [`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif`],
-    cutoutMan: `${IMG}/Man-beginning-his-personalized-GLP-1-weight-loss-treatment-with-Yucca-Health.avif`,
-    cutoutWoman: `${IMG}/woman-glp-1-weight-loss-journey-yucca-health.avif`,
+    cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
     startTx: 'semaglutide',
     learnHref: '#/treatments/weight-loss',
   },
@@ -48,8 +47,7 @@ const TREATMENTS = [
     rating: '4.7/5',
     reviews: '1000+ Reviews',
     vials: [`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif`],
-    cutoutMan: `${IMG}/Man-beginning-his-personalized-GLP-1-weight-loss-treatment-with-Yucca-Health.avif`,
-    cutoutWoman: `${IMG}/woman-weight-loss-journey-glp-1-yucca-health.avif`,
+    cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
     startTx: 'tirzepatide',
     learnHref: '#/treatments/weight-loss',
   },
@@ -98,8 +96,7 @@ export default function YuccaHomeTreatments({ openStart }) {
         <div className="goal-treatments-pane" key={active.id}>
           <div className="goal-cutouts" aria-hidden="true">
             <div className="goal-cutouts-stat">↓{active.resultStat}</div>
-            <img className="goal-cutouts-man" src={active.cutoutMan} alt="" loading="lazy" />
-            <img className="goal-cutouts-woman" src={active.cutoutWoman} alt="" loading="lazy" />
+            <img className="goal-cutouts-pair" src={active.cutoutPair} alt="" loading="lazy" />
           </div>
 
           <div className="goal-product-card">

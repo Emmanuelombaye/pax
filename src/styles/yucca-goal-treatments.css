@@ -126,26 +126,18 @@
   z-index: 0;
 }
 
-.goal-cutouts-man,
-.goal-cutouts-woman {
+.goal-cutouts-pair {
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 0;
+  width: 100%;
   height: auto;
+  max-height: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 10px 24px color-mix(in oklch, var(--forest) 18%, transparent));
-}
-
-.goal-cutouts-man {
-  left: 4%;
-  width: min(58%, 320px);
   z-index: 1;
-}
-
-.goal-cutouts-woman {
-  right: 2%;
-  width: min(48%, 260px);
-  z-index: 2;
+  filter: drop-shadow(0 10px 24px color-mix(in oklch, var(--forest) 18%, transparent));
 }
 
 .goal-product-card {
