@@ -150,10 +150,29 @@ main[data-retro-scope],
 }
 
 .yx-clone .bg-neutral-900,
-.yx-clone .text-neutral-900,
-.yx-clone .text-neutral-900\/40 {
+.yx-clone a.bg-neutral-900,
+.retro-explore-tabs-wrap .designed-section a.bg-neutral-900,
+.retro-explore-tabs-wrap .designed-cta-btn {
   background: var(--forest) !important;
+  color: var(--sand) !important;
+}
+
+.yx-clone .text-neutral-900,
+.yx-clone .text-neutral-900\/40,
+.yx-clone h1.text-neutral-900,
+.yx-clone .explore-hero-copy,
+.yx-clone .explore-hero-product-name,
+.yx-clone .explore-hero-plan-item,
+.yx-clone .explore-hero-plans-label,
+.yx-clone .explore-hero-price-label {
+  background: transparent !important;
   color: var(--forest) !important;
+}
+
+.yx-clone .text-neutral-900\/40,
+.yx-clone .explore-hero-plans-label,
+.yx-clone .explore-hero-price-label {
+  color: color-mix(in oklch, var(--forest) 55%, transparent) !important;
 }
 
 .yx-clone .text-white {
