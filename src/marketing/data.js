@@ -188,7 +188,7 @@ const THREAT_DOMAINS = [
 ];
 
 const ROUTE_TABS = [
-  'vision', 'threats', 'treatments', 'how-it-works', 'advisors', 'providers', 'education',
+  'vision', 'threats', 'treatments', 'how-it-works',
   'privacy', 'terms', 'medical-disclaimer',
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
 ];

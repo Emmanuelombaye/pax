@@ -21,8 +21,8 @@ function parseHashTab(hashRaw) {
   if (route === 'brand-compare') return 'brand-compare';
   // Deep links: #/treatments/weight-loss and /treatments/weight-loss
   if (route === 'treatments' || route.startsWith('treatments/')) return 'treatments';
-  // Nav label is Providers; keep #/advisors as a back-compat alias
-  if (route === 'providers' || route === 'advisors') return 'advisors';
+  // Providers / Education nav disabled — deep links fall back to home
+  if (route === 'providers' || route === 'advisors' || route === 'education') return 'home';
   if (ROUTE_TABS.includes(route)) return route;
   return 'home';
 }

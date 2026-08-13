@@ -111,8 +111,8 @@ function ProvidersSection() {
       </div>
 
       <p className="pax-home-providers__link-wrap">
-        <a href="#/providers" className="pax-home-providers__link">
-          Learn about our clinical process →
+        <a href="#/how-it-works" className="pax-home-providers__link">
+          See how clinical review works →
         </a>
       </p>
     </section>

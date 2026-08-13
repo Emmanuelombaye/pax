@@ -7,7 +7,6 @@ import { LEGAL_PAGE_IDS } from './legalContent.js';
 import YuccaHome from './YuccaHome.jsx';
 import TreatmentsExplore from './TreatmentsExplore.jsx';
 import HowItWorksPage from './HowItWorksPage.jsx';
-import AdvisorsPage from './AdvisorsPage.jsx';
 import { resolveTreatmentId } from '../start/startFlowData.js';
 
 const START_TREATMENT_MAP = {
@@ -230,12 +229,6 @@ export default function MarketingApp({ currentTab }) {
               >
                 How it works
               </a>
-              <a href="#/providers" className={`yx-nav__link ${currentTab === 'advisors' || currentTab === 'providers' ? 'active' : ''}`}>
-                Providers
-              </a>
-              <a href="#/education" className={`yx-nav__link ${currentTab === 'education' ? 'active' : ''}`}>
-                Education
-              </a>
             </div>
           </nav>
 
@@ -304,26 +297,6 @@ export default function MarketingApp({ currentTab }) {
             onClick={toggleMobileNav}
           >
             How it works
-            <span className="mobile-link__chev" aria-hidden="true">
-              →
-            </span>
-          </a>
-          <a
-            href="#/providers"
-            className={`mobile-link ${currentTab === 'advisors' || currentTab === 'providers' ? 'active' : ''}`}
-            onClick={toggleMobileNav}
-          >
-            Providers
-            <span className="mobile-link__chev" aria-hidden="true">
-              →
-            </span>
-          </a>
-          <a
-            href="#/education"
-            className={`mobile-link ${currentTab === 'education' ? 'active' : ''}`}
-            onClick={toggleMobileNav}
-          >
-            Education
             <span className="mobile-link__chev" aria-hidden="true">
               →
             </span>
@@ -590,13 +563,9 @@ export default function MarketingApp({ currentTab }) {
           <HowItWorksPage openStart={openStart} />
         )}
 
-        {currentTab === 'advisors' || currentTab === 'providers' ? (
-          <AdvisorsPage openStart={openStart} />
-        ) : null}
+        {/* Providers + Education routes redirect home; sections kept offline */}
 
-
-
-        {/* ==================== EDUCATION PAGE VIEW ==================== */}
+        {/* ==================== EDUCATION PAGE VIEW (disabled via router) ==================== */}
         {currentTab === 'education' && (
           <div className="fade-in" style={{ paddingTop: '6rem' }}>
             {/* Header Banner */}
@@ -1021,8 +990,6 @@ export default function MarketingApp({ currentTab }) {
               <span className="footer-col-title">Company</span>
               <a href="#/vision" className="footer-link">Vision</a>
               <a href="#/threats" className="footer-link">Threats</a>
-              <a href="#/providers" className="footer-link">Providers</a>
-              <a href="#/education" className="footer-link">Education</a>
             </div>
 
             <div className="footer-links-col">
