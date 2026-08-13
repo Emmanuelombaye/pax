@@ -31,7 +31,7 @@ export const TREATMENT_GOALS = [
     title: 'GLP-1 Injections',
     blurb:
       'A weekly injection designed to support weight management by helping regulate appetite and reduce hunger signals. Available in GLP-1 (Semaglutide) and GLP-1 + GIP (Tirzepatide).',
-    badges: ['Best seller', 'In stock'],
+    badges: ['Provider-guided', 'In stock'],
     image: '/images/cards/pax-yucca-vials.png',
     imageFallback: '/images/cards/pax-glp-product.png',
     hasMedPicker: true,

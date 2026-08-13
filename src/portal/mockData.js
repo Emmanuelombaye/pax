@@ -40,7 +40,7 @@ export const MOCK = {
     language: 'English',
     occupation: 'Product design',
     pharmacy: 'CVS Pharmacy — Brickell',
-    preferredDoctor: 'Dr. Elena Vance, MD',
+    preferredDoctor: 'Licensed Provider',
     emergency: { name: 'Jordan Rivera', relation: 'Spouse', phone: '(305) 555-0199' },
     allergies: ['Penicillin', 'Shellfish'],
     conditions: ['Prediabetes (resolved)', 'Vitamin D deficiency'],
@@ -61,7 +61,7 @@ export const MOCK = {
       {
         id: 'a1',
         title: 'Follow-up · Metabolic review',
-        provider: 'Dr. Elena Vance',
+        provider: 'Licensed Provider',
         when: daysFromNow(2),
         mode: 'Video',
         status: 'Confirmed',
@@ -90,7 +90,7 @@ export const MOCK = {
       {
         id: 'h1',
         title: 'Initial clinical intake',
-        provider: 'Dr. Elena Vance',
+        provider: 'Licensed Provider',
         when: daysAgo(21),
         mode: 'Video',
         status: 'Completed',
@@ -112,7 +112,7 @@ export const MOCK = {
     {
       id: 'm1',
       from: 'care',
-      name: 'Dr. Elena Vance',
+      name: 'Licensed Provider',
       body: 'Alex — labs look strong. Keep the current titration. Log any nausea above 4/10.',
       at: daysAgo(1),
       read: false,
@@ -222,7 +222,7 @@ export const MOCK = {
         { marker: 'ApoB', value: '96', unit: 'mg/dL', range: '<90', flag: 'high' },
         { marker: 'HDL-C', value: '58', unit: 'mg/dL', range: '>50', flag: 'ok' },
       ],
-      comment: 'Dr. Vance: Continue protocol; recheck lipids in 12 weeks.',
+      comment: 'Care team: Continue protocol; recheck lipids in 12 weeks.',
     },
     {
       id: 'l3',
@@ -312,7 +312,7 @@ export const MOCK = {
   ],
 
   notifications: [
-    { id: 'n1', title: 'Visit in 2 days', body: 'Metabolic follow-up with Dr. Vance', type: 'appointment', at: daysAgo(0), unread: true },
+    { id: 'n1', title: 'Visit in 2 days', body: 'Metabolic follow-up with your care team', type: 'appointment', at: daysAgo(0), unread: true },
     { id: 'n2', title: 'New lab results', body: 'Lipid panel ready to review', type: 'labs', at: daysAgo(1), unread: true },
     { id: 'n3', title: 'Refill window opens soon', body: 'Semaglutide refill in 11 days', type: 'rx', at: daysAgo(2), unread: false },
     { id: 'n4', title: 'Membership billed', body: '$249 charged to Visa ···· 4242', type: 'billing', at: daysAgo(12), unread: false },

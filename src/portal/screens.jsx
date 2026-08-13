@@ -199,7 +199,7 @@ export function AppointmentsScreen({ panel, onNavigate }) {
   if (panel === 'join') {
     return (
       <Section title="Join visit" lede="Device check and virtual waiting room — simulated for this demo.">
-        <Panel title="Metabolic follow-up · Dr. Elena Vance">
+        <Panel title="Metabolic follow-up · Care team">
           <p className="pc-muted">{fmt(MOCK.appointments.upcoming[0].when)}</p>
           <div className="pc-video">
             <div className="pc-video__stage">
@@ -691,7 +691,7 @@ export function AiScreen() {
       { role: 'user', text: question },
       {
         role: 'ai',
-        text: 'Simulated guidance: based on your active Semaglutide plan, mild nausea in week 1–3 is common. If pain is above 4/10 or vomiting persists, message Dr. Vance. Want me to draft a care-team message?',
+        text: 'Simulated guidance: based on your active Semaglutide plan, mild nausea in week 1–3 is common. If pain is above 4/10 or vomiting persists, message your care team. Want me to draft a care-team message?',
       },
     ]);
     setQ('');
