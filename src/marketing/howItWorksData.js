@@ -10,7 +10,7 @@ export const HOW_STEPS = [
     titleItalic: 'treatment plan',
     body: 'Browse our science-backed GLP-1 options and select the plan that fits your goals. Then complete a short medical history questionnaire — a few minutes that helps our providers confirm you’re a good fit for treatment.',
     image: {
-      src: `${HIW}/Treatment-Plan.avif?v=nologo`,
+      src: `${HIW}/Treatment-Plan.avif?v=nologo2`,
       alt: 'Pax Longevity Semaglutide and Tirzepatide treatment vials',
     },
     chips: ['Semaglutide', 'Tirzepatide'],
@@ -26,7 +26,7 @@ export const HOW_STEPS = [
     titleItalic: 'verify identity',
     body: 'Complete your purchase, then take one quick step to verify your identity by entering the last four digits of your SSN or uploading a photo of a government-issued ID. It’s a standard part of the process — and it ensures your prescription is issued safely and securely.',
     image: {
-      src: `${HIW}/Checkout--Verify-identity.avif?v=pax2`,
+      src: `${HIW}/Checkout--Verify-identity.avif?v=nologo2`,
       alt: 'Secure Pax checkout and identity verification',
     },
     chips: ['Secure checkout', 'ID verification', 'Cancel anytime'],
@@ -37,7 +37,7 @@ export const HOW_STEPS = [
     titleItalic: 'reviews intake',
     body: 'A licensed U.S. provider reviews your medical history and questionnaire — typically within 24 hours. If they need clarification or have recommendations, they’ll follow up directly. No live appointment needed.',
     image: {
-      src: `${HIW}/Provider-reviews-intake_2.avif?v=pax2`,
+      src: `${HIW}/Provider-reviews-intake_2.avif?v=nologo2`,
       alt: 'Licensed provider reviewing Pax patient intake',
     },
     chips: ['Licensed providers', 'Review within 24h', 'No office visit'],
@@ -48,7 +48,7 @@ export const HOW_STEPS = [
     titleItalic: 'medication',
     body: 'Once approved, your prescription is sent to our licensed partner pharmacy and fulfilled to your exact treatment plan. Your medication ships via expedited delivery — securely packaged and delivered directly to your door.',
     image: {
-      src: `${HIW}/Receive-your-medication_2.avif?v=pax2`,
+      src: `${HIW}/Receive-your-medication_2.avif?v=nologo2`,
       alt: 'Pax Tirzepatide medication delivered in discreet packaging',
     },
     chips: ['Licensed pharmacy', 'Expedited shipping', 'Discreet packaging'],
@@ -81,7 +81,7 @@ export const HOW_WHY = [
   },
   {
     image: {
-      src: `${HIW}/Provider-reviews-intake_2.avif?v=pax2`,
+      src: `${HIW}/Provider-reviews-intake_2.avif?v=nologo2`,
       alt: 'Licensed provider reviewing Pax patient intake',
     },
     title: 'Care Built Around You',
@@ -99,7 +99,7 @@ export const HOW_WHY = [
 
 export const HOW_MEDIA = {
   priority: {
-    src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif`,
+    src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=nologo2`,
     alt: 'Pax Patient Center dashboard showing treatment plan and health records',
   },
   cta: {

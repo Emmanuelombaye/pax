@@ -826,7 +826,7 @@ export function WhySection() {
       media: (
         <div className="pax-why__media-frame pax-why__media-frame--portal">
           <img
-            src={`${IMG}/hiw/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif`}
+            src={`${IMG}/hiw/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=nologo2`}
             alt=""
             loading="lazy"
           />

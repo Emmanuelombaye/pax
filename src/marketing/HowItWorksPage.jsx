@@ -165,36 +165,30 @@ export default function HowItWorksPage({ openStart }) {
           <div className="hiw-flow">
             <StickySteps />
 
-            <section className="hiw-story" aria-labelledby="hiw-story-title">
-              <div className="hiw-story__head">
-                <p className="hiw-story__eyebrow">Clinical process</p>
-                <h2 className="hiw-story__title" id="hiw-story-title">
+            <section className="hiw-process" aria-labelledby="hiw-process-title">
+              <div className="hiw-process__head">
+                <p className="hiw-process__eyebrow">Clinical process</p>
+                <h2 className="hiw-process__title" id="hiw-process-title">
                   Every plan starts with a <em>provider review</em>
                 </h2>
-                <p className="hiw-story__sub">
+                <p className="hiw-process__sub">
                   Complete intake, clinician review, and pharmacy fulfillment — only when treatment is appropriate.
                 </p>
               </div>
 
-              <ol className="hiw-story__chapters hiw-story__chapters--process">
+              <ol className="hiw-process__grid">
                 {[
                   { step: '01', title: 'Intake & lab review', meta: 'Secure questionnaire' },
                   { step: '02', title: 'Licensed provider review', meta: 'Typically within 24 hours' },
                   { step: '03', title: 'Pharmacy fulfillment', meta: 'When prescribed' },
                   { step: '04', title: 'Ongoing care', meta: 'Follow-up & support' },
-                ].map((item, i) => (
-                  <li key={item.step} className="hiw-story-chapter" style={{ '--i': i }}>
-                    <div className="hiw-story-chapter__rail" aria-hidden="true">
-                      <span className="hiw-story-chapter__dot" />
-                    </div>
-                    <div className="hiw-story-chapter__copy">
-                      <p className="hiw-story-chapter__meta">
-                        <span>Phase {item.step}</span>
-                        <span aria-hidden="true">·</span>
-                        <span>{item.meta}</span>
-                      </p>
-                      <h3>{item.title}</h3>
-                    </div>
+                ].map((item) => (
+                  <li key={item.step} className="hiw-process-card">
+                    <span className="hiw-process-card__n" aria-hidden="true">
+                      {item.step}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.meta}</p>
                   </li>
                 ))}
               </ol>
