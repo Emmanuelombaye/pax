@@ -10,7 +10,7 @@ export const HOW_STEPS = [
     titleItalic: 'treatment plan',
     body: 'Browse our science-backed GLP-1 options and select the plan that fits your goals. Then complete a short medical history questionnaire — a few minutes that helps our providers confirm you’re a good fit for treatment.',
     image: {
-      src: `${HIW}/Treatment-Plan.avif?v=pax2`,
+      src: `${HIW}/Treatment-Plan.avif?v=nologo`,
       alt: 'Pax Longevity Semaglutide and Tirzepatide treatment vials',
     },
     chips: ['Semaglutide', 'Tirzepatide'],
@@ -73,7 +73,7 @@ export const HOW_STEPS = [
 export const HOW_WHY = [
   {
     image: {
-      src: `${YC}/expt-tirz-sema-vials-together.png?v=paxbrand`,
+      src: `${YC}/expt-tirz-sema-vials-together.png?v=nologo`,
       alt: 'Pax Semaglutide and Tirzepatide vials',
     },
     title: 'Transparent & Trusted',

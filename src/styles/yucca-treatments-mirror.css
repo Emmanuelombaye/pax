@@ -666,7 +666,7 @@ h1[class*="37.0625rem"],.retro-clinical__heading,.retro-protocol__heading,.retro
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] a.bg-neutral-900:active{transform:translate(3px,4px) scale(1);box-shadow:0 0 0 0 var(--color-retro-shadow)}
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] section:not(.designed-section) a.bg-neutral-900{background:color-mix(in oklch, var(--terracotta) 35%, var(--sand))!important;color:var(--color-retro-ink)!important}
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-container{width:calc(100% - 32px);max-width:1368px}
-.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{color:var(--color-retro-ink);background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),linear-gradient(180deg,color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:47%,auto;border-width:3px;box-shadow:none}
+.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card[data-card=wl]{color:var(--color-retro-ink);background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),linear-gradient(180deg,color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:47%,auto;border-width:3px;box-shadow:none}
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-title{color:var(--color-retro-ink);font-weight:400;letter-spacing:-.03em}
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-card-footer{color:var(--color-retro-ink)}
 .retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-chip,.retro-explore-tabs-wrap [data-explore-tab-pane=weight-loss] .explore-hero-stock{border:2px solid var(--color-retro-ink);box-shadow:none!important}
@@ -1085,7 +1085,7 @@ h1[class*="37.0625rem"],.retro-clinical__heading,.retro-protocol__heading,.retro
 .explore-tab-menu[data-active-index="2"]{grid-template-columns:109px 109px 184px;margin-left:calc(100vw - 436px);margin-right:auto}
 .explore-tab-pane{display:none}
 .explore-tab-pane[data-active=true]{display:block}
-.explore-card[data-card=wl]{background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),linear-gradient(color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:39%,auto}
+.explore-card[data-card=wl]{background-image:url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),linear-gradient(color-mix(in oklch,var(--dune) 45%,var(--sand)),color-mix(in oklch,var(--dune) 72%,var(--sand)));background-position:50% 64%,0 0;background-repeat:no-repeat,repeat;background-size:39%,auto}
 .explore-card[data-card=nad]{background-image:url(/images/yucca-clone/yucca-health-product-nad.avif);background-position:50%;background-repeat:no-repeat;background-size:cover}
 .explore-card[data-card=sermorelin]{background-image:url(/images/yucca-clone/expt-sermorelin-vial.png),linear-gradient(color-mix(in oklch,var(--dune) 50%,var(--sand)),color-mix(in oklch,var(--dune) 78%,var(--sand)));background-position:50% 58%,0 0;background-repeat:no-repeat,repeat;background-size:40%,auto}
 .explore-card[data-card=wl]{background-position:50% 65%,0 0;background-size:142px,auto}

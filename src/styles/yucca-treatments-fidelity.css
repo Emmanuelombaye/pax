@@ -138,7 +138,7 @@
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
-  background-image: url(/images/yucca-clone/Personalized-GLP-1-Injections.avif),
+  background-image: url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),
     linear-gradient(
       180deg,
       color-mix(in oklch, var(--dune) 45%, var(--sand)),

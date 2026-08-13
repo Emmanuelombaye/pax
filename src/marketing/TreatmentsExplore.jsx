@@ -76,13 +76,13 @@ const TABS = [
         id: 'semaglutide',
         name: 'GLP-1 (Semaglutide)',
         desc: 'Weekly GLP-1 pathway support.',
-        thumb: `${IMG}/expt-wl-sema.jpg`,
+        thumb: `${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
       },
       {
         id: 'tirzepatide',
         name: 'GLP-1 + GIP (Tirzepatide)',
         desc: 'Dual-pathway weekly support.',
-        thumb: `${IMG}/expt-wl-tirz.jpg`,
+        thumb: `${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
       },
     ],
   },
@@ -91,7 +91,7 @@ const TABS = [
 const WL_PROTOCOL = {
   heading: "Your body isn't working against you. It just needs the right signal.",
   sub: "GLP-1 medications don't fight your hunger — they work through the same hormonal system your body already uses to regulate it.",
-  vials: `${IMG}/expt-tirz-sema-vials-together.png?v=paxbrand`,
+  vials: `${IMG}/expt-tirz-sema-vials-together.png?v=nologo`,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
@@ -522,13 +522,13 @@ function ClinicalSection({ variant }) {
           <div className="retro-clinical__visual" aria-hidden="true">
             <img
               className="retro-clinical__vial retro-clinical__vial--tirz"
-              src={`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=paxbrand`}
+              src={`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
               alt=""
               loading="lazy"
             />
             <img
               className="retro-clinical__vial retro-clinical__vial--sema"
-              src={`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=paxbrand`}
+              src={`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
               alt=""
               loading="lazy"
             />
@@ -809,7 +809,7 @@ export function WhySection() {
       tone: 'light',
       media: (
         <div className="pax-why__media-frame">
-          <img src={`${IMG}/expt-tirz-sema-vials-together.png?v=paxbrand`} alt="" loading="lazy" />
+          <img src={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} alt="" loading="lazy" />
         </div>
       ),
     },
@@ -1026,7 +1026,7 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
-        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png?v=paxbrand`} onCta={cta} />
+        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} onCta={cta} />
       </div>
 
       <WhySection />
