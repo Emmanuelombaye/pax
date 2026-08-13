@@ -73,7 +73,7 @@ export const HOW_STEPS = [
 export const HOW_WHY = [
   {
     image: {
-      src: `${YC}/expt-tirz-sema-vials-together.png?v=nologo`,
+      src: `${YC}/expt-tirz-sema-vials-together.png?v=paxbrand`,
       alt: 'Pax Semaglutide and Tirzepatide vials',
     },
     title: 'Transparent & Trusted',
