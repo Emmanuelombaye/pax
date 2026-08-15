@@ -154,14 +154,20 @@
 .hiw-step-media__frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
+  padding: 1rem 1rem 3.25rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
 .hiw-step-media__img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
@@ -170,10 +176,12 @@
 .hiw-step-chips {
   position: absolute;
   inset-inline: 1rem;
-  bottom: 1rem;
+  bottom: 0.85rem;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  pointer-events: none;
 }
 
 .hiw-step-chip {
@@ -463,9 +471,11 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
   display: block;
+  padding: 0.65rem;
+  box-sizing: border-box;
 }
 
 .hiw-why-card:first-child .hiw-why-card__media {
@@ -475,7 +485,7 @@
 .hiw-why-card:first-child .hiw-why-card__media img {
   object-fit: contain;
   object-position: center;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   box-sizing: border-box;
 }
 
@@ -566,25 +576,70 @@
 
 .hiw-priority__media {
   position: relative;
-  min-height: 240px;
-  background: color-mix(in oklch, var(--forest) 92%, #000);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.25rem;
+  background:
+    radial-gradient(80% 70% at 50% 20%, color-mix(in oklch, var(--dune) 22%, transparent), transparent 60%),
+    color-mix(in oklch, var(--forest) 92%, #000);
 }
 
 @media (min-width: 640px) {
   .hiw-priority__media {
-    min-height: 300px;
+    min-height: 360px;
+    padding: 2rem;
   }
 }
 
-.hiw-priority__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  display: block;
+/* Phone chrome with Dynamic Island */
+.hiw-phone {
+  width: min(100%, 17.5rem);
+  margin-inline: auto;
+}
+
+.hiw-phone__bezel {
+  position: relative;
+  border-radius: 2.15rem;
+  padding: 0.55rem;
+  background: linear-gradient(160deg, #2a2a2c 0%, #0d0d0f 55%, #1a1a1c 100%);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, #fff 12%, transparent),
+    0 18px 40px color-mix(in oklch, #000 45%, transparent);
+}
+
+.hiw-phone__island {
   position: absolute;
-  inset: 0;
-  padding: 1rem 1rem 0;
+  top: 0.4rem;
+  left: 50%;
+  z-index: 3;
+  width: 4.75rem;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #050505;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, #fff 8%, transparent);
+}
+
+.hiw-phone__screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.65rem;
+  background: #f7f4ee;
+}
+
+.hiw-phone__screen img {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: top center !important;
+  padding: 0 !important;
 }
 
 .hiw-priority__copy {
@@ -759,7 +814,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 1.5rem 1.25rem;
+  background:
+    radial-gradient(80% 70% at 50% 15%, color-mix(in oklch, var(--dune) 18%, transparent), transparent 55%),
+    var(--forest);
+}
+
+@media (min-width: 640px) {
+  .hiw-cta__media--portal {
+    padding: 2rem;
+  }
 }
 
 .hiw-cta__media img {
@@ -772,14 +836,19 @@
   display: block;
 }
 
+.hiw-cta__media--portal .hiw-phone {
+  width: min(100%, 16.5rem);
+}
+
 .hiw-cta__media--portal img {
-  position: relative;
-  inset: auto;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 340px;
-  object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .hiw-cta__copy {

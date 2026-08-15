@@ -293,7 +293,41 @@
 }
 
 .pax-why__media-frame--portal {
-  height: 12rem;
+  height: auto;
+  min-height: 12rem;
+  padding: 0.85rem 0.85rem 1rem;
+  background: linear-gradient(160deg, #2a2a2c 0%, #0d0d0f 55%, #1a1a1c 100%);
+  border-radius: 1.35rem;
+  border: none;
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, #fff 10%, transparent),
+    0 14px 28px color-mix(in oklch, #000 28%, transparent);
+}
+
+.pax-why__media-frame--portal::before {
+  content: '';
+  position: absolute;
+  top: 1.05rem;
+  left: 50%;
+  z-index: 2;
+  width: 3.4rem;
+  height: 0.85rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #0a0a0a;
+  pointer-events: none;
+}
+
+.pax-why__media-frame--portal {
+  position: relative;
+}
+
+.pax-why__media-frame--portal img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  border-radius: 0.95rem;
+  object-fit: contain !important;
 }
 
 /* Kill Yucca dark-card / clip geometry inside this redesign */

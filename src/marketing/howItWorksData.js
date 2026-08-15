@@ -99,11 +99,11 @@ export const HOW_WHY = [
 
 export const HOW_MEDIA = {
   priority: {
-    src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=nologo2`,
+    src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=phone1`,
     alt: 'Pax Patient Center dashboard showing treatment plan and health records',
   },
   cta: {
-    src: `${HIW}/yucca-health-patient-portal-features-glp-1-treatment.avif`,
+    src: `${HIW}/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=phone1`,
     alt: 'Pax Patient Center on mobile — track progress and manage treatment',
   },
 };

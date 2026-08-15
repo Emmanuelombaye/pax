@@ -1,6 +1,10 @@
 /* Pax mobile navigation — Yucca-style: CTA stays in header, professional drawer */
 
 @media (max-width: 960px) {
+  .yx-shell .header {
+    padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+  }
+
   /* Logo | Get started + hamburger (Yucca mobile pattern) */
   .yx-shell .header .container.yx-header-bar,
   .yx-shell .yx-header-bar {

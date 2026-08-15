@@ -124,17 +124,19 @@
   flex: 1 1 auto !important;
 }
 
-/* Photo well — soft inset, full image visible */
+/* Photo well — soft inset, full image visible, never cropped */
 .pax-hiw__media {
   margin-top: 1.35rem !important;
   border-radius: 1.35rem !important;
   overflow: hidden !important;
   border: none !important;
   background: color-mix(in oklch, var(--sand) 70%, var(--dune)) !important;
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: 5 / 4 !important;
   min-height: 0 !important;
   display: grid !important;
   place-items: center !important;
+  padding: 0.65rem !important;
+  box-sizing: border-box !important;
 }
 
 .pax-hiw__media img {

@@ -1,6 +1,17 @@
 import { useEffect, useRef } from 'react';
 import { HOW_FAQS, HOW_MEDIA, HOW_STEPS, HOW_WHY } from './howItWorksData.js';
 
+function PhoneFrame({ children, className = '' }) {
+  return (
+    <div className={`hiw-phone ${className}`.trim()}>
+      <div className="hiw-phone__bezel">
+        <div className="hiw-phone__island" aria-hidden="true" />
+        <div className="hiw-phone__screen">{children}</div>
+      </div>
+    </div>
+  );
+}
+
 /**
  * Sticky step stack — Vitalwell/Yucca how-it-works pattern.
  * CSS sticky on desktop; optional opacity scrub via IntersectionObserver (no GSAP).
@@ -221,12 +232,14 @@ export default function HowItWorksPage({ openStart }) {
             <section className="hiw-priority">
               <div className="hiw-priority__card">
                 <div className="hiw-priority__media">
-                  <img
-                    src={HOW_MEDIA.priority.src}
-                    alt={HOW_MEDIA.priority.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <PhoneFrame>
+                    <img
+                      src={HOW_MEDIA.priority.src}
+                      alt={HOW_MEDIA.priority.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </PhoneFrame>
                 </div>
                 <div className="hiw-priority__copy">
                   <h2>Exceptional experience is our priority</h2>
@@ -265,12 +278,14 @@ export default function HowItWorksPage({ openStart }) {
             <section className="hiw-cta">
               <div className="hiw-cta__grid">
                 <div className="hiw-cta__media hiw-cta__media--portal">
-                  <img
-                    src={HOW_MEDIA.cta.src}
-                    alt={HOW_MEDIA.cta.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <PhoneFrame>
+                    <img
+                      src={HOW_MEDIA.cta.src}
+                      alt={HOW_MEDIA.cta.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </PhoneFrame>
                 </div>
                 <div className="hiw-cta__copy">
                   <p className="hiw-cta__eyebrow">Begin care</p>
