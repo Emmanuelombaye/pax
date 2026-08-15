@@ -26,6 +26,7 @@ import {
   resolveTreatmentId,
 } from './startFlowData.js';
 import GlpTreatmentPicker from './GlpTreatmentPicker.jsx';
+import { LEGAL_LINKS } from '../marketing/legalContent.js';
 
 function flowPhase(step) {
   if (step === 'treatment') return 'treatment';
@@ -661,7 +662,7 @@ export default function StartFlow({ onComplete }) {
                   />
                   <span>
                     I agree to the{' '}
-                    <a href="#/terms">Terms of Service</a>, Medical Consent, and Telehealth Informed Consent
+                    <a href="#/terms">Terms of Use</a>, <a href="#/telehealth-consent">Telehealth Consent</a>, and <a href="#/hipaa">HIPAA Notice</a>
                     for provider-guided treatment.
                   </span>
                 </label>
@@ -934,11 +935,12 @@ export default function StartFlow({ onComplete }) {
 
         <footer className="sf-legal">
           <p className="sf-legal__links">
-            <a href="#/privacy">Privacy</a>
-            <span aria-hidden="true"> · </span>
-            <a href="#/terms">Terms</a>
-            <span aria-hidden="true"> · </span>
-            <a href="#/medical-disclaimer">Medical Disclaimer</a>
+            {LEGAL_LINKS.map((link, index) => (
+              <span key={link.id}>
+                {index > 0 ? <span aria-hidden="true"> · </span> : null}
+                <a href={link.href}>{link.label}</a>
+              </span>
+            ))}
           </p>
         </footer>
       </main>

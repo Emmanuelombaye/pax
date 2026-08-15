@@ -11,6 +11,7 @@ import { Icon } from './Icon.jsx';
 import { MOCK, unreadMessages, unreadNotifications } from './mockData.js';
 import { MOBILE_PRIMARY, PORTAL_NAV, defaultChild, parsePortalRoute, portalHref } from './nav.js';
 import { renderPortalScreen } from './screens.jsx';
+import { LEGAL_LINKS } from '../marketing/legalContent.js';
 
 function AuthScreen({ onAuthed }) {
   const [error, setError] = useState('');
@@ -128,11 +129,12 @@ function AuthScreen({ onAuthed }) {
         </a>
 
         <p className="pp-auth__legal-links">
-          <a href="#/privacy">Privacy</a>
-          <span aria-hidden="true"> · </span>
-          <a href="#/terms">Terms</a>
-          <span aria-hidden="true"> · </span>
-          <a href="#/medical-disclaimer">Medical Disclaimer</a>
+          {LEGAL_LINKS.map((link, index) => (
+            <span key={link.id}>
+              {index > 0 ? <span aria-hidden="true"> · </span> : null}
+              <a href={link.href}>{link.label}</a>
+            </span>
+          ))}
         </p>
       </div>
     </div>

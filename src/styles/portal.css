@@ -166,6 +166,7 @@
   color: rgba(28, 63, 52, 0.6);
   font-size: 0.82rem;
   text-align: center;
+  line-height: 1.7;
 }
 
 .pp-auth__legal-links a {

@@ -3030,6 +3030,10 @@ ul { list-style: none; }
   gap: 0.35rem;
 }
 
+.footer-links-col--legal {
+  gap: 0.28rem;
+}
+
 .footer-col-title {
   font-size: 0.68rem;
   font-weight: 400;
@@ -3045,6 +3049,7 @@ ul { list-style: none; }
   color: color-mix(in oklch, var(--sand) 75%, transparent);
   text-decoration: none;
   transition: color var(--duration) var(--ease-out);
+  line-height: 1.35;
 }
 
 .footer-link:hover {
@@ -3109,7 +3114,7 @@ ul { list-style: none; }
   color: var(--sand);
 }
 
-/* ---------- Legal pages (Privacy, Terms, Medical Disclaimer) ---------- */
+/* ---------- Legal pages ---------- */
 .legal-page {
   background: var(--sand);
 }
@@ -3177,16 +3182,17 @@ ul { list-style: none; }
 .legal-nav nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 0.15rem;
 }
 
 .legal-nav__link {
   display: block;
-  padding: 0.5rem 0.65rem;
+  padding: 0.45rem 0.65rem;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
   transition: background var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
 }
 
@@ -3260,15 +3266,21 @@ ul { list-style: none; }
 
 @media (min-width: 900px) {
   .legal-layout {
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 240px 1fr;
     align-items: start;
+  }
+
+  .legal-nav {
+    position: sticky;
+    top: 5.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1.35fr 0.9fr 0.85fr 1.15fr;
     gap: 1rem 1.75rem;
+    align-items: start;
   }
 
   .footer-bottom {

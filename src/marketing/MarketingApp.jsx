@@ -3,7 +3,7 @@ import { BrandLogo, PAX_PASSPORT } from '../brand/index.js';
 import { LIFESTYLE_PILLARS, THREAT_DOMAINS } from './data.js';
 import { MARKETING_IMAGES } from './assets.js';
 import LegalPage from './LegalPage.jsx';
-import { LEGAL_PAGE_IDS } from './legalContent.js';
+import { LEGAL_LINKS, LEGAL_PAGE_IDS } from './legalContent.js';
 import YuccaHome from './YuccaHome.jsx';
 import TreatmentsExplore from './TreatmentsExplore.jsx';
 import HowItWorksPage from './HowItWorksPage.jsx';
@@ -586,11 +586,11 @@ export default function MarketingApp({ currentTab }) {
               <a href="#/threats" className="footer-link">Threats</a>
             </div>
 
-            <div className="footer-links-col">
+            <div className="footer-links-col footer-links-col--legal">
               <span className="footer-col-title">Legal</span>
-              <a href="#/privacy" className="footer-link">Privacy</a>
-              <a href="#/terms" className="footer-link">Terms</a>
-              <a href="#/medical-disclaimer" className="footer-link">Medical Disclaimer</a>
+              {LEGAL_LINKS.map((link) => (
+                <a key={link.id} href={link.href} className="footer-link">{link.label}</a>
+              ))}
             </div>
           </div>
 
@@ -606,11 +606,6 @@ export default function MarketingApp({ currentTab }) {
 
           <div className="footer-bottom">
             <p className="footer-copy">© 2026 Pax Longevity</p>
-            <div className="footer-legal-links">
-              <a href="#/privacy" className="footer-legal-link">Privacy</a>
-              <a href="#/terms" className="footer-legal-link">Terms</a>
-              <a href="#/medical-disclaimer" className="footer-legal-link">Disclaimer</a>
-            </div>
           </div>
         </div>
       </footer>
