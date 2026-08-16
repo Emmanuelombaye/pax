@@ -36,14 +36,18 @@ export default function LegalPage({ pageId }) {
             {page.sections.map((section) => (
               <section key={section.heading} className="legal-section">
                 <h2>{section.heading}</h2>
-                {section.body.map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                {section.body.map((paragraph, idx) => (
+                  <p key={`${section.heading}-${idx}`}>{paragraph}</p>
                 ))}
               </section>
             ))}
             <p className="legal-contact">
               Questions? Contact{' '}
               <a href="mailto:support@pax-longevity.com">support@pax-longevity.com</a>
+              {' · '}
+              <a href="tel:+16154342927">(615) 434-2927</a>
+              <br />
+              Pax Longevity LLC · 382 NE 191st St Num 931099, Miami, FL 33179
             </p>
           </article>
         </div>
