@@ -8,7 +8,7 @@ const IMG = '/images/yucca-clone';
 
 const INCLUDES = [
   'Free Medical Consultation',
-  'Free Expedited Shipping',
+  'Licensed pharmacy shipping when prescribed',
   '24/7 Dedicated Support',
   'Access to Patient Portal',
 ];

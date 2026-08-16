@@ -8,6 +8,8 @@ export const LEGAL_LINKS = [
   { id: 'hipaa', href: '#/hipaa', label: 'HIPAA Notice' },
   { id: 'medical-disclaimer', href: '#/medical-disclaimer', label: 'Medical Disclaimer' },
   { id: 'patient-safety', href: '#/patient-safety', label: 'Patient Safety' },
+  { id: 'shipping', href: '#/shipping', label: 'Shipping & Fulfillment' },
+  { id: 'refund-policy', href: '#/refund-policy', label: 'Refund Policy' },
 ];
 
 export const LEGAL_PAGE_IDS = LEGAL_LINKS.map((l) => l.id);
@@ -200,8 +202,8 @@ export const LEGAL_PAGES = {
       {
         heading: '5. NATIONWIDE AVAILABILITY AND SERVICE LIMITATIONS',
         body: [
-          'Access to at least some Services is offered in all 50 U.S. states through affiliated or contracted healthcare providers and pharmacy partners, subject to applicable law, provider licensure, pharmacy authorization, patient eligibility, clinical appropriateness, and operational availability.',
-          'Nationwide availability does not mean that every provider, treatment category, medication, dosage form, laboratory service, pharmacy, shipping method, or subscription option is available in every state. Availability may change without notice. A provider may require a synchronous video or telephone consultation, laboratory testing, medical records, an in-person examination, or other information before making a treatment decision.',
+          'Access to Services may be offered through affiliated or contracted healthcare providers and pharmacy partners where legally permitted, subject to applicable law, provider licensure, pharmacy authorization, patient eligibility, clinical appropriateness, and operational availability. Availability is not guaranteed in every jurisdiction.',
+          'Listing a state does not mean that every provider, treatment category, medication, dosage form, laboratory service, pharmacy, shipping method, or subscription option is available in every state. Availability may change without notice. A provider may require a synchronous video or telephone consultation, laboratory testing, medical records, an in-person examination, or other information before making a treatment decision.',
         ],
       },
       {
@@ -359,7 +361,7 @@ export const LEGAL_PAGES = {
       {
         heading: '27. STATES SERVED',
         body: [
-          'Subject to the qualifications and limitations in Section 5, access to at least some Services is offered in each of the following 50 states:',
+          'Subject to the qualifications and limitations in Section 5, access to at least some Services is offered in states where affiliated providers and pharmacy partners may be authorized (list illustrative; confirm via intake):',
           'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming.',
           'You must be physically located in the applicable state at the time clinical services are provided. The treating provider must be authorized to practice in that state, and the dispensing pharmacy must be authorized to dispense and ship the prescribed medication to that state. Not every treatment, medication, provider, pharmacy, or fulfillment option is available in every listed state.',
         ],
@@ -395,28 +397,28 @@ export const LEGAL_PAGES = {
     eyebrow: 'Legal',
     lastUpdated: 'August 15, 2026',
     intro:
-      'Access to at least some Pax Longevity® Services is offered in all 50 U.S. states through affiliated or contracted healthcare providers and pharmacy partners, subject to applicable law, provider licensure, pharmacy authorization, patient eligibility, clinical appropriateness, and operational availability.',
+      'Pax Longevity® connects eligible patients with independent U.S.-licensed providers and licensed pharmacy partners. Service availability varies and is not guaranteed in every jurisdiction.',
     sections: [
       {
         heading: 'Service availability',
         body: [
-          'Nationwide availability does not mean that every provider, treatment category, medication, dosage form, laboratory service, pharmacy, shipping method, or subscription option is available in every state. Availability may change without notice.',
+          'Listing a state does not mean that every provider, treatment category, medication, dosage form, laboratory service, pharmacy, shipping method, or subscription option is available in every state. Availability may change without notice.',
           'A provider may require a synchronous video or telephone consultation, laboratory testing, medical records, an in-person examination, or other information before making a treatment decision.',
         ],
       },
       {
-        heading: 'Current service area',
+        heading: 'How to confirm eligibility',
         body: [
-          'Subject to the qualifications and limitations in Section 5, access to at least some Services is offered in each of the following 50 states:',
+          'The most accurate way to confirm whether care may be available to you is to complete the online medical intake. A U.S.-licensed provider reviews submitted information and determines whether treatment is clinically appropriate and operationally available.',
+          'An illustrative list of U.S. states is maintained for reference only and does not guarantee service in any listed jurisdiction.',
           'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming.',
-          'You must be physically located in the applicable state at the time clinical services are provided. The treating provider must be authorized to practice in that state, and the dispensing pharmacy must be authorized to dispense and ship the prescribed medication to that state. Not every treatment, medication, provider, pharmacy, or fulfillment option is available in every listed state.',
         ],
       },
       {
         heading: 'Location requirements',
         body: [
           'You must be physically located in the applicable state at the time clinical services are provided. The treating provider must be authorized to practice in that state, and the dispensing pharmacy must be authorized to dispense and ship the prescribed medication to that state.',
-          'Questions about state availability: support@pax-longevity.com',
+          'Questions about state availability: support@pax-longevity.com · (615) 434-2927',
         ],
       },
     ],
@@ -701,6 +703,86 @@ export const LEGAL_PAGES = {
         heading: 'Contact',
         body: [
           'Pax Longevity LLC · 382 NE 191ST ST NUM 931099, MIAMI, FL 33179 · support@pax-longevity.com · (615) 434-2927',
+        ],
+      },
+    ],
+  },
+  'shipping': {
+    id: 'shipping',
+    title: 'Shipping & Fulfillment',
+    eyebrow: 'Legal',
+    lastUpdated: 'August 16, 2026',
+    intro:
+      'Pax Longevity® is not a pharmacy. If treatment is prescribed, medication may be fulfilled and shipped by a licensed dispensing pharmacy. Timing is not guaranteed.',
+    sections: [
+      {
+        heading: 'When shipping happens',
+        body: [
+          'Medication ships only if a U.S.-licensed provider issues a prescription and a licensed pharmacy fulfills that prescription. Completing intake or authorizing payment does not guarantee a prescription or shipment.',
+        ],
+      },
+      {
+        heading: 'Who ships',
+        body: [
+          'Fulfillment and shipping are handled by licensed pharmacy partners, not by Pax Longevity® as a pharmacy. Packaging and labeling are determined by the dispensing pharmacy and may differ from illustrative website imagery.',
+        ],
+      },
+      {
+        heading: 'Shipping method',
+        body: [
+          'When prescribed, eligible orders are typically shipped via expedited courier in discreet packaging. Temperature control may be used when appropriate. Exact methods may vary by pharmacy, destination, and product.',
+        ],
+      },
+      {
+        heading: 'Timing',
+        body: [
+          'Delivery timing is not guaranteed. Delays may occur due to clinical review, pharmacy preparation, carrier issues, weather, address problems, or other factors outside our control.',
+        ],
+      },
+      {
+        heading: 'Contact',
+        body: [
+          'Shipping questions: support@pax-longevity.com · (615) 434-2927. Also see Refund Policy.',
+        ],
+      },
+    ],
+  },
+  'refund-policy': {
+    id: 'refund-policy',
+    title: 'Refund Policy',
+    eyebrow: 'Legal',
+    lastUpdated: 'August 16, 2026',
+    intro:
+      'Pax Longevity® billing is designed around provider review. Where stated on product pages, you are charged only if a licensed provider prescribes treatment.',
+    sections: [
+      {
+        heading: 'Charged only if prescribed',
+        body: [
+          'For protocols that state “charged only if prescribed,” payment authorization may be collected during intake, but you are not charged for the medication plan unless a U.S.-licensed provider issues a prescription.',
+        ],
+      },
+      {
+        heading: 'If you are not prescribed',
+        body: [
+          'If a provider determines treatment is not clinically appropriate, you will not be charged for that medication plan under a “charged only if prescribed” offer.',
+        ],
+      },
+      {
+        heading: 'After a prescription is issued',
+        body: [
+          'Once a prescription is issued and pharmacy fulfillment begins, refund eligibility may be limited because medication preparation and shipping are handled by licensed pharmacies under patient-specific prescriptions. Requests are reviewed case by case in accordance with applicable law and pharmacy policies.',
+        ],
+      },
+      {
+        heading: 'Cancel or pause',
+        body: [
+          'Plans are generally month-to-month. You may request to cancel or pause future refills through the patient portal or by contacting support. Cancellation does not automatically refund prior fulfilled shipments.',
+        ],
+      },
+      {
+        heading: 'How to request help',
+        body: [
+          'For billing or refund questions, email support@pax-longevity.com or call (615) 434-2927. Include your full name, email used at intake, and a brief description of the issue.',
         ],
       },
     ],
