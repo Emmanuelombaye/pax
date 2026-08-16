@@ -206,18 +206,18 @@ const SER_EXPECT = {
   sub: "Sermorelin is a growth hormone releasing peptide that signals the pituitary gland to naturally increase growth hormone production. In this program, sermorelin is used to support body composition, energy, and recovery. Here's how it typically unfolds.",
   weeks: [
     {
-      tag: 'Week 1 → 4 · Sermorelin begins working',
-      text: 'Your body begins responding to sermorelin as the pituitary gland starts increasing growth hormone production. You may notice early improvements in sleep quality and energy levels. This initial phase lays the groundwork for deeper results in the weeks ahead.',
+      tag: 'Week 1 → 4 · Getting started',
+      text: 'Treatment typically begins at a measured dose so your body can adapt. Some people notice early changes in sleep or energy; others take longer. Experiences vary and are not guaranteed. Your provider remains available throughout.',
       img: `${IMG}/exp-hiw-mr-week-1.avif`,
     },
     {
-      tag: 'Week 4 → 12 · Growth hormone increases',
-      text: 'Growth hormone levels continue to rise as your body responds to sermorelin. Many patients notice improvements in body composition, reduced fat, and increased muscle tone. Recovery improves and sleep often deepens during this phase.',
+      tag: 'Week 4 → 12 · Ongoing provider review',
+      text: 'As dosing continues under provider review, some people notice changes in recovery, body composition, or energy. Others need more time or an adjustment. Individual responses vary; outcomes are not guaranteed.',
       img: `${IMG}/exp-hiw-mr-week-2.avif`,
     },
     {
-      tag: 'Month 3+ · Long-term optimization',
-      text: 'Sustained sermorelin use supports long-term improvements in body composition, energy, and overall vitality. Your provider can fine-tune your protocol based on your progress, helping you maintain results and continue optimizing over time.',
+      tag: 'Month 3+ · Maintenance with your provider',
+      text: 'Your provider may fine-tune your protocol based on how you respond. The focus can shift toward consistency — always guided by clinical judgment, not outcome guarantees.',
       img: `${IMG}/exp-hiw-mr-week-3.avif`,
     },
   ],

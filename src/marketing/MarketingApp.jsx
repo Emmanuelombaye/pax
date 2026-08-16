@@ -184,7 +184,7 @@ export default function MarketingApp({ currentTab }) {
             <div key={loop} className="yxr-trustbar__group">
               <span className="yxr-trustbar__item">U.S. Licensed Pharmacies</span>
               <span className="yxr-trustbar__item">Licensed U.S. Provider Review</span>
-              <span className="yxr-trustbar__item">Free Expedited Shipment</span>
+              <span className="yxr-trustbar__item">Shipping if prescribed</span>
               <span className="yxr-trustbar__item">Pax Longevity Patient Center</span>
             </div>
           ))}
