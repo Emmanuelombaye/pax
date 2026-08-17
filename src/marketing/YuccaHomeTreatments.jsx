@@ -20,6 +20,7 @@ const TREATMENTS = [
     period: '/mo',
     priceNote: '6-month plan · charged only if prescribed',
     vials: [VIALS.sema],
+    vialClass: 'goal-vial--sema',
     cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
     startTx: 'semaglutide',
     learnHref: '#/treatments/weight-loss',
@@ -40,6 +41,7 @@ const TREATMENTS = [
     period: '/mo',
     priceNote: '6-month plan · charged only if prescribed',
     vials: [VIALS.tirz],
+    vialClass: 'goal-vial--tirz',
     cutoutPair: `${IMG}/pax-glp1-couple-cutout-tirz.avif`,
     startTx: 'tirzepatide',
     learnHref: '#/treatments/weight-loss',
@@ -121,7 +123,7 @@ export default function YuccaHomeTreatments({ openStart }) {
                     src={src}
                     alt=""
                     loading="eager"
-                    className={i === 0 ? 'goal-vial goal-vial--front' : 'goal-vial goal-vial--back'}
+                    className={`${i === 0 ? 'goal-vial goal-vial--front' : 'goal-vial goal-vial--back'} ${active.vialClass || ''}`}
                   />
                 ))}
               </div>

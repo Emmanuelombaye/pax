@@ -101,7 +101,7 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'medication',
     fit: 'contain',
-    src: '/images/vials/together.png',
+    src: '/images/cards/pax-yucca-vials.png',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {

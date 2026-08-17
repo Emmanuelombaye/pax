@@ -52,11 +52,12 @@
 
 .pax-member__card--contain {
   padding: 0;
-  background: #0b0b0b;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
 }
 
 .pax-member__card--contain img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   height: 100%;
 }
 

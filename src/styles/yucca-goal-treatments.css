@@ -196,19 +196,19 @@
   height: 168px;
   border-radius: 1.15rem;
   overflow: hidden;
-  background: #0b0b0b;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
 }
 
 .goal-vial {
   position: absolute;
-  height: 108%;
-  width: auto;
-  max-width: none;
-  object-fit: contain;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
   object-position: center;
   mix-blend-mode: normal;
-  left: 50%;
-  transform: translateX(-50%);
+  transform: none;
 }
 
 .goal-vial--back {
@@ -216,8 +216,15 @@
 }
 
 .goal-vial--front {
-  left: 50%;
   z-index: 2;
+}
+
+.goal-vial--sema {
+  object-position: right center;
+}
+
+.goal-vial--tirz {
+  object-position: left center;
 }
 
 .goal-product-enrolled {

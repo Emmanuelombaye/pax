@@ -79,12 +79,14 @@ const TABS = [
         name: 'GLP-1 (Semaglutide)',
         desc: 'Weekly GLP-1 pathway support.',
         thumb: VIALS.sema,
+        thumbClass: 'is-sema',
       },
       {
         id: 'tirzepatide',
         name: 'GLP-1 + GIP (Tirzepatide)',
         desc: 'Dual-pathway weekly support.',
         thumb: VIALS.tirz,
+        thumbClass: 'is-tirz',
       },
     ],
   },
@@ -348,7 +350,12 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
                     onClick={() => setSelectedTx(p.id)}
                   >
                     <div className="explore-vial-card__media">
-                      <img src={p.thumb} alt="" loading="lazy" className="explore-vial-card__img" />
+                      <img
+                        src={p.thumb}
+                        alt=""
+                        loading="lazy"
+                        className={`explore-vial-card__img ${p.thumbClass || ''}`}
+                      />
                     </div>
                     <div className="explore-vial-card__copy">
                       <div className="explore-vial-card__name">{p.name}</div>

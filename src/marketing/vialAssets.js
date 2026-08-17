@@ -1,6 +1,6 @@
 /** Studio GLP-1 vials — Personalized Semaglutide+ / Tirzepatide+, no Yucca marks. */
 export const VIALS = {
-  sema: '/images/vials/sema.png',
-  tirz: '/images/vials/tirz.png',
-  together: '/images/vials/together.png',
+  sema: '/images/cards/pax-yucca-vials.png',
+  tirz: '/images/cards/pax-yucca-vials.png',
+  together: '/images/cards/pax-yucca-vials.png',
 };

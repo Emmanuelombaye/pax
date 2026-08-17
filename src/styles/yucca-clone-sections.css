@@ -426,7 +426,7 @@
 .yxr-rtt__vials {
   width: 7.5rem;
   flex-shrink: 0;
-  background: #0b0b0b;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
   border-radius: 0.85rem;
   overflow: hidden;
 }

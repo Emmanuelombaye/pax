@@ -273,7 +273,7 @@
   height: 11rem;
   padding: 0;
   border-radius: 0.95rem;
-  background: #0b0b0b;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
   border: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
   overflow: hidden;
 }
