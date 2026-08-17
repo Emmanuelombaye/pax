@@ -28,8 +28,10 @@ function HeroSection({ openStart }) {
         <div className="pax-home-hero__media" aria-hidden="true">
           <img
             className="pax-home-hero__photo"
-            src="/images/pax-hero-couple-portrait.png"
+            src="/images/pax-hero-couple-portrait.webp?v=lite1"
             alt=""
+            width="1400"
+            height="2100"
             loading="eager"
             fetchPriority="high"
           />
@@ -89,7 +91,7 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'provider',
     fit: 'cover',
-    src: '/images/yucca-clone/dr-michael-wasef-md-pax.png',
+    src: '/images/yucca-clone/dr-michael-wasef-md-pax.webp?v=lite1',
     alt: 'Licensed clinician in a Pax lab coat',
   },
   {
@@ -100,14 +102,14 @@ const MEMBERSHIP_CARDS = [
   },
   {
     id: 'medication',
-    fit: 'contain',
-    src: '/images/membership/vials.webp?v=m1',
+    fit: 'cover',
+    src: '/images/membership/vials.webp?v=m2',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {
     id: 'progress',
-    fit: 'contain',
-    src: '/images/membership/progress.webp?v=m1',
+    fit: 'cover',
+    src: '/images/membership/scale.webp?v=m2',
     alt: 'Ongoing progress tracking',
   },
 ];
@@ -125,13 +127,13 @@ function MembershipSection() {
       <div className="pax-member__inner">
         <div className="pax-member__row">
           {MEMBERSHIP_CARDS.map((card) => (
-            <figure key={card.id} className={`pax-member__card pax-member__card--${card.fit}`}>
+            <figure key={card.id} className={`pax-member__card pax-member__card--${card.fit} pax-member__card--${card.id}`}>
               {card.fit === 'phone' ? (
                 <div className="pax-member__phone">
-                  <img src={card.src} alt="" loading="lazy" decoding="async" />
+                  <img src={card.src} alt="" loading="eager" decoding="async" />
                 </div>
               ) : (
-                <img src={card.src} alt="" loading="lazy" decoding="async" />
+                <img src={card.src} alt="" loading="eager" decoding="async" />
               )}
               <figcaption className="sr-only">{card.alt}</figcaption>
             </figure>
