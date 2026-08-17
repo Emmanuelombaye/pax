@@ -44,7 +44,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|images/|sw\\.js).*)",
+      "source": "/((?!api/|assets/|images/|sw\\.js).*)",
       "destination": "/index.html"
     }
   ]

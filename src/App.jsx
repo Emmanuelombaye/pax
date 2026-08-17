@@ -5,6 +5,7 @@ import { ROUTE_TABS } from './marketing/data.js';
 const PortalApp = lazy(() => import('./portal/PortalApp.jsx'));
 const StartFlow = lazy(() => import('./start/StartFlow.jsx'));
 const BrandCompare = lazy(() => import('./marketing/BrandCompare.jsx'));
+const CheckoutSuccess = lazy(() => import('./start/CheckoutSuccess.jsx'));
 
 function locationRoute() {
   if (typeof window === 'undefined') return '';
@@ -18,6 +19,7 @@ function parseHashTab(hashRaw) {
   const route = (hash.split('?')[0] || locationRoute()).replace(/\/$/, '');
   if (route === 'portal' || route.startsWith('portal/')) return 'portal';
   if (route === 'start' || route.startsWith('start/')) return 'start';
+  if (route === 'checkout/success' || route === 'checkout-success') return 'checkout-success';
   if (route === 'brand-compare') return 'brand-compare';
   // Deep links: #/treatments/weight-loss and /treatments/weight-loss
   if (route === 'treatments' || route.startsWith('treatments/')) return 'treatments';
@@ -70,6 +72,14 @@ export default function App() {
     return (
       <Suspense fallback={<SurfaceFallback />}>
         <PortalApp />
+      </Suspense>
+    );
+  }
+
+  if (currentTab === 'checkout-success') {
+    return (
+      <Suspense fallback={<SurfaceFallback />}>
+        <CheckoutSuccess />
       </Suspense>
     );
   }

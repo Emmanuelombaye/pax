@@ -1,8 +1,7 @@
 export const FLOW_STEPS = [
   { id: 'treatment', label: 'Choose treatment' },
   { id: 'intake', label: 'Medical intake' },
-  { id: 'plan', label: 'Plan & checkout' },
-  { id: 'verify', label: 'Verify & account' },
+  { id: 'checkout', label: 'Checkout' },
 ];
 
 export const TREATMENT_INCLUDES = [
@@ -136,13 +135,20 @@ export function resolveTreatmentId(raw) {
 
 import QUESTIONNAIRE from './questionnaire.json';
 
-/** LegitScript-oriented clinical intake phases (mock provider review). */
+/** Peakcare-style clinical intake phases. */
 export const INTAKE_PHASES = [
-  { id: 'metrics', title: 'Body metrics', eyebrow: 'Clinical intake' },
-  { id: 'screening', title: 'Medical screening', eyebrow: 'Clinical intake' },
-  { id: 'patient', title: 'Patient information', eyebrow: 'Clinical intake' },
-  { id: 'shipping', title: 'Shipping address', eyebrow: 'Clinical intake' },
-  { id: 'consent', title: 'Agreements & consent', eyebrow: 'Clinical intake' },
+  { id: 'patient', title: 'Patient Information', eyebrow: 'Step 1' },
+  { id: 'shipping', title: 'Shipping Address', eyebrow: 'Step 2' },
+  { id: 'screening', title: 'Medical Screening', eyebrow: 'Step 3' },
+  { id: 'consent', title: 'Agreements & Checkout', eyebrow: 'Step 4' },
+];
+
+export const SCREENING_CONDITIONS = [
+  'Pregnancy or breastfeeding',
+  'Personal or family history of MEN, MTC, or thyroid cancer',
+  'History of thyroid tumors',
+  'Gastroparesis (delayed stomach emptying)',
+  'Gallbladder, pancreatic, kidney, or liver problems',
 ];
 
 /** Kept for any legacy imports — prefer INTAKE_PHASES + QUESTIONNAIRE. */
@@ -184,6 +190,7 @@ export function emptyIntake() {
     city: '',
     state: '',
     zip: '',
+    conditionsApply: '',
     consentTelehealth: false,
     consentReview: false,
   };

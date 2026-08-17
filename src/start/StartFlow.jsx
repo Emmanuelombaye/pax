@@ -12,17 +12,15 @@ import {
   TREATMENT_INCLUDES,
   TREATMENTS,
   TRUST_POINTS,
+  SCREENING_CONDITIONS,
   US_STATES,
   emptyIntake,
-  getActiveScreeningQuestions,
   getGoalForTreatment,
   getPlansForTreatment,
-  isScreeningComplete,
   isValidAdultDob,
   isValidEmail,
   isValidPhone,
   isValidZip,
-  questionIsDisqualified,
   resolveTreatmentId,
 } from './startFlowData.js';
 import GlpTreatmentPicker from './GlpTreatmentPicker.jsx';
@@ -31,8 +29,7 @@ import { LEGAL_LINKS } from '../marketing/legalContent.js';
 function flowPhase(step) {
   if (step === 'treatment') return 'treatment';
   if (step === 'intake') return 'intake';
-  if (step === 'plan' || step === 'checkout') return 'plan';
-  return 'verify';
+  return 'checkout';
 }
 
 function Progress({ step }) {
@@ -80,6 +77,7 @@ function normalizeIntake(raw) {
     height: raw.height || raw.answers?.height || '',
     weight: raw.weight || raw.answers?.weight || '',
     sexAtBirth: raw.sexAtBirth || raw.answers?.gender || '',
+    conditionsApply: raw.conditionsApply || '',
     consentTelehealth: Boolean(raw.consentTelehealth),
     consentReview: Boolean(raw.consentReview),
   };
@@ -94,12 +92,18 @@ export default function StartFlow({ onComplete }) {
     const params = new URLSearchParams(query);
     return resolveTreatmentId(params.get('treatment') || '');
   })();
-  const [step, setStep] = useState(pending?.resumeStep || 'treatment');
+  const resumeRaw = pending?.resumeStep || 'treatment';
+  const resumeStep = ['plan', 'checkout', 'verify', 'account'].includes(resumeRaw) ? 'intake' : resumeRaw;
+  const [step, setStep] = useState(resumeStep);
   const [treatmentId, setTreatmentId] = useState(
     resolveTreatmentId(pending?.treatmentId) || hashTreatmentId || 'semaglutide',
   );
   const [intakeIndex, setIntakeIndex] = useState(
-    Number.isFinite(pending?.intakeIndex) ? pending.intakeIndex : 0,
+    ['plan', 'checkout', 'verify', 'account'].includes(resumeRaw)
+      ? INTAKE_PHASES.length - 1
+      : Number.isFinite(pending?.intakeIndex)
+        ? pending.intakeIndex
+        : 0,
   );
   const [intake, setIntake] = useState(() => normalizeIntake(pending?.intake));
   const [planId, setPlanId] = useState(pending?.planId || '3mo');
@@ -117,6 +121,10 @@ export default function StartFlow({ onComplete }) {
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [couponInput, setCouponInput] = useState('');
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [couponBusy, setCouponBusy] = useState(false);
+  const [couponMessage, setCouponMessage] = useState('');
 
   const treatment = useMemo(
     () => TREATMENTS.find((t) => t.id === treatmentId) || TREATMENTS[0],
@@ -130,12 +138,17 @@ export default function StartFlow({ onComplete }) {
     [plans, planId],
   );
   const intakePhase = INTAKE_PHASES[intakeIndex] || INTAKE_PHASES[0];
-  const screeningQuestions = useMemo(() => getActiveScreeningQuestions(intake), [intake]);
   const supportEmail = PAX_PASSPORT.identity.supportEmail;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [step, intakeIndex]);
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const hashQuery = window.location.hash.includes('?') ? window.location.hash.split('?')[1] : '';
+    const hashParams = new URLSearchParams(hashQuery);
+    if (params.get('canceled') === '1' || hashParams.get('canceled') === '1') {
+      setError('Checkout was canceled. Your intake is still here — continue when you are ready.');
+    }
+  }, []);
 
   useEffect(() => {
     if (!plans.some((p) => p.id === planId)) {
@@ -194,58 +207,148 @@ export default function StartFlow({ onComplete }) {
     go('intake', { intakeIndex: 0 });
   };
 
-  const setAnswer = (id, value) => {
-    setIntake((prev) => ({
-      ...prev,
-      answers: { ...prev.answers, [id]: value },
-    }));
-  };
-
   const validateIntakePhase = () => {
-    if (intakePhase.id === 'metrics') {
-      if (!intake.height?.trim() || !intake.weight || !intake.sexAtBirth || !intake.dob) {
-        return 'Enter height, weight, date of birth, and sex assigned at birth.';
-      }
-      if (!isValidAdultDob(intake.dob)) {
-        return 'You must be 18 or older to continue.';
-      }
-      return '';
-    }
-    if (intakePhase.id === 'screening') {
-      if (!isScreeningComplete(intake)) {
-        if (screeningQuestions.some((q) => questionIsDisqualified(q, intake.answers?.[q.id]))) {
-          return `Based on your answers, a physician must review before you can continue. Contact ${supportEmail}.`;
-        }
-        return 'Please answer all medical screening questions to continue.';
-      }
-      return '';
-    }
     if (intakePhase.id === 'patient') {
-      if (!checkout.firstName?.trim() || !checkout.lastName?.trim() || !checkout.email?.trim() || !checkout.phone?.trim()) {
-        return 'Enter your full name, email, and phone number.';
+      if (
+        !checkout.email?.trim() ||
+        !checkout.firstName?.trim() ||
+        !checkout.lastName?.trim() ||
+        !checkout.phone?.trim() ||
+        !intake.dob ||
+        !intake.sexAtBirth
+      ) {
+        return 'Please complete all required patient information fields.';
       }
       if (!isValidEmail(checkout.email)) return 'Enter a valid email address.';
       if (!isValidPhone(checkout.phone)) return 'Enter a valid phone number.';
+      if (!isValidAdultDob(intake.dob)) return 'You must be 18 or older to continue.';
       return '';
     }
     if (intakePhase.id === 'shipping') {
       if (!intake.address1?.trim() || !intake.city?.trim() || !intake.state || !intake.zip?.trim()) {
-        return 'Enter a complete shipping address.';
+        return 'Please complete all required shipping address fields.';
       }
       if (!US_STATES.some((s) => s.value === intake.state)) return 'Select a valid U.S. state.';
       if (!isValidZip(intake.zip)) return 'Enter a valid ZIP code.';
       return '';
     }
+    if (intakePhase.id === 'screening') {
+      if (intake.conditionsApply !== 'yes' && intake.conditionsApply !== 'no') {
+        return 'Please answer the medical screening question to continue.';
+      }
+      return '';
+    }
     if (intakePhase.id === 'consent') {
       if (!intake.consentTelehealth || !intake.consentReview) {
-        return 'Please accept both agreements to submit your intake for provider review.';
+        return 'Please accept both clinical agreements to complete your intake.';
       }
       return '';
     }
     return '';
   };
 
-  const continueIntake = () => {
+  const applyCoupon = async () => {
+    const code = couponInput.trim();
+    if (!code) {
+      setCouponMessage('Enter a promo code.');
+      setAppliedCoupon(null);
+      return;
+    }
+
+    setCouponBusy(true);
+    setCouponMessage('');
+    try {
+      const res = await fetch('/api/checkout/coupon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, programSlug: treatment.id }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.valid !== true) {
+        setAppliedCoupon(null);
+        setCouponMessage(data.error || 'This code is not valid for this order.');
+        return;
+      }
+      setAppliedCoupon({
+        code: data.code || code,
+        discountAmountCents: data.discountAmountCents,
+        finalAmountCents: data.finalAmountCents,
+      });
+      setCouponMessage('Promo code applied.');
+    } catch {
+      setAppliedCoupon(null);
+      setCouponMessage('We could not check this code right now. Please try again.');
+    } finally {
+      setCouponBusy(false);
+    }
+  };
+
+  const clearCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponMessage('');
+  };
+
+  const startSecureCheckout = async () => {
+    if (busy) return false;
+    setBusy(true);
+    setError('');
+    persist({ resumeStep: 'checkout' });
+
+    try {
+      localStorage.setItem('pax_checkout_email_v1', checkout.email.trim());
+    } catch {
+      /* ignore private-mode storage failures */
+    }
+
+    try {
+      const res = await fetch('/api/checkout/session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          programSlug: treatment.id,
+          patientInfo: {
+            firstName: checkout.firstName.trim(),
+            lastName: checkout.lastName.trim(),
+            email: checkout.email.trim(),
+            phone: checkout.phone.replace(/\D/g, ''),
+            dob: intake.dob,
+            state: intake.state,
+          },
+          intakeAnswers: {
+            program: treatment.name,
+            programSlug: treatment.id,
+            planId,
+            sexAssignedAtBirth: intake.sexAtBirth,
+            shippingStreet: intake.address1,
+            shippingApartment: intake.address2,
+            shippingCity: intake.city,
+            shippingState: intake.state,
+            shippingZip: intake.zip,
+            conditionsApply: intake.conditionsApply,
+            screeningConditions: SCREENING_CONDITIONS.join('; '),
+            consentTermsAndTelehealth: intake.consentTelehealth,
+            authorizeClinicianReview: intake.consentReview,
+            source: 'pax-start',
+          },
+          ...(appliedCoupon?.code ? { couponCode: appliedCoupon.code } : {}),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.checkoutUrl) {
+        setError(data.error || 'We could not start checkout. Please try again.');
+        return false;
+      }
+      window.location.href = data.checkoutUrl;
+      return true;
+    } catch {
+      setError('Network error. Check your connection and try again.');
+      return false;
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const continueIntake = async () => {
     const msg = validateIntakePhase();
     if (msg) {
       setError(msg);
@@ -258,7 +361,7 @@ export default function StartFlow({ onComplete }) {
       persist({ intakeIndex: nextIndex });
       return;
     }
-    go('plan');
+    await startSecureCheckout();
   };
 
   const backIntake = () => {
@@ -272,13 +375,14 @@ export default function StartFlow({ onComplete }) {
     persist({ intakeIndex: nextIndex });
   };
 
-  const continueCheckout = (e) => {
+  const continueCheckout = async (e) => {
     e.preventDefault();
-    if (!checkout.firstName || !checkout.email || !checkout.card || checkout.card.replace(/\s/g, '').length < 12) {
-      setError('Complete your contact details and card to continue.');
+    const msg = validateIntakePhase();
+    if (intakePhase.id !== 'consent' && (!checkout.firstName?.trim() || !isValidEmail(checkout.email))) {
+      setError('Complete your contact details to continue.');
       return;
     }
-    go('verify');
+    await startSecureCheckout();
   };
 
   const continueVerify = (e) => {
@@ -424,50 +528,70 @@ export default function StartFlow({ onComplete }) {
 
         {step === 'intake' && (
           <section className="sf-panel sf-panel--intake">
-            <p className="pp-eyebrow">
-              {intakePhase.eyebrow} · {intakeIndex + 1}/{INTAKE_PHASES.length}
-            </p>
-            <h1>{intakePhase.title}</h1>
+            <p className="pp-eyebrow">Clinical intake · {intakeIndex + 1}/{INTAKE_PHASES.length}</p>
+            <h1>Step {intakeIndex + 1} — {intakePhase.title}</h1>
             <p className="sf-lede">
               A licensed U.S. provider reviews your answers before any prescription is issued — typically within 24 hours.
             </p>
 
-            {intakePhase.id === 'metrics' && (
-              <div className="sf-metrics">
+            {intakePhase.id === 'patient' && (
+              <div className="pp-auth__form sf-intake-form">
                 <label>
-                  Height (e.g. 5&apos;10&quot;)
+                  Email Address *
                   <input
-                    value={intake.height}
-                    onChange={(e) => setIntake({ ...intake, height: e.target.value })}
-                    placeholder={'5\'10"'}
+                    type="email"
+                    value={checkout.email}
+                    onChange={(e) => setCheckout({ ...checkout, email: e.target.value })}
+                    placeholder="alex.rivera@example.com"
+                    autoComplete="email"
+                    required
+                  />
+                </label>
+                <div className="pp-auth__row">
+                  <label>
+                    First Name *
+                    <input
+                      value={checkout.firstName}
+                      onChange={(e) => setCheckout({ ...checkout, firstName: e.target.value })}
+                      autoComplete="given-name"
+                      required
+                    />
+                  </label>
+                  <label>
+                    Last Name *
+                    <input
+                      value={checkout.lastName}
+                      onChange={(e) => setCheckout({ ...checkout, lastName: e.target.value })}
+                      autoComplete="family-name"
+                      required
+                    />
+                  </label>
+                </div>
+                <label>
+                  Phone Number *
+                  <input
+                    type="tel"
+                    value={checkout.phone}
+                    onChange={(e) => setCheckout({ ...checkout, phone: e.target.value })}
+                    placeholder="(305) 555-0142"
+                    autoComplete="tel"
                     required
                   />
                 </label>
                 <label>
-                  Weight (lbs)
-                  <input
-                    type="number"
-                    value={intake.weight}
-                    onChange={(e) => setIntake({ ...intake, weight: e.target.value })}
-                    placeholder="185"
-                    min="50"
-                    max="500"
-                    required
-                  />
-                </label>
-                <label>
-                  Date of birth
+                  Date of Birth *
                   <input
                     type="date"
                     value={intake.dob}
                     onChange={(e) => setIntake({ ...intake, dob: e.target.value })}
+                    autoComplete="bday"
                     required
                   />
                 </label>
                 <div className="sf-field">
-                  <span className="sf-field__label">Sex assigned at birth</span>
+                  <span className="sf-field__label">Sex Assigned at Birth *</span>
                   <div className="sf-choices sf-choices--row">
-                    {['Male', 'Female', 'Other'].map((sex) => (
+                    {['Male', 'Female'].map((sex) => (
                       <button
                         key={sex}
                         type="button"
@@ -482,155 +606,43 @@ export default function StartFlow({ onComplete }) {
               </div>
             )}
 
-            {intakePhase.id === 'screening' && (
-              <div className="sf-q-list">
-                {screeningQuestions.map((q) => {
-                  const value = intake.answers?.[q.id] || '';
-                  const disqualified = questionIsDisqualified(q, value);
-                  return (
-                    <div key={q.id} className={`sf-q ${disqualified ? 'sf-q--warn' : ''}`}>
-                      <p className="sf-q__prompt">
-                        {q.question}
-                        {q.required ? <span aria-hidden="true"> *</span> : null}
-                      </p>
-
-                      {q.type === 'boolean' && (
-                        <div className="sf-choices sf-choices--row">
-                          {['yes', 'no'].map((opt) => (
-                            <button
-                              key={opt}
-                              type="button"
-                              className={`sf-choice ${value === opt ? 'active' : ''} ${disqualified && value === opt ? 'sf-choice--danger' : ''}`}
-                              onClick={() => setAnswer(q.id, opt)}
-                            >
-                              {opt === 'yes' ? 'Yes' : 'No'}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      {q.type === 'select' && (
-                        <div className="sf-choices">
-                          {(q.options || []).map((opt) => (
-                            <button
-                              key={opt}
-                              type="button"
-                              className={`sf-choice ${value === opt ? 'active' : ''}`}
-                              onClick={() => setAnswer(q.id, opt)}
-                            >
-                              {opt}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      {(q.type === 'text' || q.type === 'number') && (
-                        q.type === 'text' && String(q.question).length > 80 ? (
-                          <textarea
-                            value={value}
-                            onChange={(e) => setAnswer(q.id, e.target.value)}
-                            rows={3}
-                            placeholder="Enter your answer…"
-                          />
-                        ) : (
-                          <input
-                            type={q.type === 'number' ? 'number' : 'text'}
-                            value={value}
-                            onChange={(e) => setAnswer(q.id, e.target.value)}
-                            placeholder="Enter your answer…"
-                          />
-                        )
-                      )}
-
-                      {disqualified && (
-                        <div className="sf-q__alert" role="alert">
-                          <strong>Medical review required</strong>
-                          <p>
-                            Based on this response, a physician review is required before you can proceed.
-                            Contact {supportEmail} for next steps.
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-
-            {intakePhase.id === 'patient' && (
-              <div className="pp-auth__form sf-intake-form">
-                <div className="pp-auth__row">
-                  <label>
-                    First name
-                    <input
-                      value={checkout.firstName}
-                      onChange={(e) => setCheckout({ ...checkout, firstName: e.target.value })}
-                      required
-                    />
-                  </label>
-                  <label>
-                    Last name
-                    <input
-                      value={checkout.lastName}
-                      onChange={(e) => setCheckout({ ...checkout, lastName: e.target.value })}
-                      required
-                    />
-                  </label>
-                </div>
-                <label>
-                  Email
-                  <input
-                    type="email"
-                    value={checkout.email}
-                    onChange={(e) => setCheckout({ ...checkout, email: e.target.value })}
-                    required
-                  />
-                </label>
-                <label>
-                  Phone
-                  <input
-                    value={checkout.phone}
-                    onChange={(e) => setCheckout({ ...checkout, phone: e.target.value })}
-                    placeholder="(305) 555-0142"
-                    required
-                  />
-                </label>
-              </div>
-            )}
-
             {intakePhase.id === 'shipping' && (
               <div className="pp-auth__form sf-intake-form">
                 <label>
-                  Street address
+                  Street Address *
                   <input
                     value={intake.address1}
                     onChange={(e) => setIntake({ ...intake, address1: e.target.value })}
                     placeholder="123 Main St"
+                    autoComplete="address-line1"
                     required
                   />
                 </label>
                 <label>
-                  Apartment / suite
+                  Apartment / Suite (Optional)
                   <input
                     value={intake.address2}
                     onChange={(e) => setIntake({ ...intake, address2: e.target.value })}
-                    placeholder="Optional"
+                    placeholder="Apt 4B / Suite 200"
+                    autoComplete="address-line2"
                   />
                 </label>
                 <div className="pp-auth__row sf-intake-form__city-row">
                   <label>
-                    City
+                    City *
                     <input
                       value={intake.city}
                       onChange={(e) => setIntake({ ...intake, city: e.target.value })}
+                      autoComplete="address-level2"
                       required
                     />
                   </label>
                   <label>
-                    State
+                    State *
                     <select
                       value={intake.state}
                       onChange={(e) => setIntake({ ...intake, state: e.target.value })}
+                      autoComplete="address-level1"
                       required
                     >
                       <option value="" disabled>Select</option>
@@ -640,15 +652,48 @@ export default function StartFlow({ onComplete }) {
                     </select>
                   </label>
                   <label>
-                    ZIP
+                    ZIP / Postcode *
                     <input
                       value={intake.zip}
                       onChange={(e) => setIntake({ ...intake, zip: e.target.value })}
                       placeholder="33101"
+                      autoComplete="postal-code"
                       required
                     />
                   </label>
                 </div>
+              </div>
+            )}
+
+            {intakePhase.id === 'screening' && (
+              <div className="sf-q">
+                <p className="sf-q__prompt">Do any of the following conditions apply to you? *</p>
+                <ul className="sf-conditions-list">
+                  {SCREENING_CONDITIONS.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="sf-choices">
+                  {[
+                    { value: 'yes', label: 'Yes, one or more' },
+                    { value: 'no', label: 'No, none apply' },
+                  ].map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      className={`sf-choice ${intake.conditionsApply === opt.value ? 'active' : ''}`}
+                      onClick={() => setIntake({ ...intake, conditionsApply: opt.value })}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+                {intake.conditionsApply === 'yes' && (
+                  <p className="sf-consent__note">
+                    A licensed clinician will review your history before deciding whether treatment is appropriate.
+                    Answering yes does not automatically disqualify you.
+                  </p>
+                )}
               </div>
             )}
 
@@ -662,8 +707,10 @@ export default function StartFlow({ onComplete }) {
                   />
                   <span>
                     I agree to the{' '}
-                    <a href="#/terms">Terms of Use</a>, <a href="#/telehealth-consent">Telehealth Consent</a>, and <a href="#/hipaa">HIPAA Notice</a>
-                    for provider-guided treatment.
+                    <a href="#/terms" target="_blank" rel="noreferrer">Terms of Service</a>
+                    , Medical Consent form, and acknowledge the{' '}
+                    <a href="#/telehealth-consent" target="_blank" rel="noreferrer">Telehealth Informed Consent</a>
+                    {' '}for specialized medical protocols. *
                   </span>
                 </label>
                 <label className="sf-consent__item">
@@ -673,12 +720,51 @@ export default function StartFlow({ onComplete }) {
                     onChange={(e) => setIntake({ ...intake, consentReview: e.target.checked })}
                   />
                   <span>
-                    I authorize {PAX_PASSPORT.product.legalName}&apos;s affiliated clinicians to securely review
-                    my medical information and prescribe medication only if clinically appropriate.
+                    I authorize {PAX_PASSPORT.product.shortName}&apos;s affiliated clinicians to securely review my medical
+                    records and prescribe the necessary medication if I am a candidate. *
                   </span>
                 </label>
+                <div className="sf-coupon">
+                  <label className="sf-coupon__label" htmlFor="pax-coupon">
+                    Promo code <span className="sf-coupon__optional">(optional)</span>
+                  </label>
+                  <div className="sf-coupon__row">
+                    <input
+                      id="pax-coupon"
+                      type="text"
+                      value={couponInput}
+                      onChange={(e) => {
+                        setCouponInput(e.target.value);
+                        if (appliedCoupon) clearCoupon();
+                      }}
+                      placeholder="Enter code"
+                      autoComplete="off"
+                      disabled={couponBusy || busy}
+                    />
+                    <button
+                      type="button"
+                      className="pp-btn pp-btn--outline"
+                      onClick={applyCoupon}
+                      disabled={couponBusy || busy || !couponInput.trim()}
+                    >
+                      {couponBusy ? 'Checking…' : 'Apply'}
+                    </button>
+                  </div>
+                  {appliedCoupon && (
+                    <p className="sf-coupon__success">
+                      {appliedCoupon.code} applied
+                      {typeof appliedCoupon.discountAmountCents === 'number'
+                        ? ` — saves $${(appliedCoupon.discountAmountCents / 100).toFixed(2)}`
+                        : ''}
+                    </p>
+                  )}
+                  {couponMessage && !appliedCoupon && (
+                    <p className="sf-coupon__hint">{couponMessage}</p>
+                  )}
+                </div>
                 <p className="sf-consent__note">
-                  Submitting this intake does not guarantee a prescription. A licensed provider must approve treatment.
+                  You will complete payment securely with Stripe. Submitting this intake does not guarantee a
+                  prescription. A licensed provider must approve treatment.
                 </p>
               </div>
             )}
@@ -688,11 +774,15 @@ export default function StartFlow({ onComplete }) {
               <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>
                 Cancel
               </button>
-              <button type="button" className="pp-btn pp-btn--outline" onClick={backIntake}>
+              <button type="button" className="pp-btn pp-btn--outline" onClick={backIntake} disabled={busy}>
                 Back
               </button>
-              <button type="button" className="pp-btn pp-btn--primary" onClick={continueIntake}>
-                {intakePhase.id === 'consent' ? 'Continue to plan →' : 'Continue →'}
+              <button type="button" className="pp-btn pp-btn--primary" onClick={continueIntake} disabled={busy} aria-busy={busy}>
+                {intakePhase.id === 'consent'
+                  ? busy
+                    ? 'Starting secure checkout…'
+                    : 'Continue to secure checkout →'
+                  : 'Continue →'}
               </button>
             </div>
           </section>
@@ -754,7 +844,7 @@ export default function StartFlow({ onComplete }) {
               </div>
               <strong>${plan.total}</strong>
             </div>
-            <p className="sf-hold">Simulated card authorization — no real charge in this demo.</p>
+            <p className="sf-hold">You will complete payment securely with Stripe. A prescription is not guaranteed.</p>
             <form className="pp-auth__form" onSubmit={continueCheckout}>
               <div className="pp-auth__row">
                 <label>
@@ -770,6 +860,7 @@ export default function StartFlow({ onComplete }) {
                   <input
                     value={checkout.lastName}
                     onChange={(e) => setCheckout({ ...checkout, lastName: e.target.value })}
+                    required
                   />
                 </label>
               </div>
@@ -788,42 +879,16 @@ export default function StartFlow({ onComplete }) {
                   value={checkout.phone}
                   onChange={(e) => setCheckout({ ...checkout, phone: e.target.value })}
                   placeholder="(305) 555-0142"
-                />
-              </label>
-              <label>
-                Card number
-                <input
-                  value={checkout.card}
-                  onChange={(e) => setCheckout({ ...checkout, card: e.target.value })}
-                  placeholder="4242 4242 4242 4242"
                   required
                 />
               </label>
-              <div className="pp-auth__row">
-                <label>
-                  Exp
-                  <input
-                    value={checkout.exp}
-                    onChange={(e) => setCheckout({ ...checkout, exp: e.target.value })}
-                    placeholder="06/28"
-                    required
-                  />
-                </label>
-                <label>
-                  CVC
-                  <input
-                    value={checkout.cvc}
-                    onChange={(e) => setCheckout({ ...checkout, cvc: e.target.value })}
-                    placeholder="123"
-                    required
-                  />
-                </label>
-              </div>
               {error && <p className="pp-auth__error">{error}</p>}
               <div className="sf-nav-row sf-nav-row--triple">
                 <button type="button" className="pp-btn pp-btn--ghost" onClick={cancelFlow}>Cancel</button>
-                <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('plan')}>Back</button>
-                <button type="submit" className="pp-btn pp-btn--primary">Authorize & continue →</button>
+                <button type="button" className="pp-btn pp-btn--outline" onClick={() => go('plan')} disabled={busy}>Back</button>
+                <button type="submit" className="pp-btn pp-btn--primary" disabled={busy} aria-busy={busy}>
+                  {busy ? 'Starting secure checkout…' : 'Continue to secure checkout →'}
+                </button>
               </div>
             </form>
           </section>

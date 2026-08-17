@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AreaChart, BarRow, DualLineChart, ProgressRing, Sparkline } from './charts.jsx';
 import { MOCK } from './mockData.js';
 
@@ -68,6 +68,88 @@ function EmptyHint({ children }) {
   return <p className="pc-empty-hint">{children}</p>;
 }
 
+function formatOrderLabel(value) {
+  return String(value || '')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function PatientOrdersPanel({ email }) {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let lookup = String(email || '').trim();
+    if (!lookup) {
+      try {
+        lookup = localStorage.getItem('pax_checkout_email_v1') || '';
+      } catch {
+        lookup = '';
+      }
+    }
+    if (!lookup) return undefined;
+
+    let cancelled = false;
+    setLoading(true);
+    setError('');
+    fetch(`/api/orders?email=${encodeURIComponent(lookup)}`)
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (cancelled) return;
+        if (!res.ok) {
+          setOrders([]);
+          setError(data.error || 'We could not load your orders right now.');
+          return;
+        }
+        setOrders(Array.isArray(data.orders) ? data.orders : []);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setOrders([]);
+          setError('We could not load your orders right now.');
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [email]);
+
+  return (
+    <Panel title="Orders & tracking">
+      {loading && <EmptyHint>Loading your orders…</EmptyHint>}
+      {!loading && error && <EmptyHint>{error}</EmptyHint>}
+      {!loading && !error && orders.length === 0 && (
+        <EmptyHint>No orders found yet. Complete checkout to see clinician review and shipping updates here.</EmptyHint>
+      )}
+      {!loading && orders.length > 0 && (
+        <ul className="pc-list pc-list--stack">
+          {orders.map((order) => (
+            <li key={order.id || `${order.productName}-${order.createdAt}`}>
+              <strong>{order.productName}</strong>
+              <p>
+                Order {formatOrderLabel(order.status)} · Clinical {formatOrderLabel(order.clinicalStatus)}
+              </p>
+              {order.trackingNumber ? (
+                <p className="pc-muted">
+                  {order.carrier ? `${order.carrier}: ` : 'Tracking: '}
+                  {order.trackingNumber}
+                </p>
+              ) : (
+                <p className="pc-muted">Tracking will appear after fulfillment.</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </Panel>
+  );
+}
+
 export function DashboardScreen({ patient, onNavigate }) {
   const nextAppt = MOCK.appointments.upcoming[0];
   const openTasks = MOCK.treatment.tasks.filter((t) => !t.done);
@@ -121,6 +203,8 @@ export function DashboardScreen({ patient, onNavigate }) {
           <button type="button" className="pc-link" onClick={() => onNavigate('health', 'plans')}>Open treatment plan</button>
         </Panel>
       </div>
+
+      <PatientOrdersPanel email={patient.email} />
 
       <div className="pc-grid-2">
         <Panel title="Outstanding tasks">
