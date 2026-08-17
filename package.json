@@ -11,8 +11,8 @@
     "build": "vite build",
     "lint": "oxlint src --ignore-pattern \"**/*.js\"",
     "preview": "vite preview",
-    "optimize:images": "node scripts/optimize-images.mjs",
-    "brand:prepare": "node scripts/prepare-brand-kit.mjs"
+    "optimize:images": "node docs/scripts/optimize-images.mjs",
+    "brand:prepare": "node docs/scripts/prepare-brand-kit.mjs"
   },
   "dependencies": {
     "react": "^19.2.7",
