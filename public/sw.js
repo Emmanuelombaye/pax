@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pax-cache-v20';
+const CACHE_NAME = 'pax-cache-v21';
 const PRECACHE_URLS = [
   '/brand/pax-horizontal.svg',
   '/brand/pax-monogram.svg',

@@ -101,14 +101,14 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'medication',
     fit: 'contain',
-    src: '/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo',
+    src: '/images/membership/vials.webp?v=m1',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {
     id: 'progress',
-    fit: 'scale',
-    src: '',
-    alt: 'Progress tracking',
+    fit: 'contain',
+    src: '/images/membership/progress.webp?v=m1',
+    alt: 'Ongoing progress tracking',
   },
 ];
 
@@ -126,11 +126,7 @@ function MembershipSection() {
         <div className="pax-member__row">
           {MEMBERSHIP_CARDS.map((card) => (
             <figure key={card.id} className={`pax-member__card pax-member__card--${card.fit}`}>
-              {card.fit === 'scale' ? (
-                <div className="pax-member__scale" aria-hidden="true">
-                  <span className="pax-member__scale-face" />
-                </div>
-              ) : card.fit === 'phone' ? (
+              {card.fit === 'phone' ? (
                 <div className="pax-member__phone">
                   <img src={card.src} alt="" loading="lazy" decoding="async" />
                 </div>
