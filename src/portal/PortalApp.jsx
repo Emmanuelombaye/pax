@@ -122,7 +122,7 @@ function AuthScreen({ onAuthed }) {
           </button>
         </form>
 
-        <form className="pp-auth__form" onSubmit={submit}>
+        <p className="pp-auth__legal-links">
           {LEGAL_LINKS.map((link, index) => (
             <span key={link.id}>
               {index > 0 ? <span aria-hidden="true"> · </span> : null}
