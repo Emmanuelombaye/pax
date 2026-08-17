@@ -138,14 +138,9 @@
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
-  background-image: url(/images/vials/together.png),
-    linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--dune) 45%, var(--sand)),
-      color-mix(in oklch, var(--dune) 72%, var(--sand))
-    ) !important;
-  background-position: 50% 100%, 0 0 !important;
-  background-size: 86% auto, auto !important;
+  background: #0d0d0d !important;
+  background-image: none !important;
+  color: var(--sand) !important;
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
@@ -1404,19 +1399,23 @@
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__media {
-  aspect-ratio: 1 / 1.15 !important;
+  aspect-ratio: 3 / 4 !important;
   border-radius: 0.85rem !important;
-  background: #0b0b0b !important;
+  background: #0d0d0d !important;
   display: grid !important;
   place-items: center !important;
   overflow: hidden !important;
+  padding: 0.9rem 0.55rem 0.75rem !important;
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
-  width: 100% !important;
+  width: auto !important;
   height: 100% !important;
-  max-width: none !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
   filter: none !important;
 }
 
@@ -1440,5 +1439,53 @@
   .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* Studio product card — full vials, no beige smudge */
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
+  background: #0d0d0d !important;
+  background-image: none !important;
+  color: var(--sand) !important;
+  overflow: hidden !important;
+}
+
+.retro-explore-tabs-wrap .explore-hero-card--studio .explore-hero-card__photo {
+  position: absolute !important;
+  left: 8% !important;
+  right: 8% !important;
+  top: 5.4rem !important;
+  bottom: 4.6rem !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 84% !important;
+  max-height: none !important;
+  margin: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-title,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-price,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-footer {
+  position: relative !important;
+  z-index: 2 !important;
+  color: var(--sand) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-price {
+  display: none !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-chip,
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-stock {
+  border-color: var(--sand) !important;
+  color: var(--sand) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-chip {
+  background: var(--forest) !important;
 }
 

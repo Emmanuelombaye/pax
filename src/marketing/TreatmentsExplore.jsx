@@ -72,6 +72,7 @@ const TABS = [
     chipClass: 'bg-pax-chip text-white',
     blurb:
       'A weekly treatment that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when a licensed provider determines it is appropriate.',
+    heroVial: VIALS.together,
     products: [
       {
         id: 'semaglutide',
@@ -304,8 +305,11 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
         <div className="explore-hero-grid flex flex-col gap-6 tablet:flex-row tablet:items-start tablet:gap-9 desktop:gap-8">
           <div
             data-card={pane.card}
-            className="explore-card explore-hero-card relative flex flex-col justify-between overflow-visible rounded-3xl text-white text-xs font-medium tracking-[-0.01em] w-full h-[27.5rem] tablet:h-auto tablet:min-h-0 tablet:flex-1 tablet:max-w-[31.5131rem] desktop:flex-none desktop:w-[31.5131rem] desktop:aspect-[480/549] px-6 pt-6 pb-5 tablet:px-7 tablet:pt-8 tablet:pb-7"
+            className={`explore-card explore-hero-card relative flex flex-col justify-between overflow-visible rounded-3xl text-white text-xs font-medium tracking-[-0.01em] w-full h-[27.5rem] tablet:h-auto tablet:min-h-0 tablet:flex-1 tablet:max-w-[31.5131rem] desktop:flex-none desktop:w-[31.5131rem] desktop:aspect-[480/549] px-6 pt-6 pb-5 tablet:px-7 tablet:pt-8 tablet:pb-7${pane.heroVial ? ' explore-hero-card--studio' : ''}`}
           >
+            {pane.heroVial ? (
+              <img className="explore-hero-card__photo" src={pane.heroVial} alt="" loading="lazy" />
+            ) : null}
             <h2 className="explore-hero-card-title mx-auto m-0 text-center text-[1.75rem] tablet:text-[2.5rem] desktop:text-[2.625rem] leading-[1] tracking-[-0.04em] font-medium max-w-[15ch]">
               {pane.cardTitle}
             </h2>
