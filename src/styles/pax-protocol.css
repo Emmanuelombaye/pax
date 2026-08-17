@@ -291,7 +291,7 @@
   .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover {
     width: 100% !important;
     max-width: none !important;
-    aspect-ratio: 4 / 3 !important;
+    aspect-ratio: auto !important;
     margin-top: 0.35rem !important;
     margin-bottom: 0.25rem !important;
     border-radius: 1rem !important;

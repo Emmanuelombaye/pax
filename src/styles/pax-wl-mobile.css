@@ -91,13 +91,13 @@
   .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover {
     width: 100% !important;
     max-width: none !important;
-    aspect-ratio: 4 / 3 !important;
+    aspect-ratio: auto !important;
     overflow: hidden !important;
   }
 
   .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover img {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     object-fit: contain !important;
     object-position: center center !important;
   }

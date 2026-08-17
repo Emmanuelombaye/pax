@@ -10,7 +10,7 @@ const WL_VIALS = {
   tirz: '/images/vials/tirz.webp?v=amber1',
   together: '/images/vials/together.webp?v=amber1',
   hero: '/images/vials/together-hero.webp?v=amber2',
-  protocol: '/images/vials/protocol-cover.webp?v=cover1',
+  protocol: '/images/vials/protocol-cover.webp?v=cover2',
 };
 const WL_FAQ_PHOTO = '/images/faq-portrait.webp?v=faq1';
 
