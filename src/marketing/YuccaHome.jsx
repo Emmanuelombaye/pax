@@ -1,86 +1,54 @@
-import { useEffect, useState } from 'react';
 import { HOME_FAQS } from './data.js';
 import { WhySection, ClosingSection } from './TreatmentsExplore.jsx';
 import YuccaHomeTreatments from './YuccaHomeTreatments.jsx';
 import YuccaHomeHiw from './YuccaHomeHiw.jsx';
 import { ADVISOR_PILLARS } from './advisorsData.js';
 
-const HERO_WORDS = [
-  { text: 'Semaglutide', color: 'var(--forest)' },
-  { text: 'Tirzepatide', color: 'var(--terracotta)' },
-];
-
-function useHeroTyper() {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % HERO_WORDS.length), 2200);
-    return () => window.clearInterval(id);
-  }, []);
-  return HERO_WORDS[index];
-}
-
 function HeroSection({ openStart }) {
-  const word = useHeroTyper();
-
   return (
     <section className="retro-home-hero-section pax-home-hero" data-hero-reveal data-revealed="true">
-      <div className="retro-home-hero-card pax-home-hero__card relative overflow-hidden rounded-retro-card border-2 border-retro-ink">
+      <div className="pax-home-hero__inner">
+        <div className="pax-home-hero__copy">
+          <h1 className="pax-home-hero__heading">
+            Provider-guided GLP-1 care, prescribed only when it&rsquo;s right.
+          </h1>
+          <p className="pax-home-hero__subtitle">
+            Semaglutide or Tirzepatide — reviewed by a licensed U.S. provider before anything is prescribed.
+          </p>
+          <div className="pax-home-hero__cta">
+            <button
+              type="button"
+              className="retro-home-hero-btn retro-home-hero-btn--primary"
+              onClick={() => openStart('semaglutide')}
+            >
+              Start medical intake · from $125/mo
+            </button>
+            <a href="#/treatments/weight-loss" className="retro-home-hero-btn retro-home-hero-btn--secondary">
+              <span>Explore Treatments</span>
+              <span className="retro-home-hero-btn-chevron" aria-hidden="true">
+                <svg viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0.799805 0.799988L5.79981 5.79999L0.799805 10.8"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
         <div className="pax-home-hero__media" aria-hidden="true">
           <img
             className="pax-home-hero__photo"
-            src="/images/pax-hero-couple-portrait.webp?v=lite1"
+            src="/images/pax-hero-portrait.webp?v=ph1"
             alt=""
-            width="1400"
-            height="2100"
+            width="1024"
+            height="1536"
             loading="eager"
             fetchPriority="high"
           />
-          <div className="pax-home-hero__wash" />
-          <div className="pax-home-hero__scrim" />
-        </div>
-        <div className="retro-home-hero-contain relative z-[2]">
-          <div className="retro-home-hero-wrap pax-home-hero__wrap relative z-[2]">
-            <div className="retro-home-hero-top">
-              <h1 className="sr-only">Provider-guided GLP-1 treatment</h1>
-              <div className="retro-home-hero-heading pax-home-hero__heading hero-reveal hero-reveal--fade-up">
-                <span className="italic pax-home-hero__word" style={{ color: word.color }}>
-                  {word.text}
-                </span>
-                <br />
-                with provider review
-              </div>
-              <p className="retro-home-hero-subtitle pax-home-hero__subtitle hero-reveal hero-reveal--fade-up italic">
-                prescribed only when medically appropriate.
-              </p>
-            </div>
-            <div className="retro-home-hero-bottom hero-reveal hero-reveal--fade-up">
-              <div className="retro-home-hero-cta-group">
-                <div className="retro-home-hero-primary-wrap">
-                  <button
-                    type="button"
-                    className="retro-home-hero-btn retro-home-hero-btn--primary"
-                    onClick={() => openStart('semaglutide')}
-                  >
-                    Start medical intake · from $125/mo
-                  </button>
-                </div>
-                <a href="#/treatments/weight-loss" className="retro-home-hero-btn retro-home-hero-btn--secondary">
-                  <span>Explore Treatments</span>
-                  <span className="retro-home-hero-btn-chevron" aria-hidden="true">
-                    <svg viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M0.799805 0.799988L5.79981 5.79999L0.799805 10.8"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

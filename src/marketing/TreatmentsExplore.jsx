@@ -820,7 +820,7 @@ export function WhySection({ glpVialSrc } = {}) {
       body: 'Weekly protocols guided by licensed clinicians for appetite regulation support — not guaranteed outcomes.',
       tone: 'light',
       media: (
-        <div className="pax-why__media-frame">
+        <div className="pax-why__media-frame pax-why__media-frame--vials">
           <img src={glpVial} alt="" loading="lazy" />
         </div>
       ),

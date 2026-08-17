@@ -394,6 +394,27 @@
   object-fit: contain !important;
 }
 
+.pax-why__media-frame--vials,
+.yx-clone .pax-why__media-frame--vials,
+.yucca-home .pax-why__media-frame--vials {
+  height: auto !important;
+  min-height: 13.5rem;
+  overflow: visible !important;
+  padding: 0.7rem 0.45rem 0.2rem;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.pax-why__media-frame--vials img,
+.yx-clone .pax-why__media-frame--vials img,
+.yucca-home .pax-why__media-frame--vials img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+}
+
 @media (max-width: 759px) {
   .pax-why__card,
   .yx-clone .pax-why__card,

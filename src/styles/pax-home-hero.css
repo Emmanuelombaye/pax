@@ -1,85 +1,141 @@
-/* Pax home hero — full-strength photo, no top fade */
+/* Pax home hero — split sand + portrait (Parsley-like layout, Pax tokens) */
 
-.yucca-home .pax-home-hero__card {
+.yucca-home .pax-home-hero,
+.yucca-home .retro-home-hero-section.pax-home-hero {
+  background: var(--sand) !important;
+  padding: 0.85rem 1.15rem 2.35rem;
+}
+
+.yucca-home .pax-home-hero__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.yucca-home .pax-home-hero__copy {
   position: relative;
-  isolation: isolate;
-  background: #fff !important;
-  border-color: var(--forest) !important;
-  min-height: clamp(34rem, 72vw, 42rem);
-}
-
-.yucca-home .pax-home-hero__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.yucca-home .pax-home-hero__photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-  -webkit-mask-image: none;
-  mask-image: none;
-  opacity: 1;
-}
-
-/* No top fade — title stays readable on the bright sky */
-.yucca-home .pax-home-hero__wash {
-  display: none;
-}
-
-.yucca-home .pax-home-hero__scrim {
-  position: absolute;
-  inset: auto 0 0;
-  height: 42%;
-  background:
-    linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in oklch, var(--forest) 22%, transparent) 38%,
-      color-mix(in oklch, var(--forest) 70%, transparent) 100%
-    );
-}
-
-.yucca-home .pax-home-hero__wrap {
-  color: var(--sand) !important;
+  z-index: 2;
+  color: var(--forest);
 }
 
 .yucca-home .pax-home-hero__heading {
+  margin: 0;
+  font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.35rem, 5.6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
   color: var(--forest) !important;
   text-shadow: none;
 }
 
-.yucca-home .pax-home-hero__heading,
 .yucca-home .pax-home-hero__subtitle {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: color-mix(in oklch, var(--forest) 78%, transparent) !important;
+}
+
+.yucca-home .pax-home-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.55rem;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.05rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-btn--primary,
+.yucca-home .pax-home-hero .retro-home-hero-btn--primary:hover {
+  background: var(--forest) !important;
+  color: var(--sand) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: none !important;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-btn--secondary,
+.yucca-home .pax-home-hero .retro-home-hero-btn--secondary:hover {
+  background: transparent !important;
+  color: var(--forest) !important;
+  border: 2px solid var(--forest) !important;
+  box-shadow: none !important;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-btn-chevron {
+  display: inline-flex;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: transparent !important;
+  color: var(--forest) !important;
+}
+
+.yucca-home .pax-home-hero .retro-home-hero-btn-chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.yucca-home .pax-home-hero__media {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 1.15rem;
+  aspect-ratio: 4 / 5;
+  background: color-mix(in oklch, var(--dune) 35%, var(--sand));
 }
 
-.yucca-home .pax-home-hero__subtitle {
-  color: color-mix(in oklch, var(--forest) 82%, transparent) !important;
-}
-
-@media (min-width: 768px) {
-  .yucca-home .pax-home-hero__card {
-    min-height: 42rem;
-  }
-
-  .yucca-home .pax-home-hero__photo {
-    object-position: center 36%;
-  }
-}
-
-.yucca-home .pax-home-hero .retro-home-hero-bottom {
-  position: relative;
-  z-index: 3;
+.yucca-home .pax-home-hero__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
 }
 
 .yucca-home .pax-home-hero .retro-home-hero-floating {
   display: none !important;
+}
+
+@media (min-width: 900px) {
+  .yucca-home .pax-home-hero {
+    padding: 1.1rem 1.5rem 3rem;
+  }
+
+  .yucca-home .pax-home-hero__inner {
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+    gap: 3.25rem;
+    min-height: 34rem;
+  }
+
+  .yucca-home .pax-home-hero__media {
+    max-height: 38rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .yucca-home .pax-home-hero__cta .retro-home-hero-btn {
+    width: 100%;
+  }
+
+  .yucca-home .pax-home-hero__media {
+    aspect-ratio: 5 / 4;
+    max-height: 22rem;
+  }
 }
