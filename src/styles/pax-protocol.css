@@ -1,5 +1,20 @@
 /* Pax protocol cards — weight-loss explore (left vials untouched) */
 
+.yx-clone [data-explore-section-stack='weight-loss'] {
+  overflow: visible !important;
+}
+
+.yx-clone .pax-protocol.retro-protocol {
+  overflow: visible !important;
+  padding-top: 4.5rem !important;
+}
+
+.yx-clone .pax-protocol .retro-protocol__heading {
+  overflow: visible !important;
+  line-height: 1.16 !important;
+  padding-top: 0.2em;
+}
+
 .yx-clone .pax-protocol .retro-protocol__right {
   gap: 1.1rem !important;
 }
