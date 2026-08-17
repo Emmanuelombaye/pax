@@ -108,26 +108,26 @@ export const LEGAL_PAGES = {
       {
         heading: '13. Your Privacy Rights',
         body: [
-          'Depending on your state of residence, you may have the right to request access, correction, deletion, portability, or opt-out rights regarding certain personal information. To submit a request, contact support@pax-longevity.com.',
+          'Depending on your state of residence, you may have the right to request access, correction, deletion, portability, or opt-out rights regarding certain personal information. To submit a request, contact support@paxlongevity.com.',
           'We may need to verify your identity before responding. Certain information may be retained as required by law or for legitimate recordkeeping, including medical records.',
         ],
       },
       {
         heading: '14. California Privacy Rights',
         body: [
-          'California residents may have additional rights under the California Consumer Privacy Act (CCPA), as amended, including the right to know the categories and specific pieces of personal information collected, the right to delete, the right to correct, the right to limit use of sensitive personal information, and the right to opt out of certain sharing or sale as defined under California law. To exercise these rights, contact support@pax-longevity.com.',
+          'California residents may have additional rights under the California Consumer Privacy Act (CCPA), as amended, including the right to know the categories and specific pieces of personal information collected, the right to delete, the right to correct, the right to limit use of sensitive personal information, and the right to opt out of certain sharing or sale as defined under California law. To exercise these rights, contact support@paxlongevity.com.',
         ],
       },
       {
         heading: '15. Nevada Privacy Rights',
         body: [
-          'Nevada residents may have the right to direct us not to sell certain covered information as defined under Nevada law. To submit a request, contact support@pax-longevity.com.',
+          'Nevada residents may have the right to direct us not to sell certain covered information as defined under Nevada law. To submit a request, contact support@paxlongevity.com.',
         ],
       },
       {
         heading: '16. Children’s Privacy',
         body: [
-          'The Pax Longevity® Services are intended for adults 18 years of age or older. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information, contact support@pax-longevity.com and we will take appropriate action.',
+          'The Pax Longevity® Services are intended for adults 18 years of age or older. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information, contact support@paxlongevity.com and we will take appropriate action.',
         ],
       },
       {
@@ -151,7 +151,7 @@ export const LEGAL_PAGES = {
       {
         heading: '20. Contact Us',
         body: [
-          'For privacy questions or to exercise your rights, contact: support@pax-longevity.com',
+          'For privacy questions or to exercise your rights, contact: support@paxlongevity.com',
           'Pax Longevity LLC d/b/a Pax Longevity®',
         ],
       },
@@ -385,7 +385,7 @@ export const LEGAL_PAGES = {
           'Questions about these Terms may be directed to:',
           'Pax Longevity LLC',
           '382 NE 191ST ST NUM 931099, MIAMI, FL 33179',
-          'support@pax-longevity.com',
+          'support@paxlongevity.com',
           '(615) 434 2927',
         ],
       },
@@ -418,7 +418,7 @@ export const LEGAL_PAGES = {
         heading: 'Location requirements',
         body: [
           'You must be physically located in the applicable state at the time clinical services are provided. The treating provider must be authorized to practice in that state, and the dispensing pharmacy must be authorized to dispense and ship the prescribed medication to that state.',
-          'Questions about state availability: support@pax-longevity.com · (615) 434-2927',
+          'Questions about state availability: support@paxlongevity.com · (615) 434-2927',
         ],
       },
     ],
@@ -514,7 +514,7 @@ export const LEGAL_PAGES = {
       {
         heading: '13. Contact Us',
         body: [
-          'Questions about this Telehealth Consent can be sent to support@pax-longevity.com.',
+          'Questions about this Telehealth Consent can be sent to support@paxlongevity.com.',
           'This Telehealth Consent is provided for informational purposes and should be reviewed by legal counsel before final publication.',
         ],
       },
@@ -644,7 +644,7 @@ export const LEGAL_PAGES = {
       {
         heading: '14. Contact Us',
         body: [
-          'Questions about this Medical Disclaimer can be sent to support@pax-longevity.com.',
+          'Questions about this Medical Disclaimer can be sent to support@paxlongevity.com.',
           'Pax Longevity LLC d/b/a Pax Longevity®',
         ],
       },
@@ -702,7 +702,7 @@ export const LEGAL_PAGES = {
       {
         heading: 'Contact',
         body: [
-          'Pax Longevity LLC · 382 NE 191ST ST NUM 931099, MIAMI, FL 33179 · support@pax-longevity.com · (615) 434-2927',
+          'Pax Longevity LLC · 382 NE 191ST ST NUM 931099, MIAMI, FL 33179 · support@paxlongevity.com · (615) 434-2927',
         ],
       },
     ],
@@ -742,7 +742,7 @@ export const LEGAL_PAGES = {
       {
         heading: 'Contact',
         body: [
-          'Shipping questions: support@pax-longevity.com · (615) 434-2927. Also see Refund Policy.',
+          'Shipping questions: support@paxlongevity.com · (615) 434-2927. Also see Refund Policy.',
         ],
       },
     ],
@@ -782,7 +782,7 @@ export const LEGAL_PAGES = {
       {
         heading: 'How to request help',
         body: [
-          'For billing or refund questions, email support@pax-longevity.com or call (615) 434-2927. Include your full name, email used at intake, and a brief description of the issue.',
+          'For billing or refund questions, email support@paxlongevity.com or call (615) 434-2927. Include your full name, email used at intake, and a brief description of the issue.',
         ],
       },
     ],

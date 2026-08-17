@@ -20,7 +20,7 @@ export const PAX_PASSPORT = {
 
   identity: {
     slug: 'pax',
-    supportEmail: 'support@pax-longevity.com',
+    supportEmail: 'support@paxlongevity.com',
     marketingUrl: 'https://www.pax-longevity.com',
     brandKitUrl: 'https://pax-longevity-flow.lovable.app/',
     portalPath: '#/portal',

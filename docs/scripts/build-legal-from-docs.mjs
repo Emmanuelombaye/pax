@@ -201,7 +201,7 @@ const statesPage = {
       heading: 'Location requirements',
       body: [
         'You must be physically located in the applicable state at the time clinical services are provided. The treating provider must be authorized to practice in that state, and the dispensing pharmacy must be authorized to dispense and ship the prescribed medication to that state.',
-        'Questions about state availability: support@pax-longevity.com',
+        'Questions about state availability: support@paxlongevity.com',
       ],
     },
   ],
@@ -252,7 +252,7 @@ const patientSafety = {
     {
       heading: 'Contact',
       body: [
-        'Pax Longevity LLC · 382 NE 191ST ST NUM 931099, MIAMI, FL 33179 · support@pax-longevity.com · (615) 434-2927',
+        'Pax Longevity LLC · 382 NE 191ST ST NUM 931099, MIAMI, FL 33179 · support@paxlongevity.com · (615) 434-2927',
       ],
     },
   ],

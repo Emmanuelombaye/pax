@@ -573,7 +573,7 @@ export default function MarketingApp({ currentTab }) {
               <span className="footer-col-title">Company</span>
               <a href="#/vision" className="footer-link">Vision</a>
               <a href="#/threats" className="footer-link">Threats</a>
-              <a href="mailto:support@pax-longevity.com" className="footer-link">support@pax-longevity.com</a>
+              <a href="mailto:support@paxlongevity.com" className="footer-link">support@paxlongevity.com</a>
             </div>
 
             <div className="footer-links-col footer-links-col--legal">

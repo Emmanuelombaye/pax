@@ -43,7 +43,7 @@ export default function LegalPage({ pageId }) {
             ))}
             <p className="legal-contact">
               Questions? Contact{' '}
-              <a href="mailto:support@pax-longevity.com">support@pax-longevity.com</a>
+              <a href="mailto:support@paxlongevity.com">support@paxlongevity.com</a>
               {' · '}
               <a href="tel:+16154342927">(615) 434-2927</a>
               <br />
