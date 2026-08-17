@@ -10,6 +10,7 @@ const WL_VIALS = {
   tirz: '/images/vials/tirz.webp?v=amber1',
   together: '/images/vials/together.webp?v=amber1',
   hero: '/images/vials/together-hero.webp?v=amber2',
+  protocol: '/images/vials/protocol-cover.webp?v=cover1',
 };
 const WL_FAQ_PHOTO = '/images/faq-portrait.webp?v=faq1';
 
@@ -463,9 +464,8 @@ function ProtocolSection({ variant = 'wl', data, onCta }) {
           </h2>
           <p className="retro-protocol__sub">{data.sub}</p>
           {variant === 'wl' ? (
-            <div className="retro-protocol__vials retro-protocol__vials--pair" aria-hidden="true">
-              <img src={WL_VIALS.tirz} alt="" loading="lazy" />
-              <img src={WL_VIALS.sema} alt="" loading="lazy" />
+            <div className="retro-protocol__vials retro-protocol__vials--cover" aria-hidden="true">
+              <img src={WL_VIALS.protocol} alt="" loading="lazy" />
             </div>
           ) : (
             <div className={vialsClass} aria-hidden="true">

@@ -1439,26 +1439,27 @@
 }
 
 .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials,
-.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--pair {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  width: min(420px, 100%) !important;
-  max-width: 420px !important;
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover {
+  display: block !important;
+  width: min(28rem, 100%) !important;
+  max-width: 28rem !important;
+  aspect-ratio: 3 / 2 !important;
   height: auto !important;
-  min-height: 280px !important;
+  min-height: 0 !important;
   margin-top: 1.5rem !important;
-  padding: 0.35rem !important;
+  padding: 0 !important;
   background: #f7f4ec !important;
   border-radius: 1.25rem !important;
   overflow: hidden !important;
 }
 
-.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--pair img {
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover img {
   display: block !important;
   width: 100% !important;
-  height: 280px !important;
+  height: 100% !important;
   max-height: none !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
+  object-position: center 48% !important;
 }
 
 @media (max-width: 900px) {
