@@ -159,33 +159,38 @@ function MembershipSection() {
 function ProvidersSection() {
   return (
     <section className="retro-home-doctors pax-home-providers">
-      <div className="retro-home-doctors-heading-wrap">
-        <h2 className="retro-home-doctors-heading">
-          Licensed U.S. providers <br />
-          review every <em className="italic font-semibold">intake</em> <br />
-          before a prescription
-        </h2>
-        <p className="pax-home-providers__lede">
-          Completing an online questionnaire does not guarantee treatment. A state-licensed clinician
-          determines whether Semaglutide or Tirzepatide is appropriate for you.
+      <div className="pax-home-providers__inner">
+        <div className="retro-home-doctors-heading-wrap">
+          <h2 className="retro-home-doctors-heading">
+            Licensed U.S. providers <br />
+            review every <em className="italic font-semibold">intake</em> <br />
+            before a prescription
+          </h2>
+          <p className="pax-home-providers__lede">
+            Completing an online questionnaire does not guarantee treatment. A state-licensed clinician
+            determines whether Semaglutide or Tirzepatide is appropriate for you.
+          </p>
+        </div>
+
+        <div className="pax-home-providers__pillars" role="list">
+          {ADVISOR_PILLARS.map((pillar) => (
+            <article key={pillar.n} className="pax-home-providers__card" role="listitem">
+              <img src={pillar.img} alt={pillar.alt} loading="lazy" decoding="async" style={{ objectPosition: pillar.pos }} />
+              <div className="pax-home-providers__copy">
+                <span className="pax-home-providers__n">{pillar.n}</span>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p className="pax-home-providers__link-wrap">
+          <a href="#/how-it-works" className="pax-home-providers__link">
+            See how clinical review works →
+          </a>
         </p>
       </div>
-
-      <div className="pax-home-providers__pillars">
-        {ADVISOR_PILLARS.map((pillar) => (
-          <article key={pillar.n} className="pax-home-providers__card">
-            <span className="pax-home-providers__n">{pillar.n}</span>
-            <h3>{pillar.title}</h3>
-            <p>{pillar.body}</p>
-          </article>
-        ))}
-      </div>
-
-      <p className="pax-home-providers__link-wrap">
-        <a href="#/how-it-works" className="pax-home-providers__link">
-          See how clinical review works →
-        </a>
-      </p>
     </section>
   );
 }

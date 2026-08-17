@@ -268,7 +268,17 @@
   color: var(--sand) !important;
 }
 
-/* Provider process (replaces fake doctor cards) */
+/* Provider process — Hims-style full-bleed photo cards */
+.pax-home-providers {
+  overflow: hidden;
+}
+
+.pax-home-providers__inner {
+  width: min(72rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0.5rem 0 0.25rem;
+}
+
 .pax-home-providers__lede {
   max-width: 40rem;
   margin: 1rem auto 0;
@@ -280,48 +290,76 @@
 
 .pax-home-providers__pillars {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
   margin: 2rem auto 0;
-  max-width: 64rem;
-  padding: 0 1rem;
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
   .pax-home-providers__pillars {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
   }
 }
 
 .pax-home-providers__card {
-  border: 1.5px solid var(--forest);
-  border-radius: 1rem;
-  background: color-mix(in oklch, var(--dune) 28%, var(--sand));
-  padding: 1.25rem 1.35rem;
-  color: var(--forest);
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border: 0;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background: #1c3f34;
+  padding: 0;
+  color: var(--sand);
+  isolation: isolate;
+}
+
+.pax-home-providers__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pax-home-providers__copy {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  padding: 4.75rem 1.2rem 1.3rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in oklch, var(--forest) 55%, transparent) 42%,
+    color-mix(in oklch, var(--forest) 92%, #0b1a16) 100%
+  );
 }
 
 .pax-home-providers__n {
   display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.65;
-  margin-bottom: 0.5rem;
+  color: var(--terracotta);
+  margin-bottom: 0.4rem;
+  opacity: 1;
 }
 
 .pax-home-providers__card h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: clamp(1.28rem, 2vw, 1.55rem);
   font-weight: 400;
+  line-height: 1.15;
+  color: var(--sand);
 }
 
 .pax-home-providers__card p {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.88;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: color-mix(in oklch, var(--sand) 86%, transparent);
+  opacity: 1;
 }
 
 .pax-home-providers__link-wrap {
@@ -334,6 +372,43 @@
   text-decoration: underline;
   text-underline-offset: 3px;
   font-size: 0.95rem;
+}
+
+@media (max-width: 767px) {
+  .pax-home-providers__inner {
+    width: 100%;
+    padding: 0;
+  }
+
+  .pax-home-providers .retro-home-doctors-heading-wrap,
+  .pax-home-providers__lede,
+  .pax-home-providers__link-wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .pax-home-providers__pillars {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 1.35rem 0 0;
+    padding: 0 1rem 0.85rem;
+  }
+
+  .pax-home-providers__pillars::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pax-home-providers__card {
+    flex: 0 0 78vw;
+    width: 78vw;
+    max-width: 20rem;
+    scroll-snap-align: center;
+    border-radius: 1.45rem;
+  }
 }
 
 .goal-cutouts-stat {
