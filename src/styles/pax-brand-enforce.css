@@ -69,12 +69,11 @@ main[data-retro-scope],
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
   background-image:
-    url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),
-    linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--dune) 45%, var(--sand)),
-      color-mix(in oklch, var(--dune) 72%, var(--sand))
-    ) !important;
+    url(/images/vials/together.webp?v=amber1),
+    linear-gradient(180deg, #f7f4ec, #f3eee4) !important;
+  background-position: 50% 78%, 0 0 !important;
+  background-size: 92% auto, auto !important;
+  background-repeat: no-repeat, repeat !important;
   color: var(--forest) !important;
 }
 

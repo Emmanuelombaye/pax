@@ -138,14 +138,11 @@
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
-  background-image: url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),
-    linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--dune) 45%, var(--sand)),
-      color-mix(in oklch, var(--dune) 72%, var(--sand))
-    ) !important;
-  background-position: 50% 58%, 0 0 !important;
-  background-size: 42% auto, auto !important;
+  background-image: url(/images/vials/together.webp?v=amber1),
+    linear-gradient(180deg, #f7f4ec, #f3eee4) !important;
+  background-position: 50% 78%, 0 0 !important;
+  background-size: 92% auto, auto !important;
+  background-repeat: no-repeat, repeat !important;
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
@@ -1333,6 +1330,96 @@
     flex-basis: 260px !important;
     width: 260px !important;
     height: 300px !important;
+  }
+}
+
+/* Weight-loss treatments page only — cream vial staging */
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.85rem !important;
+  margin: 0.35rem 0 1.4rem !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card {
+  appearance: none !important;
+  border: 1px solid color-mix(in oklch, var(--forest) 16%, transparent) !important;
+  border-radius: 1.15rem !important;
+  background: #f7f4ec !important;
+  padding: 0.7rem 0.7rem 0.85rem !important;
+  display: grid !important;
+  gap: 0.65rem !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 18px color-mix(in oklch, var(--forest) 8%, transparent) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card.is-active {
+  border-color: var(--forest) !important;
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--forest) 22%, transparent) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__media {
+  aspect-ratio: 4 / 5 !important;
+  border-radius: 0.85rem !important;
+  background: #f7f4ec !important;
+  overflow: hidden !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center 58% !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__name {
+  margin: 0 !important;
+  font-size: 0.98rem !important;
+  line-height: 1.15 !important;
+  color: var(--forest) !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__desc {
+  margin-top: 0.25rem !important;
+  font-size: 0.82rem !important;
+  color: color-mix(in oklch, var(--forest) 66%, transparent) !important;
+}
+
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl {
+  width: min(340px, 100%) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 !important;
+  background: #f7f4ec !important;
+  border-radius: 1.35rem !important;
+  overflow: hidden !important;
+}
+
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__vial--together {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-knowall__vial--wl {
+  width: min(280px, 100%) !important;
+  background: #f7f4ec !important;
+  border-radius: 1.15rem !important;
+}
+
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials {
+  background: #f7f4ec !important;
+  border-radius: 1.25rem !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
+    grid-template-columns: 1fr !important;
   }
 }
 
