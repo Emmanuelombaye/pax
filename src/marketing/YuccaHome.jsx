@@ -8,13 +8,27 @@ function HeroSection({ openStart }) {
   return (
     <section className="retro-home-hero-section pax-home-hero" data-hero-reveal data-revealed="true">
       <div className="pax-home-hero__inner">
+        <div className="pax-home-hero__media" aria-hidden="true">
+          <img
+            className="pax-home-hero__photo"
+            src="/images/pax-hero-portrait.webp?v=ph1"
+            alt=""
+            width="1024"
+            height="1536"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="pax-home-hero__wash" />
+        </div>
         <div className="pax-home-hero__copy">
-          <h1 className="pax-home-hero__heading">
-            Provider-guided GLP-1 care, prescribed only when it&rsquo;s right.
-          </h1>
-          <p className="pax-home-hero__subtitle">
-            Semaglutide or Tirzepatide — reviewed by a licensed U.S. provider before anything is prescribed.
-          </p>
+          <div className="pax-home-hero__copy-top">
+            <h1 className="pax-home-hero__heading">
+              Provider-guided <em>GLP-1</em> care.
+            </h1>
+            <p className="pax-home-hero__subtitle">
+              Prescribed only when a licensed U.S. provider decides it&rsquo;s right.
+            </p>
+          </div>
           <div className="pax-home-hero__cta">
             <button
               type="button"
@@ -38,17 +52,6 @@ function HeroSection({ openStart }) {
               </span>
             </a>
           </div>
-        </div>
-        <div className="pax-home-hero__media" aria-hidden="true">
-          <img
-            className="pax-home-hero__photo"
-            src="/images/pax-hero-portrait.webp?v=ph1"
-            alt=""
-            width="1024"
-            height="1536"
-            loading="eager"
-            fetchPriority="high"
-          />
         </div>
       </div>
     </section>
