@@ -34,13 +34,27 @@
 
 .yx-clone .pax-knowall .retro-knowall__vial,
 .yx-clone .pax-knowall .retro-knowall__vial--wl {
-  display: block !important;
-  width: min(380px, 92%) !important;
-  max-width: 380px !important;
-  height: auto !important;
-  margin: 0.5rem 0 0 !important;
-  border-radius: 18px;
-  object-fit: contain;
+  display: none !important;
+}
+
+.yx-clone .pax-knowall .pax-knowall__photo {
+  margin: 0.85rem 0 0;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 1.15rem;
+  border: 1.5px solid color-mix(in oklch, var(--forest) 14%, transparent);
+  background: #f7f4ec;
+  box-shadow: 0 18px 40px -24px color-mix(in oklch, var(--forest) 32%, transparent);
+}
+
+.yx-clone .pax-knowall .pax-knowall__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 14%;
 }
 
 .yx-clone .pax-knowall .pax-knowall__list {
@@ -288,9 +302,9 @@
     max-width: none;
   }
 
-  .yx-clone .pax-knowall .retro-knowall__vial,
-  .yx-clone .pax-knowall .retro-knowall__vial--wl {
-    margin-inline: auto !important;
+  .yx-clone .pax-knowall .pax-knowall__photo {
+    max-width: none;
+    aspect-ratio: 4 / 5;
   }
 
   .yx-clone .pax-knowall .retro-knowall__panel {
@@ -299,6 +313,17 @@
 }
 
 @media (max-width: 767px) {
+  .yx-clone .pax-knowall {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .yx-clone .pax-knowall .pax-knowall__photo {
+    margin-top: 1rem;
+    aspect-ratio: 4 / 5;
+    border-radius: 1rem;
+  }
+
   .yx-clone .pax-knowall .pax-knowall__toggle {
     gap: 0.65rem !important;
     padding: 0.95rem 1rem 0.95rem 1.05rem !important;

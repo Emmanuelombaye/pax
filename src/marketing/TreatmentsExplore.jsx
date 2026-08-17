@@ -11,6 +11,7 @@ const WL_VIALS = {
   together: '/images/vials/together.webp?v=amber1',
   hero: '/images/vials/together-hero.webp?v=amber2',
 };
+const WL_FAQ_PHOTO = '/images/faq-portrait.webp?v=faq1';
 
 const INCLUDES = [
   'Free Medical Consultation',
@@ -665,7 +666,7 @@ function ExpectSection({ variant, data }) {
   );
 }
 
-function KnowallSection({ variant, faqs, vialSrc, onCta }) {
+function KnowallSection({ variant, faqs, vialSrc, photoSrc, onCta }) {
   const [openFaq, setOpenFaq] = useState(0);
   const isWl = variant === 'wl';
   const className =
@@ -684,7 +685,13 @@ function KnowallSection({ variant, faqs, vialSrc, onCta }) {
           <h2 id={`retro-knowall-heading-${variant}`} className="retro-knowall__heading">
             Common questions before you begin.
           </h2>
-          <img className={vialClass} src={vialSrc} alt="" loading="lazy" />
+          {isWl && photoSrc ? (
+            <figure className="pax-knowall__photo">
+              <img src={photoSrc} alt="" loading="lazy" />
+            </figure>
+          ) : (
+            <img className={vialClass} src={vialSrc} alt="" loading="lazy" />
+          )}
         </div>
         <div className="retro-knowall__right">
           <ul className={`retro-knowall__list${isWl ? ' pax-knowall__list' : ''}`} role="list">
@@ -1031,7 +1038,7 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
-        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={WL_VIALS.sema} onCta={cta} />
+        <KnowallSection variant="wl" faqs={WL_FAQS} photoSrc={WL_FAQ_PHOTO} onCta={cta} />
       </div>
 
       <WhySection glpVialSrc={WL_VIALS.together} />

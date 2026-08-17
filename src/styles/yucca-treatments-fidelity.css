@@ -1435,10 +1435,7 @@
 }
 
 .yx-clone [data-explore-section-stack='weight-loss'] .retro-knowall__vial--wl {
-  width: min(360px, 100%) !important;
-  max-width: 360px !important;
-  background: #f7f4ec !important;
-  border-radius: 1.15rem !important;
+  display: none !important;
 }
 
 .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials,
