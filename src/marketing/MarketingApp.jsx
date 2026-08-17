@@ -211,7 +211,7 @@ export default function MarketingApp({ currentTab }) {
           </nav>
 
           <div className="yx-nav__actions">
-            <a href="#/portal" className="yx-btn yx-btn--ghost">
+            <a href="#/start" className="yx-btn yx-btn--ghost">
               Log in
             </a>
             <button type="button" className="yx-btn yx-btn--primary" onClick={openStart}>
@@ -279,7 +279,7 @@ export default function MarketingApp({ currentTab }) {
               →
             </span>
           </a>
-          <a href="#/portal" className="mobile-link" onClick={toggleMobileNav}>
+          <a href="#/start" className="mobile-link" onClick={toggleMobileNav}>
             Patient Center
             <span className="mobile-link__chev" aria-hidden="true">
               →
@@ -288,7 +288,7 @@ export default function MarketingApp({ currentTab }) {
         </div>
 
         <div className="mobile-nav__footer">
-          <a href="#/portal" className="yx-btn yx-btn--ghost" onClick={toggleMobileNav}>
+          <a href="#/start" className="yx-btn yx-btn--ghost" onClick={toggleMobileNav}>
             Log in
           </a>
           <button
@@ -566,7 +566,7 @@ export default function MarketingApp({ currentTab }) {
               <a href="#/treatments/weight-loss" className="footer-link">Treatments</a>
               <a href="#/how-it-works" className="footer-link">How it works</a>
               <a href="#/start" className="footer-link">Start treatment</a>
-              <a href="#/portal" className="footer-link">Patient Center</a>
+              <a href="#/start" className="footer-link">Patient Center</a>
             </div>
 
             <div className="footer-links-col">

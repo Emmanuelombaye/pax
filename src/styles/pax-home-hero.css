@@ -135,7 +135,7 @@
   }
 
   .yucca-home .pax-home-hero__media {
-    aspect-ratio: 5 / 4;
-    max-height: 22rem;
+    aspect-ratio: 4 / 5;
+    max-height: none;
   }
 }

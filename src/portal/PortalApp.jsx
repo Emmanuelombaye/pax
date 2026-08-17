@@ -1,28 +1,49 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BrandMark, PAX_PASSPORT } from '../brand/index.js';
+import { BrandMark } from '../brand/index.js';
 import {
   getCurrentUser,
   getSession,
   login,
   logout as connectLogout,
 } from '../brand/connect.js';
-import { DEMO_CREDENTIALS, getAuditLog, inspectAuthDb } from './authDictDb.js';
+import { getAuditLog, inspectAuthDb } from './authDictDb.js';
 import { Icon } from './Icon.jsx';
 import { MOCK, unreadMessages, unreadNotifications } from './mockData.js';
 import { MOBILE_PRIMARY, PORTAL_NAV, defaultChild, parsePortalRoute, portalHref } from './nav.js';
 import { renderPortalScreen } from './screens.jsx';
 import { LEGAL_LINKS } from '../marketing/legalContent.js';
 
+function hasPaidCheckout() {
+  try {
+    const status = JSON.parse(localStorage.getItem('pax_checkout_status_v1') || 'null');
+    return Boolean(status?.paid);
+  } catch {
+    return false;
+  }
+}
+
+function paidMemberStub() {
+  try {
+    if (!hasPaidCheckout()) return null;
+    const email = String(localStorage.getItem('pax_checkout_email_v1') || '').trim();
+    if (!email) return null;
+    return { email, firstName: 'Member', lastName: '' };
+  } catch {
+    return null;
+  }
+}
+
 function AuthScreen({ onAuthed }) {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
-  const [form, setForm] = useState({
-    email: DEMO_CREDENTIALS.email,
-    password: DEMO_CREDENTIALS.password,
-  });
+  const [form, setForm] = useState({ email: '', password: '' });
 
   const submit = async (e) => {
     e.preventDefault();
+    if (!hasPaidCheckout()) {
+      setError('Complete checkout first. Patient Center opens after payment.');
+      return;
+    }
     setError('');
     setBusy(true);
     try {
@@ -31,23 +52,6 @@ function AuthScreen({ onAuthed }) {
       window.location.hash = '#/portal/dashboard';
     } catch (err) {
       setError(err.message || 'Something went wrong.');
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const enterDemo = async () => {
-    setError('');
-    setBusy(true);
-    try {
-      const result = await login({
-        email: DEMO_CREDENTIALS.email,
-        password: DEMO_CREDENTIALS.password,
-      });
-      onAuthed(result.user);
-      window.location.hash = '#/portal/dashboard';
-    } catch (err) {
-      setError(err.message || 'Demo login failed.');
     } finally {
       setBusy(false);
     }
@@ -77,22 +81,16 @@ function AuthScreen({ onAuthed }) {
         <BrandMark size="lg" />
         <h2 className="pp-auth__title">Sign in</h2>
         <p className="pp-auth__sim">
-          Accounts live in a local dictionary database (email → user, token → session). Sign out clears your session token.
-          <br />
-          <span className="pp-auth__mode">{PAX_PASSPORT.compliance.demoDisclaimer}</span>
+          Patient Center opens after checkout. Complete intake and payment first — then you can track review, shipping, and messages here.
         </p>
 
-        <div className="pc-cred-card">
-          <p className="pc-cred-card__label">Demo dictionary account</p>
-          <code>{DEMO_CREDENTIALS.email}</code>
-          <code>password: {DEMO_CREDENTIALS.password}</code>
-        </div>
+        <a href="#/start" className="pp-btn pp-btn--primary" style={{ width: '100%' }}>
+          Start medical intake →
+        </a>
 
-        <button type="button" className="pp-btn pp-btn--primary" onClick={enterDemo} disabled={busy} style={{ width: '100%' }}>
-          {busy ? 'Signing in…' : 'Enter demo Patient Center'}
-        </button>
-
-        <div className="pc-auth-divider"><span>or sign in with form</span></div>
+        <p className="pp-auth__sim" style={{ marginTop: '1.1rem' }}>
+          Already completed checkout on this device? Sign in below.
+        </p>
 
         <form className="pp-auth__form" onSubmit={submit}>
           <label>
@@ -124,11 +122,7 @@ function AuthScreen({ onAuthed }) {
           </button>
         </form>
 
-        <a href="#/start" className="pp-btn pp-btn--outline" style={{ width: '100%', marginTop: '0.35rem' }}>
-          Start treatment →
-        </a>
-
-        <p className="pp-auth__legal-links">
+        <form className="pp-auth__form" onSubmit={submit}>
           {LEGAL_LINKS.map((link, index) => (
             <span key={link.id}>
               {index > 0 ? <span aria-hidden="true"> · </span> : null}
@@ -350,6 +344,7 @@ export default function PortalApp() {
     let alive = true;
     (async () => {
       if (!getSession()) {
+        if (alive) setUser(paidMemberStub());
         if (alive) setBoot(false);
         return;
       }
