@@ -1367,10 +1367,11 @@
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
-  width: 100% !important;
-  height: 100% !important;
+  width: 118% !important;
+  height: 118% !important;
+  margin: -9% 0 0 -9% !important;
   object-fit: contain !important;
-  object-position: center 58% !important;
+  object-position: center 52% !important;
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__name {
@@ -1386,35 +1387,82 @@
   color: color-mix(in oklch, var(--forest) 66%, transparent) !important;
 }
 
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__inner {
+  grid-template-columns: minmax(0, 1.05fr) minmax(400px, 520px) !important;
+}
+
 .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl {
-  width: min(340px, 100%) !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 540px !important;
+  min-height: 540px !important;
+  aspect-ratio: auto !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  padding: 0.4rem !important;
   background: #f7f4ec !important;
   border-radius: 1.35rem !important;
   overflow: hidden !important;
 }
 
-.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__vial--together {
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical--weight-loss .retro-clinical__visual--wl .retro-clinical__vial,
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial,
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial--tirz,
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial--sema {
   position: static !important;
   left: auto !important;
   top: auto !important;
+  transform: none !important;
   width: 100% !important;
+  max-width: none !important;
   height: 100% !important;
   object-fit: contain !important;
+  object-position: center center !important;
 }
 
 .yx-clone [data-explore-section-stack='weight-loss'] .retro-knowall__vial--wl {
-  width: min(280px, 100%) !important;
+  width: min(360px, 100%) !important;
+  max-width: 360px !important;
   background: #f7f4ec !important;
   border-radius: 1.15rem !important;
 }
 
-.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials {
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials,
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--pair {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  width: min(420px, 100%) !important;
+  max-width: 420px !important;
+  height: auto !important;
+  min-height: 280px !important;
+  margin-top: 1.5rem !important;
+  padding: 0.35rem !important;
   background: #f7f4ec !important;
   border-radius: 1.25rem !important;
   overflow: hidden !important;
+}
+
+.yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--pair img {
+  display: block !important;
+  width: 100% !important;
+  height: 280px !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 900px) {
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl {
+    width: min(420px, 100%) !important;
+    height: 420px !important;
+    min-height: 420px !important;
+    margin-inline: auto !important;
+  }
 }
 
 @media (max-width: 767px) {

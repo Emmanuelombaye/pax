@@ -459,9 +459,16 @@ function ProtocolSection({ variant = 'wl', data, onCta }) {
             )}
           </h2>
           <p className="retro-protocol__sub">{data.sub}</p>
-          <div className={vialsClass} aria-hidden="true">
-            <img className={vialImgClass} src={data.vials} alt="" loading="lazy" />
-          </div>
+          {variant === 'wl' ? (
+            <div className="retro-protocol__vials retro-protocol__vials--pair" aria-hidden="true">
+              <img src={WL_VIALS.tirz} alt="" loading="lazy" />
+              <img src={WL_VIALS.sema} alt="" loading="lazy" />
+            </div>
+          ) : (
+            <div className={vialsClass} aria-hidden="true">
+              <img className={vialImgClass} src={data.vials} alt="" loading="lazy" />
+            </div>
+          )}
         </div>
         <div className="retro-protocol__right">
           {data.cards.map((c, i) => (
@@ -525,7 +532,8 @@ function ClinicalSection({ variant }) {
             </div>
           </div>
           <div className="retro-clinical__visual retro-clinical__visual--wl" aria-hidden="true">
-            <img className="retro-clinical__vial retro-clinical__vial--together" src={WL_VIALS.together} alt="" loading="lazy" />
+            <img className="retro-clinical__vial retro-clinical__vial--tirz" src={WL_VIALS.tirz} alt="" loading="lazy" />
+            <img className="retro-clinical__vial retro-clinical__vial--sema" src={WL_VIALS.sema} alt="" loading="lazy" />
           </div>
         </div>
       </section>
@@ -1021,7 +1029,7 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
-        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={WL_VIALS.together} onCta={cta} />
+        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={WL_VIALS.sema} onCta={cta} />
       </div>
 
       <WhySection glpVialSrc={WL_VIALS.together} />
