@@ -1,6 +1,6 @@
 export const MARKETING_IMAGES = {
   cards: {
-    glpPen: '/images/cards/pax-yucca-vials.png',
+    glpPen: '/images/vials/together.png',
     glpPenFallback: '/images/cards/pax-glp-product.png',
     nad: '/images/cards/pax-nad-product.png',
     sermorelin: '/images/cards/pax-sermorelin-product.png',

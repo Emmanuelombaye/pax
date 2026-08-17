@@ -51,7 +51,8 @@
 }
 
 .pax-member__card--contain {
-  padding: 1.1rem 0.85rem;
+  padding: 0;
+  background: #0b0b0b;
 }
 
 .pax-member__card--contain img {

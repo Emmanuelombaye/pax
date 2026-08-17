@@ -3,6 +3,7 @@ import {
   TREATMENT_GOALS,
   getGoalForTreatment,
 } from '../start/startFlowData.js';
+import { VIALS } from './vialAssets.js';
 
 const IMG = '/images/yucca-clone';
 
@@ -76,13 +77,13 @@ const TABS = [
         id: 'semaglutide',
         name: 'GLP-1 (Semaglutide)',
         desc: 'Weekly GLP-1 pathway support.',
-        thumb: `${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
+        thumb: VIALS.sema,
       },
       {
         id: 'tirzepatide',
         name: 'GLP-1 + GIP (Tirzepatide)',
         desc: 'Dual-pathway weekly support.',
-        thumb: `${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
+        thumb: VIALS.tirz,
       },
     ],
   },
@@ -91,7 +92,7 @@ const TABS = [
 const WL_PROTOCOL = {
   heading: "Your body isn't working against you. It just needs the right signal.",
   sub: "GLP-1 medications don't fight your hunger — they work through the same hormonal system your body already uses to regulate it.",
-  vials: `${IMG}/expt-tirz-sema-vials-together.png?v=nologo`,
+  vials: VIALS.together,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
@@ -334,20 +335,20 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
             </p>
 
             {pane.products.length > 0 && (
-              <div className="explore-hero-products my-[18px] flex flex-row flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+              <div className="explore-hero-products explore-hero-vials" aria-label="Available GLP-1 vial options">
                 {pane.products.map((p) => (
                   <button
                     key={p.id}
                     type="button"
-                    className={`explore-hero-product flex items-center gap-2 ${selectedTx === p.id ? 'is-active' : ''}`}
+                    className={`explore-vial-card ${selectedTx === p.id ? 'is-active' : ''}`}
                     onClick={() => setSelectedTx(p.id)}
                   >
-                    <div className="explore-hero-product-thumb aspect-square w-[34px] max-w-[34px] overflow-clip rounded-full">
-                      <img src={p.thumb} alt="" loading="lazy" className="block w-full h-full object-cover" />
+                    <div className="explore-vial-card__media">
+                      <img src={p.thumb} alt="" loading="lazy" className="explore-vial-card__img" />
                     </div>
-                    <div className="explore-hero-product-copy">
-                      <div className="explore-hero-product-name text-sm font-medium text-neutral-900">{p.name}</div>
-                      <div className="explore-hero-product-desc">{p.desc}</div>
+                    <div className="explore-vial-card__copy">
+                      <div className="explore-vial-card__name">{p.name}</div>
+                      <div className="explore-vial-card__desc">{p.desc}</div>
                     </div>
                   </button>
                 ))}
@@ -519,16 +520,10 @@ function ClinicalSection({ variant }) {
               <p>Your dosing protocol is reviewed and prescribed by a licensed provider, adjusted as you progress.</p>
             </div>
           </div>
-          <div className="retro-clinical__visual" aria-hidden="true">
+          <div className="retro-clinical__visual retro-clinical__visual--studio" aria-hidden="true">
             <img
-              className="retro-clinical__vial retro-clinical__vial--tirz"
-              src={`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
-              alt=""
-              loading="lazy"
-            />
-            <img
-              className="retro-clinical__vial retro-clinical__vial--sema"
-              src={`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
+              className="retro-clinical__vial retro-clinical__vial--together"
+              src={VIALS.together}
               alt=""
               loading="lazy"
             />
@@ -809,7 +804,7 @@ export function WhySection() {
       tone: 'light',
       media: (
         <div className="pax-why__media-frame">
-          <img src={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} alt="" loading="lazy" />
+          <img src={VIALS.together} alt="" loading="lazy" />
         </div>
       ),
     },
@@ -1026,7 +1021,7 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
-        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} onCta={cta} />
+        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={VIALS.together} onCta={cta} />
       </div>
 
       <WhySection />

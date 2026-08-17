@@ -1,7 +1,8 @@
 /** How it works page — 5-step sticky flow, Pax brand imagery + copy */
 
+import { VIALS } from './vialAssets.js';
+
 const HIW = '/images/yucca-clone/hiw';
-const YC = '/images/yucca-clone';
 
 export const HOW_STEPS = [
   {
@@ -10,7 +11,7 @@ export const HOW_STEPS = [
     titleItalic: 'treatment plan',
     body: 'Browse our science-backed GLP-1 options and select the plan that fits your goals. Then complete a short medical history questionnaire — a few minutes that helps our providers confirm you’re a good fit for treatment.',
     image: {
-      src: `${HIW}/Treatment-Plan.avif?v=nologo2`,
+      src: VIALS.together,
       alt: 'Pax Longevity Semaglutide and Tirzepatide treatment vials',
     },
     chips: ['Semaglutide', 'Tirzepatide'],
@@ -73,7 +74,7 @@ export const HOW_STEPS = [
 export const HOW_WHY = [
   {
     image: {
-      src: `${YC}/expt-tirz-sema-vials-together.png?v=nologo`,
+      src: VIALS.together,
       alt: 'Pax Semaglutide and Tirzepatide vials',
     },
     title: 'Transparent & Trusted',

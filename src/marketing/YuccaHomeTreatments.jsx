@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { VIALS } from './vialAssets.js';
 
 const IMG = '/images/yucca-clone';
 
@@ -18,7 +19,7 @@ const TREATMENTS = [
     price: '$125',
     period: '/mo',
     priceNote: '6-month plan · charged only if prescribed',
-    vials: [`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`],
+    vials: [VIALS.sema],
     cutoutPair: `${IMG}/pax-glp1-couple-cutout.avif`,
     startTx: 'semaglutide',
     learnHref: '#/treatments/weight-loss',
@@ -38,7 +39,7 @@ const TREATMENTS = [
     price: '$225',
     period: '/mo',
     priceNote: '6-month plan · charged only if prescribed',
-    vials: [`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`],
+    vials: [VIALS.tirz],
     cutoutPair: `${IMG}/pax-glp1-couple-cutout-tirz.avif`,
     startTx: 'tirzepatide',
     learnHref: '#/treatments/weight-loss',
