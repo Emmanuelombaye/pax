@@ -9,6 +9,7 @@ const WL_VIALS = {
   sema: '/images/vials/sema.webp?v=amber1',
   tirz: '/images/vials/tirz.webp?v=amber1',
   together: '/images/vials/together.webp?v=amber1',
+  hero: '/images/vials/together-hero.webp?v=amber2',
 };
 
 const INCLUDES = [
@@ -317,6 +318,7 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
               <span className="explore-hero-card-price-main">FROM {pane.priceFrom}</span>
               <span className="explore-hero-card-price-sub">/mo · 6-month plan</span>
             </div>
+            <img className="explore-hero-card__photo" src={WL_VIALS.hero} alt="" loading="eager" />
             <div className="explore-hero-card-footer flex items-center justify-between gap-3">
               <div>Licensed U.S. provider review required</div>
               <div className="flex items-center gap-1.5">

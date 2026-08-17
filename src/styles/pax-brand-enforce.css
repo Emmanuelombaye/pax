@@ -68,12 +68,8 @@ main[data-retro-scope],
 /* —— Hero product card: kill purple / brown / mint washes —— */
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
-  background-image:
-    url(/images/vials/together.webp?v=amber1),
-    linear-gradient(180deg, #f7f4ec, #f3eee4) !important;
-  background-position: 50% 78%, 0 0 !important;
-  background-size: 92% auto, auto !important;
-  background-repeat: no-repeat, repeat !important;
+  background: #f7f4ec !important;
+  background-image: none !important;
   color: var(--forest) !important;
 }
 

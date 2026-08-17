@@ -138,11 +138,23 @@
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
-  background-image: url(/images/vials/together.webp?v=amber1),
-    linear-gradient(180deg, #f7f4ec, #f3eee4) !important;
-  background-position: 50% 78%, 0 0 !important;
-  background-size: 92% auto, auto !important;
-  background-repeat: no-repeat, repeat !important;
+  background: #f7f4ec !important;
+  background-image: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card__photo {
+  display: block !important;
+  flex: 1 1 auto !important;
+  width: calc(100% + 3.5rem) !important;
+  max-width: none !important;
+  min-height: 18.5rem !important;
+  height: auto !important;
+  margin: 0.15rem -1.75rem !important;
+  object-fit: cover !important;
+  object-position: center 46% !important;
+  pointer-events: none !important;
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
