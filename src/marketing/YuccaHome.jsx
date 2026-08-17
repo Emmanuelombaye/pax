@@ -85,6 +85,77 @@ function HeroSection({ openStart }) {
   );
 }
 
+const MEMBERSHIP_CARDS = [
+  {
+    id: 'provider',
+    fit: 'cover',
+    src: '/images/yucca-clone/dr-michael-wasef-md-pax.png',
+    alt: 'Licensed clinician in a Pax lab coat',
+  },
+  {
+    id: 'portal',
+    fit: 'phone',
+    src: '/images/yucca-clone/hiw/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=phone1',
+    alt: 'Pax patient portal on a phone',
+  },
+  {
+    id: 'medication',
+    fit: 'contain',
+    src: '/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo',
+    alt: 'Personalized Semaglutide and Tirzepatide vials',
+  },
+  {
+    id: 'progress',
+    fit: 'scale',
+    src: '',
+    alt: 'Progress tracking',
+  },
+];
+
+const MEMBERSHIP_PERKS = [
+  'Licensed U.S. provider review',
+  'Patient portal',
+  'Personalized treatment plan',
+  'Ongoing progress support',
+];
+
+function MembershipSection() {
+  return (
+    <section className="pax-member" aria-labelledby="pax-member-heading">
+      <div className="pax-member__inner">
+        <div className="pax-member__row">
+          {MEMBERSHIP_CARDS.map((card) => (
+            <figure key={card.id} className={`pax-member__card pax-member__card--${card.fit}`}>
+              {card.fit === 'scale' ? (
+                <div className="pax-member__scale" aria-hidden="true">
+                  <span className="pax-member__scale-face" />
+                </div>
+              ) : card.fit === 'phone' ? (
+                <div className="pax-member__phone">
+                  <img src={card.src} alt="" loading="lazy" decoding="async" />
+                </div>
+              ) : (
+                <img src={card.src} alt="" loading="lazy" decoding="async" />
+              )}
+              <figcaption className="sr-only">{card.alt}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="pax-member__copy">
+          <h2 id="pax-member-heading">Get complete support in one membership</h2>
+          <p>Along with medication, if eligible, you get:</p>
+          <ul className="pax-member__perks">
+            {MEMBERSHIP_PERKS.map((perk) => (
+              <li key={perk}>{perk}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProvidersSection() {
   return (
     <section className="retro-home-doctors pax-home-providers">
@@ -156,6 +227,7 @@ export default function YuccaHome({ openStart, activeFaq, onFaqToggle }) {
     <div className="yucca-home u5-type" data-retro-scope>
       <HeroSection openStart={openStart} />
       <YuccaHomeTreatments openStart={openStart} />
+      <MembershipSection />
       <YuccaHomeHiw />
       <ProvidersSection />
       <WhySection />
