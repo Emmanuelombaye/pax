@@ -31,6 +31,7 @@ import './styles/pax-membership.css'
 import './styles/pax-home-hero.css'
 import './styles/pax-mobile-nav.css'
 import './styles/pax-buttons.css'
+import './styles/pax-wl-mobile.css'
 
 import App from './App.jsx'
 import { PAX_PASSPORT } from './brand/index.js'

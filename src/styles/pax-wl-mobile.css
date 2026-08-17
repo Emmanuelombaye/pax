@@ -1,0 +1,208 @@
+/* Weight-loss treatments — Yucca-style phone layout, no cropped card images */
+
+@media (max-width: 991px) {
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-container,
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .u-container {
+    width: min(1120px, calc(100% - 2rem)) !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-grid {
+    flex-direction: column !important;
+    gap: 1.35rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card,
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    margin-inline: 0 !important;
+    padding: 1.2rem 1.15rem 1rem !important;
+    overflow: hidden !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card-title {
+    font-size: clamp(1.55rem, 6.4vw, 2rem) !important;
+    line-height: 1.08 !important;
+    max-width: 16ch !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card__photo {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: 16.5rem !important;
+    margin: 0.55rem 0 0.7rem !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.7rem !important;
+    margin: 0.15rem 0 1.15rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card {
+    padding: 0.55rem 0.55rem 0.7rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__media {
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__name {
+    font-size: 0.86rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__desc {
+    font-size: 0.74rem !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-protocol.retro-protocol,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect,
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-knowall {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover {
+    width: 100% !important;
+    max-width: none !important;
+    aspect-ratio: 4 / 3 !important;
+    overflow: hidden !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-protocol__vials--cover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3 !important;
+    overflow: hidden !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial--tirz,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical__visual--wl .retro-clinical__vial--sema {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect__grid {
+    display: none !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect__carousel {
+    display: block !important;
+    margin: 1.15rem -1rem 0 !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect__track {
+    display: flex !important;
+    gap: 0.75rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth;
+    padding: 0.2rem 1rem 1rem !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect-card--carousel {
+    flex: 0 0 78vw !important;
+    width: 78vw !important;
+    max-width: 19.5rem !important;
+    scroll-snap-align: center;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect-card__media {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    border-radius: 12px;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect-card__img,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect-card__media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 18% !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-knowall .pax-knowall__photo {
+    width: 100% !important;
+    max-width: none !important;
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-knowall .pax-knowall__photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 12% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card__photo {
+    max-height: 14.5rem !important;
+  }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card-footer {
+    align-items: flex-end !important;
+    gap: 0.55rem !important;
+  }
+
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-clinical,
+  .yx-clone [data-explore-section-stack='weight-loss'] .retro-expect,
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-protocol.retro-protocol,
+  .yx-clone [data-explore-section-stack='weight-loss'] .pax-knowall {
+    padding-top: 2.35rem !important;
+    padding-bottom: 2.35rem !important;
+  }
+}

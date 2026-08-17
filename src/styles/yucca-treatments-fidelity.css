@@ -147,13 +147,13 @@
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card__photo {
   display: block !important;
   flex: 1 1 auto !important;
-  width: calc(100% + 3.5rem) !important;
-  max-width: none !important;
-  min-height: 18.5rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 16rem !important;
   height: auto !important;
-  margin: 0.15rem -1.75rem !important;
-  object-fit: cover !important;
-  object-position: center 46% !important;
+  margin: 0.35rem 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
   pointer-events: none !important;
 }
 
@@ -1379,11 +1379,11 @@
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
-  width: 118% !important;
-  height: 118% !important;
-  margin: -9% 0 0 -9% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
   object-fit: contain !important;
-  object-position: center 52% !important;
+  object-position: center center !important;
 }
 
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__name {
@@ -1458,8 +1458,8 @@
   width: 100% !important;
   height: 100% !important;
   max-height: none !important;
-  object-fit: cover !important;
-  object-position: center 48% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
 }
 
 @media (max-width: 900px) {
@@ -1477,7 +1477,7 @@
 
 @media (max-width: 767px) {
   .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 
