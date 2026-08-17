@@ -1,13 +1,9 @@
-const CACHE_NAME = 'pax-cache-v7';
+const CACHE_NAME = 'pax-cache-v8';
 const PRECACHE_URLS = [
-  '/',
-  '/index.html',
   '/brand/pax-horizontal.svg',
   '/brand/pax-monogram.svg',
   '/brand/pax-seal.svg',
   '/favicon.svg',
-  '/images/hero-longevity.webp',
-  '/images/hero-longevity-desktop.webp',
 ];
 
 const isCacheable = (url) => {
@@ -50,6 +46,27 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const requestUrl = new URL(event.request.url);
+  const isDocument =
+    event.request.mode === 'navigate' ||
+    event.request.destination === 'document' ||
+    requestUrl.pathname === '/' ||
+    requestUrl.pathname === '/index.html' ||
+    requestUrl.pathname.endsWith('.html');
+
+  if (isDocument) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || new Response('Offline', { status: 503 }))),
+    );
+    return;
+  }
+
   if (!isCacheable(requestUrl)) return;
 
   event.respondWith(

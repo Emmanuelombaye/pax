@@ -1,9 +1,9 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import MarketingApp from './marketing/MarketingApp.jsx';
+import StartFlow from './start/StartFlow.jsx';
 import { ROUTE_TABS } from './marketing/data.js';
 
 const PortalApp = lazy(() => import('./portal/PortalApp.jsx'));
-const StartFlow = lazy(() => import('./start/StartFlow.jsx'));
 const BrandCompare = lazy(() => import('./marketing/BrandCompare.jsx'));
 const CheckoutSuccess = lazy(() => import('./start/CheckoutSuccess.jsx'));
 
@@ -86,13 +86,11 @@ export default function App() {
 
   if (currentTab === 'start') {
     return (
-      <Suspense fallback={<SurfaceFallback />}>
-        <StartFlow
-          onComplete={() => {
-            window.location.hash = '#/portal';
-          }}
-        />
-      </Suspense>
+      <StartFlow
+        onComplete={() => {
+          window.location.hash = '#/portal';
+        }}
+      />
     );
   }
 
