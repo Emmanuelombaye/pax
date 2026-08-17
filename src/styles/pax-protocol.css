@@ -13,6 +13,7 @@
   overflow: visible !important;
   line-height: 1.16 !important;
   padding-top: 0.2em;
+  max-width: 18ch !important;
 }
 
 .yx-clone .pax-protocol .retro-protocol__right {

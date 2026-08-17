@@ -97,24 +97,24 @@ const TABS = [
 ];
 
 const WL_PROTOCOL = {
-  heading: "Your body isn't working against you. It just needs the right signal.",
-  sub: "GLP-1 medications don't fight your hunger — they work through the same hormonal system your body already uses to regulate it.",
+  heading: 'GLP-1 helps your body recognize when you have had enough.',
+  sub: 'These medications copy the fullness hormones your gut already releases after a meal. Hunger quiets down, meals feel satisfying sooner, and the stretch between them gets easier — with dosing reviewed by a licensed U.S. provider.',
   vials: WL_VIALS.together,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
-      title: "Targets the hormone that tells your brain you're full.",
-      body: 'After you eat, your body releases a hormone called GLP-1 — a signal that travels to your brain and says: enough. GLP-1 medications mimic that signal. The result is a clearer, more consistent message to stop eating.',
+      title: 'Mimics the hormone that tells your brain you are full.',
+      body: 'After you eat, your gut releases GLP-1 — a message to the brain that you have had enough. Personalized GLP-1 treatment copies that message so fullness arrives more clearly, and with more consistency.',
     },
     {
       icon: PROTOCOL_ICON_PATH,
-      title: 'Slows down how fast food leaves your stomach.',
-      body: 'These treatments reduce the rate at which your stomach empties after a meal. The physical sensation of fullness lasts longer — and hunger returns more slowly.',
+      title: 'Slows how quickly food leaves your stomach.',
+      body: 'Treatment can reduce gastric emptying after a meal. That physical fullness lasts longer, so the next wave of hunger tends to come on more slowly.',
     },
     {
       icon: PROTOCOL_ICON_LINES,
-      title: 'Recalibrates your hunger system — not shuts it down.',
-      body: "Over time, with structured dosing reviewed by your provider, GLP-1 therapy helps restore a more balanced hormonal response to food — so the process feels steadier, not like a fight you're constantly losing.",
+      title: 'Supports a steadier appetite — it does not switch hunger off.',
+      body: 'With a plan your provider can adjust over time, GLP-1 therapy is designed to rebalance how your body responds to food. The goal is a calmer pattern, not an on/off switch.',
     },
   ],
 };
