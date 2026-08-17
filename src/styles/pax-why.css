@@ -271,9 +271,9 @@
   display: grid;
   place-items: center;
   height: 11rem;
-  padding: 0;
+  padding: 0.55rem;
   border-radius: 0.95rem;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
+  background: color-mix(in oklch, var(--sand) 55%, #fff);
   border: 1px solid color-mix(in oklch, var(--forest) 10%, transparent);
   overflow: hidden;
 }

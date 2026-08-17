@@ -101,7 +101,7 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'medication',
     fit: 'contain',
-    src: '/images/cards/pax-yucca-vials.png',
+    src: '/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {

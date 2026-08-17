@@ -68,8 +68,13 @@ main[data-retro-scope],
 /* —— Hero product card: kill purple / brown / mint washes —— */
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 84%, var(--dune)), color-mix(in oklch, var(--sand) 94%, var(--dune))) !important;
-  background-image: none !important;
+  background-image:
+    url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 45%, var(--sand)),
+      color-mix(in oklch, var(--dune) 72%, var(--sand))
+    ) !important;
   color: var(--forest) !important;
 }
 

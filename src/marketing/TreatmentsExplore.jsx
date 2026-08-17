@@ -3,7 +3,6 @@ import {
   TREATMENT_GOALS,
   getGoalForTreatment,
 } from '../start/startFlowData.js';
-import { VIALS } from './vialAssets.js';
 
 const IMG = '/images/yucca-clone';
 
@@ -72,21 +71,18 @@ const TABS = [
     chipClass: 'bg-pax-chip text-white',
     blurb:
       'A weekly treatment that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when a licensed provider determines it is appropriate.',
-    heroVial: VIALS.together,
     products: [
       {
         id: 'semaglutide',
         name: 'GLP-1 (Semaglutide)',
         desc: 'Weekly GLP-1 pathway support.',
-        thumb: VIALS.sema,
-        thumbClass: 'is-sema',
+        thumb: `${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
       },
       {
         id: 'tirzepatide',
         name: 'GLP-1 + GIP (Tirzepatide)',
         desc: 'Dual-pathway weekly support.',
-        thumb: VIALS.tirz,
-        thumbClass: 'is-tirz',
+        thumb: `${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`,
       },
     ],
   },
@@ -95,7 +91,7 @@ const TABS = [
 const WL_PROTOCOL = {
   heading: "Your body isn't working against you. It just needs the right signal.",
   sub: "GLP-1 medications don't fight your hunger — they work through the same hormonal system your body already uses to regulate it.",
-  vials: VIALS.together,
+  vials: `${IMG}/expt-tirz-sema-vials-together.png?v=nologo`,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
@@ -307,11 +303,8 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
         <div className="explore-hero-grid flex flex-col gap-6 tablet:flex-row tablet:items-start tablet:gap-9 desktop:gap-8">
           <div
             data-card={pane.card}
-            className={`explore-card explore-hero-card relative flex flex-col justify-between overflow-visible rounded-3xl text-white text-xs font-medium tracking-[-0.01em] w-full h-[27.5rem] tablet:h-auto tablet:min-h-0 tablet:flex-1 tablet:max-w-[31.5131rem] desktop:flex-none desktop:w-[31.5131rem] desktop:aspect-[480/549] px-6 pt-6 pb-5 tablet:px-7 tablet:pt-8 tablet:pb-7${pane.heroVial ? ' explore-hero-card--studio' : ''}`}
+            className="explore-card explore-hero-card relative flex flex-col justify-between overflow-visible rounded-3xl text-white text-xs font-medium tracking-[-0.01em] w-full h-[27.5rem] tablet:h-auto tablet:min-h-0 tablet:flex-1 tablet:max-w-[31.5131rem] desktop:flex-none desktop:w-[31.5131rem] desktop:aspect-[480/549] px-6 pt-6 pb-5 tablet:px-7 tablet:pt-8 tablet:pb-7"
           >
-            {pane.heroVial ? (
-              <img className="explore-hero-card__photo" src={pane.heroVial} alt="" loading="lazy" />
-            ) : null}
             <h2 className="explore-hero-card-title mx-auto m-0 text-center text-[1.75rem] tablet:text-[2.5rem] desktop:text-[2.625rem] leading-[1] tracking-[-0.04em] font-medium max-w-[15ch]">
               {pane.cardTitle}
             </h2>
@@ -341,25 +334,20 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
             </p>
 
             {pane.products.length > 0 && (
-              <div className="explore-hero-products explore-hero-vials" aria-label="Available GLP-1 vial options">
+              <div className="explore-hero-products my-[18px] flex flex-row flex-wrap items-center gap-x-6 gap-y-3 mb-6">
                 {pane.products.map((p) => (
                   <button
                     key={p.id}
                     type="button"
-                    className={`explore-vial-card ${selectedTx === p.id ? 'is-active' : ''}`}
+                    className={`explore-hero-product flex items-center gap-2 ${selectedTx === p.id ? 'is-active' : ''}`}
                     onClick={() => setSelectedTx(p.id)}
                   >
-                    <div className="explore-vial-card__media">
-                      <img
-                        src={p.thumb}
-                        alt=""
-                        loading="lazy"
-                        className={`explore-vial-card__img ${p.thumbClass || ''}`}
-                      />
+                    <div className="explore-hero-product-thumb aspect-square w-[34px] max-w-[34px] overflow-clip rounded-full">
+                      <img src={p.thumb} alt="" loading="lazy" className="block w-full h-full object-cover" />
                     </div>
-                    <div className="explore-vial-card__copy">
-                      <div className="explore-vial-card__name">{p.name}</div>
-                      <div className="explore-vial-card__desc">{p.desc}</div>
+                    <div className="explore-hero-product-copy">
+                      <div className="explore-hero-product-name text-sm font-medium text-neutral-900">{p.name}</div>
+                      <div className="explore-hero-product-desc">{p.desc}</div>
                     </div>
                   </button>
                 ))}
@@ -531,10 +519,16 @@ function ClinicalSection({ variant }) {
               <p>Your dosing protocol is reviewed and prescribed by a licensed provider, adjusted as you progress.</p>
             </div>
           </div>
-          <div className="retro-clinical__visual retro-clinical__visual--studio" aria-hidden="true">
+          <div className="retro-clinical__visual" aria-hidden="true">
             <img
-              className="retro-clinical__vial retro-clinical__vial--together"
-              src={VIALS.together}
+              className="retro-clinical__vial retro-clinical__vial--tirz"
+              src={`${IMG}/personalized-tirzepatide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
+              alt=""
+              loading="lazy"
+            />
+            <img
+              className="retro-clinical__vial retro-clinical__vial--sema"
+              src={`${IMG}/personalized-semaglutide-glp-1-injection-vial-yucca-health.avif?v=nologo`}
               alt=""
               loading="lazy"
             />
@@ -815,7 +809,7 @@ export function WhySection() {
       tone: 'light',
       media: (
         <div className="pax-why__media-frame">
-          <img src={VIALS.together} alt="" loading="lazy" />
+          <img src={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} alt="" loading="lazy" />
         </div>
       ),
     },
@@ -1032,7 +1026,7 @@ export default function TreatmentsExplore({ selectedTx, setSelectedTx, openStart
         <ProtocolSection variant="wl" data={WL_PROTOCOL} onCta={cta} />
         <ClinicalSection variant="wl" />
         <ExpectSection variant="wl" data={WL_EXPECT} />
-        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={VIALS.together} onCta={cta} />
+        <KnowallSection variant="wl" faqs={WL_FAQS} vialSrc={`${IMG}/expt-tirz-sema-vials-together.png?v=nologo`} onCta={cta} />
       </div>
 
       <WhySection />

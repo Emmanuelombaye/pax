@@ -138,9 +138,14 @@
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='wl'] {
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 84%, var(--dune)), color-mix(in oklch, var(--sand) 94%, var(--dune))) !important;
-  background-image: none !important;
-  color: var(--forest) !important;
+  background-image: url(/images/yucca-clone/Personalized-GLP-1-Injections.avif?v=nologo),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--dune) 45%, var(--sand)),
+      color-mix(in oklch, var(--dune) 72%, var(--sand))
+    ) !important;
+  background-position: 50% 58%, 0 0 !important;
+  background-size: 42% auto, auto !important;
 }
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
@@ -699,13 +704,6 @@
   margin-right: 0 !important;
 }
 
-.yx-clone .retro-protocol__vials {
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand)) !important;
-  border-radius: 1.35rem !important;
-  overflow: hidden !important;
-  padding: 0.5rem !important;
-}
-
 .yx-clone .retro-protocol__vials-img,
 .yx-clone .retro-protocol__nad-vial,
 .yx-clone .retro-protocol__sermorelin-vial {
@@ -714,13 +712,6 @@
   height: auto !important;
   max-height: 420px !important;
   object-fit: contain !important;
-}
-
-.yx-clone .retro-knowall__vial--wl {
-  width: min(280px, 100%) !important;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand)) !important;
-  border-radius: 1.25rem !important;
-  padding: 0.4rem !important;
 }
 
 .yx-clone .retro-protocol__right {
@@ -1011,26 +1002,6 @@
   top: 55px !important;
   width: 156px !important;
   z-index: 2 !important;
-}
-
-.yx-clone .retro-clinical__visual--studio,
-.yx-clone .retro-clinical--weight-loss .retro-clinical__visual--studio {
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand)) !important;
-  border-radius: 1.5rem !important;
-  overflow: hidden !important;
-  width: min(320px, 100%) !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 3 / 4 !important;
-}
-
-.yx-clone .retro-clinical__vial--together {
-  position: static !important;
-  left: auto !important;
-  top: auto !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
 }
 
 .yx-clone .retro-clinical__visual > .retro-clinical__vial:only-child {
@@ -1363,138 +1334,5 @@
     width: 260px !important;
     height: 300px !important;
   }
-}
-
-/* Premium vial cards for /treatments/weight-loss */
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 0.9rem !important;
-  margin: 0.5rem 0 1.5rem !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card {
-  appearance: none !important;
-  border: 1px solid color-mix(in oklch, var(--forest) 18%, transparent) !important;
-  border-radius: 1rem !important;
-  background: #f7f5f1 !important;
-  padding: 0.85rem 0.85rem 0.95rem !important;
-  display: grid !important;
-  grid-template-rows: auto auto !important;
-  gap: 0.7rem !important;
-  text-align: left !important;
-  cursor: pointer !important;
-  box-shadow: 0 10px 22px rgba(20, 35, 28, 0.08) !important;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 14px 28px rgba(20, 35, 28, 0.12) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card.is-active {
-  border-color: var(--forest) !important;
-  box-shadow: 0 0 0 2px color-mix(in oklch, var(--forest) 24%, transparent), 0 14px 28px rgba(20, 35, 28, 0.12) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__media {
-  aspect-ratio: 3 / 4 !important;
-  border-radius: 0.85rem !important;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand)) !important;
-  display: grid !important;
-  place-items: center !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-  filter: drop-shadow(0 8px 18px color-mix(in oklch, var(--forest) 14%, transparent)) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img.is-sema {
-  object-position: right center !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__img.is-tirz {
-  object-position: left center !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__name {
-  margin: 0 !important;
-  font-size: 1rem !important;
-  line-height: 1.15 !important;
-  font-weight: 600 !important;
-  color: var(--forest) !important;
-  letter-spacing: -0.01em !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-vial-card__desc {
-  margin-top: 0.28rem !important;
-  font-size: 0.82rem !important;
-  line-height: 1.3 !important;
-  color: color-mix(in oklch, var(--forest) 66%, transparent) !important;
-}
-
-@media (max-width: 767px) {
-  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-vials {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* Studio product card — full vials, no beige smudge */
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio,
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card[data-card='wl'] {
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 84%, var(--dune)), color-mix(in oklch, var(--sand) 94%, var(--dune))) !important;
-  background-image: none !important;
-  color: var(--forest) !important;
-  overflow: hidden !important;
-}
-
-.retro-explore-tabs-wrap .explore-hero-card--studio .explore-hero-card__photo {
-  position: absolute !important;
-  left: 6% !important;
-  right: 6% !important;
-  top: 4.8rem !important;
-  bottom: 4rem !important;
-  width: 88% !important;
-  height: auto !important;
-  max-width: 88% !important;
-  max-height: 64% !important;
-  margin: auto !important;
-  object-fit: contain !important;
-  object-position: center bottom !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-  filter: drop-shadow(0 10px 22px color-mix(in oklch, var(--forest) 12%, transparent)) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-title,
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-price,
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-footer {
-  position: relative !important;
-  z-index: 2 !important;
-  color: var(--forest) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-card-price {
-  display: none !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-chip,
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-stock {
-  border-color: var(--forest) !important;
-  color: var(--forest) !important;
-}
-
-.retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-card--studio .explore-hero-chip {
-  background: var(--forest) !important;
 }
 

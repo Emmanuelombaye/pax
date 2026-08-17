@@ -194,37 +194,27 @@
 .goal-product-vial {
   position: relative;
   height: 168px;
-  border-radius: 1.15rem;
-  overflow: hidden;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--sand) 88%, var(--dune)), var(--sand));
 }
 
 .goal-vial {
   position: absolute;
-  inset: 0;
   height: 100%;
-  width: 100%;
+  width: auto;
   max-width: 100%;
-  object-fit: cover;
-  object-position: center;
-  mix-blend-mode: normal;
-  transform: none;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
 }
 
 .goal-vial--back {
-  display: none;
+  left: 28%;
+  z-index: 1;
+  opacity: 0.95;
 }
 
 .goal-vial--front {
+  left: 0;
   z-index: 2;
-}
-
-.goal-vial--sema {
-  object-position: right center;
-}
-
-.goal-vial--tirz {
-  object-position: left center;
 }
 
 .goal-product-enrolled {
