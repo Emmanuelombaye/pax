@@ -3,6 +3,7 @@ import { BrandLogo } from '../brand/index.js';
 import { LIFESTYLE_PILLARS, THREAT_DOMAINS } from './data.js';
 import { MARKETING_IMAGES } from './assets.js';
 import LegalPage from './LegalPage.jsx';
+import { FooterTrustBadges } from './FooterTrustBadges.jsx';
 import { LEGAL_LINKS, LEGAL_PAGE_IDS } from './legalContent.js';
 import YuccaHome from './YuccaHome.jsx';
 import TreatmentsExplore from './TreatmentsExplore.jsx';
@@ -584,103 +585,7 @@ export default function MarketingApp({ currentTab }) {
             </div>
           </div>
 
-          <div className="footer-trust">
-            <div className="footer-trust__badge">
-              <span className="footer-trust__icon footer-trust__icon--flag" aria-hidden="true">
-                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <clipPath id="footer-us-flag-clip">
-                      <rect x="0" y="0" width="40" height="40" rx="7" />
-                    </clipPath>
-                  </defs>
-                  <g clipPath="url(#footer-us-flag-clip)">
-                    <rect width="40" height="40" fill="#fff" />
-                    <rect y="0" width="40" height="3.08" fill="#B22234" />
-                    <rect y="6.16" width="40" height="3.08" fill="#B22234" />
-                    <rect y="12.32" width="40" height="3.08" fill="#B22234" />
-                    <rect y="18.48" width="40" height="3.08" fill="#B22234" />
-                    <rect y="24.64" width="40" height="3.08" fill="#B22234" />
-                    <rect y="30.8" width="40" height="3.08" fill="#B22234" />
-                    <rect y="36.96" width="40" height="3.04" fill="#B22234" />
-                    <rect width="16.4" height="21.55" fill="#3C3B6E" />
-                    <g fill="#fff">
-                      <circle cx="2.2" cy="2.4" r="0.55" />
-                      <circle cx="5.5" cy="2.4" r="0.55" />
-                      <circle cx="8.8" cy="2.4" r="0.55" />
-                      <circle cx="12.1" cy="2.4" r="0.55" />
-                      <circle cx="15.2" cy="2.4" r="0.55" />
-                      <circle cx="3.85" cy="5.15" r="0.55" />
-                      <circle cx="7.15" cy="5.15" r="0.55" />
-                      <circle cx="10.45" cy="5.15" r="0.55" />
-                      <circle cx="13.75" cy="5.15" r="0.55" />
-                      <circle cx="2.2" cy="7.9" r="0.55" />
-                      <circle cx="5.5" cy="7.9" r="0.55" />
-                      <circle cx="8.8" cy="7.9" r="0.55" />
-                      <circle cx="12.1" cy="7.9" r="0.55" />
-                      <circle cx="15.2" cy="7.9" r="0.55" />
-                      <circle cx="3.85" cy="10.65" r="0.55" />
-                      <circle cx="7.15" cy="10.65" r="0.55" />
-                      <circle cx="10.45" cy="10.65" r="0.55" />
-                      <circle cx="13.75" cy="10.65" r="0.55" />
-                      <circle cx="2.2" cy="13.4" r="0.55" />
-                      <circle cx="5.5" cy="13.4" r="0.55" />
-                      <circle cx="8.8" cy="13.4" r="0.55" />
-                      <circle cx="12.1" cy="13.4" r="0.55" />
-                      <circle cx="15.2" cy="13.4" r="0.55" />
-                      <circle cx="3.85" cy="16.15" r="0.55" />
-                      <circle cx="7.15" cy="16.15" r="0.55" />
-                      <circle cx="10.45" cy="16.15" r="0.55" />
-                      <circle cx="13.75" cy="16.15" r="0.55" />
-                      <circle cx="2.2" cy="18.9" r="0.55" />
-                      <circle cx="5.5" cy="18.9" r="0.55" />
-                      <circle cx="8.8" cy="18.9" r="0.55" />
-                      <circle cx="12.1" cy="18.9" r="0.55" />
-                      <circle cx="15.2" cy="18.9" r="0.55" />
-                    </g>
-                  </g>
-                </svg>
-              </span>
-              <span className="footer-trust__copy">
-                <span className="footer-trust__kicker">Compounded by</span>
-                <span className="footer-trust__title">Licensed Pharmacies in the USA</span>
-              </span>
-            </div>
-
-            <a href="#/hipaa" className="footer-trust__badge footer-trust__badge--link">
-              <span className="footer-trust__icon footer-trust__icon--caduceus" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 8.5v31" stroke="#F4F1EA" strokeWidth="1.7" strokeLinecap="round" />
-                  <circle cx="24" cy="7.2" r="2.15" fill="#F4F1EA" />
-                  <path
-                    d="M24 11.2c-7.2-.2-12.4 3.4-15.2 8.1 6.1-2.6 11.1-1.4 15.2 3.2 4.1-4.6 9.1-5.8 15.2-3.2-2.8-4.7-8-8.3-15.2-8.1Z"
-                    fill="#F4F1EA"
-                    fillOpacity="0.92"
-                  />
-                  <path
-                    d="M15.2 18.4c7.6 3.6 7.8 7.2.4 10.6 7.6 3.4 7.4 7.2-.2 10.8"
-                    stroke="#F4F1EA"
-                    strokeWidth="2.05"
-                    strokeLinecap="round"
-                    opacity="0.88"
-                  />
-                  <path
-                    d="M32.8 18.4c-7.6 3.6-7.8 7.2-.4 10.6-7.6 3.4-7.4 7.2.2 10.8"
-                    stroke="#F4F1EA"
-                    strokeWidth="2.05"
-                    strokeLinecap="round"
-                    opacity="0.62"
-                  />
-                  <circle cx="14.6" cy="18.1" r="1.35" fill="#F4F1EA" />
-                  <circle cx="33.4" cy="18.1" r="1.35" fill="#F4F1EA" fillOpacity="0.72" />
-                </svg>
-              </span>
-              <span className="footer-trust__copy">
-                <span className="footer-trust__kicker">Data protected</span>
-                <span className="footer-trust__hipaa">HIPAA</span>
-                <span className="footer-trust__sub">Compliant</span>
-              </span>
-            </a>
-          </div>
+          <FooterTrustBadges hipaaHref="#/hipaa" />
 
           <div className="footer-badge-strip">
             <span className="footer-badge-item">U.S.-licensed provider review</span>
