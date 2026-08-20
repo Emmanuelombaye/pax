@@ -109,8 +109,8 @@ export default function StartFlow() {
           <a href="#/" className="sf-brand" aria-label="Pax home">
             <BrandMark variant="wordmark" />
           </a>
-          <a href="#/portal" className="sf-top__login">
-            Patient Center Sign In →
+          <a href="#/treatments/weight-loss" className="sf-top__login">
+            Go back to shop →
           </a>
         </div>
       </header>
