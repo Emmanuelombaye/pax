@@ -313,7 +313,7 @@ export default function StartFlow() {
                 )}
 
                 <button onClick={submitCheckout} disabled={isSubmitting} style={buttonStyle}>
-                  {isSubmitting ? "Processing..." : "Complete Purchase"}
+                  {isSubmitting ? "Processing..." : "Continue to Medical Review"}
                 </button>
                 <div style={{ marginTop: "1rem", padding: "0.75rem", backgroundColor: "color-mix(in oklch, var(--dune) 10%, var(--sand))", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", borderRadius: "0.5rem", textAlign: "center" }}>
                   <span style={{ fontSize: "0.8rem", color: "var(--forest)", fontWeight: 700 }}>✓ Zero commitment today.</span>
