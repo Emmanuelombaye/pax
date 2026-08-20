@@ -35,6 +35,9 @@ export default function StartFlow() {
     city: "",
     state: "",
     zip: "",
+    cardNumber: "",
+    cardExp: "",
+    cardCvc: "",
     consent1: false,
     consent2: false,
   });
@@ -131,6 +134,14 @@ export default function StartFlow() {
   }, [formData]);
 
   const isStep4Valid = useMemo(() => {
+    return Boolean(
+      formData.cardNumber && formData.cardNumber.length >= 14 &&
+      formData.cardExp && formData.cardExp.length === 5 &&
+      formData.cardCvc && formData.cardCvc.length >= 3
+    );
+  }, [formData]);
+
+  const isStep5Valid = useMemo(() => {
     return Boolean(formData.consent1 && formData.consent2);
   }, [formData]);
 
@@ -148,6 +159,11 @@ export default function StartFlow() {
     if (stepNumber === 3 && isStep3Valid) {
       if (!completedSteps.includes(3)) setCompletedSteps([...completedSteps, 3]);
       setActiveStep(4);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (stepNumber === 4 && isStep4Valid) {
+      if (!completedSteps.includes(4)) setCompletedSteps([...completedSteps, 4]);
+      setActiveStep(5);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -882,7 +898,128 @@ export default function StartFlow() {
               )}
             </div>
 
-            {/* STEP 4: Agreements & Consent */}
+            {/* STEP 4: Payment */}
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                borderRadius: "1.5rem",
+                padding: "1.75rem",
+                border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.03)",
+                marginBottom: "1.25rem"
+              }}
+            >
+              <div
+                onClick={() => {
+                  if (completedSteps.includes(3) || isStep3Valid) {
+                    setActiveStep(4);
+                  }
+                }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: completedSteps.includes(3) || isStep3Valid ? "pointer" : "default",
+                  userSelect: "none",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+                  <div
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                      borderRadius: "50%",
+                      backgroundColor: completedSteps.includes(4) ? "var(--forest)" : activeStep === 4 ? "var(--terracotta)" : "#e2e8f0",
+                      color: completedSteps.includes(4) || activeStep === 4 ? "#ffffff" : "#64748b",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 800,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    4
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--forest)", margin: 0 }}>
+                      Payment Information
+                    </h3>
+                    <p style={{ fontSize: "0.75rem", color: "#64748b", margin: "0.15rem 0 0 0" }}>
+                      Secure Checkout
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {activeStep === 4 && (
+                <div style={{ marginTop: "1.5rem", paddingTop: "1.5rem", borderTop: "1px solid #f1f5f9" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#475569", marginBottom: "0.35rem" }}>Card Number *</label>
+                      <input
+                        type="text"
+                        name="cardNumber"
+                        value={formData.cardNumber}
+                        onChange={handleChange}
+                        placeholder="0000 0000 0000 0000"
+                        style={{ width: "100%", height: "2.75rem", padding: "0 0.85rem", borderRadius: "0.75rem", border: "1px solid #cbd5e1", fontSize: "0.9rem" }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#475569", marginBottom: "0.35rem" }}>Expiry *</label>
+                      <input
+                        type="text"
+                        name="cardExp"
+                        value={formData.cardExp}
+                        onChange={handleChange}
+                        placeholder="MM/YY"
+                        style={{ width: "100%", height: "2.75rem", padding: "0 0.85rem", borderRadius: "0.75rem", border: "1px solid #cbd5e1", fontSize: "0.9rem" }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#475569", marginBottom: "0.35rem" }}>CVC *</label>
+                      <input
+                        type="text"
+                        name="cardCvc"
+                        value={formData.cardCvc}
+                        onChange={handleChange}
+                        placeholder="123"
+                        style={{ width: "100%", height: "2.75rem", padding: "0 0.85rem", borderRadius: "0.75rem", border: "1px solid #cbd5e1", fontSize: "0.9rem" }}
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => handleNextStep(4)}
+                    disabled={!isStep4Valid}
+                    style={{
+                      marginTop: "1.5rem",
+                      width: "100%",
+                      height: "3.25rem",
+                      borderRadius: "999px",
+                      backgroundColor: "var(--forest)",
+                      color: "#ffffff",
+                      fontWeight: 700,
+                      fontSize: "0.85rem",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      border: "none",
+                      cursor: isStep4Valid ? "pointer" : "not-allowed",
+                      opacity: isStep4Valid ? 1 : 0.45,
+                      boxShadow: "0 8px 20px rgba(28, 58, 43, 0.15)",
+                    }}
+                  >
+                    Continue to Agreements →
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* STEP 5: Agreements & Consent */}
             <div
               style={{
                 backgroundColor: "#ffffff",
@@ -908,8 +1045,8 @@ export default function StartFlow() {
                       width: "2rem",
                       height: "2rem",
                       borderRadius: "50%",
-                      backgroundColor: completedSteps.includes(4) ? "var(--forest)" : activeStep === 4 ? "var(--terracotta)" : "#e2e8f0",
-                      color: completedSteps.includes(4) || activeStep === 4 ? "#ffffff" : "#64748b",
+                      backgroundColor: completedSteps.includes(5) ? "var(--forest)" : activeStep === 5 ? "var(--terracotta)" : "#e2e8f0",
+                      color: completedSteps.includes(5) || activeStep === 5 ? "#ffffff" : "#64748b",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -917,7 +1054,7 @@ export default function StartFlow() {
                       fontSize: "0.85rem",
                     }}
                   >
-                    4
+                    5
                   </div>
                   <div>
                     <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--forest)", margin: 0 }}>
@@ -930,7 +1067,7 @@ export default function StartFlow() {
                 </div>
               </div>
 
-              {activeStep === 4 && (
+              {activeStep === 5 && (
                 <div style={{ marginTop: "1.5rem", paddingTop: "1.5rem", borderTop: "1px solid #f1f5f9" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "1rem", backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.25rem", borderRadius: "1rem", marginBottom: "1.5rem" }}>
                     <label style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", cursor: "pointer", fontSize: "0.85rem", color: "var(--forest)", lineHeight: "1.5" }}>
@@ -1012,7 +1149,7 @@ export default function StartFlow() {
               <button
                 type="button"
                 onClick={handleSubmit}
-                disabled={activeStep !== 4 || !isStep4Valid || isSubmitting}
+                disabled={activeStep !== 5 || !isStep5Valid || isSubmitting}
                 style={{
                   width: "100%",
                   height: "3.75rem",
@@ -1024,8 +1161,8 @@ export default function StartFlow() {
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   border: "none",
-                  cursor: activeStep === 4 && isStep4Valid && !isSubmitting ? "pointer" : "not-allowed",
-                  opacity: activeStep === 4 && isStep4Valid && !isSubmitting ? 1 : 0.4,
+                  cursor: activeStep === 5 && isStep5Valid && !isSubmitting ? "pointer" : "not-allowed",
+                  opacity: activeStep === 5 && isStep5Valid && !isSubmitting ? 1 : 0.4,
                   boxShadow: "0 10px 25px rgba(28, 58, 43, 0.2)",
                   display: "flex",
                   alignItems: "center",
