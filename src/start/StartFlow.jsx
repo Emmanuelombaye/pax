@@ -24,9 +24,7 @@ export default function StartFlow() {
 
   // Flow State
   const [screen, setScreen] = useState("CHECKOUT"); // CHECKOUT, ORDER_RECEIVED, PRIVACY, INTAKE_1, INTAKE_2, FINAL
-  const [activeStep, setActiveStep] = useState(1);
-  const [completedSteps, setCompletedSteps] = useState([]);
-
+  
   // Form State
   const [formData, setFormData] = useState({
     email: "",
@@ -35,8 +33,6 @@ export default function StartFlow() {
     phone: "",
     dob: "",
     sexAtBirth: "",
-    height: "",
-    weight: "",
     address1: "",
     address2: "",
     city: "",
@@ -54,6 +50,7 @@ export default function StartFlow() {
 
   const [questionnaireAnswers, setQuestionnaireAnswers] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -65,6 +62,40 @@ export default function StartFlow() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+    // Clear error on change
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validateCheckout = () => {
+    const newErrors = {};
+    if (!formData.firstName) newErrors.firstName = "Required";
+    if (!formData.lastName) newErrors.lastName = "Required";
+    if (!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = "Valid email required";
+    if (!formData.phone || formData.phone.length < 10) newErrors.phone = "Valid phone required";
+    if (!formData.dob) newErrors.dob = "Required";
+    if (!formData.sexAtBirth) newErrors.sexAtBirth = "Required";
+    
+    if (!formData.address1) newErrors.address1 = "Required";
+    if (!formData.city) newErrors.city = "Required";
+    if (!formData.state) newErrors.state = "Required";
+    if (!formData.zip) newErrors.zip = "Required";
+    
+    if (!formData.cardNumber || formData.cardNumber.length < 15) newErrors.cardNumber = "Valid card required";
+    if (!formData.cardExp || !/^\d{2}\/\d{2}$/.test(formData.cardExp)) newErrors.cardExp = "Format MM/YY";
+    if (!formData.cardCvc || formData.cardCvc.length < 3) newErrors.cardCvc = "Required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const submitCheckout = async () => {
+    if (!validateCheckout()) return;
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1500));
+    setIsSubmitting(false);
+    setScreen("ORDER_RECEIVED");
   };
 
   // Active Questions evaluated dynamically from questionnaire.json
@@ -79,11 +110,20 @@ export default function StartFlow() {
     });
   }, [formData.sexAtBirth, questionnaireAnswers]);
 
-  const submitCheckout = async () => {
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1500));
-    setIsSubmitting(false);
-    setScreen("ORDER_RECEIVED");
+  const validateIntake = () => {
+    const newErrors = {};
+    activeQuestions.forEach(q => {
+      if (q.required && !questionnaireAnswers[q.id]) {
+        newErrors[q.id] = "This question requires an answer.";
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const proceedToIntake2 = () => {
+    if (!validateIntake()) return;
+    setScreen("INTAKE_2");
   };
 
   const submitIntake = async () => {
@@ -93,17 +133,21 @@ export default function StartFlow() {
     setScreen("FINAL");
   };
 
-  const inputStyle = { width: "100%", height: "2.75rem", padding: "0 0.85rem", borderRadius: "0.5rem", border: "1px solid color-mix(in oklch, var(--forest) 15%, transparent)", fontSize: "0.9rem", outline: "none", backgroundColor: "#ffffff" };
+  const inputStyle = (name) => ({ 
+    width: "100%", height: "2.75rem", padding: "0 0.85rem", borderRadius: "0.5rem", 
+    border: errors[name] ? "2px solid var(--terracotta)" : "1px solid color-mix(in oklch, var(--forest) 15%, transparent)", 
+    fontSize: "0.9rem", outline: "none", backgroundColor: errors[name] ? "#fff5f5" : "#ffffff" 
+  });
   const labelStyle = { display: "block", fontSize: "0.85rem", fontWeight: 700, color: "var(--forest)", marginBottom: "0.35rem" };
+  const errorStyle = { color: "var(--terracotta)", fontSize: "0.75rem", fontWeight: 600, marginTop: "0.25rem" };
   const boxStyle = { backgroundColor: "#ffffff", borderRadius: "1.5rem", padding: "1.75rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.03)", marginBottom: "1.25rem" };
   const buttonStyle = { width: "100%", padding: "1.15rem", borderRadius: "999px", backgroundColor: "var(--forest)", color: "#ffffff", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.02em", border: "none", cursor: "pointer", transition: "all 0.2s" };
 
-  const priceDisplay = formData.plan === "monthly" ? "$249.00 / month" : formData.plan === "quarterly" ? "$672.30 every 3 months" : "$249.00 one time";
-  const totalDisplay = formData.plan === "quarterly" ? "$672.30" : "$249.00";
+  const priceDisplay = formData.plan === "monthly" ? "$125.00 / month" : formData.plan === "quarterly" ? "$337.50 every 3 months" : "$125.00 one time";
+  const totalDisplay = formData.plan === "quarterly" ? "$337.50" : "$125.00";
 
   return (
     <div className="sf">
-      {/* Top Header */}
       <header className="sf-top">
         <div className="sf-top__inner">
           <a href="#/" className="sf-brand" aria-label="Pax home">
@@ -127,18 +171,19 @@ export default function StartFlow() {
                 </h3>
                 <p style={{ fontSize: "0.85rem", color: "#64748b", marginLeft: "2.75rem", marginBottom: "1.5rem" }}>Used to create your demonstration patient record.</p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginLeft: "2.75rem" }}>
-                  <div><label style={labelStyle}>First Name</label><input type="text" name="firstName" value={formData.firstName} onChange={handleChange} style={inputStyle} /></div>
-                  <div><label style={labelStyle}>Last Name</label><input type="text" name="lastName" value={formData.lastName} onChange={handleChange} style={inputStyle} /></div>
-                  <div><label style={labelStyle}>Email Address</label><input type="email" name="email" value={formData.email} onChange={handleChange} style={inputStyle} /></div>
-                  <div><label style={labelStyle}>Phone Number</label><input type="tel" name="phone" value={formData.phone} onChange={handleChange} style={inputStyle} /></div>
-                  <div><label style={labelStyle}>Date of Birth</label><input type="date" name="dob" value={formData.dob} onChange={handleChange} style={inputStyle} /></div>
+                  <div><label style={labelStyle}>First Name *</label><input type="text" name="firstName" value={formData.firstName} onChange={handleChange} style={inputStyle("firstName")} />{errors.firstName && <div style={errorStyle}>{errors.firstName}</div>}</div>
+                  <div><label style={labelStyle}>Last Name *</label><input type="text" name="lastName" value={formData.lastName} onChange={handleChange} style={inputStyle("lastName")} />{errors.lastName && <div style={errorStyle}>{errors.lastName}</div>}</div>
+                  <div><label style={labelStyle}>Email Address *</label><input type="email" name="email" value={formData.email} onChange={handleChange} style={inputStyle("email")} />{errors.email && <div style={errorStyle}>{errors.email}</div>}</div>
+                  <div><label style={labelStyle}>Phone Number *</label><input type="tel" name="phone" value={formData.phone} onChange={handleChange} style={inputStyle("phone")} />{errors.phone && <div style={errorStyle}>{errors.phone}</div>}</div>
+                  <div><label style={labelStyle}>Date of Birth *</label><input type="date" name="dob" value={formData.dob} onChange={handleChange} style={inputStyle("dob")} />{errors.dob && <div style={errorStyle}>{errors.dob}</div>}</div>
                   <div>
-                    <label style={labelStyle}>Sex Assigned at Birth</label>
-                    <select name="sexAtBirth" value={formData.sexAtBirth} onChange={handleChange} style={inputStyle}>
+                    <label style={labelStyle}>Sex Assigned at Birth *</label>
+                    <select name="sexAtBirth" value={formData.sexAtBirth} onChange={handleChange} style={inputStyle("sexAtBirth")}>
                       <option value="">Select...</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
+                    {errors.sexAtBirth && <div style={errorStyle}>{errors.sexAtBirth}</div>}
                   </div>
                 </div>
               </div>
@@ -150,21 +195,22 @@ export default function StartFlow() {
                   Billing Address
                 </h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginLeft: "2.75rem" }}>
-                  <div><label style={labelStyle}>Address Line 1</label><input type="text" name="address1" value={formData.address1} onChange={handleChange} style={inputStyle} /></div>
-                  <div><label style={labelStyle}>Address Line 2 (optional)</label><input type="text" name="address2" value={formData.address2} onChange={handleChange} style={inputStyle} /></div>
+                  <div><label style={labelStyle}>Address Line 1 *</label><input type="text" name="address1" value={formData.address1} onChange={handleChange} style={inputStyle("address1")} />{errors.address1 && <div style={errorStyle}>{errors.address1}</div>}</div>
+                  <div><label style={labelStyle}>Address Line 2 (optional)</label><input type="text" name="address2" value={formData.address2} onChange={handleChange} style={inputStyle("address2")} /></div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                    <div><label style={labelStyle}>City</label><input type="text" name="city" value={formData.city} onChange={handleChange} style={inputStyle} /></div>
+                    <div><label style={labelStyle}>City *</label><input type="text" name="city" value={formData.city} onChange={handleChange} style={inputStyle("city")} />{errors.city && <div style={errorStyle}>{errors.city}</div>}</div>
                     <div>
-                      <label style={labelStyle}>State</label>
-                      <select name="state" value={formData.state} onChange={handleChange} style={inputStyle}>
+                      <label style={labelStyle}>State *</label>
+                      <select name="state" value={formData.state} onChange={handleChange} style={inputStyle("state")}>
                         <option value="">Select a state</option>
                         {US_STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
                       </select>
+                      {errors.state && <div style={errorStyle}>{errors.state}</div>}
                     </div>
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                    <div><label style={labelStyle}>ZIP Code</label><input type="text" name="zip" value={formData.zip} onChange={handleChange} style={inputStyle} /></div>
-                    <div><label style={labelStyle}>Country</label><input type="text" name="country" value={formData.country} onChange={handleChange} style={{ ...inputStyle, backgroundColor: "#f1f5f9" }} readOnly /></div>
+                    <div><label style={labelStyle}>ZIP Code *</label><input type="text" name="zip" value={formData.zip} onChange={handleChange} style={inputStyle("zip")} />{errors.zip && <div style={errorStyle}>{errors.zip}</div>}</div>
+                    <div><label style={labelStyle}>Country</label><input type="text" name="country" value={formData.country} onChange={handleChange} style={{ ...inputStyle("country"), backgroundColor: "#f1f5f9" }} readOnly /></div>
                   </div>
                   <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.9rem", color: "var(--forest)", fontWeight: 600, marginTop: "0.5rem" }}>
                     <input type="checkbox" name="sameShipping" checked={formData.sameShipping} onChange={handleChange} style={{ accentColor: "var(--forest)", width: "1.15rem", height: "1.15rem" }} />
@@ -180,16 +226,16 @@ export default function StartFlow() {
                   Payment Method
                 </h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginLeft: "2.75rem" }}>
-                  <div><label style={labelStyle}>Card Number</label><input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} placeholder="0000 0000 0000 0000" style={inputStyle} /></div>
+                  <div><label style={labelStyle}>Card Number *</label><input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} placeholder="0000 0000 0000 0000" style={inputStyle("cardNumber")} />{errors.cardNumber && <div style={errorStyle}>{errors.cardNumber}</div>}</div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                    <div><label style={labelStyle}>Expiry (MM/YY)</label><input type="text" name="cardExp" value={formData.cardExp} onChange={handleChange} placeholder="MM/YY" style={inputStyle} /></div>
-                    <div><label style={labelStyle}>CVC</label><input type="text" name="cardCvc" value={formData.cardCvc} onChange={handleChange} placeholder="123" style={inputStyle} /></div>
+                    <div><label style={labelStyle}>Expiry (MM/YY) *</label><input type="text" name="cardExp" value={formData.cardExp} onChange={handleChange} placeholder="MM/YY" style={inputStyle("cardExp")} />{errors.cardExp && <div style={errorStyle}>{errors.cardExp}</div>}</div>
+                    <div><label style={labelStyle}>CVC *</label><input type="text" name="cardCvc" value={formData.cardCvc} onChange={handleChange} placeholder="123" style={inputStyle("cardCvc")} />{errors.cardCvc && <div style={errorStyle}>{errors.cardCvc}</div>}</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Order Summary Right Col */}
+            {/* Order Summary */}
             <div style={{ position: "sticky", top: "2rem" }}>
               <div style={{ ...boxStyle, boxShadow: "0 15px 35px rgba(0,0,0,0.04)" }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--forest)", marginBottom: "1.5rem" }}>Order Summary</h3>
@@ -202,7 +248,6 @@ export default function StartFlow() {
                     <p style={{ fontSize: "0.8rem", color: "#64748b", margin: "0 0 0.5rem 0" }}>Monthly · Qty 1</p>
                     <span style={{ fontSize: "0.75rem", backgroundColor: "#e2e8f0", padding: "0.25rem 0.5rem", borderRadius: "999px", fontWeight: 600, color: "#475569" }}>Monthly Subscription</span>
                   </div>
-                  <div style={{ fontWeight: 700, color: "var(--forest)" }}>$249.00</div>
                 </div>
 
                 <div style={{ marginBottom: "1.5rem" }}>
@@ -214,7 +259,7 @@ export default function StartFlow() {
                         {p === "monthly" ? "Monthly" : p === "quarterly" ? "Quarterly" : "One-time"}
                       </div>
                       <span style={{ fontSize: "0.9rem", color: "#64748b" }}>
-                        {p === "monthly" ? "$249.00 / month" : p === "quarterly" ? "$672.30 every 3 months" : "$249.00 one time"}
+                        {p === "monthly" ? "$125.00 / mo" : p === "quarterly" ? "$337.50 / 3 mo" : "$125.00"}
                       </span>
                     </label>
                   ))}
@@ -231,6 +276,12 @@ export default function StartFlow() {
                   <span style={{ fontWeight: 700, color: "var(--forest)" }}>Total</span>
                   <span style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--forest)" }}>{totalDisplay}</span>
                 </div>
+
+                {Object.keys(errors).length > 0 && (
+                  <div style={{ padding: "0.75rem", backgroundColor: "#fff5f5", color: "var(--terracotta)", borderRadius: "0.5rem", fontSize: "0.85rem", fontWeight: 600, marginBottom: "1rem", textAlign: "center" }}>
+                    Please complete all required fields correctly.
+                  </div>
+                )}
 
                 <button onClick={submitCheckout} disabled={isSubmitting} style={buttonStyle}>
                   {isSubmitting ? "Processing..." : "Complete Purchase"}
@@ -262,7 +313,7 @@ export default function StartFlow() {
           <div style={{ position: "fixed", inset: 0, backgroundColor: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 50, padding: "1rem" }}>
             <div style={{ backgroundColor: "white", borderRadius: "1.5rem", padding: "2.5rem", maxWidth: "600px", width: "100%", maxHeight: "90vh", overflowY: "auto" }}>
               <h2 style={{ fontSize: "1.75rem", color: "var(--forest)", marginBottom: "2rem", fontFamily: "var(--font-display)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ color: "var(--forest)" }}>🛡️</span> Your Privacy is Our Priority
+                <span style={{ color: "var(--forest)" }}>🔒</span> Your Privacy is Our Priority
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2.5rem" }}>
                 <div><h4 style={{ fontWeight: 700, color: "var(--forest)", marginBottom: "0.25rem" }}>Your Information Stays Private</h4><p style={{ fontSize: "0.9rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>We never sell your personal or medical information to third parties. Your data is yours.</p></div>
@@ -276,38 +327,44 @@ export default function StartFlow() {
         )}
 
         {screen === "INTAKE_1" && (
-          <div style={{ maxWidth: "1100px", margin: "2rem auto", display: "grid", gridTemplateColumns: "1fr 380px", gap: "2rem", alignItems: "start" }}>
+          <div style={{ maxWidth: "800px", margin: "2rem auto" }}>
             
+            {/* Progress Bar 1 of 3 */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "3rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>1</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "#e2e8f0" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "#f1f5f9", color: "#94a3b8", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>2</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "#e2e8f0" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "#f1f5f9", color: "#94a3b8", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>3</div>
+              </div>
+              <div style={{ backgroundColor: "#e0e7ff", color: "#4338ca", padding: "0.35rem 1rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1rem" }}>Step 1 of 3</div>
+              <h2 style={{ fontSize: "2.5rem", color: "var(--forest)", margin: 0, fontFamily: "var(--font-display)" }}>Medical Questionnaire</h2>
+            </div>
+
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <div style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", borderRadius: "1.5rem", padding: "1.75rem", display: "flex", gap: "1rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)" }}>
                 <span style={{ fontSize: "1.5rem" }}>✨</span>
                 <div>
-                  <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "1.1rem" }}>Welcome, {formData.firstName || "Cassandra"}.</p>
+                  <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "1.1rem" }}>Welcome, {formData.firstName || "Demo"}.</p>
                   <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0, lineHeight: "1.5" }}>Complete your health assessment to finalize your order. <strong>Your order will continue to clinical review after all required steps are completed.</strong></p>
                 </div>
               </div>
 
               <div style={{ ...boxStyle, marginBottom: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.5rem" }}>
-                  <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--terracotta)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>1</div>
-                  <div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--forest)", margin: 0 }}>Medical Screening Questionnaire</h3>
-                    <p style={{ fontSize: "0.8rem", color: "#64748b", margin: "0.15rem 0 0 0" }}>Step 1 of 2</p>
-                  </div>
-                </div>
-
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
                   {activeQuestions.map((q) => {
                     const val = questionnaireAnswers[q.id] || "";
                     const isDisqualified = q.disqualifier && String(val).toLowerCase() === String(q.disqualifier_value).toLowerCase();
+                    const hasError = errors[q.id];
 
                     return (
-                      <div key={q.id} style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.25rem", borderRadius: "1rem", border: isDisqualified ? "1px solid #fca5a5" : "1px solid color-mix(in oklch, var(--forest) 8%, transparent)" }}>
+                      <div key={q.id} style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.25rem", borderRadius: "1rem", border: isDisqualified ? "1px solid #fca5a5" : (hasError ? "1px solid var(--terracotta)" : "1px solid color-mix(in oklch, var(--forest) 8%, transparent)") }}>
                         <label style={{ display: "block", fontSize: "0.95rem", fontWeight: 700, color: "var(--forest)", marginBottom: "0.75rem", lineHeight: "1.45" }}>
                           {q.question} {q.required && <span style={{ color: "var(--terracotta)" }}>*</span>}
                         </label>
 
-                        {q.type === "boolean" || q.type === "select" ? (
+                        {q.type === "boolean" ? (
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
                             {["Yes", "No"].map((opt) => {
                               const optVal = opt.toLowerCase();
@@ -316,7 +373,30 @@ export default function StartFlow() {
                                 <button
                                   key={opt}
                                   type="button"
-                                  onClick={() => setQuestionnaireAnswers((prev) => ({ ...prev, [q.id]: optVal }))}
+                                  onClick={() => {
+                                    setQuestionnaireAnswers((prev) => ({ ...prev, [q.id]: optVal }));
+                                    if(errors[q.id]) setErrors(prev => ({...prev, [q.id]: ""}));
+                                  }}
+                                  style={{ height: "3rem", borderRadius: "0.75rem", border: isSelected ? "2px solid var(--forest)" : "1px solid color-mix(in oklch, var(--forest) 15%, transparent)", backgroundColor: isSelected ? "var(--forest)" : "#ffffff", color: isSelected ? "#ffffff" : "var(--forest)", fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", transition: "all 0.15s ease" }}
+                                >
+                                  {opt}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        ) : q.type === "select" ? (
+                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: "0.75rem" }}>
+                            {(q.options || ["Yes", "No"]).map((opt) => {
+                              const optVal = opt.toLowerCase();
+                              const isSelected = val === optVal;
+                              return (
+                                <button
+                                  key={opt}
+                                  type="button"
+                                  onClick={() => {
+                                    setQuestionnaireAnswers((prev) => ({ ...prev, [q.id]: optVal }));
+                                    if(errors[q.id]) setErrors(prev => ({...prev, [q.id]: ""}));
+                                  }}
                                   style={{ height: "3rem", borderRadius: "0.75rem", border: isSelected ? "2px solid var(--forest)" : "1px solid color-mix(in oklch, var(--forest) 15%, transparent)", backgroundColor: isSelected ? "var(--forest)" : "#ffffff", color: isSelected ? "#ffffff" : "var(--forest)", fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", transition: "all 0.15s ease" }}
                                 >
                                   {opt}
@@ -328,43 +408,33 @@ export default function StartFlow() {
                           <input
                             type={q.type === "number" ? "number" : "text"}
                             value={val}
-                            onChange={(e) => setQuestionnaireAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))}
+                            onChange={(e) => {
+                              setQuestionnaireAnswers((prev) => ({ ...prev, [q.id]: e.target.value }));
+                              if(errors[q.id]) setErrors(prev => ({...prev, [q.id]: ""}));
+                            }}
                             placeholder="Enter your response..."
-                            style={inputStyle}
+                            style={{ width: "100%", height: "3rem", padding: "0 1rem", borderRadius: "0.75rem", border: "1px solid color-mix(in oklch, var(--forest) 15%, transparent)", fontSize: "0.95rem", outline: "none" }}
                           />
                         )}
+                        {isDisqualified && (
+                          <div style={{ marginTop: "1rem", padding: "1rem", backgroundColor: "#fef2f2", color: "#991b1b", borderRadius: "0.75rem", fontSize: "0.85rem", fontWeight: 600 }}>
+                            Based on this response, you may require an alternative protocol. A clinical team member will reach out.
+                          </div>
+                        )}
+                        {hasError && <div style={errorStyle}>{hasError}</div>}
                       </div>
                     );
                   })}
                 </div>
                 
                 <div style={{ marginTop: "2rem", display: "flex", justifyContent: "flex-end" }}>
-                  <button onClick={() => setScreen("INTAKE_2")} style={{ ...buttonStyle, width: "auto", padding: "1rem 3rem" }}>Review & Submit →</button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Intake Summary */}
-            <div style={{ position: "sticky", top: "2rem" }}>
-              <div style={boxStyle}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--forest)", margin: "0 0 1.25rem 0" }}>Intake Summary</h3>
-                <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "1.25rem", marginBottom: "1.25rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.5rem" }}>
-                    <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--forest)" }}>{treatment.name}</span>
-                  </div>
-                  <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Personalized dosing, ongoing provider messaging & expedited cold-chain shipping.</p>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.85rem", color: "#475569" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>Medical Evaluation</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Included</span></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>503A Pharmacy Dispatch</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Included</span></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>Expedited Cold-Chain Shipping</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Free</span></div>
+                  <button onClick={proceedToIntake2} style={{ ...buttonStyle, width: "auto", padding: "1rem 3rem" }}>Review & Submit →</button>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        
         {screen === "INTAKE_2" && (
           <div style={{ maxWidth: "800px", margin: "2rem auto" }}>
             
@@ -459,12 +529,25 @@ export default function StartFlow() {
             </div>
           </div>
         )}
-{screen === "FINAL" && (
-          <div style={{ maxWidth: "650px", margin: "4rem auto", backgroundColor: "white", borderRadius: "1.5rem", padding: "4rem 2rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", textAlign: "center" }}>
-            <div style={{ width: "5rem", height: "5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", margin: "0 auto 1.5rem auto" }}>✓</div>
-            <h2 style={{ fontSize: "2.5rem", color: "var(--forest)", marginBottom: "1rem", fontFamily: "var(--font-display)" }}>Intake Submitted</h2>
-            <p style={{ color: "#475569", marginBottom: "2rem", lineHeight: "1.6", fontSize: "1.1rem" }}>Thank you! Your clinical intake and medical history have been securely submitted.</p>
-            <p style={{ color: "#64748b", margin: 0, lineHeight: "1.6", backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.5rem", borderRadius: "1rem" }}>A licensed U.S. physician will review your chart within 24 hours. We will contact you via email once your evaluation is complete and your protocol is approved.</p>
+
+        {screen === "FINAL" && (
+          <div style={{ maxWidth: "600px", margin: "4rem auto", backgroundColor: "white", borderRadius: "1.5rem", padding: "3rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", textAlign: "center" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "3rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>✓</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "var(--forest)" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>✓</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "var(--forest)" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", border: "2px solid var(--forest)", color: "var(--forest)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem", backgroundColor: "transparent" }}>3</div>
+              </div>
+              <div style={{ backgroundColor: "#e0e7ff", color: "#4338ca", padding: "0.35rem 1rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1rem" }}>Step 3 of 3</div>
+            </div>
+
+            <div style={{ width: "4rem", height: "4rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", margin: "0 auto 1.5rem auto" }}>✓</div>
+            <h2 style={{ fontSize: "2rem", color: "var(--forest)", marginBottom: "1rem", fontFamily: "var(--font-display)" }}>Intake Complete</h2>
+            <p style={{ color: "#475569", marginBottom: "2rem", lineHeight: "1.6" }}>
+              Your clinical intake has been submitted for review. A licensed U.S. medical provider will review your file within 24 hours. We will contact you at {formData.email || "your email"} with any updates.
+            </p>
           </div>
         )}
       </main>
