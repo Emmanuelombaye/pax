@@ -364,83 +364,102 @@ export default function StartFlow() {
           </div>
         )}
 
+        
         {screen === "INTAKE_2" && (
-          <div style={{ maxWidth: "1100px", margin: "2rem auto", display: "grid", gridTemplateColumns: "1fr 380px", gap: "2rem", alignItems: "start" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-              
-              <div style={boxStyle}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
-                    <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>✓</div>
-                    <div>
-                      <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--forest)", margin: 0 }}>Medical Screening Questionnaire</h3>
-                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: "0.15rem 0 0 0" }}>Step 1 Complete</p>
-                    </div>
-                  </div>
-                  <button onClick={() => setScreen("INTAKE_1")} style={{ fontSize: "0.85rem", color: "var(--terracotta)", fontWeight: 700, background: "none", border: "none", cursor: "pointer", textTransform: "uppercase" }}>Edit</button>
-                </div>
-              </div>
-
-              <div style={{ ...boxStyle, padding: 0, overflow: "hidden" }}>
-                <div style={{ padding: "1.75rem", display: "flex", alignItems: "center", gap: "0.85rem" }}>
-                  <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--terracotta)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>2</div>
-                  <div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--forest)", margin: 0 }}>Telehealth Consent & Agreements</h3>
-                    <p style={{ fontSize: "0.8rem", color: "#64748b", margin: "0.15rem 0 0 0" }}>Terms & Clinical Authorization</p>
-                  </div>
-                </div>
-
-                <div style={{ padding: "1.75rem", paddingTop: 0, borderTop: "1px solid #f1f5f9" }}>
-                  <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem", backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.5rem", borderRadius: "1rem", marginBottom: "1.5rem" }}>
-                    <label style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", cursor: "pointer", fontSize: "0.9rem", color: "var(--forest)", lineHeight: "1.5" }}>
-                      <input type="checkbox" name="consent1" checked={formData.consent1} onChange={handleChange} style={{ marginTop: "0.2rem", width: "1.25rem", height: "1.25rem", accentColor: "var(--forest)" }} />
-                      <span>I agree to the <strong>Terms of Service</strong>, <strong>Privacy Policy</strong>, and acknowledge the <strong>Telehealth Informed Consent</strong> for clinical evaluation.</span>
-                    </label>
-
-                    <label style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", cursor: "pointer", fontSize: "0.9rem", color: "var(--forest)", lineHeight: "1.5" }}>
-                      <input type="checkbox" name="consent2" checked={formData.consent2} onChange={handleChange} style={{ marginTop: "0.2rem", width: "1.25rem", height: "1.25rem", accentColor: "var(--forest)" }} />
-                      <span>I authorize Pax's affiliated licensed medical providers to securely review my intake responses and medical records to evaluate prescription eligibility.</span>
-                    </label>
-                  </div>
-                  <p style={{ fontSize: "0.8rem", color: "#64748b", textAlign: "center", margin: "0 0 1rem 0" }}>No payment is collected today. A physician must evaluate and approve your protocol first.</p>
-                </div>
-              </div>
-
-            </div>
-
-            <div style={{ position: "sticky", top: "2rem" }}>
-              <div style={boxStyle}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--forest)", margin: "0 0 1.25rem 0" }}>Intake Summary</h3>
-                <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "1.25rem", marginBottom: "1.25rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.5rem" }}>
-                    <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--forest)" }}>{treatment.name}</span>
-                  </div>
-                  <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Personalized dosing, ongoing provider messaging & expedited cold-chain shipping.</p>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.85rem", color: "#475569", marginBottom: "1.75rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>Medical Evaluation</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Included</span></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>503A Pharmacy Dispatch</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Included</span></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>Expedited Cold-Chain Shipping</span><span style={{ fontWeight: 600, color: "var(--forest)" }}>Free</span></div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={submitIntake}
-                  disabled={!formData.consent1 || !formData.consent2 || isSubmitting}
-                  style={{ ...buttonStyle, opacity: (!formData.consent1 || !formData.consent2 || isSubmitting) ? 0.5 : 1, boxShadow: "0 10px 25px rgba(28, 58, 43, 0.2)" }}
-                >
-                  {isSubmitting ? "Submitting Clinical Intake..." : "Submit Medical Intake →"}
-                </button>
-                <p style={{ fontSize: "0.75rem", color: "#94a3b8", textAlign: "center", margin: "1.25rem 0 0 0", lineHeight: "1.4" }}>
-                  By submitting this intake, your information is encrypted under HIPAA security protocols for licensed physician evaluation.
-                </p>
+          <div style={{ maxWidth: "800px", margin: "2rem auto" }}>
+            
+            <div style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", borderRadius: "1rem", padding: "1.25rem", display: "flex", gap: "1rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", marginBottom: "3rem", alignItems: "flex-start" }}>
+              <span style={{ fontSize: "1.25rem" }}>⚠️</span>
+              <div>
+                <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "0.95rem" }}>Final step: review and submit</p>
+                <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0, lineHeight: "1.5" }}>Review your information and submit to continue. Nothing is prescribed or shipped in this demonstration.</p>
               </div>
             </div>
 
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "3rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>✓</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "var(--forest)" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", border: "2px solid var(--forest)", color: "var(--forest)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem", backgroundColor: "transparent" }}>2</div>
+                <div style={{ height: "2px", width: "4rem", backgroundColor: "#e2e8f0" }}></div>
+                <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", backgroundColor: "#f1f5f9", color: "#94a3b8", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "1rem" }}>3</div>
+              </div>
+              <div style={{ backgroundColor: "#e0e7ff", color: "#4338ca", padding: "0.35rem 1rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1rem" }}>Step 2 of 3</div>
+              <h2 style={{ fontSize: "2.5rem", color: "var(--forest)", margin: 0, fontFamily: "var(--font-display)" }}>Review & Submit</h2>
+            </div>
+
+            <div style={{ ...boxStyle, padding: "2.5rem", marginBottom: "2rem" }}>
+              <div style={{ marginBottom: "2rem" }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.5rem 0" }}>From your checkout</p>
+                <h3 style={{ fontSize: "1.75rem", color: "var(--forest)", margin: "0 0 0.5rem 0", fontFamily: "var(--font-display)" }}>Your information</h3>
+                <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0 }}>Carried over from checkout so you do not have to re-enter it. Order DEMO-964022.</p>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Name</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.firstName || "Demo"} {formData.lastName || "Patient"}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Email</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.email || "patient@example.com"}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Phone</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.phone || "(555) 123-4567"}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>State</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.state || "NY"}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Address</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.address1 || "123 Main St"}{formData.address2 ? `, ${formData.address2}` : ""} · {formData.city || "New York"}, {formData.state || "NY"} {formData.zip || "10001"}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Plan</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.plan === 'monthly' ? 'Monthly' : formData.plan === 'quarterly' ? 'Quarterly' : 'One-time'} · Subscription</p>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ ...boxStyle, padding: "2.5rem" }}>
+              <div style={{ marginBottom: "2rem" }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.5rem 0" }}>Ordering</p>
+                <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 600, margin: "0 0 0.5rem 0" }}>{treatment.name} Program</p>
+                <h3 style={{ fontSize: "1.75rem", color: "var(--forest)", margin: "0 0 0.5rem 0", fontFamily: "var(--font-display)" }}>Consent & signature</h3>
+              </div>
+
+              <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginBottom: "2.5rem" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "1rem", backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", padding: "1.5rem", borderRadius: "1rem" }}>
+                  <label style={{ display: "flex", alignItems: "flex-start", gap: "1rem", cursor: "pointer", fontSize: "0.9rem", color: "var(--forest)", lineHeight: "1.5" }}>
+                    <input type="checkbox" name="consent1" checked={formData.consent1} onChange={handleChange} style={{ marginTop: "0.2rem", width: "1.25rem", height: "1.25rem", accentColor: "var(--forest)" }} />
+                    <span>I agree to the <strong>Terms of Service</strong>, <strong>Privacy Policy</strong>, and acknowledge the <strong>Telehealth Informed Consent</strong> for clinical evaluation.</span>
+                  </label>
+
+                  <label style={{ display: "flex", alignItems: "flex-start", gap: "1rem", cursor: "pointer", fontSize: "0.9rem", color: "var(--forest)", lineHeight: "1.5" }}>
+                    <input type="checkbox" name="consent2" checked={formData.consent2} onChange={handleChange} style={{ marginTop: "0.2rem", width: "1.25rem", height: "1.25rem", accentColor: "var(--forest)" }} />
+                    <span>I authorize Pax's affiliated licensed medical providers to securely review my intake responses and medical records to evaluate prescription eligibility.</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={submitIntake}
+                disabled={!formData.consent1 || !formData.consent2 || isSubmitting}
+                style={{ ...buttonStyle, opacity: (!formData.consent1 || !formData.consent2 || isSubmitting) ? 0.5 : 1, boxShadow: "0 10px 25px rgba(28, 58, 43, 0.2)" }}
+              >
+                {isSubmitting ? "Submitting Clinical Intake..." : "Submit Medical Intake →"}
+              </button>
+            </div>
+            
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+               <button onClick={() => setScreen("INTAKE_1")} style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600, background: "none", border: "none", cursor: "pointer", textDecoration: "underline" }}>← Back to Questionnaire</button>
+            </div>
           </div>
         )}
-
-        {screen === "FINAL" && (
+{screen === "FINAL" && (
           <div style={{ maxWidth: "650px", margin: "4rem auto", backgroundColor: "white", borderRadius: "1.5rem", padding: "4rem 2rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", textAlign: "center" }}>
             <div style={{ width: "5rem", height: "5rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", margin: "0 auto 1.5rem auto" }}>✓</div>
             <h2 style={{ fontSize: "2.5rem", color: "var(--forest)", marginBottom: "1rem", fontFamily: "var(--font-display)" }}>Intake Submitted</h2>
