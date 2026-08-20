@@ -15,7 +15,7 @@
     "id": "gender",
     "question": "What is your biological sex?",
     "type": "select",
-    "options": ["Male", "Female", "Other"],
+    "options": ["Male", "Female"],
     "required": true
   },
   {
