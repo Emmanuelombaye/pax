@@ -198,7 +198,7 @@ export default function StartFlow() {
                   <div style={{ backgroundColor: "var(--forest)", color: "white", width: "2rem", height: "2rem", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", fontWeight: 700 }}>1</div>
                   Contact Information
                 </h3>
-                <p style={{ fontSize: "0.85rem", color: "#64748b", marginLeft: "2.75rem", marginBottom: "1.5rem" }}>Used to create your demonstration patient record.</p>
+                <p style={{ fontSize: "0.85rem", color: "#64748b", marginLeft: "2.75rem", marginBottom: "1.5rem" }}>Used to create your confidential patient profile.</p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", marginLeft: "2.75rem" }}>
                   <div><label style={labelStyle}>First Name *</label><input type="text" name="firstName" value={formData.firstName} onChange={handleChange} style={inputStyle("firstName")} />{errors.firstName && <div style={errorStyle}>{errors.firstName}</div>}</div>
                   <div><label style={labelStyle}>Last Name *</label><input type="text" name="lastName" value={formData.lastName} onChange={handleChange} style={inputStyle("lastName")} />{errors.lastName && <div style={errorStyle}>{errors.lastName}</div>}</div>
@@ -328,13 +328,13 @@ export default function StartFlow() {
           <div style={{ maxWidth: "600px", margin: "4rem auto", backgroundColor: "white", borderRadius: "1.5rem", padding: "3rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", textAlign: "center" }}>
             <div style={{ width: "4rem", height: "4rem", borderRadius: "50%", backgroundColor: "var(--forest)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", margin: "0 auto 1.5rem auto" }}>✓</div>
             <h2 style={{ fontSize: "2rem", color: "var(--forest)", marginBottom: "1rem", fontFamily: "var(--font-display)" }}>Order Received</h2>
-            <p style={{ color: "#475569", marginBottom: "2rem", lineHeight: "1.6" }}>Your demo order has been created. Continue to complete your required medical intake.</p>
+            <p style={{ color: "#475569", marginBottom: "2rem", lineHeight: "1.6" }}>Your order has been successfully placed. Continue to complete your required medical intake.</p>
             
             <div style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", borderRadius: "1rem", padding: "1.5rem", textAlign: "left", marginBottom: "2rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Order Number</span><span style={{ fontWeight: 600 }}>DEMO-964022</span></div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Order Number</span><span style={{ fontWeight: 600 }}>{orderNumber}</span></div>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Product</span><span style={{ fontWeight: 600 }}>{treatment.name}</span></div>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Total</span><span style={{ fontWeight: 600 }}>{totalDisplay}</span></div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Patient</span><span style={{ fontWeight: 600 }}>{formData.firstName || "Demo"} {formData.lastName || "Patient"}</span></div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Patient</span><span style={{ fontWeight: 600 }}>{formData.firstName} {formData.lastName}</span></div>
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.9rem" }}><span style={{ color: "#64748b" }}>Payment method</span><span style={{ fontWeight: 600 }}>Card •••• {formData.cardNumber ? formData.cardNumber.slice(-4) : "3435"}</span></div>
             </div>
 
@@ -379,7 +379,7 @@ export default function StartFlow() {
               <div style={{ backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", borderRadius: "1.5rem", padding: "1.75rem", display: "flex", gap: "1rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", flexWrap: "wrap" }}>
                 <span style={{ fontSize: "1.5rem" }}>✨</span>
                 <div style={{ flex: 1, minWidth: "200px" }}>
-                  <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "1.1rem" }}>Welcome, {formData.firstName || "Demo"}.</p>
+                  <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "1.1rem" }}>Welcome{formData.firstName ? `, ${formData.firstName}` : ""}.</p>
                   <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0, lineHeight: "1.5" }}>Complete your health assessment to finalize your order. <strong>Your order will continue to clinical review after all required steps are completed.</strong></p>
                 </div>
               </div>
@@ -475,7 +475,7 @@ export default function StartFlow() {
               <span style={{ fontSize: "1.25rem" }}>⚠️</span>
               <div style={{ flex: 1, minWidth: "200px" }}>
                 <p style={{ fontWeight: 700, color: "var(--forest)", margin: "0 0 0.25rem 0", fontSize: "0.95rem" }}>Final step: review and submit</p>
-                <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0, lineHeight: "1.5" }}>Review your information and submit to continue. Nothing is prescribed or shipped in this demonstration.</p>
+                <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0, lineHeight: "1.5" }}>Please review and confirm your medical responses before clinical evaluation.</p>
               </div>
             </div>
 
@@ -495,13 +495,13 @@ export default function StartFlow() {
               <div style={{ marginBottom: "2rem" }}>
                 <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.5rem 0" }}>From your checkout</p>
                 <h3 style={{ fontSize: "1.75rem", color: "var(--forest)", margin: "0 0 0.5rem 0", fontFamily: "var(--font-display)" }}>Your information</h3>
-                <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0 }}>Carried over from checkout so you do not have to re-enter it. Order DEMO-964022.</p>
+                <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0 }}>Carried over from checkout so you do not have to re-enter it. Order #{orderNumber}.</p>
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
                 <div>
                   <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Name</p>
-                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.firstName || "Demo"} {formData.lastName || "Patient"}</p>
+                  <p style={{ fontSize: "0.95rem", color: "var(--forest)", fontWeight: 500, margin: 0 }}>{formData.firstName} {formData.lastName}</p>
                 </div>
                 <div>
                   <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 0.25rem 0" }}>Email</p>
