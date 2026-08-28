@@ -72,7 +72,7 @@ const TABS = [
     tone: 'wl',
     card: 'wl',
     tabImg: `${IMG}/Weight-Loss-Image-from-TinyPNG.avif`,
-    cardTitle: 'Semaglutide & Tirzepatide'
+    cardTitle: 'Semaglutide & Tirzepatide',
     priceFrom: '$125',
     priceAlt: 'From $125 per month on a 6-month plan — charged only if prescribed',
     chip: 'Provider-guided',
