@@ -1,5 +1,18 @@
 import { LEGAL_LINKS, LEGAL_PAGES } from './legalContent.js';
 
+function linkify(text) {
+  const parts = String(text).split(/(https?:\/\/[^\s]+)/g);
+  return parts.map((part, i) =>
+    /^https?:\/\//.test(part) ? (
+      <a key={i} href={part} target="_blank" rel="noopener noreferrer">
+        {part}
+      </a>
+    ) : (
+      part
+    ),
+  );
+}
+
 export default function LegalPage({ pageId }) {
   const page = LEGAL_PAGES[pageId];
   if (!page) return null;
@@ -32,12 +45,12 @@ export default function LegalPage({ pageId }) {
           </aside>
 
           <article className="legal-content">
-            <p className="legal-intro">{page.intro}</p>
+            <p className="legal-intro">{linkify(page.intro)}</p>
             {page.sections.map((section) => (
               <section key={section.heading} className="legal-section">
                 <h2>{section.heading}</h2>
                 {section.body.map((paragraph, idx) => (
-                  <p key={`${section.heading}-${idx}`}>{paragraph}</p>
+                  <p key={`${section.heading}-${idx}`}>{linkify(paragraph)}</p>
                 ))}
               </section>
             ))}

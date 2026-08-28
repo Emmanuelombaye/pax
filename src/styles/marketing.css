@@ -3248,6 +3248,18 @@ ul { list-style: none; }
   margin-bottom: 0;
 }
 
+.legal-intro a,
+.legal-section a {
+  color: var(--terracotta-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-intro a:hover,
+.legal-section a:hover {
+  color: var(--terracotta);
+}
+
 .legal-contact {
   font-size: 0.95rem;
   color: var(--text-light);

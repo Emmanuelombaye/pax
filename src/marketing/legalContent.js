@@ -3,6 +3,7 @@
 export const LEGAL_LINKS = [
   { id: 'privacy', href: '#/privacy', label: 'Privacy Policy' },
   { id: 'terms', href: '#/terms', label: 'Terms of Use' },
+  { id: 'providernetwork', href: '#/providernetwork', label: 'Provider Network' },
   { id: 'states-we-serve', href: '#/states-we-serve', label: 'States We Serve' },
   { id: 'telehealth-consent', href: '#/telehealth-consent', label: 'Telehealth Consent' },
   { id: 'hipaa', href: '#/hipaa', label: 'HIPAA Notice' },
@@ -387,6 +388,42 @@ export const LEGAL_PAGES = {
           '382 NE 191ST ST NUM 931099, MIAMI, FL 33179',
           'support@paxlongevity.com',
           '(615) 434 2927',
+        ],
+      },
+    ],
+  },
+  'providernetwork': {
+    id: 'providernetwork',
+    title: 'Provider Network',
+    eyebrow: 'Legal',
+    lastUpdated: 'August 28, 2026',
+    intro:
+      'Clinical services available through this website are provided by independent licensed healthcare professionals through our provider network:',
+    sections: [
+      {
+        heading: 'Medical Provider Network',
+        body: [
+          'Scriptful Inc.',
+          'Provider Network Website: https://scriptful.com/',
+          'Scriptful Inc. provides access to licensed healthcare professionals who evaluate patients, determine medical appropriateness, provide clinical services, and, when appropriate, issue prescriptions based on their independent professional judgment.',
+        ],
+      },
+      {
+        heading: 'Independent clinical judgment',
+        body: [
+          'All medical decisions, including whether a prescription or treatment is appropriate, are made solely by the treating licensed healthcare professional. The brand and website do not direct, control, or interfere with the independent clinical judgment of healthcare providers.',
+        ],
+      },
+      {
+        heading: 'Availability',
+        body: [
+          'Availability of medical services may vary based on the patient\'s location, provider licensure, applicable law, and the specific treatment or service requested.',
+        ],
+      },
+      {
+        heading: 'Additional information',
+        body: [
+          'For additional information regarding the provider network, please visit Scriptful Inc. at https://scriptful.com/.',
         ],
       },
     ],
