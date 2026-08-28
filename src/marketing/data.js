@@ -124,8 +124,8 @@ const HOME_PROGRAMS = [
   {
     id: 'semaglutide',
     title: 'Semaglutide',
-    blurb: 'Weekly GLP-1 for steady appetite and weight support',
-    badge: 'GLP-1',
+    blurb: 'Weekly injection for steady appetite and weight support',
+    badge: 'Weekly',
     tone: 'amber',
     image: MARKETING_IMAGES.cards.glpPen,
     href: '#/start?treatment=semaglutide',
@@ -133,7 +133,7 @@ const HOME_PROGRAMS = [
   {
     id: 'tirzepatide',
     title: 'Tirzepatide',
-    blurb: 'Weekly GLP-1 + GIP dual-pathway weight support',
+    blurb: 'Weekly injection for appetite and weight support',
     badge: 'Dual action',
     tone: 'clay',
     image: MARKETING_IMAGES.cards.glpPen,

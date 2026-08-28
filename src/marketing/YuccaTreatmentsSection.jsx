@@ -129,7 +129,7 @@ export default function YuccaTreatmentsSection({
                         className={`yxr-rtt__med ${active ? 'is-active' : ''}`}
                         onClick={() => setSelectedTx(t.id)}
                       >
-                        <strong>{t.pathway}</strong>
+                        <strong>{t.med}</strong>
                         <span>{t.tagline}</span>
                       </button>
                     );

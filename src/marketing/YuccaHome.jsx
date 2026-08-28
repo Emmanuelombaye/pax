@@ -23,7 +23,7 @@ function HeroSection({ openStart }) {
         <div className="pax-home-hero__copy">
           <div className="pax-home-hero__copy-top">
             <h1 className="pax-home-hero__heading">
-              Provider-guided <em>GLP-1</em> care.
+              Provider-guided <em>care</em>.
             </h1>
             <p className="pax-home-hero__subtitle">
               Prescribed only when a licensed U.S. provider decides it&rsquo;s right.

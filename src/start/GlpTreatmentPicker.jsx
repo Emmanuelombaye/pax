@@ -57,7 +57,7 @@ export default function GlpTreatmentPicker({
               >
                 <span className="glp-pick__option-radio" aria-hidden="true" />
                 <span className="glp-pick__option-copy">
-                  <strong>{t.pathway}</strong>
+                  <strong>{t.med}</strong>
                   <span>{t.tagline}</span>
                 </span>
               </button>

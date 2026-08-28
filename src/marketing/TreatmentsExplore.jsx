@@ -72,24 +72,24 @@ const TABS = [
     tone: 'wl',
     card: 'wl',
     tabImg: `${IMG}/Weight-Loss-Image-from-TinyPNG.avif`,
-    cardTitle: 'Personalized GLP‑1 Injections',
+    cardTitle: 'Semaglutide & Tirzepatide'
     priceFrom: '$125',
     priceAlt: 'From $125 per month on a 6-month plan — charged only if prescribed',
     chip: 'Provider-guided',
     chipClass: 'bg-pax-chip text-white',
     blurb:
-      'A weekly treatment that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when a licensed provider determines it is appropriate.',
+      'A weekly treatment that may support appetite regulation and weight management — prescribed only when a licensed provider determines it is appropriate.',
     products: [
       {
         id: 'semaglutide',
-        name: 'GLP-1 (Semaglutide)',
-        desc: 'Weekly GLP-1 pathway support.',
+        name: 'Semaglutide',
+        desc: 'Weekly injection.',
         thumb: WL_VIALS.sema,
       },
       {
         id: 'tirzepatide',
-        name: 'GLP-1 + GIP (Tirzepatide)',
-        desc: 'Dual-pathway weekly support.',
+        name: 'Tirzepatide',
+        desc: 'Weekly injection.',
         thumb: WL_VIALS.tirz,
       },
     ],
@@ -234,10 +234,10 @@ const SER_EXPECT = {
 const WL_FAQS = [
   {
     q: 'What is GLP-1 weight loss treatment?',
-    a: "GLP-1 treatment is a class of prescription medication — including GLP-1 (Semaglutide) and GLP-1 + GIP (Tirzepatide) — that works with your body's natural appetite signals, helping you feel full sooner, stay satisfied longer, and reduce the constant food noise. At Pax Longevity, every protocol is reviewed by a licensed provider and built around you.",
+    a: "GLP-1 treatment is a class of prescription medication — including Semaglutide and Tirzepatide — that works with your body's natural appetite signals, helping you feel full sooner, stay satisfied longer, and reduce the constant food noise. At Pax Longevity, every protocol is reviewed by a licensed provider and built around you.",
   },
   {
-    q: "What's the difference between GLP-1 (Semaglutide) and GLP-1 + GIP (Tirzepatide)?",
+    q: "What's the difference between Semaglutide and Tirzepatide?",
     a: 'Semaglutide is a GLP-1 receptor agonist. Tirzepatide is a dual GIP and GLP-1 receptor agonist. Both are designed to support appetite regulation and long-term weight management, but they work through different receptor pathways. Your provider reviews your health history and goals to determine what may be appropriate for you.',
   },
   {
@@ -343,7 +343,7 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
             </p>
 
             {pane.products.length > 0 && (
-              <div className="explore-hero-products explore-hero-vials" aria-label="Available GLP-1 vial options">
+              <div className="explore-hero-products explore-hero-vials" aria-label="Available treatments">
                 {pane.products.map((p) => (
                   <button
                     key={p.id}
@@ -508,7 +508,7 @@ function ClinicalSection({ variant }) {
       <section className="retro-clinical retro-clinical--weight-loss" aria-labelledby="retro-clinical-heading">
         <div className="retro-clinical__inner">
           <div className="retro-clinical__text">
-            <p className="retro-clinical__eyebrow">Personalized GLP-1, GLP-1 + GIP Treatments</p>
+            <p className="retro-clinical__eyebrow">Personalized Semaglutide &amp; Tirzepatide Treatments</p>
             <h2 id="retro-clinical-heading" className="retro-clinical__heading">
               A clinically studied
               <br />
@@ -518,7 +518,7 @@ function ClinicalSection({ variant }) {
             </h2>
             <div className="retro-clinical__body">
               <p>
-                GLP-1 medications work with your body&rsquo;s natural hunger signals to regulate appetite and support
+                Semaglutide and Tirzepatide work with your body&rsquo;s natural hunger signals to regulate appetite and support
                 steady weight loss over time.
               </p>
               <ul>
@@ -814,7 +814,7 @@ export function WhySection({ glpVialSrc } = {}) {
       n: '03',
       title: (
         <>
-          Clinically guided <em>GLP-1</em>
+          Clinically guided <em>treatment</em>
         </>
       ),
       body: 'Weekly protocols guided by licensed clinicians for appetite regulation support — not guaranteed outcomes.',
@@ -892,7 +892,7 @@ export function ClosingSection({ onCta }) {
           Semaglutide &amp; Tirzepatide, <em>guided by your goals</em>
         </h2>
         <p className="retro-home-closing-sub">
-          Licensed U.S. providers review every intake before prescribing. Weekly GLP-1 protocols when appropriate.
+          Licensed U.S. providers review every intake before prescribing. Weekly protocols when appropriate.
         </p>
         <button type="button" className="retro-home-closing-cta" onClick={onCta}>
           Start medical intake

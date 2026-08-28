@@ -12,9 +12,9 @@ export const TREATMENT_INCLUDES = [
 ];
 
 export const GLP_PRODUCT = {
-  title: 'Personalized GLP-1 Injections',
+  title: 'Semaglutide & Tirzepatide',
   blurb:
-    'A weekly injection that may support appetite regulation and weight management through GLP-1 pathway activation — prescribed only when medically appropriate.',
+    'A weekly injection that may support appetite regulation and weight management — prescribed only when medically appropriate.',
   badges: ['Provider-guided', 'In stock'],
   image: '/images/vials/together.webp?v=amber1',
   finePrint:
@@ -27,9 +27,9 @@ export const TREATMENT_GOALS = [
     id: 'weight-loss',
     label: 'Weight Loss',
     eyebrow: 'Personalized',
-    title: 'GLP-1 Injections',
+    title: 'Semaglutide & Tirzepatide',
     blurb:
-      'A weekly injection designed to support weight management by helping regulate appetite and reduce hunger signals. Available in GLP-1 (Semaglutide) and GLP-1 + GIP (Tirzepatide).',
+      'A weekly injection designed to support weight management by helping regulate appetite and reduce hunger signals. Available as Semaglutide and Tirzepatide.',
     badges: ['Provider-guided', 'In stock'],
     image: '/images/vials/together.webp?v=amber1',
     imageFallback: '/images/cards/pax-glp-product.png',
@@ -79,9 +79,9 @@ export const TREATMENTS = [
     category: 'weight-loss',
     name: 'Personalized Semaglutide',
     med: 'Semaglutide',
-    pathway: 'GLP-1 (Semaglutide)',
-    tagline: 'Provider-guided GLP-1.',
-    badge: 'GLP-1',
+    pathway: 'Semaglutide',
+    tagline: 'Provider-guided weekly treatment.',
+    badge: 'Weekly',
     priceFrom: 125,
     frequency: 'Weekly',
     blurb:
@@ -94,7 +94,7 @@ export const TREATMENTS = [
     category: 'weight-loss',
     name: 'Personalized Tirzepatide',
     med: 'Tirzepatide',
-    pathway: 'GLP-1 + GIP (Tirzepatide)',
+    pathway: 'Tirzepatide',
     tagline: 'Provider-guided dual pathway.',
     badge: 'Dual pathway',
     priceFrom: 225,
