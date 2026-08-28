@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="pax-hipaa-title">
+  <title id="pax-hipaa-title">HIPAA</title>
+  <g stroke="#FAF6F0" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="8.8" r="3.4"/>
+    <path d="M24 12.4v29.2"/>
+    <path d="M24 16C16.5 14.4 10 16.8 5 22.8c6.8-3.4 12.8-3.6 19-1.2"/>
+    <path d="M24 16c7.5-1.6 14 0.8 19 6.8-6.8-3.4-12.8-3.6-19-1.2"/>
+    <path d="M24 19.2C17.8 18.2 12.4 20 8.2 24.2"/>
+    <path d="M24 19.2c6.2-1 11.6 0.8 15.8 5"/>
+    <path d="M24 23.2c-6.8 2.4-7.6 7.6 0 10.4 7.6 2.8 6.8 8 0 10.6"/>
+    <path d="M24 23.2c6.8 2.4 7.6 7.6 0 10.4-7.6 2.8-6.8 8 0 10.6"/>
+  </g>
+  <circle cx="24" cy="8.8" r="1.2" fill="#C17C74"/>
+</svg>

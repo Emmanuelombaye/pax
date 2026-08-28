@@ -4,6 +4,7 @@ import { LIFESTYLE_PILLARS, THREAT_DOMAINS } from './data.js';
 import { MARKETING_IMAGES } from './assets.js';
 import LegalPage from './LegalPage.jsx';
 import { LEGAL_LINKS, LEGAL_PAGE_IDS } from './legalContent.js';
+import FooterTrustBadges from './FooterTrustBadges.jsx';
 import YuccaHome from './YuccaHome.jsx';
 import TreatmentsExplore from './TreatmentsExplore.jsx';
 import HowItWorksPage from './HowItWorksPage.jsx';
@@ -584,11 +585,7 @@ export default function MarketingApp({ currentTab }) {
             </div>
           </div>
 
-          <div className="footer-badge-strip">
-            <span className="footer-badge-item">U.S.-licensed provider review</span>
-            <span className="footer-badge-item">Licensed pharmacy fulfillment when prescribed</span>
-            <span className="footer-badge-item">Treatment not guaranteed</span>
-          </div>
+          <FooterTrustBadges />
 
           <p className="footer-disclaimer">
             Pax Longevity® is a telehealth platform that connects eligible patients with independent US-licensed providers and
