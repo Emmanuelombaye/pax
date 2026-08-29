@@ -62,8 +62,8 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'provider',
     fit: 'cover',
-    src: '/images/pax-media/dr-michael-wasef-md-pax.webp?v=lite1',
-    alt: 'Licensed clinician in a Pax lab coat',
+    src: '/images/pax-hiw-step-2.webp?v=lite1',
+    alt: 'Licensed provider reviewing your clinical intake',
   },
   {
     id: 'portal',

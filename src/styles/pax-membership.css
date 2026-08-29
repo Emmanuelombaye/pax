@@ -48,10 +48,6 @@
   object-position: center center;
 }
 
-.pax-member__card--provider > img {
-  object-position: center 12%;
-}
-
 .pax-member__card--phone {
   padding: 0;
 }

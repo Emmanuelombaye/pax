@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="pax-provider-title">
+  <title id="pax-provider-title">Licensed U.S. Provider</title>
+  <g stroke="#FAF6F0" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15.5 9.5c0 3.2 1.8 6.2 4.8 7.4"/>
+    <path d="M32.5 9.5c0 3.2-1.8 6.2-4.8 7.4"/>
+    <path d="M20.3 16.9v5.2"/>
+    <path d="M27.7 16.9v5.2"/>
+    <path d="M20.3 22.1c0 5.6-3.4 9.4-8.8 10.6"/>
+    <circle cx="11.5" cy="38.5" r="3.6"/>
+    <path d="M27.7 22.1h3.8c3.4 0 6.1 2.7 6.1 6.1v1.2a8.8 8.8 0 0 1-17.6 0v-1.2c0-3.4 2.7-6.1 6.1-6.1h1.6"/>
+    <circle cx="36.5" cy="11.5" r="3.4"/>
+    <path d="M33.1 14.9v4.2"/>
+  </g>
+  <circle cx="11.5" cy="38.5" r="1.1" fill="#C17C74"/>
+  <circle cx="36.5" cy="11.5" r="1.1" fill="#C17C74"/>
+</svg>

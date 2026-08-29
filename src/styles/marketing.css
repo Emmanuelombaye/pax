@@ -3061,7 +3061,7 @@ ul { list-style: none; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  column-gap: clamp(2.75rem, 12vw, 8.5rem);
+  column-gap: clamp(1.75rem, 5.5vw, 4.75rem);
   row-gap: 1.35rem;
   border-top: 1px solid color-mix(in oklch, var(--sand) 12%, transparent);
   border-bottom: 1px solid color-mix(in oklch, var(--sand) 12%, transparent);
@@ -3113,6 +3113,7 @@ ul { list-style: none; }
   height: 1.95rem;
 }
 
+.footer-trust__icon--provider,
 .footer-trust__icon--caduceus {
   width: 2.55rem;
   height: 2.55rem;
@@ -3121,6 +3122,7 @@ ul { list-style: none; }
   background: color-mix(in oklch, var(--sand) 6%, transparent);
 }
 
+.footer-trust__icon--provider img,
 .footer-trust__icon--caduceus img {
   width: 1.7rem;
   height: 1.7rem;
