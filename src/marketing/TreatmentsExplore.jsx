@@ -838,7 +838,7 @@ export function WhySection({ glpVialSrc } = {}) {
       media: (
         <div className="pax-why__media-frame pax-why__media-frame--portal">
           <img
-            src={`${IMG}/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1`}
+            src={`${IMG}/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus2`}
             alt=""
             loading="lazy"
           />

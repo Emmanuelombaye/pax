@@ -68,7 +68,7 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'portal',
     fit: 'phone',
-    src: '/images/pax-media/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1',
+    src: '/images/pax-media/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus2',
     alt: 'Pax patient portal on a phone',
   },
   {
