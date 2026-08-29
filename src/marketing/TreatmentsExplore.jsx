@@ -747,7 +747,7 @@ function KnowallSection({ variant, faqs, vialSrc, photoSrc, onCta }) {
 }
 
 export function WhySection({ glpVialSrc } = {}) {
-  const glpVial = glpVialSrc || `${IMG}/semaglutide-tirzepatide-injection-vials.webp?v=fast1`;
+  const glpVial = glpVialSrc || `${IMG}/semaglutide-tirzepatide-injection-vials.webp?v=noplus1`;
   const pillars = [
     {
       id: 'trusted',
@@ -838,7 +838,7 @@ export function WhySection({ glpVialSrc } = {}) {
       media: (
         <div className="pax-why__media-frame pax-why__media-frame--portal">
           <img
-            src={`${IMG}/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1`}
+            src={`${IMG}/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1`}
             alt=""
             loading="lazy"
           />

@@ -10,7 +10,7 @@ export const HOW_STEPS = [
     titleItalic: 'treatment plan',
     body: 'Browse our science-backed GLP-1 options and select the plan that fits your goals. Then complete a short medical history questionnaire — a few minutes that helps our providers confirm you’re a good fit for treatment.',
     image: {
-      src: `${HIW}/treatment-plan.webp?v=fast1`,
+      src: `${HIW}/treatment-plan.webp?v=noplus1`,
       alt: 'Pax Longevity Semaglutide and Tirzepatide treatment vials',
     },
     chips: ['Semaglutide', 'Tirzepatide'],
@@ -26,7 +26,7 @@ export const HOW_STEPS = [
     titleItalic: 'verify identity',
     body: 'Complete your purchase, then take one quick step to verify your identity by entering the last four digits of your SSN or uploading a photo of a government-issued ID. It’s a standard part of the process — and it ensures your prescription is issued safely and securely.',
     image: {
-      src: `${HIW}/checkout-verify-identity.webp?v=fast1`,
+      src: `${HIW}/checkout-verify-identity.webp?v=noplus1`,
       alt: 'Secure Pax checkout and identity verification',
     },
     chips: ['Secure checkout', 'ID verification', 'Cancel anytime'],
@@ -48,7 +48,7 @@ export const HOW_STEPS = [
     titleItalic: 'medication',
     body: 'Once approved, your prescription is sent to our licensed partner pharmacy and fulfilled to your exact treatment plan. Your medication ships via expedited delivery — securely packaged and delivered directly to your door.',
     image: {
-      src: `${HIW}/receive-your-medication.webp?v=fast1`,
+      src: `${HIW}/receive-your-medication.webp?v=noplus1`,
       alt: 'Pax Tirzepatide medication delivered in discreet packaging',
     },
     chips: ['Licensed pharmacy', 'Expedited shipping', 'Discreet packaging'],
@@ -73,7 +73,7 @@ export const HOW_STEPS = [
 export const HOW_WHY = [
   {
     image: {
-      src: `${YC}/semaglutide-tirzepatide-injection-vials.webp?v=fast1`,
+      src: `${YC}/semaglutide-tirzepatide-injection-vials.webp?v=noplus1`,
       alt: 'Pax Semaglutide and Tirzepatide vials',
     },
     title: 'Transparent & Trusted',
@@ -99,11 +99,11 @@ export const HOW_WHY = [
 
 export const HOW_MEDIA = {
   priority: {
-    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1`,
+    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1`,
     alt: 'Pax Patient Center dashboard showing treatment plan and health records',
   },
   cta: {
-    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1`,
+    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1`,
     alt: 'Pax Patient Center on mobile — track progress and manage treatment',
   },
 };

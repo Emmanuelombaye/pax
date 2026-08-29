@@ -68,13 +68,13 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'portal',
     fit: 'phone',
-    src: '/images/pax-media/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1',
+    src: '/images/pax-media/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus1',
     alt: 'Pax patient portal on a phone',
   },
   {
     id: 'medication',
     fit: 'cover',
-    src: '/images/membership/vials.webp?v=clean1',
+    src: '/images/membership/vials.webp?v=noplus1',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {

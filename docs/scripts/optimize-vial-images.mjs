@@ -30,6 +30,7 @@ const JOBS = {
   'public/images/pax-media/hiw/checkout-verify-identity.png': { maxWidth: 1200, quality: 78 },
   'public/images/pax-media/hiw/receive-your-medication.png': { maxWidth: 1200, quality: 78 },
   'public/images/pax-media/hiw/receive-your-medication-3.png': { maxWidth: 1200, quality: 78 },
+  'public/images/membership/vials.png': { maxWidth: 1024, quality: 82 },
 };
 
 let saved = 0;
