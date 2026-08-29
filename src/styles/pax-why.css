@@ -332,7 +332,7 @@
 
 /* Kill Yucca dark-card / clip geometry inside this redesign */
 .yx-clone .retro-home-why.pax-why,
-.yucca-home .retro-home-why.pax-why {
+.pax-home .retro-home-why.pax-why {
   overflow: visible !important;
   background:
     radial-gradient(90% 60% at 10% 0%, color-mix(in oklch, var(--dune) 30%, transparent), transparent 55%),
@@ -342,20 +342,20 @@
 }
 
 .yx-clone .pax-why__grid,
-.yucca-home .pax-why__grid {
+.pax-home .pax-why__grid {
   display: grid !important;
   height: auto !important;
 }
 
 @media (min-width: 1100px) {
   .yx-clone .pax-why__grid,
-  .yucca-home .pax-why__grid {
+  .pax-home .pax-why__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
 }
 
 .yx-clone .pax-why__card,
-.yucca-home .pax-why__card {
+.pax-home .pax-why__card {
   height: auto !important;
   min-height: 22rem !important;
   overflow: hidden !important;
@@ -364,29 +364,29 @@
 }
 
 .yx-clone .pax-why__card--sand,
-.yucca-home .pax-why__card--sand {
+.pax-home .pax-why__card--sand {
   background: linear-gradient(165deg, color-mix(in oklch, var(--sand) 70%, #fff), #fff 55%) !important;
 }
 
 .yx-clone .pax-why__card--dune,
-.yucca-home .pax-why__card--dune {
+.pax-home .pax-why__card--dune {
   background: linear-gradient(165deg, color-mix(in oklch, var(--dune) 42%, #fff), #fff 60%) !important;
 }
 
 .yx-clone .pax-why__card--light,
-.yucca-home .pax-why__card--light {
+.pax-home .pax-why__card--light {
   background: #fff !important;
 }
 
 .yx-clone .pax-why__card--forest,
-.yucca-home .pax-why__card--forest {
+.pax-home .pax-why__card--forest {
   background: linear-gradient(165deg, color-mix(in oklch, var(--forest) 94%, #000), var(--forest)) !important;
   border-color: transparent !important;
   color: var(--sand) !important;
 }
 
 .yx-clone .pax-why__media-frame img,
-.yucca-home .pax-why__media-frame img {
+.pax-home .pax-why__media-frame img {
   width: auto !important;
   max-width: 100% !important;
   height: 100% !important;
@@ -396,7 +396,7 @@
 
 .pax-why__media-frame--vials,
 .yx-clone .pax-why__media-frame--vials,
-.yucca-home .pax-why__media-frame--vials {
+.pax-home .pax-why__media-frame--vials {
   height: auto !important;
   min-height: 13.5rem;
   overflow: visible !important;
@@ -407,7 +407,7 @@
 
 .pax-why__media-frame--vials img,
 .yx-clone .pax-why__media-frame--vials img,
-.yucca-home .pax-why__media-frame--vials img {
+.pax-home .pax-why__media-frame--vials img {
   width: 100% !important;
   height: auto !important;
   max-height: none !important;
@@ -418,7 +418,7 @@
 @media (max-width: 759px) {
   .pax-why__card,
   .yx-clone .pax-why__card,
-  .yucca-home .pax-why__card {
+  .pax-home .pax-why__card {
     min-height: 0 !important;
   }
 }

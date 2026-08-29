@@ -15,7 +15,7 @@ const TONE_BY_GOAL = {
  * Yucca home treatments geometry (tonal stage + tablist + product card).
  * Pax colors / copy / imagery. Weight Loss keeps Semaglutide / Tirzepatide picker.
  */
-export default function YuccaTreatmentsSection({
+export default function PaxTreatmentsSection({
   selectedTx,
   setSelectedTx,
   openStart,

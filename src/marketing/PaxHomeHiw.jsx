@@ -23,7 +23,7 @@ const STEPS = [
 ];
 
 /** Home how-it-works — Hims-like floating cards, Pax brand tokens */
-export default function YuccaHomeHiw() {
+export default function PaxHomeHiw() {
   return (
     <section id="how-it-works" className="goal-hiw-section pax-hiw">
       <div className="goal-hiw-container pax-hiw__container">

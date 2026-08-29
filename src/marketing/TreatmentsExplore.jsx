@@ -4,13 +4,13 @@ import {
   getGoalForTreatment,
 } from '../start/startFlowData.js';
 
-const IMG = '/images/yucca-clone';
+const IMG = '/images/pax-media';
 const WL_VIALS = {
-  sema: '/images/vials/sema.webp?v=amber1',
-  tirz: '/images/vials/tirz.webp?v=amber1',
-  together: '/images/vials/together.webp?v=amber1',
-  hero: '/images/vials/together-hero.webp?v=amber2',
-  protocol: '/images/vials/protocol-cover.webp?v=cover2',
+  sema: '/images/vials/sema.webp?v=fast1',
+  tirz: '/images/vials/tirz.webp?v=fast1',
+  together: '/images/vials/together.webp?v=fast1',
+  hero: '/images/vials/together-hero.webp?v=fast1',
+  protocol: '/images/vials/protocol-cover.webp?v=fast1',
 };
 const WL_FAQ_PHOTO = '/images/faq-portrait.webp?v=faq1';
 
@@ -119,10 +119,10 @@ const WL_PROTOCOL = {
   ],
 };
 
-const NAD_PROTOCOL = {
+const _NAD_PROTOCOL = {
   heading: 'NAD+ restores cellular energy as you age.',
   sub: 'NAD+ works with the cellular systems your body already relies on for energy production, DNA repair, and mitochondrial function.',
-  vials: `${IMG}/explore-nad-protocol-vials-figma.png`,
+  vials: `${IMG}/explore-nad-protocol-vials-figma.png?v=clean1`,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
@@ -142,10 +142,10 @@ const NAD_PROTOCOL = {
   ],
 };
 
-const SER_PROTOCOL = {
+const _SER_PROTOCOL = {
   headingLines: ['Sermorelin stimulates', 'growth hormone', 'production as you age.'],
   sub: "Sermorelin is a peptide that supports your body's natural growth hormone signals. Treatment is designed to support recovery, sleep quality, energy, and healthy body composition over time.",
-  vials: `${IMG}/expt-personalized-sermorelin-vial.png`,
+  vials: `${IMG}/expt-personalized-sermorelin-vial.png?v=clean1`,
   cards: [
     {
       icon: PROTOCOL_ICON_WAVE,
@@ -172,22 +172,22 @@ const WL_EXPECT = {
     {
       tag: 'Week 1 → 4 · Your body is adjusting',
       text: 'You start on a low dose — intentionally. Your GLP-1 treatment is introduced gradually to give your body time to adapt. Some patients notice appetite changes early. Others take a few more weeks. Both are normal. Your provider is available throughout.',
-      img: `${IMG}/GLP1-Retro/expect-week-1-4.avif`,
+      img: `${IMG}/GLP1-Retro/expect-week-1-4.avif?v=clean1`,
     },
     {
       tag: 'Week 4 → 12 · The protocol starts to settle',
       text: 'As titration continues, your provider monitors how you respond. Appetite signals and dosing may be adjusted based on your individual course — experiences vary, and treatment is not guaranteed to produce a specific outcome.',
-      img: `${IMG}/GLP1-Retro/expect-week-4-12.avif`,
+      img: `${IMG}/GLP1-Retro/expect-week-4-12.avif?v=clean1`,
     },
     {
       tag: 'Month 3+ · Calibrated to you',
       text: 'This is where the protocol becomes truly personal. With how your body has responded — to the dose, to the titration, to the treatment itself — your provider can now fine-tune your plan with real precision. The focus shifts from adjustment to consistency, and maintainable progress becomes the rhythm.',
-      img: `${IMG}/GLP1-Retro/expect-month-3.avif`,
+      img: `${IMG}/GLP1-Retro/expect-month-3.avif?v=clean1`,
     },
   ],
 };
 
-const NAD_EXPECT = {
+const _NAD_EXPECT = {
   title: ['What to expect,', 'week by week'],
   sub: "NAD (Nicotinamide Adenine Dinucleotide) is a coenzyme that helps cells generate energy and repair themselves. In this program, NAD support is used to help improve cellular function and metabolism. Here's how it typically unfolds.",
   weeks: [
@@ -209,7 +209,7 @@ const NAD_EXPECT = {
   ],
 };
 
-const SER_EXPECT = {
+const _SER_EXPECT = {
   title: ['What to expect,', 'week by week'],
   sub: "Sermorelin is a growth hormone releasing peptide that signals the pituitary gland to naturally increase growth hormone production. In this program, sermorelin is used to support body composition, energy, and recovery. Here's how it typically unfolds.",
   weeks: [
@@ -258,7 +258,7 @@ const WL_FAQS = [
   },
 ];
 
-const NAD_FAQS = [
+const _NAD_FAQS = [
   {
     q: 'What is NAD+ treatment?',
     a: 'NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme your body produces naturally — and uses to generate cellular energy, support DNA repair, and maintain metabolic function. Levels decline with age. NAD+ therapy is a provider-guided protocol designed to replenish those levels through structured dosing. At Pax Longevity, every protocol is reviewed by a licensed provider and built around your medical history, your goals, and how your body responds over time.',
@@ -281,7 +281,7 @@ const NAD_FAQS = [
   },
 ];
 
-const SER_FAQS = [
+const _SER_FAQS = [
   {
     q: 'What is Sermorelin?',
     a: "Sermorelin is a peptide therapy that supports your body's natural production of growth hormone. Rather than introducing growth hormone directly, Sermorelin signals the pituitary gland to release it on your body's own schedule — preserving the natural rhythm of how the hormone moves through your system. At Pax Longevity, every protocol is reviewed by a licensed provider and built around your medical history, your goals, and how your body responds over time.",
@@ -320,7 +320,7 @@ function ExploreHero({ pane, selectedTx, setSelectedTx, onCta }) {
               <span className="explore-hero-card-price-main">FROM {pane.priceFrom}</span>
               <span className="explore-hero-card-price-sub">/mo · 6-month plan</span>
             </div>
-            <img className="explore-hero-card__photo" src={WL_VIALS.hero} alt="" loading="eager" />
+            <img className="explore-hero-card__photo" src={WL_VIALS.hero} alt="" loading="eager" decoding="async" fetchPriority="high" />
             <div className="explore-hero-card-footer flex items-center justify-between gap-3">
               <div>Licensed U.S. provider review required</div>
               <div className="flex items-center gap-1.5">
@@ -570,7 +570,7 @@ function ClinicalSection({ variant }) {
           <div className="retro-clinical__visual" aria-hidden="true">
             <img
               className="retro-clinical__vial"
-              src={`${IMG}/nad-plus-longevity-injection-vial-yucca-health.avif`}
+              src={`${IMG}/nad-longevity-vial.avif?v=clean1`}
               alt=""
               loading="lazy"
             />
@@ -603,7 +603,7 @@ function ClinicalSection({ variant }) {
         <div className="retro-clinical__visual" aria-hidden="true">
           <img
             className="retro-clinical__vial"
-            src={`${IMG}/sermorelin-peptide-injection-vial-muscle-recovery-yucca-health.avif`}
+            src={`${IMG}/sermorelin-recovery-vial.avif?v=clean1`}
             alt=""
             loading="lazy"
           />
@@ -747,7 +747,7 @@ function KnowallSection({ variant, faqs, vialSrc, photoSrc, onCta }) {
 }
 
 export function WhySection({ glpVialSrc } = {}) {
-  const glpVial = glpVialSrc || `${IMG}/expt-tirz-sema-vials-together.png?v=nologo`;
+  const glpVial = glpVialSrc || `${IMG}/semaglutide-tirzepatide-injection-vials.webp?v=fast1`;
   const pillars = [
     {
       id: 'trusted',
@@ -838,7 +838,7 @@ export function WhySection({ glpVialSrc } = {}) {
       media: (
         <div className="pax-why__media-frame pax-why__media-frame--portal">
           <img
-            src={`${IMG}/hiw/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=phone1`}
+            src={`${IMG}/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1`}
             alt=""
             loading="lazy"
           />
@@ -882,7 +882,7 @@ export function ClosingSection({ onCta }) {
     <section className="retro-home-closing" aria-labelledby="retro-home-closing-title">
       <img
         className="retro-home-closing-bg retro-home-closing-bg--weight-loss"
-        src={`${IMG}/cta-personalized-treatments-wellness-portrait-yucca-health.avif`}
+        src={`${IMG}/cta-wellness-portrait.avif`}
         alt=""
         aria-hidden="true"
         loading="lazy"

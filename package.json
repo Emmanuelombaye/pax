@@ -12,6 +12,7 @@
     "lint": "oxlint src --ignore-pattern \"**/*.js\"",
     "preview": "vite preview",
     "optimize:images": "node docs/scripts/optimize-images.mjs",
+    "optimize:vials": "node docs/scripts/optimize-vial-images.mjs",
     "brand:prepare": "node docs/scripts/prepare-brand-kit.mjs"
   },
   "dependencies": {

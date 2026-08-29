@@ -29,7 +29,7 @@ export default function GlpTreatmentPicker({
           loading="lazy"
           onError={(e) => {
             e.currentTarget.onerror = null;
-            e.currentTarget.src = MARKETING_IMAGES.cards.glpPenFallback || '/images/cards/glp-pen.png';
+            e.currentTarget.src = MARKETING_IMAGES.cards.glpPenFallback || '/images/cards/glp-pen.png?v=clean1';
           }}
         />
         <div className="glp-pick__media-badges" aria-hidden="true">

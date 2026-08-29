@@ -316,12 +316,12 @@
 
 /* Beat treatments fidelity overrides that clip / left-align the row */
 .yx-clone .retro-home-reviews.pax-reviews,
-.yucca-home .retro-home-reviews.pax-reviews {
+.pax-home .retro-home-reviews.pax-reviews {
   overflow: visible !important;
 }
 
 .yx-clone .pax-reviews__track,
-.yucca-home .pax-reviews__track {
+.pax-home .pax-reviews__track {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   justify-content: center !important;
@@ -331,36 +331,36 @@
 }
 
 .yx-clone .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child),
-.yucca-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child) {
+.pax-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child) {
   grid-template-columns: repeat(2, minmax(0, 18rem)) !important;
 }
 
 .yx-clone .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child),
-.yucca-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child) {
+.pax-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child) {
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
 .yx-clone .pax-reviews__slide,
-.yucca-home .pax-reviews__slide,
+.pax-home .pax-reviews__slide,
 .yx-clone .pax-reviews__card,
-.yucca-home .pax-reviews__card {
+.pax-home .pax-reviews__card {
   width: 100% !important;
   max-width: 100% !important;
 }
 
 @media (max-width: 1023px) {
   .yx-clone .pax-reviews__track,
-  .yucca-home .pax-reviews__track,
+  .pax-home .pax-reviews__track,
   .yx-clone .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child),
-  .yucca-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child),
+  .pax-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(2):last-child),
   .yx-clone .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child),
-  .yucca-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child) {
+  .pax-home .pax-reviews__track:has(.pax-reviews__slide:nth-child(3):last-child) {
     display: flex !important;
     grid-template-columns: none !important;
   }
 
   .yx-clone .pax-reviews__slide,
-  .yucca-home .pax-reviews__slide {
+  .pax-home .pax-reviews__slide {
     flex: 0 0 min(15.75rem, 78vw) !important;
     width: min(15.75rem, 78vw) !important;
     max-width: min(15.75rem, 78vw) !important;

@@ -4690,7 +4690,7 @@ ul { list-style: none; }
   /* Keep page heroes clear of Dynamic Island / notch */
   .hiw-page-hero,
   .legal-hero,
-  .yucca-home .goal-hiw-section,
+  .pax-home .goal-hiw-section,
   .pax-hiw {
     scroll-margin-top: max(5.75rem, calc(env(safe-area-inset-top, 0px) + 4.75rem));
   }

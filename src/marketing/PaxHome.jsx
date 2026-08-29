@@ -1,7 +1,7 @@
 import { HOME_FAQS } from './data.js';
 import { WhySection, ClosingSection } from './TreatmentsExplore.jsx';
-import YuccaHomeTreatments from './YuccaHomeTreatments.jsx';
-import YuccaHomeHiw from './YuccaHomeHiw.jsx';
+import PaxHomeTreatments from './PaxHomeTreatments.jsx';
+import PaxHomeHiw from './PaxHomeHiw.jsx';
 import { ADVISOR_PILLARS } from './advisorsData.js';
 
 function HeroSection({ openStart }) {
@@ -62,19 +62,19 @@ const MEMBERSHIP_CARDS = [
   {
     id: 'provider',
     fit: 'cover',
-    src: '/images/yucca-clone/dr-michael-wasef-md-pax.webp?v=lite1',
+    src: '/images/pax-media/dr-michael-wasef-md-pax.webp?v=lite1',
     alt: 'Licensed clinician in a Pax lab coat',
   },
   {
     id: 'portal',
     fit: 'phone',
-    src: '/images/yucca-clone/hiw/yucca-health-patient-portal-dashboard-semaglutide-mobile.avif?v=phone1',
+    src: '/images/pax-media/hiw/patient-portal-dashboard-semaglutide-mobile.webp?v=fast1',
     alt: 'Pax patient portal on a phone',
   },
   {
     id: 'medication',
     fit: 'cover',
-    src: '/images/membership/vials.webp?v=m2',
+    src: '/images/membership/vials.webp?v=clean1',
     alt: 'Personalized Semaglutide and Tirzepatide vials',
   },
   {
@@ -195,14 +195,14 @@ function FaqSection({ activeFaq, onFaqToggle }) {
   );
 }
 
-/** Home — Yucca layout without fabricated social proof, results, or clinician claims */
-export default function YuccaHome({ openStart, activeFaq, onFaqToggle }) {
+/** Home — Pax layout without fabricated social proof, results, or clinician claims */
+export default function PaxHome({ openStart, activeFaq, onFaqToggle }) {
   return (
-    <div className="yucca-home u5-type" data-retro-scope>
+    <div className="pax-home u5-type" data-retro-scope>
       <HeroSection openStart={openStart} />
-      <YuccaHomeTreatments openStart={openStart} />
+      <PaxHomeTreatments openStart={openStart} />
       <MembershipSection />
-      <YuccaHomeHiw />
+      <PaxHomeHiw />
       <ProvidersSection />
       <WhySection />
       <FaqSection activeFaq={activeFaq} onFaqToggle={onFaqToggle} />

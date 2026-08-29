@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrandLogo } from '../brand/index.js';
-import { LIFESTYLE_PILLARS, THREAT_DOMAINS } from './data.js';
-import { MARKETING_IMAGES } from './assets.js';
+import { THREAT_DOMAINS } from './data.js';
 import LegalPage from './LegalPage.jsx';
 import { LEGAL_LINKS, LEGAL_PAGE_IDS } from './legalContent.js';
 import FooterTrustBadges from './FooterTrustBadges.jsx';
-import YuccaHome from './YuccaHome.jsx';
+import PaxHome from './PaxHome.jsx';
 import TreatmentsExplore from './TreatmentsExplore.jsx';
 import HowItWorksPage from './HowItWorksPage.jsx';
 import { resolveTreatmentId } from '../start/startFlowData.js';
@@ -21,11 +20,6 @@ const START_TREATMENT_MAP = {
   recovery: 'semaglutide',
   'muscle-recovery': 'semaglutide',
 };
-
-function setImageFallback(event, fallbackSrc) {
-  event.currentTarget.onerror = null;
-  event.currentTarget.src = fallbackSrc;
-}
 
 export default function MarketingApp({ currentTab }) {
   // Mobile Nav State
@@ -169,8 +163,6 @@ export default function MarketingApp({ currentTab }) {
     window.location.hash = mapped ? `#/start?treatment=${encodeURIComponent(mapped)}` : '#/start';
   };
 
-  const activeLifestyle = LIFESTYLE_PILLARS.find((pillar) => pillar.id === currentTab);
-
   return (
     <div className="yx-shell">
       <div className="yx-promo">
@@ -310,7 +302,7 @@ export default function MarketingApp({ currentTab }) {
         
         {/* ==================== HOME PAGE VIEW ==================== */}
         {currentTab === 'home' && (
-          <YuccaHome
+          <PaxHome
             openStart={openStart}
             activeFaq={activeFaq}
             onFaqToggle={handleFaqToggle}

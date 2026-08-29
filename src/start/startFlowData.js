@@ -16,7 +16,7 @@ export const GLP_PRODUCT = {
   blurb:
     'A weekly injection that may support appetite regulation and weight management — prescribed only when medically appropriate.',
   badges: ['Provider-guided', 'In stock'],
-  image: '/images/vials/together.webp?v=amber1',
+  image: '/images/vials/together.webp?v=fast1',
   finePrint:
     'Provider-guided care from U.S. licensed pharmacies. Charged only if prescribed — change or cancel anytime.',
 };
@@ -31,8 +31,8 @@ export const TREATMENT_GOALS = [
     blurb:
       'A weekly injection designed to support weight management by helping regulate appetite and reduce hunger signals. Available as Semaglutide and Tirzepatide.',
     badges: ['Provider-guided', 'In stock'],
-    image: '/images/vials/together.webp?v=amber1',
-    imageFallback: '/images/cards/pax-glp-product.png',
+    image: '/images/vials/together.webp?v=fast1',
+    imageFallback: '/images/cards/pax-glp-product.png?v=clean1',
     hasMedPicker: true,
     defaultTreatmentId: 'semaglutide',
     treatmentIds: ['semaglutide', 'tirzepatide'],
@@ -86,7 +86,7 @@ export const TREATMENTS = [
     frequency: 'Weekly',
     blurb:
       'Targets the GLP-1 pathway to support appetite regulation when medically appropriate.',
-    image: '/images/vials/sema.webp?v=amber1',
+    image: '/images/vials/sema.webp?v=fast1',
     plans: monthPlans(146, 135, 125),
   },
   {
@@ -101,7 +101,7 @@ export const TREATMENTS = [
     frequency: 'Weekly',
     blurb:
       'Acts on GLP-1 and GIP pathways to support appetite regulation when medically appropriate.',
-    image: '/images/vials/tirz.webp?v=amber1',
+    image: '/images/vials/tirz.webp?v=fast1',
     plans: monthPlans(258, 240, 225),
   },
 ];

@@ -1,12 +1,12 @@
 /* Pax home hero — Yucca overlay card on phone, split layout on desktop */
 
-.yucca-home .pax-home-hero,
-.yucca-home .retro-home-hero-section.pax-home-hero {
+.pax-home .pax-home-hero,
+.pax-home .retro-home-hero-section.pax-home-hero {
   background: var(--sand) !important;
   padding: 0.7rem 0.9rem 1.75rem;
 }
 
-.yucca-home .pax-home-hero__inner {
+.pax-home .pax-home-hero__inner {
   position: relative;
   isolation: isolate;
   max-width: 1180px;
@@ -18,7 +18,7 @@
   background: color-mix(in oklch, var(--dune) 28%, var(--sand));
 }
 
-.yucca-home .pax-home-hero__media {
+.pax-home .pax-home-hero__media {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-.yucca-home .pax-home-hero__photo {
+.pax-home .pax-home-hero__photo {
   display: block;
   width: 100%;
   height: 100%;
@@ -34,7 +34,7 @@
   object-position: center 8%;
 }
 
-.yucca-home .pax-home-hero__wash {
+.pax-home .pax-home-hero__wash {
   position: absolute;
   inset: 0;
   background:
@@ -42,7 +42,7 @@
     linear-gradient(180deg, transparent 58%, color-mix(in oklch, var(--forest) 64%, transparent) 100%);
 }
 
-.yucca-home .pax-home-hero__copy {
+.pax-home .pax-home-hero__copy {
   position: relative;
   z-index: 2;
   display: flex;
@@ -52,11 +52,11 @@
   padding: 1.2rem 1.2rem 1.05rem;
 }
 
-.yucca-home .pax-home-hero__copy-top {
+.pax-home .pax-home-hero__copy-top {
   max-width: 18rem;
 }
 
-.yucca-home .pax-home-hero__heading {
+.pax-home .pax-home-hero__heading {
   margin: 0;
   max-width: none;
   font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
@@ -68,11 +68,11 @@
   text-shadow: none;
 }
 
-.yucca-home .pax-home-hero__heading em {
+.pax-home .pax-home-hero__heading em {
   font-style: italic;
 }
 
-.yucca-home .pax-home-hero__subtitle {
+.pax-home .pax-home-hero__subtitle {
   margin: 0.55rem 0 0;
   max-width: 18rem;
   font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
@@ -82,13 +82,13 @@
   color: color-mix(in oklch, var(--forest) 84%, transparent) !important;
 }
 
-.yucca-home .pax-home-hero__cta {
+.pax-home .pax-home-hero__cta {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-btn {
+.pax-home .pax-home-hero .retro-home-hero-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -103,8 +103,8 @@
   cursor: pointer;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-btn--primary,
-.yucca-home .pax-home-hero .retro-home-hero-btn--primary:hover {
+.pax-home .pax-home-hero .retro-home-hero-btn--primary,
+.pax-home .pax-home-hero .retro-home-hero-btn--primary:hover {
   order: 0;
   background: var(--sand) !important;
   color: var(--forest) !important;
@@ -112,8 +112,8 @@
   box-shadow: none !important;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-btn--secondary,
-.yucca-home .pax-home-hero .retro-home-hero-btn--secondary:hover {
+.pax-home .pax-home-hero .retro-home-hero-btn--secondary,
+.pax-home .pax-home-hero .retro-home-hero-btn--secondary:hover {
   order: 0;
   background: color-mix(in oklch, var(--sand) 86%, transparent) !important;
   color: var(--forest) !important;
@@ -121,7 +121,7 @@
   box-shadow: none !important;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-btn-chevron {
+.pax-home .pax-home-hero .retro-home-hero-btn-chevron {
   display: inline-flex;
   width: 1.1rem;
   height: 1.1rem;
@@ -129,21 +129,21 @@
   color: var(--forest) !important;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-btn-chevron svg {
+.pax-home .pax-home-hero .retro-home-hero-btn-chevron svg {
   width: 100%;
   height: 100%;
 }
 
-.yucca-home .pax-home-hero .retro-home-hero-floating {
+.pax-home .pax-home-hero .retro-home-hero-floating {
   display: none !important;
 }
 
 @media (min-width: 900px) {
-  .yucca-home .pax-home-hero {
+  .pax-home .pax-home-hero {
     padding: 1.1rem 1.5rem 3rem;
   }
 
-  .yucca-home .pax-home-hero__inner {
+  .pax-home .pax-home-hero__inner {
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
     gap: 3.25rem;
@@ -155,7 +155,7 @@
     background: transparent;
   }
 
-  .yucca-home .pax-home-hero__media {
+  .pax-home .pax-home-hero__media {
     position: relative;
     inset: auto;
     order: 2;
@@ -164,54 +164,54 @@
     pointer-events: none;
   }
 
-  .yucca-home .pax-home-hero__photo {
+  .pax-home .pax-home-hero__photo {
     object-position: center 22%;
   }
 
-  .yucca-home .pax-home-hero__wash {
+  .pax-home .pax-home-hero__wash {
     display: none;
   }
 
-  .yucca-home .pax-home-hero__copy {
+  .pax-home .pax-home-hero__copy {
     order: 1;
     min-height: 0;
     padding: 0;
     justify-content: center;
   }
 
-  .yucca-home .pax-home-hero__copy-top {
+  .pax-home .pax-home-hero__copy-top {
     max-width: none;
   }
 
-  .yucca-home .pax-home-hero__heading {
+  .pax-home .pax-home-hero__heading {
     max-width: 12ch;
     font-size: clamp(3rem, 4.6vw, 4.2rem);
   }
 
-  .yucca-home .pax-home-hero__subtitle {
+  .pax-home .pax-home-hero__subtitle {
     max-width: 34rem;
     font-size: clamp(1.08rem, 1.6vw, 1.28rem);
   }
 
-  .yucca-home .pax-home-hero__cta {
+  .pax-home .pax-home-hero__cta {
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 1.55rem;
   }
 
-  .yucca-home .pax-home-hero .retro-home-hero-btn {
+  .pax-home .pax-home-hero .retro-home-hero-btn {
     width: auto;
   }
 
-  .yucca-home .pax-home-hero .retro-home-hero-btn--primary,
-  .yucca-home .pax-home-hero .retro-home-hero-btn--primary:hover {
+  .pax-home .pax-home-hero .retro-home-hero-btn--primary,
+  .pax-home .pax-home-hero .retro-home-hero-btn--primary:hover {
     background: var(--forest) !important;
     color: var(--sand) !important;
     border-color: var(--forest) !important;
   }
 
-  .yucca-home .pax-home-hero .retro-home-hero-btn--secondary,
-  .yucca-home .pax-home-hero .retro-home-hero-btn--secondary:hover {
+  .pax-home .pax-home-hero .retro-home-hero-btn--secondary,
+  .pax-home .pax-home-hero .retro-home-hero-btn--secondary:hover {
     background: transparent !important;
     color: var(--forest) !important;
     border-color: var(--forest) !important;

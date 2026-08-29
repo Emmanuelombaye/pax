@@ -181,14 +181,14 @@
 .yx-exhero__card--nad {
   color: var(--yx-ink);
   background:
-    url('/images/cards/pax-nad-product.png') center 62% / clamp(138px, 13vw, 160px) auto no-repeat,
+    url('/images/cards/pax-nad-product.png?v=clean1') center 62% / clamp(138px, 13vw, 160px) auto no-repeat,
     linear-gradient(180deg, var(--yx-nad), var(--yx-nad-deep));
 }
 
 .yx-exhero__card--sermorelin {
   color: var(--yx-ink);
   background:
-    url('/images/cards/pax-sermorelin-product.png') center 62% / clamp(138px, 13vw, 160px) auto no-repeat,
+    url('/images/cards/pax-sermorelin-product.png?v=clean1') center 62% / clamp(138px, 13vw, 160px) auto no-repeat,
     linear-gradient(180deg, var(--yx-serm), var(--yx-serm-deep));
 }
 

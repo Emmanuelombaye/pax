@@ -13,7 +13,7 @@ const loadPersistedState = (key, defaultVal) => {
   try {
     const val = sessionStorage.getItem(key);
     return val ? JSON.parse(val) : defaultVal;
-  } catch(e) {
+  } catch {
     return defaultVal;
   }
 };
@@ -22,7 +22,7 @@ const savePersistedState = (key, val) => {
   if (typeof window === "undefined") return;
   try {
     sessionStorage.setItem(key, JSON.stringify(val));
-  } catch(e) {}
+  } catch {}
 };
 
 export default function StartFlow() {
@@ -34,7 +34,7 @@ export default function StartFlow() {
     return resolveTreatmentId(params.get("treatment") || "");
   })();
 
-  const [treatmentId, setTreatmentId] = useState(() => loadPersistedState("pax_treatmentId", hashTreatmentId || "semaglutide"));
+  const [treatmentId] = useState(() => loadPersistedState("pax_treatmentId", hashTreatmentId || "semaglutide"));
   
   const treatment = useMemo(
     () => TREATMENTS.find((t) => t.id === treatmentId) || TREATMENTS[0],
@@ -170,7 +170,7 @@ export default function StartFlow() {
   const boxStyle = { backgroundColor: "#ffffff", borderRadius: "1.5rem", padding: "1.75rem", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", boxShadow: "0 10px 25px rgba(0,0,0,0.03)", marginBottom: "1.25rem" };
   const buttonStyle = { width: "100%", padding: "1.15rem", borderRadius: "999px", backgroundColor: "var(--forest)", color: "#ffffff", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.02em", border: "none", cursor: "pointer", transition: "all 0.2s" };
 
-  const priceDisplay = formData.plan === "monthly" ? "$125.00 / month" : formData.plan === "quarterly" ? "$337.50 every 3 months" : "$125.00 one time";
+  const _priceDisplay = formData.plan === "monthly" ? "$125.00 / month" : formData.plan === "quarterly" ? "$337.50 every 3 months" : "$125.00 one time";
   const totalDisplay = formData.plan === "quarterly" ? "$337.50" : "$125.00";
   
   const pillStyle = { backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", color: "var(--forest)", padding: "0.35rem 1rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1rem", border: "1px solid color-mix(in oklch, var(--forest) 15%, transparent)" };

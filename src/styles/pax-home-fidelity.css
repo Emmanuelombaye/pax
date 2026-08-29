@@ -1,6 +1,6 @@
-/* Homepage fidelity overrides — scoped under .yucca-home — Pax brand kit */
+/* Homepage fidelity overrides — scoped under .pax-home — Pax brand kit */
 
-.yucca-home {
+.pax-home {
   background: var(--sand);
   color: var(--forest);
   overflow-x: clip;
@@ -9,8 +9,8 @@
 }
 
 /* Retro geometry vars remapped to Pax kit tokens */
-.yucca-home,
-.yucca-home[data-retro-scope] {
+.pax-home,
+.pax-home[data-retro-scope] {
   --color-retro-surface: var(--sand);
   --color-retro-cream: var(--sand);
   --color-retro-ink: var(--forest);
@@ -26,74 +26,74 @@
   --font-retro-body: var(--font-body);
 }
 
-.yucca-home,
-.yucca-home * {
+.pax-home,
+.pax-home * {
   font-weight: 400;
 }
 
-.yucca-home em,
-.yucca-home i,
-.yucca-home .italic {
+.pax-home em,
+.pax-home i,
+.pax-home .italic {
   font-style: italic;
   font-weight: 400;
 }
 
 /* Hero reveal helpers (live site JS sets these on scroll) */
-.yucca-home .hero-reveal {
+.pax-home .hero-reveal {
   opacity: 1;
   transform: none;
 }
 
 /* Active treatment pane visibility */
-.yucca-home [data-retro-treatments-pane][data-active='false'] {
+.pax-home [data-retro-treatments-pane][data-active='false'] {
   display: none;
 }
 
-.yucca-home [data-retro-treatments-pane][data-active='true'] {
+.pax-home [data-retro-treatments-pane][data-active='true'] {
   display: block;
 }
 
 /* FAQ open state without Astro data attributes */
-.yucca-home [data-faq-item][data-open='true'] .retro-faqs__panel {
+.pax-home [data-faq-item][data-open='true'] .retro-faqs__panel {
   grid-template-rows: 1fr;
 }
 
-.yucca-home [data-faq-item][data-open='true'] .retro-faqs__icon {
+.pax-home [data-faq-item][data-open='true'] .retro-faqs__icon {
   transform: rotate(45deg);
 }
 
 /* Marquee animation fallback */
-@keyframes yucca-home-marquee {
+@keyframes pax-home-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-.yucca-home .retro-happy__track {
-  animation: yucca-home-marquee 45s linear infinite;
+.pax-home .retro-happy__track {
+  animation: pax-home-marquee 45s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .yucca-home .retro-happy__track {
+  .pax-home .retro-happy__track {
     animation: none;
   }
 }
 
 /* Treatments product card — sand elevated surface */
-.yucca-home .retro-home-treatments-card {
+.pax-home .retro-home-treatments-card {
   background: color-mix(in oklch, var(--sand) 94%, var(--dune));
 }
 
 /* BNPL logos — mirror sets height only; ensure width renders */
-.yucca-home .retro-home-treatments-bnpl img {
+.pax-home .retro-home-treatments-bnpl img {
   display: block;
   height: 14px;
   width: auto;
 }
 
 /* CTAs — forest primary / sand text (hero primary inverted in pax-buttons) */
-.yucca-home .retro-home-treatments-cta,
-.yucca-home .retro-home-closing-cta,
-.yucca-home .retro-home-reviews-cta {
+.pax-home .retro-home-treatments-cta,
+.pax-home .retro-home-closing-cta,
+.pax-home .retro-home-reviews-cta {
   font-family: var(--font-body);
   font-weight: 400;
   background: var(--btn-bg);
@@ -101,11 +101,11 @@
 }
 
 /* Doctors cards — exact Yucca geometry; Pax wordmark + photo only */
-.yucca-home .retro-home-doctor-photo {
+.pax-home .retro-home-doctor-photo {
   object-position: center 18%;
 }
 
-.yucca-home .retro-home-doctor-brand {
+.pax-home .retro-home-doctor-brand {
   position: absolute;
   right: 16px;
   bottom: 14px;
@@ -116,7 +116,7 @@
 }
 
 @media (min-width: 768px) {
-  .yucca-home .retro-home-doctor-brand {
+  .pax-home .retro-home-doctor-brand {
     height: 20px;
     right: 18px;
     bottom: 16px;

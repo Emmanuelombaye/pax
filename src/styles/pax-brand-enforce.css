@@ -13,7 +13,7 @@ body,
 
 /* —— Token aliases used by Yucca clone sheets —— */
 .yx-clone,
-.yucca-home,
+.pax-home,
 main[data-retro-scope],
 [data-explore-section-stack],
 .retro-explore-tabs-wrap {
@@ -37,7 +37,7 @@ main[data-retro-scope],
 
 /* —— Page / section canvases —— */
 .yx-clone,
-.yucca-home,
+.pax-home,
 .retro-home-hero-section,
 .retro-faqs,
 .retro-protocol,
@@ -76,7 +76,7 @@ main[data-retro-scope],
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-card[data-card='nad'] {
   background-image:
-    url(/images/yucca-clone/Nad-Yucca-Image.avif),
+    url(/images/pax-media/nad-product-card.avif),
     linear-gradient(
       180deg,
       color-mix(in oklch, var(--sand) 70%, var(--forest)),
@@ -88,7 +88,7 @@ main[data-retro-scope],
 .retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-card[data-card='sermorelin'],
 .explore-card[data-card='sermorelin'] {
   background-image:
-    url(/images/yucca-clone/expt-sermorelin-vial.png),
+    url('/images/pax-media/expt-sermorelin-vial.png?v=clean1'),
     linear-gradient(
       180deg,
       color-mix(in oklch, var(--dune) 50%, var(--sand)),

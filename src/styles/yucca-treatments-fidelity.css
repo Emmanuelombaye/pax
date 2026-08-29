@@ -159,7 +159,7 @@
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='nad'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-card[data-card='nad'] {
-  background-image: url(/images/yucca-clone/Nad-Yucca-Image.avif),
+  background-image: url(/images/pax-media/nad-product-card.avif),
     linear-gradient(
       180deg,
       color-mix(in oklch, var(--sand) 70%, var(--forest)),
@@ -175,7 +175,7 @@
 
 .retro-explore-tabs-wrap .explore-hero-card[data-card='sermorelin'],
 .retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-card[data-card='sermorelin'] {
-  background-image: url(/images/yucca-clone/expt-sermorelin-vial.png),
+  background-image: url(/images/pax-media/expt-sermorelin-vial.png?v=clean1),
     linear-gradient(
       180deg,
       color-mix(in oklch, var(--dune) 50%, var(--sand)),

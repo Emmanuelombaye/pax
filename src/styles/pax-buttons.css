@@ -49,7 +49,7 @@ a.yx-btn--ghost {
 
 /* —— Hero: invert primary so it reads on forest scrim —— */
 .retro-home-hero-btn--primary,
-.yucca-home .retro-home-hero-btn--primary {
+.pax-home .retro-home-hero-btn--primary {
   background: var(--btn-bg-on-dark) !important;
   color: var(--btn-text-on-dark) !important;
   border: 2px solid var(--sand) !important;
@@ -57,14 +57,14 @@ a.yx-btn--ghost {
 }
 
 .retro-home-hero-btn--secondary,
-.yucca-home .retro-home-hero-btn--secondary {
+.pax-home .retro-home-hero-btn--secondary {
   background: color-mix(in oklch, var(--sand) 92%, transparent) !important;
   color: var(--forest) !important;
   border: 2px solid var(--forest) !important;
   box-shadow: var(--btn-shadow-on-dark) !important;
 }
 
-.yucca-home .retro-home-hero-btn-chevron {
+.pax-home .retro-home-hero-btn-chevron {
   background: var(--forest) !important;
   color: var(--sand) !important;
 }
@@ -78,9 +78,9 @@ a.yx-btn--ghost {
 .yx-clone .pax-knowall__cta,
 .yx-clone .retro-home-reviews-cta,
 .yx-clone .retro-home-closing-cta,
-.yucca-home .retro-home-reviews-cta,
-.yucca-home .retro-home-closing-cta,
-.yucca-home .retro-home-treatments-cta,
+.pax-home .retro-home-reviews-cta,
+.pax-home .retro-home-closing-cta,
+.pax-home .retro-home-treatments-cta,
 .goal-product-cta--primary,
 .yx-clone .retro-clinical__cta,
 .retro-clinical__cta,
@@ -111,7 +111,7 @@ a.yx-btn--ghost {
 
 /* Ghost / secondary product CTAs — never same fill as card */
 .goal-product-cta--ghost,
-.yucca-home .goal-product-cta--ghost {
+.pax-home .goal-product-cta--ghost {
   background: var(--sand) !important;
   color: var(--forest) !important;
   border: 2px solid var(--forest) !important;
