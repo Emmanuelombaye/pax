@@ -48,7 +48,7 @@ export const HOW_STEPS = [
     titleItalic: 'medication',
     body: 'Once approved, your prescription is sent to our licensed partner pharmacy and fulfilled to your exact treatment plan. Your medication ships via expedited delivery — securely packaged and delivered directly to your door.',
     image: {
-      src: `${HIW}/?v=noplus2`,
+      src: `${HIW}/receive-your-medication.webp?v=noplus3`,
       alt: 'Pax Tirzepatide medication delivered in discreet packaging',
     },
     chips: ['Licensed pharmacy', 'Expedited shipping', 'Discreet packaging'],
@@ -99,11 +99,11 @@ export const HOW_WHY = [
 
 export const HOW_MEDIA = {
   priority: {
-    src: `${HIW}/?v=noplus2`,
+    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus3`,
     alt: 'Pax Patient Center dashboard showing treatment plan and health records',
   },
   cta: {
-    src: `${HIW}/?v=noplus2`,
+    src: `${HIW}/patient-portal-dashboard-semaglutide-mobile.webp?v=noplus3`,
     alt: 'Pax Patient Center on mobile — track progress and manage treatment',
   },
 };

@@ -840,7 +840,7 @@
   width: min(100%, 16.5rem);
 }
 
-.hiw-cta__media--portal img {
+.hiw-cta__media--portal > img {
   position: absolute;
   inset: 0;
   width: 100%;
