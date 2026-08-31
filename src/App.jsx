@@ -21,6 +21,7 @@ function parseHashTab(hashRaw) {
   if (route === 'start' || route.startsWith('start/')) return 'start';
   if (route === 'checkout/success' || route === 'checkout-success') return 'checkout-success';
   if (route === 'brand-compare') return 'brand-compare';
+  if (route === 'faq') return 'home';
   // Deep links: #/treatments/weight-loss and /treatments/weight-loss
   if (route === 'treatments' || route.startsWith('treatments/')) return 'treatments';
   // Providers / Education nav disabled — deep links fall back to home
@@ -56,8 +57,10 @@ export default function App() {
   useEffect(() => {
     canonicalizePathToHash();
     const onHashChange = () => {
-      setCurrentTab(parseHashTab());
-      window.scrollTo(0, 0);
+      const next = parseHashTab();
+      setCurrentTab(next);
+      const route = window.location.hash.replace(/^#\/?/, '').split('?')[0].replace(/\/$/, '');
+      if (route !== 'faq') window.scrollTo(0, 0);
     };
     window.addEventListener('hashchange', onHashChange);
     window.addEventListener('popstate', onHashChange);

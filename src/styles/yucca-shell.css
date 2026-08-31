@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: clamp(1.1rem, 2.2vw, 2rem);
+  gap: clamp(0.85rem, 1.6vw, 1.65rem);
 }
 
 .yx-nav__link {
@@ -97,6 +97,84 @@
 .yx-nav__link.active {
   opacity: 1;
   color: var(--forest);
+}
+
+.yx-dd {
+  position: relative;
+}
+
+.yx-dd__trigger {
+  appearance: none;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: inherit;
+}
+
+.yx-dd__chev {
+  display: inline-flex;
+  width: 0.7rem;
+  height: 0.7rem;
+  opacity: 0.65;
+  transition: transform 0.2s ease;
+}
+
+.yx-dd__chev svg {
+  width: 100%;
+  height: 100%;
+}
+
+.yx-dd.is-open .yx-dd__chev {
+  transform: rotate(180deg);
+}
+
+.yx-dd__menu {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 50%;
+  z-index: 80;
+  min-width: 13.5rem;
+  margin: 0;
+  padding: 0.4rem;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1.5px solid color-mix(in oklch, var(--forest) 14%, transparent);
+  border-radius: 1rem;
+  box-shadow: 0 16px 36px -18px color-mix(in oklch, var(--forest) 28%, transparent);
+}
+
+.yx-dd__menu[hidden] {
+  display: none;
+}
+
+.yx-dd__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.7rem;
+  color: var(--forest);
+  text-decoration: none;
+  font-family: var(--font-display, inherit);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.yx-dd__item small {
+  font-family: var(--font-body, inherit);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  color: color-mix(in oklch, var(--forest) 58%, transparent);
+}
+
+.yx-dd__item:hover,
+.yx-dd__item:focus-visible {
+  background: color-mix(in oklch, var(--sand) 82%, var(--dune));
 }
 
 .yx-nav__actions {

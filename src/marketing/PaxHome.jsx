@@ -166,7 +166,7 @@ function ProvidersSection() {
 
 function FaqSection({ activeFaq, onFaqToggle }) {
   return (
-    <section className="retro-faqs">
+    <section className="retro-faqs" id="pax-faq">
       <div className="retro-faqs__head">
         <h2 className="retro-faqs__heading">We&rsquo;ve got you.</h2>
         <p className="retro-faqs__sub">You have questions, we have answers.</p>

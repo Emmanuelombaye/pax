@@ -205,4 +205,11 @@
     padding-top: 2.35rem !important;
     padding-bottom: 2.35rem !important;
   }
+
+  .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-guarantee-logo {
+    width: auto !important;
+    height: 2rem !important;
+    min-width: 8.75rem !important;
+    max-width: 9.5rem !important;
+  }
 }

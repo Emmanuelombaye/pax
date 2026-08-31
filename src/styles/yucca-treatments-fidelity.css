@@ -380,9 +380,11 @@
 .retro-explore-tabs-wrap [data-explore-tab-pane='longevity'] .explore-hero-guarantee > img,
 .retro-explore-tabs-wrap [data-explore-tab-pane='muscle-recovery'] .explore-hero-guarantee > img,
 .retro-explore-tabs-wrap [data-explore-tab-pane='weight-loss'] .explore-hero-guarantee > img {
-  display: inline-block !important;
+  display: block !important;
   width: auto !important;
-  height: 1rem !important;
+  height: 2rem !important;
+  min-width: 8.75rem !important;
+  max-width: 9.5rem !important;
 }
 
 .retro-explore-tabs-wrap .explore-hero-divider {

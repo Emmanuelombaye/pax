@@ -21,9 +21,46 @@ const START_TREATMENT_MAP = {
   'muscle-recovery': 'semaglutide',
 };
 
+const NAV_TREATMENTS = [
+  { href: '#/treatments/weight-loss', label: 'Weight loss', hint: 'Semaglutide & Tirzepatide' },
+];
+
+const NAV_LEGAL = [
+  { href: '#/terms', label: 'Terms of Use' },
+  { href: '#/privacy', label: 'Privacy Policy' },
+  { href: '#/telehealth-consent', label: 'Telehealth Consent' },
+  { href: '#/hipaa', label: 'HIPAA Notice' },
+];
+
+function NavDropdown({ id, label, open, active, onToggle, children }) {
+  return (
+    <div className={`yx-dd${open ? ' is-open' : ''}${active ? ' is-active' : ''}`}>
+      <button
+        type="button"
+        className={`yx-nav__link yx-dd__trigger${active ? ' active' : ''}`}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        aria-controls={`yx-dd-${id}`}
+        onClick={onToggle}
+      >
+        {label}
+        <span className="yx-dd__chev" aria-hidden="true">
+          <svg viewBox="0 0 12 8" fill="none">
+            <path d="M1.5 1.75L6 6.25L10.5 1.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </button>
+      <div id={`yx-dd-${id}`} className="yx-dd__menu" role="menu" hidden={!open}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function MarketingApp({ currentTab }) {
   // Mobile Nav State
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   // Header Scroll State
   const [isScrolled, setIsScrolled] = useState(false);
   // FAQ Active State
@@ -35,7 +72,35 @@ export default function MarketingApp({ currentTab }) {
 
   useEffect(() => {
     setIsNavOpen(false);
+    setOpenMenu(null);
   }, [currentTab]);
+
+  useEffect(() => {
+    const route = window.location.hash.replace(/^#\/?/, '').split('?')[0].replace(/\/$/, '');
+    if (currentTab !== 'home' || route !== 'faq') return undefined;
+    const node = document.getElementById('pax-faq');
+    if (!node) return undefined;
+    const timer = window.setTimeout(() => {
+      node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+    return () => window.clearTimeout(timer);
+  }, [currentTab]);
+
+  useEffect(() => {
+    if (!openMenu) return undefined;
+    const onPointer = (event) => {
+      if (!event.target.closest?.('.yx-dd')) setOpenMenu(null);
+    };
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpenMenu(null);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [openMenu]);
 
   // Header scroll observer
   useEffect(() => {
@@ -153,6 +218,18 @@ export default function MarketingApp({ currentTab }) {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const goToFaq = (event) => {
+    event?.preventDefault?.();
+    setOpenMenu(null);
+    if (isNavOpen) toggleMobileNav();
+    if (currentTab === 'home') {
+      document.getElementById('pax-faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.location.hash !== '#/faq') window.history.replaceState(null, '', '#/faq');
+      return;
+    }
+    window.location.hash = '#/faq';
+  };
+
   const openStart = (treatmentSeed) => {
     if (!treatmentSeed) {
       window.location.hash = '#/start';
@@ -191,15 +268,58 @@ export default function MarketingApp({ currentTab }) {
 
           <nav className="yx-nav" aria-label="Primary">
             <div className="yx-nav__links">
-              <a href="#/treatments/weight-loss" className={`yx-nav__link ${currentTab === 'treatments' ? 'active' : ''}`}>
-                Treatments
-              </a>
+              <NavDropdown
+                id="treatments"
+                label="Treatments"
+                open={openMenu === 'treatments'}
+                active={currentTab === 'treatments'}
+                onToggle={() => setOpenMenu(openMenu === 'treatments' ? null : 'treatments')}
+              >
+                {NAV_TREATMENTS.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    role="menuitem"
+                    className="yx-dd__item"
+                    onClick={() => setOpenMenu(null)}
+                  >
+                    <span>{item.label}</span>
+                    {item.hint ? <small>{item.hint}</small> : null}
+                  </a>
+                ))}
+              </NavDropdown>
               <a
                 href="#/how-it-works"
                 className={`yx-nav__link ${currentTab === 'how-it-works' ? 'active' : ''}`}
               >
                 How it works
               </a>
+              <a
+                href="#/faq"
+                className="yx-nav__link"
+                onClick={goToFaq}
+              >
+                FAQ
+              </a>
+              <NavDropdown
+                id="legal"
+                label="Legal"
+                open={openMenu === 'legal'}
+                active={LEGAL_PAGE_IDS.includes(currentTab)}
+                onToggle={() => setOpenMenu(openMenu === 'legal' ? null : 'legal')}
+              >
+                {NAV_LEGAL.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    role="menuitem"
+                    className="yx-dd__item"
+                    onClick={() => setOpenMenu(null)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </NavDropdown>
             </div>
           </nav>
 
@@ -272,12 +392,32 @@ export default function MarketingApp({ currentTab }) {
               →
             </span>
           </a>
+          <a href="#/faq" className="mobile-link" onClick={goToFaq}>
+            FAQ
+            <span className="mobile-link__chev" aria-hidden="true">
+              →
+            </span>
+          </a>
           <a href="#/start" className="mobile-link" onClick={toggleMobileNav}>
             Patient Center
             <span className="mobile-link__chev" aria-hidden="true">
               →
             </span>
           </a>
+        </div>
+
+        <p className="mobile-nav__eyebrow">Legal</p>
+        <div className="mobile-nav__links mobile-nav__links--legal">
+          {NAV_LEGAL.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`mobile-link mobile-link--legal ${currentTab === item.href.replace('#/', '') ? 'active' : ''}`}
+              onClick={toggleMobileNav}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
 
         <div className="mobile-nav__footer">
@@ -604,6 +744,13 @@ export default function MarketingApp({ currentTab }) {
 
           <div className="footer-bottom">
             <p className="footer-copy">Pax Longevity LLC d/b/a Pax Longevity® · © {new Date().getFullYear()} Pax Longevity®. All rights reserved.</p>
+            <nav className="footer-legal-links" aria-label="Legal">
+              {LEGAL_LINKS.map((link) => (
+                <a key={`bottom-${link.id}`} href={link.href} className="footer-legal-link">
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
       </footer>
