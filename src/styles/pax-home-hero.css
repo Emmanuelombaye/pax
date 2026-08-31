@@ -147,7 +147,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
     gap: 3.25rem;
-    align-items: center;
+    align-items: start;
     min-height: 34rem;
     overflow: visible;
     border: 0;
@@ -175,8 +175,8 @@
   .pax-home .pax-home-hero__copy {
     order: 1;
     min-height: 0;
-    padding: 0;
-    justify-content: center;
+    padding: 1.35rem 0 0;
+    justify-content: flex-start;
   }
 
   .pax-home .pax-home-hero__copy-top {
