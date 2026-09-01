@@ -24,8 +24,8 @@ function parseHashTab(hashRaw) {
   if (route === 'faq') return 'home';
   // Deep links: #/treatments/weight-loss and /treatments/weight-loss
   if (route === 'treatments' || route.startsWith('treatments/')) return 'treatments';
-  // Providers / Education nav disabled — deep links fall back to home
-  if (route === 'providers' || route === 'advisors' || route === 'education') return 'home';
+  // Providers / Education / Vision nav disabled — deep links fall back to home
+  if (route === 'providers' || route === 'advisors' || route === 'education' || route === 'vision') return 'home';
   if (ROUTE_TABS.includes(route)) return route;
   return 'home';
 }

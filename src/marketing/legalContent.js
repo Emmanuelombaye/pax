@@ -169,7 +169,7 @@ export const LEGAL_PAGES = {
     id: 'terms',
     title: 'Terms of Use',
     eyebrow: 'Legal',
-    lastUpdated: 'August 15, 2026',
+    lastUpdated: 'September 1, 2026',
     intro:
       'These Terms of Use govern your access to and use of the websites, online services, assessments, checkout flows, patient-facing technology, communications, and related non-clinical services provided by Pax Longevity LLC d/b/a Pax Longevity® (the “Company,” “we,” “our,” or “us”) (collectively, the “Services”). By accessing or using the Services, you agree to these Terms.',
     sections: [
@@ -268,7 +268,7 @@ export const LEGAL_PAGES = {
       {
         heading: '14. SHIPPING AND FULFILLMENT',
         body: [
-          'Shipping and delivery estimates are not guarantees. Timing may vary based on provider review, pharmacy processing, product or ingredient availability, prescription clarification, address verification, carrier delays, weather, holidays, and applicable law.',
+          'Shipping and delivery estimates are not guarantees. Timing may vary based on provider review, pharmacy processing, product or ingredient availability, prescription clarification, address verification, carrier delays, weather, holidays, and applicable law. Our partner pharmacies are appropriately licensed compounding pharmacies that prepare patient-specific medications pursuant to valid prescriptions and in accordance with applicable federal and state requirements.',
           'Medications will be shipped only to locations where the dispensing pharmacy is authorized to dispense and ship the medication. You are responsible for providing a complete and accurate delivery address and for following storage, handling, and use instructions provided by the pharmacy or provider.',
         ],
       },

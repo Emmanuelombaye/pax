@@ -188,7 +188,7 @@ const THREAT_DOMAINS = [
 ];
 
 const ROUTE_TABS = [
-  'vision', 'threats', 'treatments', 'how-it-works',
+  'threats', 'treatments', 'how-it-works',
   'privacy', 'terms', 'providernetwork', 'states-we-serve', 'telehealth-consent', 'hipaa', 'medical-disclaimer', 'patient-safety',
   'shipping', 'refund-policy',
   ...LIFESTYLE_PILLARS.map((pillar) => pillar.id)
