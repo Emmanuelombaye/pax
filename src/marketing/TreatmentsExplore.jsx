@@ -254,7 +254,7 @@ const WL_FAQS = [
   },
   {
     q: 'Are compounded medications FDA-approved?',
-    a: 'No. Pax Longevity provides compounded medications containing the same active pharmaceutical ingredients (APIs) as brand-name drugs. Compounded medications are prepared by licensed U.S. pharmacies, are not FDA-approved, and do not undergo FDA review for safety, effectiveness, or manufacturing quality.',
+    a: 'Compounded medications are not FDA-approved. They may be prescribed for an individual patient when a licensed clinician determines they are clinically appropriate.',
   },
 ];
 
@@ -277,7 +277,7 @@ const _NAD_FAQS = [
   },
   {
     q: 'Are compounded medications FDA-approved?',
-    a: 'No. Pax Longevity provides compounded medications containing the same active pharmaceutical ingredients (APIs) as brand-name drugs. Compounded medications are prepared by licensed U.S. pharmacies, are not FDA-approved, and do not undergo FDA review for safety, effectiveness, or manufacturing quality.',
+    a: 'Compounded medications are not FDA-approved. They may be prescribed for an individual patient when a licensed clinician determines they are clinically appropriate.',
   },
 ];
 
@@ -300,7 +300,7 @@ const _SER_FAQS = [
   },
   {
     q: 'Are compounded medications FDA-approved?',
-    a: 'No. Pax Longevity provides compounded medications containing the same active pharmaceutical ingredients (APIs) as brand-name drugs. Compounded medications are prepared by licensed U.S. pharmacies, are not FDA-approved, and do not undergo FDA review for safety, effectiveness, or manufacturing quality.',
+    a: 'Compounded medications are not FDA-approved. They may be prescribed for an individual patient when a licensed clinician determines they are clinically appropriate.',
   },
 ];
 
