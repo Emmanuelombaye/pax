@@ -5,6 +5,21 @@ const CADUCEUS_SRC = '/brand/badge-hipaa-caduceus.svg?v=1';
 export default function FooterTrustBadges() {
   return (
     <div className="footer-trust" role="group" aria-label="Pharmacy compounding, licensed provider review, and data protection">
+      <a
+        href="https://www.legitscript.com/websites/?checker_keywords=paxlongevity.com"
+        className="footer-trust__legitscript"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Verify LegitScript Approval for www.paxlongevity.com"
+      >
+        <img
+          src="https://static.legitscript.com/seals/51933741.png"
+          alt="Verify Approval for www.paxlongevity.com"
+          width="73"
+          height="79"
+        />
+      </a>
+
       <a href="#/shipping" className="footer-trust__badge">
         <span className="footer-trust__icon footer-trust__icon--flag">
           <img src={FLAG_SRC} alt="" width="38" height="26" decoding="async" />
