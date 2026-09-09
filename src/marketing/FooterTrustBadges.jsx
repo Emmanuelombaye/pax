@@ -1,6 +1,6 @@
-const FLAG_SRC = '/brand/badge-usa-flag.svg?v=1';
-const PROVIDER_SRC = '/brand/badge-licensed-provider.svg?v=1';
-const CADUCEUS_SRC = '/brand/badge-hipaa-caduceus.svg?v=1';
+const FLAG_SRC = '/brand/badge-usa-flag.svg?v=2';
+const PROVIDER_SRC = '/brand/badge-licensed-provider.svg?v=2';
+const HIPAA_SRC = '/brand/badge-hipaa-caduceus.svg?v=2';
 
 export default function FooterTrustBadges() {
   return (
@@ -20,7 +20,7 @@ export default function FooterTrustBadges() {
         />
       </a>
 
-      <a href="#/shipping" className="footer-trust__badge">
+      <a href="#/shipping" className="footer-trust__badge footer-trust__badge--flag">
         <span className="footer-trust__icon footer-trust__icon--flag">
           <img src={FLAG_SRC} alt="" width="38" height="26" decoding="async" />
         </span>
@@ -30,19 +30,20 @@ export default function FooterTrustBadges() {
         </span>
       </a>
 
-      <a href="#/providernetwork" className="footer-trust__badge">
-        <span className="footer-trust__icon footer-trust__icon--provider">
-          <img src={PROVIDER_SRC} alt="" width="48" height="48" decoding="async" />
+      <a href="#/providernetwork" className="footer-trust__badge footer-trust__badge--seal">
+        <span className="footer-trust__seal">
+          <img src={PROVIDER_SRC} alt="" width="64" height="64" decoding="async" />
         </span>
         <span className="footer-trust__copy">
           <span className="footer-trust__kicker">Reviewed by</span>
           <span className="footer-trust__title">Licensed U.S. Providers</span>
+          <span className="footer-trust__sub">Verified</span>
         </span>
       </a>
 
-      <a href="#/hipaa" className="footer-trust__badge">
-        <span className="footer-trust__icon footer-trust__icon--caduceus">
-          <img src={CADUCEUS_SRC} alt="" width="48" height="48" decoding="async" />
+      <a href="#/hipaa" className="footer-trust__badge footer-trust__badge--seal">
+        <span className="footer-trust__seal">
+          <img src={HIPAA_SRC} alt="" width="64" height="64" decoding="async" />
         </span>
         <span className="footer-trust__copy">
           <span className="footer-trust__kicker">Data protected</span>

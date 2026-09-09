@@ -1,14 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="pax-hipaa-title">
-  <title id="pax-hipaa-title">HIPAA</title>
-  <g stroke="#FAF6F0" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="24" cy="8.8" r="3.4"/>
-    <path d="M24 12.4v29.2"/>
-    <path d="M24 16C16.5 14.4 10 16.8 5 22.8c6.8-3.4 12.8-3.6 19-1.2"/>
-    <path d="M24 16c7.5-1.6 14 0.8 19 6.8-6.8-3.4-12.8-3.6-19-1.2"/>
-    <path d="M24 19.2C17.8 18.2 12.4 20 8.2 24.2"/>
-    <path d="M24 19.2c6.2-1 11.6 0.8 15.8 5"/>
-    <path d="M24 23.2c-6.8 2.4-7.6 7.6 0 10.4 7.6 2.8 6.8 8 0 10.6"/>
-    <path d="M24 23.2c6.8 2.4 7.6 7.6 0 10.4-7.6 2.8-6.8 8 0 10.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-labelledby="pax-hipaa-seal-title">
+  <title id="pax-hipaa-seal-title">HIPAA Compliant</title>
+  <defs>
+    <linearGradient id="pax-hipaa-ring" x1="12" y1="8" x2="68" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D7E7F5"/>
+    </linearGradient>
+    <linearGradient id="pax-hipaa-face" x1="20" y1="16" x2="60" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B3A6E"/>
+      <stop offset="1" stop-color="#062447"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="36" fill="url(#pax-hipaa-face)" stroke="url(#pax-hipaa-ring)" stroke-width="3.5"/>
+  <circle cx="40" cy="40" r="30.5" stroke="rgba(255,255,255,0.28)" stroke-width="1.25"/>
+  <g fill="none" stroke="#F7FBFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 18.5l14 5.2v10.8c0 9.4-5.8 16.4-14 19.5-8.2-3.1-14-10.1-14-19.5V23.7l14-5.2z"/>
+    <path d="M40 28.5v16"/>
+    <path d="M33.5 36.5h13"/>
   </g>
-  <circle cx="24" cy="8.8" r="1.2" fill="#C17C74"/>
+  <circle cx="40" cy="62.5" r="6.2" fill="#22C55E"/>
+  <path d="M37.2 62.5l1.9 1.9 3.8-3.9" stroke="#062447" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
