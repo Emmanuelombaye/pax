@@ -1,6 +1,14 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { BrandMark } from "../brand/index.js";
 import {
+  listStorefrontProducts,
+  startProductIntake,
+} from "../brand/connect.js";
+import {
+  fallbackProducts,
+  findProductForTreatment,
+} from "../brand/productMap.js";
+import {
   TREATMENTS,
   US_STATES,
   resolveTreatmentId,
@@ -70,6 +78,11 @@ export default function StartFlow() {
   const [questionnaireAnswers, setQuestionnaireAnswers] = useState(() => loadPersistedState("pax_questionnaire", {}));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const [intakeRedirect, setIntakeRedirect] = useState({
+    status: "loading", // loading | ready | failed
+    url: null,
+    error: null,
+  });
 
   // Persist State Effects
   useEffect(() => { savePersistedState("pax_screen", screen); }, [screen]);
@@ -80,6 +93,45 @@ export default function StartFlow() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [screen]);
+
+  // Brand Storefront: send patients to VirtualClinicOS hosted intake
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      try {
+        let products;
+        try {
+          products = await listStorefrontProducts();
+        } catch {
+          products = fallbackProducts();
+        }
+        if (cancelled) return;
+        const product = findProductForTreatment(products, treatmentId);
+        if (product?.intakeUrl) {
+          setIntakeRedirect({ status: "ready", url: product.intakeUrl, error: null });
+          startProductIntake(product);
+          return;
+        }
+        setIntakeRedirect({
+          status: "failed",
+          url: null,
+          error: "No hosted intake URL for this treatment yet.",
+        });
+      } catch (err) {
+        if (cancelled) return;
+        setIntakeRedirect({
+          status: "failed",
+          url: null,
+          error: err?.message || "Could not open clinical intake.",
+        });
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [treatmentId]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -114,12 +166,41 @@ export default function StartFlow() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const submitCheckout = async () => {
-    if (!validateCheckout()) return;
+  const openHostedIntake = async () => {
     setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1500));
-    setIsSubmitting(false);
-    setScreen("ORDER_RECEIVED");
+    try {
+      if (intakeRedirect.url) {
+        startProductIntake(intakeRedirect.url);
+        return;
+      }
+      let products;
+      try {
+        products = await listStorefrontProducts();
+      } catch {
+        products = fallbackProducts();
+      }
+      const product = findProductForTreatment(products, treatmentId);
+      if (product?.intakeUrl) {
+        startProductIntake(product);
+        return;
+      }
+      setErrors((prev) => ({
+        ...prev,
+        form: "Hosted intake is unavailable right now. Please try again or contact support.",
+      }));
+    } catch (err) {
+      setErrors((prev) => ({
+        ...prev,
+        form: err?.message || "Could not open clinical intake.",
+      }));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const submitCheckout = async () => {
+    // Prefer VirtualClinicOS hosted intake (payment + clinical questions)
+    await openHostedIntake();
   };
 
   const activeQuestions = useMemo(() => {
@@ -175,6 +256,28 @@ export default function StartFlow() {
   
   const pillStyle = { backgroundColor: "color-mix(in oklch, var(--dune) 20%, var(--sand))", color: "var(--forest)", padding: "0.35rem 1rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1rem", border: "1px solid color-mix(in oklch, var(--forest) 15%, transparent)" };
 
+  if (intakeRedirect.status === "loading" || intakeRedirect.status === "ready") {
+    return (
+      <div className="sf">
+        <header className="sf-top">
+          <div className="sf-top__inner">
+            <a href="#/" className="sf-brand" aria-label="Pax home">
+              <BrandMark variant="wordmark" />
+            </a>
+          </div>
+        </header>
+        <main className="sf-main" style={{ padding: "4rem 1.5rem", textAlign: "center" }}>
+          <p style={{ color: "var(--forest)", fontWeight: 700, fontSize: "1.15rem", marginBottom: "0.5rem" }}>
+            Opening secure clinical intake…
+          </p>
+          <p style={{ color: "#64748b", maxWidth: "28rem", margin: "0 auto" }}>
+            You are being connected to {treatment.name} on intake.paxlongevity.com for payment and medical review.
+          </p>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="sf">
       <header className="sf-top">
@@ -189,6 +292,14 @@ export default function StartFlow() {
       </header>
 
       <main className="sf-main">
+        {intakeRedirect.status === "failed" && intakeRedirect.error && (
+          <div style={{ ...boxStyle, borderColor: "color-mix(in oklch, var(--terracotta) 35%, transparent)" }}>
+            <p style={{ color: "var(--terracotta)", fontWeight: 600, margin: "0 0 0.75rem" }}>{intakeRedirect.error}</p>
+            <button type="button" onClick={openHostedIntake} disabled={isSubmitting} style={buttonStyle}>
+              {isSubmitting ? "Opening intake…" : "Retry hosted clinical intake →"}
+            </button>
+          </div>
+        )}
         {screen === "CHECKOUT" && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "flex-start", marginTop: "2rem" }}>
             <div style={{ flex: "1 1 500px" }}>
@@ -312,8 +423,9 @@ export default function StartFlow() {
                   </div>
                 )}
 
+                {errors.form && <div style={{ ...errorStyle, marginBottom: "0.75rem" }}>{errors.form}</div>}
                 <button onClick={submitCheckout} disabled={isSubmitting} style={buttonStyle}>
-                  {isSubmitting ? "Processing..." : "Continue to Medical Review"}
+                  {isSubmitting ? "Opening intake…" : "Continue to clinical intake →"}
                 </button>
                 <div style={{ marginTop: "1rem", padding: "0.75rem", backgroundColor: "color-mix(in oklch, var(--dune) 10%, var(--sand))", border: "1px solid color-mix(in oklch, var(--forest) 10%, transparent)", borderRadius: "0.5rem", textAlign: "center" }}>
                   <span style={{ fontSize: "0.8rem", color: "var(--forest)", fontWeight: 700 }}>✓ Zero commitment today.</span>

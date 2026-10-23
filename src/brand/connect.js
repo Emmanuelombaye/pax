@@ -1,20 +1,41 @@
 /**
  * Pax Connect Adapter — portable data boundary.
- * Today: local IndexedDB (storage.js)
- * Later: set VITE_PAX_CONNECT_MODE=remote + VITE_PAX_API_URL
+ * Storefront: VirtualClinicOS Brand Storefront (browser brand ID).
+ * Patient Center: local IndexedDB until a patient API is wired.
  */
 import { PAX_PASSPORT } from '../brand/passport.js';
 import * as local from '../portal/storage.js';
+import { beginIntake, fetchCategories, fetchProduct, fetchProducts } from './storefront.js';
+import { mapCatalog } from './productMap.js';
 
 const isRemote = () => PAX_PASSPORT.connect.mode === 'remote' && !!PAX_PASSPORT.connect.baseUrl;
 
 async function remoteNotReady(action) {
   throw new Error(
-    `Remote connect is not wired yet (${action}). Pax is running in local portable mode. Set VITE_PAX_CONNECT_MODE=local or implement the API client.`,
+    `Remote patient connect is not wired yet (${action}). Patient Center is local; storefront catalog uses VirtualClinicOS.`,
   );
 }
 
 export const connectMode = () => (isRemote() ? 'remote' : 'local');
+
+export async function listStorefrontProducts() {
+  const raw = await fetchProducts();
+  return mapCatalog(raw);
+}
+
+export async function getStorefrontProduct(slugOrSku) {
+  const raw = await fetchProduct(slugOrSku);
+  return raw ? mapCatalog([raw])[0] : null;
+}
+
+export async function listStorefrontCategories() {
+  return fetchCategories();
+}
+
+export function startProductIntake(productOrUrl) {
+  const url = typeof productOrUrl === 'string' ? productOrUrl : productOrUrl?.intakeUrl;
+  beginIntake(url);
+}
 
 export async function login(payload) {
   if (isRemote()) return remoteNotReady('login');
@@ -82,9 +103,14 @@ export function clearPendingOrder() {
 }
 
 export async function dbStats() {
-  if (isRemote()) return { mode: 'remote', note: 'not implemented' };
+  if (isRemote()) return { mode: 'remote', note: 'patient API not implemented' };
   const stats = await local.dbStats();
-  return { mode: 'local', ...stats };
+  return {
+    mode: 'local',
+    storefront: PAX_PASSPORT.connect.baseUrl,
+    brandId: PAX_PASSPORT.connect.brandId,
+    ...stats,
+  };
 }
 
 export { DEMO_CREDENTIALS, inspectAuthDb, getAuditLog } from '../portal/authDictDb.js';

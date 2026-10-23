@@ -77,10 +77,14 @@ export const PAX_PASSPORT = {
 
   connect: {
     mode: (import.meta.env.VITE_PAX_CONNECT_MODE || 'local').trim(),
-    baseUrl: (import.meta.env.VITE_PAX_API_URL || '').trim(),
-    brandId: (import.meta.env.VITE_PAX_BRAND_ID || '').trim(),
+    baseUrl: (
+      import.meta.env.VITE_PAX_API_URL || 'https://portal.virtualclinicos.com'
+    ).trim(),
+    brandId: (
+      import.meta.env.VITE_PAX_BRAND_ID || '4065c369-9a3c-47af-8d6f-07cc7238d329'
+    ).trim(),
     notes:
-      'Pax ships as a portable frontend with IndexedDB. Flip mode to remote and point baseUrl at your API when ready.',
+      'Catalog + intake via VirtualClinicOS Brand Storefront (public brand ID). Patient Center stays local until a patient API is connected.',
   },
 
   compliance: {
@@ -88,7 +92,7 @@ export const PAX_PASSPORT = {
       'Pax Longevity patient platform for longevity care, licensed U.S. providers, and compounding pharmacy fulfillment.',
     compounding: '503A compounded medications are not FDA-approved as finished products.',
     demoDisclaimer:
-      'Patient Center demo data is stored locally on this device until a production backend is connected.',
+      'Catalog and intake use VirtualClinicOS. Patient Center demo data stays on this device until a patient backend is connected.',
   },
 };
 
