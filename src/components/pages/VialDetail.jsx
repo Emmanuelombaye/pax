@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLang } from "@/i18n";
 import { findProgram, findVial, relatedVials } from "@/data/vial-programs";
+import { intakeHref } from "@/brand/productMap.js";
 import NotFound from "@/components/pages/NotFound";
 import "@/styles/vial-page.css";
 
@@ -42,7 +43,7 @@ export default function VialDetail() {
           <p className="vial-note">
             {t("Prescription products require an online consultation with a healthcare provider who will determine if a prescription is appropriate.")}
           </p>
-          <Link href="/intake" className="vial-cta">{t("Request to discuss")}</Link>
+          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Request to discuss")}</Link>
         </div>
         <div className="vial-photo">
           <img src={item.image} alt={item.alt} />
@@ -96,7 +97,7 @@ export default function VialDetail() {
               </li>
             ))}
           </ul>
-          <Link href="/intake" className="vial-cta">{t("Request to discuss")}</Link>
+          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Request to discuss")}</Link>
         </div>
       </section>
 
