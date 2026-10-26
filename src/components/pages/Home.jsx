@@ -4,28 +4,18 @@ import Link from "next/link";
 import { useLang } from "@/i18n";
 import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
 import Vials from "@/components/Vials";
-import LiveTreatments from "@/components/LiveTreatments";
-import { DEFAULT_INTAKE_HREF, intakeHrefForProgram } from "@/brand/productMap.js";
+import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
 import "@/styles/footer-badges.css";
 
-const programs = [
-  {
-    slug: "weight",
-    tag: "Weight Loss",
-    title: "Semaglutide & Tirzepatide",
-    description: "Physician-titrated GLP-1 protocols with monthly refills after labs and a licensed visit.",
-    highlights: ["Semaglutide — live intake", "Tirzepatide — live intake", "Labs before treatment"],
-    price: "Clinical intake open",
-  },
-  {
-    slug: "longevity",
-    tag: "Longevity",
-    title: "NAD+",
-    description: "Cellular energy and healthy aging support when a physician includes NAD+ in your plan.",
-    highlights: ["NAD+ — live intake", "Physician review", "Hosted clinical intake"],
-    price: "Clinical intake open",
-  },
-];
+const treatments = LIVE_TREATMENTS.map((item) => ({
+  ...item,
+  href: `/treatments/${item.vialSlug}`,
+  intake: intakeHref(item.id),
+  blurb:
+    item.id === "nad"
+      ? "Cellular energy and healthy aging support when a physician includes it in your plan."
+      : "Physician-titrated weight care after labs and a licensed visit — never a cart checkout.",
+}));
 
 const panels = [
   { title: "Hormones", markers: ["Total Testosterone", "Free Testosterone", "Estradiol (E2)", "Progesterone", "SHBG"] },
@@ -127,7 +117,7 @@ export default function Home() {
               {[
                 ["01", "Physician-led", "Licensed U.S. doctors guiding every protocol from intake to refill."],
                 ["02", "Guided by data", "Bloodwork, biomarkers, and ongoing labs translated into clear practice."],
-                ["03", "Built for life", "Programs designed to compound over decades ? shipped to your door."],
+                ["03", "Built for life", "Semaglutide, Tirzepatide, and NAD+ — shipped after a licensed visit."],
               ].map(([n, title, desc]) => (
                 <div key={n}>
                   <p className="font-serif text-2xl text-terracotta">{n}</p>
@@ -144,41 +134,34 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-8 border-b border-ink/15 pb-12 md:flex-row md:items-end">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("? Programs")}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("Live catalog")}</p>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.1] text-ink md:text-6xl">
                 {t("Three live treatments,")} <em className="italic">{t("one practice.")}</em>
               </h2>
             </div>
             <p className="max-w-sm font-serif text-lg leading-relaxed text-ink/70">
-              {t("Physician-led prescription programs ? fulfilled by vetted pharmacy partners and shipped directly to your door.")}
+              {t("Only Semaglutide, Tirzepatide, and NAD+ are open for clinical intake right now — fulfilled by vetted pharmacy partners after a licensed visit.")}
             </p>
           </div>
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            {programs.map((program) => (
-              <div key={program.title} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg md:p-10">
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {treatments.map((item) => (
+              <div key={item.sku} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg md:p-10">
                 <div className="flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-ink/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-ink/60">{t(program.tag)}</span>
+                  <span className="rounded-full border border-ink/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-ink/60">{t(item.category)}</span>
                   <span className="text-xs uppercase tracking-[0.25em] text-terracotta">{t("Available now")}</span>
                 </div>
-                <h3 className="mt-6 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(program.title)}</h3>
-                <p className="mt-4 font-serif text-base leading-relaxed text-ink/70">{t(program.description)}</p>
-                <p className="mt-3 font-serif text-base text-terracotta">{t(program.price)}</p>
-                <ul className="mt-6 space-y-2 border-t border-ink/10 pt-6 font-serif text-sm text-ink/75">
-                  {program.highlights.map((item) => (
-                    <li key={item} className="flex gap-3"><span className="text-terracotta">?</span><span>{t(item)}</span></li>
-                  ))}
-                </ul>
+                <h3 className="mt-6 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(item.name)}</h3>
+                <p className="mt-4 font-serif text-base leading-relaxed text-ink/70">{t(item.blurb)}</p>
+                <p className="mt-3 font-serif text-base text-terracotta">{t("Clinical intake open")}</p>
                 <div className="mt-8 flex flex-col items-start gap-4">
-                  <Link href={`/programs/${program.slug}`} className="inline-block text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">{t("Learn More")}</Link>
-                  <Link href={intakeHrefForProgram(program.slug)} className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation ?")}</Link>
+                  <Link href={item.href} className="inline-block text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">{t("Learn More")}</Link>
+                  <Link href={item.intake} className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation →")}</Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      <LiveTreatments />
 
       <Vials />
 
