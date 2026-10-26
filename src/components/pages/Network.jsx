@@ -88,7 +88,7 @@ export default function Network() {
     <div className="network-page min-h-screen bg-sand text-ink">
       <header className="absolute inset-x-0 top-0 z-20">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 text-ink md:px-10">
-          <Link href="/" className="inline-flex shrink-0 items-center gap-3 font-serif text-2xl tracking-tight"><BrandSeal /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
+          <Link href="/" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl"><BrandSeal /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
           <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
             <li><Link href="/" className="hover:text-terracotta">Home</Link></li>
             <li><Link href="/network" className="text-terracotta active" aria-current="page">Network</Link></li>

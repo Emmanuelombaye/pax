@@ -38,7 +38,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/80" />
         <header className="absolute inset-x-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl flex-nowrap items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
-            <a href="#top" className="inline-flex shrink-0 items-center gap-3 font-serif text-2xl tracking-tight">
+            <a href="#top" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl">
               <BrandSeal />
               <span>Pax<span className="italic text-dune"> Health</span></span>
             </a>

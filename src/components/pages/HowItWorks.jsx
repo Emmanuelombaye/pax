@@ -202,7 +202,7 @@ export default function HowItWorks() {
         <img className="hiw-hero-photo" src={images.howItWorks.src} alt={images.howItWorks.alt} />
         <header className="absolute inset-x-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
-            <Link href="/" className="inline-flex items-center gap-3 font-serif text-2xl tracking-tight"><BrandSeal /><span>Pax<span className="italic text-dune"> Health</span></span></Link>
+            <Link href="/" className="inline-flex items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl"><BrandSeal /><span>Pax<span className="italic text-dune"> Health</span></span></Link>
             <div className="flex items-center gap-3">
               <LanguageToggle className="text-sand" />
               <Link href={DEFAULT_INTAKE_HREF} className="rounded-full bg-sand px-4 py-2 text-xs uppercase tracking-[0.16em] text-forest">{t("Take Assessment")}</Link>

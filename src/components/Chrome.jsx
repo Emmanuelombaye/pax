@@ -26,9 +26,9 @@ export function BrandSeal({ className = "" }) {
     <img
       src="/brand/pax-circular-seal-header.webp"
       alt=""
-      width={56}
-      height={56}
-      className={`h-10 w-10 shrink-0 rounded-full bg-sand object-contain md:h-14 md:w-14 ${className}`}
+      width={96}
+      height={96}
+      className={`h-16 w-16 shrink-0 rounded-full bg-sand object-contain md:h-24 md:w-24 ${className}`}
     />
   );
 }
