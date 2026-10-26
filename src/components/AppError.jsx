@@ -10,11 +10,11 @@ function copy(kind) {
   }
   if (kind === "crash") {
     return es
-      ? { title: "Algo sali? mal", body: "Actualiza la p?gina o vuelve al inicio.", home: "Ir al inicio" }
+      ? { title: "Algo salió mal", body: "Actualiza la página o vuelve al inicio.", home: "Ir al inicio" }
       : { title: "Something went wrong", body: "Refresh the page or return home.", home: "Go home" };
   }
   return es
-    ? { title: "P?gina no encontrada", body: "Esta direcci?n no est? en Pax Health.", home: "Ir al inicio" }
+    ? { title: "Página no encontrada", body: "Esta dirección no está en Pax Health.", home: "Ir al inicio" }
     : { title: "Page not found", body: "This address is not on Pax Health.", home: "Go home" };
 }
 

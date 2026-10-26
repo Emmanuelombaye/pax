@@ -14,7 +14,7 @@ const treatments = LIVE_TREATMENTS.map((item) => ({
   blurb:
     item.id === "nad"
       ? "Cellular energy and healthy aging support when a physician includes it in your plan."
-      : "Physician-titrated weight care after labs and a licensed visit — never a cart checkout.",
+      : "Physician-titrated weight care after labs and a licensed visit ? never a cart checkout.",
 }));
 
 const panels = [
@@ -69,7 +69,7 @@ export default function Home() {
           </nav>
         </header>
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-40 md:px-10 md:pb-28">
-          <p className="mb-6 text-xs uppercase tracking-[0.3em] text-dune">{t("Telehealth ? Longevity ? Performance")}</p>
+          <p className="mb-6 text-xs uppercase tracking-[0.3em] text-dune">{t("Telehealth · Longevity · Performance")}</p>
           <h1 className="max-w-5xl font-serif text-5xl leading-[1.02] text-sand md:text-7xl lg:text-[6.5rem]">
             {t("A modern telehealth clinic for the")} <em className="italic text-dune">{t("long life")}</em>.
           </h1>
@@ -78,7 +78,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a href="#membership" className="rounded-full bg-sand px-8 py-4 text-xs uppercase tracking-[0.22em] text-forest transition hover:bg-dune">{t("Membership")}</a>
-            <a href="#philosophy" className="text-xs uppercase tracking-[0.22em] text-sand/80 hover:text-sand">{t("Discover the practice ?")}</a>
+            <a href="#philosophy" className="text-xs uppercase tracking-[0.22em] text-sand/80 hover:text-sand">{t("Discover the practice →")}</a>
           </div>
         </div>
       </section>
@@ -104,14 +104,14 @@ export default function Home() {
 
       <section id="philosophy" className="w-full bg-sand py-28 md:py-40">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-12 md:px-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-terracotta md:col-span-3">{t("? Our philosophy")}</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-terracotta md:col-span-3">{t("— Our philosophy")}</p>
           <div className="md:col-span-9">
             <h2 className="font-serif text-4xl leading-[1.1] text-ink md:text-6xl">
-              {t("We believe longevity is a daily practice ?")}
+              {t("We believe longevity is a daily practice →")}
               <em className="italic text-terracotta"> {t("not a prescription.")}</em>
             </h2>
             <p className="mt-10 max-w-2xl font-serif text-xl leading-relaxed text-ink/75 md:text-2xl">
-              {t("Pax is Latin for peace. In a culture that rarely slows down, we've built a quiet counterweight: a virtual practice that helps you train intelligently, recover completely, and measure what matters. Our protocols draw from contemplative tradition and cutting-edge performance science in equal measure ? delivered through a secure telehealth experience, nationwide.")}
+              {t("Pax is Latin for peace. In a culture that rarely slows down, we've built a quiet counterweight: a virtual practice that helps you train intelligently, recover completely, and measure what matters. Our protocols draw from contemplative tradition and cutting-edge performance science in equal measure — delivered through a secure telehealth experience, nationwide.")}
             </p>
             <div className="mt-16 grid gap-10 border-t border-ink/10 pt-12 sm:grid-cols-3">
               {[
@@ -170,24 +170,24 @@ export default function Home() {
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <div>
               <div className="flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/40 bg-sand/60 px-4 py-2 text-xs uppercase tracking-[0.18em] text-terracotta">? {t("Clinical Accuracy Guarantee")}</span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/40 bg-sand/60 px-4 py-2 text-xs uppercase tracking-[0.18em] text-terracotta">? {t("CLIA Certified & CAP Accredited")}</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/40 bg-sand/60 px-4 py-2 text-xs uppercase tracking-[0.18em] text-terracotta">• {t("Clinical Accuracy Guarantee")}</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/40 bg-sand/60 px-4 py-2 text-xs uppercase tracking-[0.18em] text-terracotta">• {t("CLIA Certified & CAP Accredited")}</span>
               </div>
-              <p className="mt-8 text-xs uppercase tracking-[0.3em] text-terracotta">{t("? At-Home Diagnostics")}</p>
+              <p className="mt-8 text-xs uppercase tracking-[0.3em] text-terracotta">{t("— At-Home Diagnostics")}</p>
               <h2 className="mt-6 font-serif text-5xl leading-[1.05] text-ink md:text-7xl">
                 {t("Fast, painless,")} <em className="italic text-terracotta">{t("and cool.")}</em>
               </h2>
               <p className="mt-6 max-w-lg font-serif text-lg leading-relaxed text-ink/70">
-                {t("At-home blood testing and biomarker tracking, built into the Pax experience. Actionable results in less than 72 hours ? reviewed by your Pax physician.")}
+                {t("At-home blood testing and biomarker tracking, built into the Pax experience. Actionable results in less than 72 hours — reviewed by your Pax physician.")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link href={DEFAULT_INTAKE_HREF} className="rounded-full bg-terracotta px-8 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-terracotta/90">{t("Order your kit")}</Link>
                 <Link href={DEFAULT_INTAKE_HREF} className="rounded-full border border-ink/30 px-8 py-4 text-xs uppercase tracking-[0.22em] text-ink transition hover:border-ink hover:bg-ink hover:text-sand">{t("Subscribe & track")}</Link>
               </div>
               <ul className="mt-10 space-y-2 font-serif text-sm text-ink/75">
-                <li>? {t("HSA / FSA Eligible")}</li>
-                <li>? {t("Available in all 50 US States")}</li>
-                <li>? {t("One-time kit or quarterly subscription tracking")}</li>
+                <li>• {t("HSA / FSA Eligible")}</li>
+                <li>• {t("Available in all 50 US States")}</li>
+                <li>• {t("One-time kit or quarterly subscription tracking")}</li>
               </ul>
             </div>
             <div className="relative">
@@ -198,7 +198,7 @@ export default function Home() {
           <div className="mt-20 border-t border-ink/15 pt-12">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
               <h3 className="font-serif text-3xl leading-tight text-ink md:text-4xl">{t("What we measure.")}</h3>
-              <p className="max-w-md font-serif text-base text-ink/70">{t("A comprehensive longevity panel spanning every major system ? collected at home, analyzed in CLIA-certified labs.")}</p>
+              <p className="max-w-md font-serif text-base text-ink/70">{t("A comprehensive longevity panel spanning every major system — collected at home, analyzed in CLIA-certified labs.")}</p>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {panels.map((panel) => (
@@ -206,7 +206,7 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.22em] text-terracotta">{t(panel.title)}</p>
                   <ul className="mt-5 space-y-2 font-serif text-base text-ink/80">
                     {panel.markers.map((marker) => (
-                      <li key={marker} className="flex gap-3"><span className="text-terracotta">?</span><span>{t(marker)}</span></li>
+                      <li key={marker} className="flex gap-3"><span className="text-terracotta">•</span><span>{t(marker)}</span></li>
                     ))}
                   </ul>
                 </div>
@@ -219,7 +219,7 @@ export default function Home() {
       <section id="concierge" className="w-full bg-sand py-24 md:py-32">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-12 md:px-10">
           <div className="md:col-span-5">
-            <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("? Intake Assessment")}</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("— Intake Assessment")}</p>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] text-ink md:text-5xl">
               {t("Personal guidance,")}<br />
               <em className="italic text-terracotta">{t("tailored to you.")}</em>
@@ -228,24 +228,24 @@ export default function Home() {
               {t("Personalized guidance, physician-led protocols, advanced diagnostics, and a concierge telehealth experience designed around performance, recovery, longevity, and lifestyle.")}
             </p>
             <p className="mt-4 max-w-md font-serif text-lg leading-relaxed text-ink/70 md:text-xl">
-              {t("Begin with a brief intake assessment ? your responses are reviewed by a licensed physician before we reach out.")}
+              {t("Begin with a brief intake assessment — your responses are reviewed by a licensed physician before we reach out.")}
             </p>
           </div>
           <div className="md:col-span-7">
             <div className="flex h-full flex-col justify-between gap-10 rounded-2xl border border-ink/15 bg-white/40 p-8 md:p-10">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.26em] text-ink/45">{t("A guided 5-step assessment ? ~3 minutes")}</p>
+                <p className="text-[11px] uppercase tracking-[0.26em] text-ink/45">{t("A guided 5-step assessment — ~3 minutes")}</p>
                 <h3 className="mt-4 font-serif text-3xl leading-tight text-ink md:text-4xl">
                   {t("Begin your")} <em className="italic text-terracotta">{t("intake assessment.")}</em>
                 </h3>
                 <ul className="mt-8 space-y-3 border-t border-ink/10 pt-6 font-serif text-base text-ink/75">
                   {["Share your goals, history, and current protocols", "Reviewed by our medical team within one business day", "Confirmation email sent as soon as you submit"].map((item) => (
-                    <li key={item} className="flex gap-3"><span className="text-terracotta">?</span><span>{t(item)}</span></li>
+                    <li key={item} className="flex gap-3"><span className="text-terracotta">•</span><span>{t(item)}</span></li>
                   ))}
                 </ul>
               </div>
               <Link href={DEFAULT_INTAKE_HREF} className="inline-flex w-full items-center justify-center rounded-full bg-forest px-7 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-forest/90 sm:w-auto sm:self-start">
-                {t("Begin intake assessment ?")}
+                {t("Begin intake assessment →")}
               </Link>
             </div>
           </div>
@@ -256,12 +256,12 @@ export default function Home() {
         <img src="/assets/miami-g2PmITGi.jpg" alt="Aerial view of Miami coastline at golden hour" width="1600" height="900" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-25" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-28 md:grid-cols-12 md:px-10 md:py-40">
           <div className="md:col-span-7">
-            <p className="text-xs uppercase tracking-[0.3em] text-dune">{t("? Nationwide")}</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-dune">{t("— Nationwide")}</p>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
               {t("Rooted in Miami.")} <em className="italic text-dune">{t("Delivered everywhere.")}</em>
             </h2>
             <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed text-sand/80 md:text-xl">
-              {t("Pax Health is a fully virtual practice ? secure consultations, physician oversight, and discreet, climate-controlled pharmacy shipping to nearly every U.S. state. No waiting rooms. No commutes. Just care that meets you where you are.")}
+              {t("Pax Health is a fully virtual practice — secure consultations, physician oversight, and discreet, climate-controlled pharmacy shipping to nearly every U.S. state. No waiting rooms. No commutes. Just care that meets you where you are.")}
             </p>
           </div>
           <dl className="grid grid-cols-2 gap-10 self-end md:col-span-5">
@@ -277,7 +277,7 @@ export default function Home() {
 
       <section id="waitlist" className="w-full bg-sand py-28 md:py-40">
         <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("? Founding membership")}</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("— Founding membership")}</p>
           <h2 className="mt-6 font-serif text-4xl leading-[1.05] text-ink md:text-6xl">
             {t("Join the waitlist.")}<br />
             <em className="italic text-terracotta">{t("Arrive early.")}</em>
@@ -286,7 +286,7 @@ export default function Home() {
             {t("Founding members receive priority intake, baseline bloodwork, and a year of physician-guided protocols designed around their biology.")}
           </p>
           {joined ? (
-            <p className="mt-12 font-serif text-2xl italic text-forest">{t("Thank you ? we'll be in touch soon.")}</p>
+            <p className="mt-12 font-serif text-2xl italic text-forest">{t("Thank you — we'll be in touch soon.")}</p>
           ) : (
             <form
               onSubmit={(event) => {
@@ -310,7 +310,7 @@ export default function Home() {
               <p className="mt-3 max-w-xs font-serif text-base leading-relaxed">{t("A modern telehealth clinic for longevity, recovery, and the long life.")}</p>
             </div>
             <Link href="/how-pax-works" className="text-xs uppercase tracking-[0.22em] text-sand transition hover:text-dune">{t("How it works")}</Link>
-            <p className="text-xs uppercase tracking-[0.22em] text-sand/50">? {new Date().getFullYear()} Pax Health. {t("All rights reserved.")}</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-sand/50">© {new Date().getFullYear()} Pax Health. {t("All rights reserved.")}</p>
           </div>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
             <span className="footer-trust__legitscript">

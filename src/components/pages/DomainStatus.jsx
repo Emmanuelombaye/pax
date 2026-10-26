@@ -5,7 +5,7 @@ const domains = ["https://pax-miami.com", "https://www.pax-miami.com"];
 
 function Badge({ status }) {
   const styles = {
-    checking: { label: "Checking?", dot: "bg-ink/40", text: "text-ink/60" },
+    checking: { label: "Checking…", dot: "bg-ink/40", text: "text-ink/60" },
     live: { label: "Live", dot: "bg-emerald-500", text: "text-emerald-700" },
     down: { label: "Unreachable", dot: "bg-red-500", text: "text-red-700" },
   }[status];
@@ -49,7 +49,7 @@ export default function DomainStatus() {
   return (
     <main className="min-h-screen bg-sand px-6 py-20 text-ink md:px-10 md:py-28">
       <div className="mx-auto max-w-3xl">
-        <p className="text-xs uppercase tracking-[0.3em] text-terracotta">? Status</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-terracotta">— Status</p>
         <h1 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">Domain <em className="italic text-terracotta">status</em></h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70">Live reachability check for the Pax Health domains. Auto-refreshes every minute.</p>
         <div className="mt-12 divide-y divide-ink/15 border-y border-ink/15">
@@ -60,8 +60,8 @@ export default function DomainStatus() {
                 <div>
                   <a href={url} target="_blank" rel="noreferrer" className="font-serif text-2xl text-ink hover:text-terracotta">{url.replace(/^https?:\/\//, "")}</a>
                   <p className="mt-1 text-xs uppercase tracking-[0.2em] text-ink/50">
-                    Last checked: {row.lastChecked ? row.lastChecked.toLocaleTimeString() : "?"}
-                    {row.latencyMs != null && row.status === "live" ? ` ? ${row.latencyMs}ms` : ""}
+                    Last checked: {row.lastChecked ? row.lastChecked.toLocaleTimeString() : "—"}
+                    {row.latencyMs != null && row.status === "live" ? ` — ${row.latencyMs}ms` : ""}
                   </p>
                 </div>
                 <Badge status={row.status} />
@@ -69,7 +69,7 @@ export default function DomainStatus() {
             );
           })}
         </div>
-        <button onClick={check} disabled={busy} className="mt-10 rounded-full bg-forest px-7 py-3 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-ink disabled:opacity-50">{busy ? "Checking?" : "Check now"}</button>
+        <button onClick={check} disabled={busy} className="mt-10 rounded-full bg-forest px-7 py-3 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-ink disabled:opacity-50">{busy ? "Checking…" : "Check now"}</button>
       </div>
     </main>
   );

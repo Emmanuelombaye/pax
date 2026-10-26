@@ -9,16 +9,16 @@ import "@/styles/how-it-works.css";
 
 const images = {
   getStarted: { src: "/images/pax-get-started-v4-hq.webp", alt: "Quiet desk inviting the start of your assessment" },
-  bloodwork: { src: "/images/pax-bloodwork-home-v4-hq.webp", alt: "Warm clinical still life ? diagnostics with quiet care" },
-  bloodworkPage: { src: "/images/pax-bloodwork-page-v4-hq.webp", alt: "Measure what matters ? quiet focus before the plan" },
+  bloodwork: { src: "/images/pax-bloodwork-home-v4-hq.webp", alt: "Warm clinical still life — diagnostics with quiet care" },
+  bloodworkPage: { src: "/images/pax-bloodwork-page-v4-hq.webp", alt: "Measure what matters — quiet focus before the plan" },
   consult: { src: "/images/pax-consult-v5-hq.webp", alt: "Licensed provider in a private telehealth consult" },
-  membership: { src: "/images/pax-membership-v4-hq.webp", alt: "Membership ritual ? journal, pen, and quiet intention" },
+  membership: { src: "/images/pax-membership-v4-hq.webp", alt: "Membership ritual — journal, pen, and quiet intention" },
   howItWorks: { src: "/images/pax-how-it-works-v6-hq.webp", alt: "Woman reviewing her plan in warm window light" },
   frontMembership: { src: "/images/pax-front-membership-v4-hq.webp", alt: "Open journal, pen, and cup on an oak desk" },
   physicians: { src: "/images/pax-physicians-v5-hq.webp", alt: "Licensed providers who lead your plan" },
   founder: { src: "/images/pax-founder-v5-hq.webp", alt: "Pax leadership in a sunlit stone doorway" },
-  women: { src: "/images/pax-women-hub-v5-hq.webp", alt: "Woman in warm natural light ? calm confidence" },
-  longevity: { src: "/images/pax-longevity-cta-v6-hq.webp", alt: "Woman walking a bright gallery hallway ? calm resolve" },
+  women: { src: "/images/pax-women-hub-v5-hq.webp", alt: "Woman in warm natural light — calm confidence" },
+  longevity: { src: "/images/pax-longevity-cta-v6-hq.webp", alt: "Woman walking a bright gallery hallway — calm resolve" },
 };
 
 const marquee = ["Licensed providers", "Partner labs", "Evidence-based care", "FSA/HSA eligible"];
@@ -100,7 +100,7 @@ const inclusions = [
   "Semaglutide — live clinical intake",
   "Tirzepatide — live clinical intake",
   "NAD+ — live clinical intake",
-  "50+ biomarker testing ? $65",
+  "50+ biomarker testing — $65",
 ];
 
 const tableRows = [
@@ -124,11 +124,11 @@ const faqs = [
 ];
 
 const stories = [
-  { id: "01", name: "Maya", quote: "The biggest shift has been consistency ? energy that holds through the day, not spikes and crashes." },
-  { id: "02", name: "Jordan", quote: "I finally felt heard. Labs were explained clearly, and nothing felt like a sales pitch ? just honest guidance." },
+  { id: "01", name: "Maya", quote: "The biggest shift has been consistency — energy that holds through the day, not spikes and crashes." },
+  { id: "02", name: "Jordan", quote: "I finally felt heard. Labs were explained clearly, and nothing felt like a sales pitch — just honest guidance." },
   { id: "03", name: "Elena", quote: "Menopause support that treated me as a whole person. Within weeks, sleep and mood started to settle." },
   { id: "04", name: "Marcus", quote: "Comprehensive review of my bloodwork with helpful next steps. Clear diagnosis. No pressure." },
-  { id: "05", name: "Priya", quote: "I feel clearer and more confident ? not just physically, but in how I understand my own biology." },
+  { id: "05", name: "Priya", quote: "I feel clearer and more confident — not just physically, but in how I understand my own biology." },
   { id: "06", name: "Chris", quote: "Fatigue that had been brushed off for years was finally addressed. The care team stayed with me." },
 ];
 
@@ -145,7 +145,7 @@ function Check({ light }) {
 
 function CellView({ value, light }) {
   if (value === true) return <span className="inline-flex justify-center"><Check light={light} /></span>;
-  if (value === false) return <span style={{ color: light ? "rgba(253,245,233,.4)" : "rgba(93,83,75,.35)" }}>?</span>;
+  if (value === false) return <span style={{ color: light ? "rgba(253,245,233,.4)" : "rgba(93,83,75,.35)" }}>—</span>;
   return <span>{value}</span>;
 }
 
@@ -306,7 +306,7 @@ export default function HowItWorks() {
             <Cta>Premium</Cta>
             <Cta outline>Basic</Cta>
           </div>
-          <p className="hiw-indigo mt-6 text-sm uppercase tracking-[0.12em] opacity-60">FSA/HSA eligible ? Cancel anytime</p>
+          <p className="hiw-indigo mt-6 text-sm uppercase tracking-[0.12em] opacity-60">FSA/HSA eligible — Cancel anytime</p>
         </div>
       </section>
 
@@ -348,20 +348,20 @@ export default function HowItWorks() {
           <div className="hiw-stack">
             {stories.map((item, index) => (
               <article key={item.id} className={index === story ? "relative z-[1] opacity-100" : "pointer-events-none z-0 opacity-0"}>
-                <p className="hiw-quote">?{item.quote}?</p>
+                <p className="hiw-quote">“{item.quote}”</p>
                 <p className="mt-4 text-base font-semibold md:text-xl">{item.name}</p>
                 <p className="hiw-indigo mt-1 text-[0.9375rem]">Pax member</p>
               </article>
             ))}
           </div>
           <div className="relative z-[1] mt-4 flex items-center justify-between gap-4">
-            <button type="button" aria-label="Previous" onClick={() => setStory((n) => (n - 1 + stories.length) % stories.length)} className="text-2xl">?</button>
+            <button type="button" aria-label="Previous" onClick={() => setStory((n) => (n - 1 + stories.length) % stories.length)} className="text-2xl">‹</button>
             <div className="flex gap-2.5">
               {stories.map((item, index) => (
                 <button key={item.id} type="button" aria-label={`Story ${index + 1}`} onClick={() => setStory(index)} className="h-2 w-2 rounded-full bg-forest" style={{ opacity: index === story ? 1 : 0.25 }} />
               ))}
             </div>
-            <button type="button" aria-label="Next" onClick={() => setStory((n) => (n + 1) % stories.length)} className="text-2xl">?</button>
+            <button type="button" aria-label="Next" onClick={() => setStory((n) => (n + 1) % stories.length)} className="text-2xl">›</button>
           </div>
           <div className="relative z-[1] mt-4"><Cta block>Get Started Now</Cta></div>
         </div>
@@ -395,13 +395,13 @@ export default function HowItWorks() {
           <div className="max-w-2xl">
             <h2>Begin your <em className="text-terracotta">assessment</em></h2>
             <p className="mt-5 text-base leading-relaxed text-white sm:text-lg">
-              Tell us your goals in a few minutes, then complete the $65 starter diagnostic at home or at a partner lab. A licensed provider reviews your results and builds a plan. Basic membership is $25/month; Premium is $155/month. Medication, when prescribed, is always a separate charge ? and completing an assessment does not guarantee treatment.
+              Tell us your goals in a few minutes, then complete the $65 starter diagnostic at home or at a partner lab. A licensed provider reviews your results and builds a plan. Basic membership is $25/month; Premium is $155/month. Medication, when prescribed, is always a separate charge — and completing an assessment does not guarantee treatment.
             </p>
-            <p className="mt-6 font-serif text-xl text-white sm:text-2xl">$65 diagnostic ? membership is separate</p>
+            <p className="mt-6 font-serif text-xl text-white sm:text-2xl">$65 diagnostic — membership is separate</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Cta clay>Get Started</Cta>
               <a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="inline-flex items-center gap-2 font-serif text-lg text-white">
-                How It Works <span aria-hidden="true">?</span>
+                How It Works <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

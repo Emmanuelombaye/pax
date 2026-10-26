@@ -27,14 +27,14 @@ const reasons = [
 ];
 
 const pillars = [
-  { name: "Pax Protocol", desc: "The clinical playbook ? physician-designed longevity programs and prescribing standards." },
+  { name: "Pax Protocol", desc: "The clinical playbook — physician-designed longevity programs and prescribing standards." },
   { name: "Pax Longevity", desc: "The telehealth practice with live clinical intake for Semaglutide, Tirzepatide, and NAD+ nationwide." },
   { name: "Pax Labs", desc: "At-home diagnostics, biomarker testing, and longitudinal health tracking designed to transform data into personalized action. The intelligence layer powering modern longevity." },
-  { name: "Pax Miami", desc: "The flagship concierge sanctuary ? in-person care, recovery, and longevity experiences." },
+  { name: "Pax Miami", desc: "The flagship concierge sanctuary — in-person care, recovery, and longevity experiences." },
 ];
 
 const partnerTypes = ["Health Coach", "Nutrition Coach", "Fitness Coach", "Influencer / Creator", "Physician", "Nurse Practitioner", "Physician Assistant", "Gym Owner", "Wellness Business", "Med Spa Owner", "Clinic Founder", "Compounding Pharmacy", "Laboratory", "Investor", "Other"];
-const audienceSizes = ["0?100", "100?500", "500?1,000", "1,000?5,000", "5,000+"];
+const audienceSizes = ["0–100", "100–500", "500–1,000", "1,000–5,000", "5,000+"];
 const reaches = ["Local", "Regional", "National"];
 const interests = ["Weight Optimization", "Hormone Optimization", "Longevity", "Diagnostics & Blood Testing", "Peptides", "Recovery & Performance", "Cognitive Health", "Women's Health", "Men's Health", "Corporate Wellness", "White-Label Clinic Launch"];
 const timelines = ["Immediately", "30 Days", "60 Days", "90+ Days"];
@@ -173,7 +173,7 @@ export default function Network() {
         <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-terracotta">Launch With Pax</p>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl">Launch your own <em className="italic text-terracotta">longevity clinic</em>.</h2>
-          <p className="mx-auto mt-8 max-w-2xl font-serif text-lg leading-relaxed text-sand/80 md:text-xl">Pax provides the infrastructure behind modern healthcare brands ? including telehealth technology, diagnostics, providers, pharmacy relationships, compliance support, and operational systems.</p>
+          <p className="mx-auto mt-8 max-w-2xl font-serif text-lg leading-relaxed text-sand/80 md:text-xl">Pax provides the infrastructure behind modern healthcare brands — including telehealth technology, diagnostics, providers, pharmacy relationships, compliance support, and operational systems.</p>
           <p className="mx-auto mt-4 max-w-2xl font-serif text-lg leading-relaxed text-sand/70 md:text-xl">You bring the vision. We'll help power the platform.</p>
           <div className="mt-10">
             <a href="#assessment" className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-xs uppercase tracking-[0.18em] text-sand transition hover:bg-sand hover:text-forest">Schedule A Founder Call <Icon icon={icons.arrow} size={24} strokeWidth={2} className="h-4 w-4" /></a>
@@ -263,11 +263,11 @@ export default function Network() {
                 )}
                 {step === 5 && <Chips label="How soon would you like to get started?" options={timelines} selected={form.timeline ? [form.timeline] : []} onToggle={(value) => set("timeline", value)} single />}
                 <div className="mt-10 flex items-center justify-between">
-                  <button type="button" onClick={() => setStep((current) => Math.max(current - 1, 0))} disabled={step === 0} className="text-xs uppercase tracking-[0.18em] text-ink/60 transition hover:text-ink disabled:opacity-30">? Back</button>
+                  <button type="button" onClick={() => setStep((current) => Math.max(current - 1, 0))} disabled={step === 0} className="text-xs uppercase tracking-[0.18em] text-ink/60 transition hover:text-ink disabled:opacity-30">← Back</button>
                   {step < stepNames.length - 1 ? (
                     <button type="button" onClick={() => setStep((current) => Math.min(current + 1, stepNames.length - 1))} className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-xs uppercase tracking-[0.18em] text-sand transition hover:bg-ink">Continue <Icon icon={icons.arrow} size={24} strokeWidth={2} className="h-4 w-4" /></button>
                   ) : (
-                    <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-xs uppercase tracking-[0.18em] text-sand transition hover:bg-ink disabled:opacity-60">{busy ? "Submitting?" : "Apply To Join The Pax Network"}</button>
+                    <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-xs uppercase tracking-[0.18em] text-sand transition hover:bg-ink disabled:opacity-60">{busy ? "Submitting…" : "Apply To Join The Pax Network"}</button>
                   )}
                 </div>
               </form>
@@ -279,7 +279,7 @@ export default function Network() {
       <footer className="border-t border-dune/40 bg-sand py-10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.18em] text-ink/60 md:px-10">
           <Link href="/" className="inline-flex items-center gap-3 font-serif text-lg normal-case tracking-tight text-ink"><BrandSeal className="h-10 w-10 md:h-10 md:w-10" /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
-          <p>? {new Date().getFullYear()} Pax Health</p>
+          <p>© {new Date().getFullYear()} Pax Health</p>
         </div>
       </footer>
     </div>
