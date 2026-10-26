@@ -1,15 +1,12 @@
-# Pax Longevity
+# Pax Health / Pax Longevity
 
-Branded mock product — marketing site, TryYucca-style buy-first funnel, and Patient Center.
+Next.js (App Router) + TypeScript port of the client `getpaxfrontend` site.
 
-**Independent frontend.** Local IndexedDB today. Connect a real API later without rewriting the UI.
+## Stack
 
-## Docs
-
-- **[docs/client-brand-kit.md](./docs/client-brand-kit.md)** — client brand handoff ([live](https://pax-longevity-flow.lovable.app/))
-- **[docs/brand-kit.md](./docs/brand-kit.md)** — colors / type / usage summary
-- **[PAX_PASSPORT.md](./PAX_PASSPORT.md)** — product CV / connect contract
-- **[PORTABLE.md](./PORTABLE.md)** — layout, how to run & connect later
+- Next.js 15 / React 19 / TypeScript (`allowJs` for exact UI port)
+- Exact get-pax.health / getpaxfrontend pages, styles, and assets
+- VirtualClinicOS Brand Storefront helper in `src/lib/vco-storefront.ts`
 
 ## Develop
 
@@ -18,12 +15,24 @@ npm install
 npm run dev
 ```
 
-| Surface | Path |
-|---------|------|
-| Marketing | `/` |
-| Start treatment | `/#/start` |
-| Patient Center | `/#/portal` |
+## Routes
 
-## Stack
+| Path | Page |
+|------|------|
+| `/` | Home |
+| `/network` | Partners network |
+| `/how-pax-works` | How it works |
+| `/programs/[slug]` | Program vials |
+| `/treatments/[slug]` | Vial detail |
+| `/intake` | Intake assessment |
+| `/admin` | Admin |
+| `/booking/[token]` | Booking |
 
-React 19 · Vite · brand passport · IndexedDB (local) · connect adapter for future remote API
+## VCO
+
+Public brand ID defaults are set for Pax. Optional env: see `.env.example`.  
+Hosted intake still requires DNS for `intake.paxlongevity.com`.
+
+## Source
+
+UI copied from `C:\ceo\getpaxfrontend` (client deliverable), swapped into Next.js TypeScript for Rangel-holdings `pax` (`legitscript`).

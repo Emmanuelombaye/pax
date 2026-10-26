@@ -1,0 +1,462 @@
+.vial-scope {
+  --pax-sand: #fdf5e9;
+  --pax-page: #fdf5e9;
+  --pax-panel: #fffbf4;
+  --pax-forest: #2d5338;
+  --pax-terracotta: #c67265;
+  --pax-indigo: #5d534b;
+  --vial-rule: #1d1713;
+  box-sizing: border-box;
+  background: var(--pax-page);
+  color: #1d1713;
+  font-family: "Work Sans", sans-serif;
+  padding-bottom: 5.5rem;
+}
+
+.vial-scope *,
+.vial-scope *::before,
+.vial-scope *::after {
+  box-sizing: border-box;
+}
+
+.vial-scope h1,
+.vial-scope h2,
+.vial-scope h3,
+.vial-price,
+.vial-scope .pax-product-content h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.vial-hero {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.vial-copy {
+  width: 100%;
+  max-width: 45rem;
+  padding: 2.5rem 1.25rem;
+}
+
+.vial-crumb {
+  font-size: 0.9375rem;
+  line-height: 1;
+}
+
+.vial-crumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vial-crumb a:hover {
+  text-decoration: underline;
+}
+
+.vial-crumb span {
+  padding: 0 0.5rem;
+}
+
+.vial-copy h1 {
+  margin: 2rem 0 0;
+  color: var(--pax-terracotta);
+  font-size: 2.1875rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.vial-price {
+  margin: 1rem 0 0;
+  color: var(--pax-terracotta);
+  font-size: 0.9375rem;
+  font-style: italic;
+}
+
+.vial-summary {
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.vial-chips {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vial-chips li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.vial-chips i {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 999px;
+  background: var(--pax-terracotta);
+}
+
+.vial-note {
+  max-width: 36rem;
+  margin: 2rem 0 0;
+  color: rgba(14, 11, 32, 0.8);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+
+.vial-cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 1.75rem;
+  border-radius: 5px;
+  background: var(--pax-forest);
+  color: var(--pax-sand);
+  font-size: 0.75rem;
+  letter-spacing: 0.075rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.vial-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #e8e8e8;
+}
+
+.vial-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vial-block {
+  border-top: 1px solid var(--vial-rule);
+}
+
+.vial-block-inner {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem;
+}
+
+.vial-block h2 {
+  margin: 0;
+  font-size: 2.375rem;
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.vial-benefits {
+  margin: 2rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.vial-benefits li + li,
+.vial-about + .vial-about {
+  margin-top: 0.5rem;
+}
+
+.vial-about {
+  margin-top: 3rem;
+}
+
+.vial-about h3,
+.vial-safety summary {
+  font-size: 1.5625rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.vial-about p,
+.vial-safety p {
+  margin: 1.25rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.vial-safety {
+  margin-top: 2rem;
+  border-top: 1px solid var(--vial-rule);
+  border-bottom: 1px solid var(--vial-rule);
+}
+
+.vial-safety details {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--vial-rule);
+}
+
+.vial-safety details:first-child {
+  border-top: 0;
+}
+
+.vial-safety summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.vial-consult {
+  background: var(--pax-sand);
+}
+
+.vial-consult h2 {
+  color: var(--pax-forest);
+}
+
+.vial-consult ul {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--vial-rule);
+  border-bottom: 1px solid var(--vial-rule);
+}
+
+.vial-consult li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--vial-rule);
+}
+
+.vial-consult li:first-child {
+  border-top: 0;
+}
+
+.vial-consult li span:first-child {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.vial-consult li span:last-child {
+  color: var(--pax-terracotta);
+  font-size: 0.9375rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.program-intro {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 1rem;
+  text-align: center;
+}
+
+.program-intro p {
+  margin: 0;
+  color: var(--pax-terracotta);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.program-intro h1 {
+  margin: 1.25rem 0 0;
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.program-intro .program-lead {
+  margin: 1.25rem auto 0;
+  color: var(--pax-indigo);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.pax-products-intro {
+  padding: 1.875rem 0;
+  text-align: center;
+}
+
+.pax-products-title {
+  margin: 1.25rem auto;
+  font-size: 2.375rem;
+  font-weight: 400;
+  line-height: 0.95;
+  color: #0e0b20;
+}
+
+.pax-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--vial-rule);
+}
+
+.pax-product {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  height: auto;
+  background: var(--pax-panel);
+}
+
+.pax-product-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.pax-product-content h3 {
+  margin: 1.25rem 0 0.625rem;
+  color: var(--pax-terracotta);
+  font-size: 2.125rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.pax-product-content h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pax-product-price {
+  margin: 0.625rem 0 0.9375rem;
+  font-size: 0.9375rem;
+  font-style: italic;
+}
+
+.pax-product-body {
+  margin: 0.625rem 0 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.25;
+}
+
+.pax-product-more {
+  display: inline-block;
+  padding: 1rem 1.75rem;
+  border-radius: 5px;
+  background: var(--pax-forest);
+  color: var(--pax-sand);
+  font-size: 0.75rem;
+  letter-spacing: 0.075rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.pax-product-image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin-top: auto;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-top: 1px solid var(--vial-rule);
+  background: #e8e8e8;
+}
+
+.pax-product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+@media (min-width: 600px) {
+  .vial-copy,
+  .vial-block-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .vial-copy h1 {
+    font-size: 4.375rem;
+  }
+
+  .vial-price,
+  .vial-summary,
+  .vial-chips li,
+  .vial-about p,
+  .vial-safety p,
+  .vial-benefits,
+  .vial-consult li span:last-child {
+    font-size: 1.125rem;
+  }
+
+  .vial-block h2,
+  .pax-products-title,
+  .program-intro h1 {
+    font-size: 4.0625rem;
+  }
+
+  .vial-about h3,
+  .vial-safety summary {
+    font-size: 2rem;
+  }
+
+  .vial-consult li span:first-child {
+    font-size: 1.75rem;
+  }
+
+  .pax-product-content h3 {
+    margin: 3.125rem 0 0.625rem;
+    font-size: 2.8125rem;
+    line-height: 1.05;
+  }
+
+  .pax-product-price {
+    margin: 0.625rem 0 1.25rem;
+    font-size: 1.125rem;
+    line-height: 0.95;
+  }
+
+  .pax-product-body {
+    margin: 0.625rem 0 2.25rem;
+    font-size: 1.125rem;
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 960px) {
+  .vial-hero {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .vial-hero .vial-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    max-width: none;
+    margin-left: auto;
+  }
+
+  .vial-photo {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    border-left: 1px solid var(--vial-rule);
+  }
+
+  .pax-products {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pax-product-content {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+    padding: 0 2.5rem 2.5rem;
+  }
+
+  .pax-product-image {
+    width: 100%;
+    max-width: none;
+  }
+}

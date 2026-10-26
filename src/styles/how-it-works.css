@@ -1,0 +1,199 @@
+.how-pax {
+  --hiw-indigo: #5d534b;
+  --hiw-forest: #2d5338;
+  --hiw-forest-dark: #264730;
+  --hiw-terracotta: #c67265;
+  --hiw-terracotta-dark: #a86156;
+  --hiw-sand: #fdf5e9;
+  background: var(--hiw-sand);
+  color: var(--hiw-forest);
+}
+
+.how-pax .hiw-indigo { color: var(--hiw-indigo); }
+.how-pax .hiw-wrap { margin-inline: auto; width: 100%; max-width: 80rem; padding-inline: 1rem; }
+@media (min-width: 768px) {
+  .how-pax .hiw-wrap { padding-inline: 2rem; }
+}
+
+.how-pax .hiw-hero { position: relative; min-height: 32rem; overflow: hidden; }
+.how-pax .hiw-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.how-pax .hiw-hero-copy { position: relative; z-index: 1; display: flex; min-height: 32rem; align-items: flex-end; }
+.how-pax .hiw-hero-band { width: 100%; background: var(--hiw-sand); }
+.how-pax .hiw-hero-row { display: flex; flex-direction: column; gap: 1.5rem; padding-block: 2rem; }
+.how-pax .hiw-display {
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--hiw-terracotta);
+}
+.how-pax .hiw-section-title {
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: var(--hiw-forest);
+}
+@media (min-width: 768px) {
+  .how-pax .hiw-hero { min-height: 45rem; }
+  .how-pax .hiw-hero-copy { min-height: 45rem; }
+  .how-pax .hiw-hero-row { flex-direction: row; align-items: center; justify-content: space-between; padding-block: 2.5rem; }
+}
+
+.how-pax .hiw-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--hiw-forest);
+  background: var(--hiw-forest);
+  color: var(--hiw-sand);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.how-pax .hiw-btn::after {
+  content: "";
+  width: 0.5625rem;
+  height: 0.5625rem;
+  margin-left: 0.35rem;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9'%3E%3Cpath fill='black' d='M1 4h5.2L4.1 1.9l.9-.9L8.5 4.5 5 8l-.9-.9L6.2 5H1z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.how-pax .hiw-btn:hover { background: var(--hiw-forest-dark); border-color: var(--hiw-forest-dark); }
+.how-pax .hiw-btn.clay { background: var(--hiw-terracotta); border-color: var(--hiw-terracotta); }
+.how-pax .hiw-btn.clay:hover { background: var(--hiw-terracotta-dark); border-color: var(--hiw-terracotta-dark); }
+.how-pax .hiw-btn.outline { background: transparent; color: var(--hiw-forest); }
+.how-pax .hiw-btn.outline:hover { background: var(--hiw-forest); color: var(--hiw-sand); }
+.how-pax .hiw-btn.block { width: 100%; }
+@media (min-width: 768px) {
+  .how-pax .hiw-btn.block-md { width: auto; }
+}
+
+.how-pax .hiw-marquee { overflow: hidden; border-block: 1px solid color-mix(in srgb, var(--hiw-forest) 30%, transparent); background: var(--hiw-forest); color: var(--hiw-sand); padding-block: 1.25rem; }
+.how-pax .hiw-marquee-desktop { display: none; align-items: center; justify-content: center; }
+.how-pax .hiw-word { display: inline-flex; align-items: center; font-family: "Instrument Serif", ui-serif, Georgia, serif; font-style: italic; color: var(--hiw-terracotta); font-size: 1.25rem; }
+.how-pax .hiw-dash { margin-inline: 0.625rem; display: inline-block; width: 1.25rem; border-bottom: 1px solid color-mix(in srgb, var(--hiw-terracotta) 80%, transparent); }
+@media (min-width: 768px) {
+  .how-pax .hiw-marquee-desktop { display: flex; }
+  .how-pax .hiw-marquee-mobile { display: none; }
+}
+
+@keyframes hiw-ticker {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.how-pax .hiw-ticker { display: flex; width: max-content; animation: hiw-ticker 22s linear infinite; }
+.how-pax .hiw-marquee:hover .hiw-ticker,
+.how-pax .hiw-doctors:hover .hiw-doctor-track { animation-play-state: paused; }
+
+.how-pax .hiw-steps { background: #fff; padding-block: 3.5rem; }
+.how-pax .hiw-step { display: flex; flex-direction: column; gap: 1.5rem; padding-block: 1.25rem; }
+.how-pax .hiw-photo { position: relative; aspect-ratio: 4 / 3; width: 100%; overflow: hidden; background: var(--hiw-sand); }
+.how-pax .hiw-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+.how-pax .hiw-step:hover .hiw-photo img { transform: scale(1.04); }
+.how-pax .hiw-kicker { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 1.65rem; line-height: 1; letter-spacing: -0.02em; color: var(--hiw-terracotta); }
+.how-pax .hiw-step h3 { margin-top: 0.75rem; font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 2.125rem; line-height: 1.05; }
+.how-pax .hiw-lead { margin-top: 0.625rem; font-size: 1.125rem; font-weight: 500; line-height: 1.35; }
+.how-pax .hiw-points { margin-top: 2rem; display: grid; gap: 1rem; }
+.how-pax .hiw-points li { display: flex; gap: 0.75rem; line-height: 1.6; color: var(--hiw-indigo); }
+@media (min-width: 768px) {
+  .how-pax .hiw-steps { padding-block: 5rem; }
+  .how-pax .hiw-step { flex-direction: row; align-items: flex-start; gap: 2.5rem; padding-block: 2.5rem; }
+  .how-pax .hiw-step > * { flex: 1; }
+  .how-pax .hiw-step h3 { font-size: 2.25rem; }
+}
+
+.how-pax .hiw-tabs { display: flex; width: 100%; border-radius: 1rem; border: 1px solid color-mix(in srgb, var(--hiw-forest) 10%, transparent); background: var(--hiw-sand); padding: 5px; }
+.how-pax .hiw-tabs button { flex: 1; border-radius: 5px; border: 1px solid transparent; padding: 1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hiw-forest); }
+.how-pax .hiw-tabs button[aria-selected="true"] { border-color: color-mix(in srgb, var(--hiw-forest) 15%, transparent); background: #fff; }
+@media (min-width: 768px) {
+  .how-pax .hiw-tabs { width: auto; }
+  .how-pax .hiw-tabs button { min-width: 8.5rem; }
+}
+
+.how-pax .hiw-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+.how-pax .hiw-table th, .how-pax .hiw-table td { padding: 1rem 0.5rem; }
+.how-pax .hiw-table thead th.premium { border-radius: 1rem 1rem 0 0; background: var(--hiw-forest); color: var(--hiw-sand); text-align: center; font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 1.35rem; font-weight: 400; }
+.how-pax .hiw-table thead th.basic { text-align: center; color: var(--hiw-indigo); font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 1.35rem; font-weight: 400; }
+.how-pax .hiw-table tbody th { border-bottom: 1px solid color-mix(in srgb, var(--hiw-forest) 10%, transparent); font-weight: 500; text-align: left; }
+.how-pax .hiw-table td.premium { background: var(--hiw-forest); color: var(--hiw-sand); text-align: center; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.how-pax .hiw-table tr:last-child td.premium { border-radius: 0 0 1rem 1rem; }
+.how-pax .hiw-table td.basic { text-align: center; color: var(--hiw-indigo); border-bottom: 1px solid color-mix(in srgb, var(--hiw-forest) 10%, transparent); }
+.how-pax .hiw-table tr:hover { background: color-mix(in srgb, var(--hiw-sand) 80%, transparent); }
+.how-pax .hiw-table tr:hover td.premium { background: var(--hiw-forest); }
+
+.how-pax .hiw-include { display: block; border: 1px solid transparent; padding: 0.75rem 0.5rem; font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 1.5rem; }
+.how-pax .hiw-include:hover { border-color: color-mix(in srgb, var(--hiw-forest) 20%, transparent); background: #fff; }
+
+.how-pax .hiw-stories { background: #fff; padding-block: 2rem; }
+.how-pax .hiw-doctor-track { display: flex; width: max-content; gap: 0.75rem; animation: hiw-ticker 30s linear infinite; }
+.how-pax .hiw-portrait { width: 10.75rem; flex-shrink: 0; }
+.how-pax .hiw-portrait .frame { position: relative; aspect-ratio: 172 / 198; overflow: hidden; border-radius: 1.375rem; }
+.how-pax .hiw-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.how-pax .hiw-quote { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 2.125rem; line-height: 1.05; color: var(--hiw-terracotta); }
+.how-pax .hiw-stack { display: grid; }
+.how-pax .hiw-stack article { grid-area: 1 / 1; }
+@media (min-width: 768px) {
+  .how-pax .hiw-stories { display: flex; flex-direction: row-reverse; align-items: center; gap: 2.5rem; padding: 3rem 3.75rem; }
+  .how-pax .hiw-doctors { flex-shrink: 0; overflow: visible; padding-inline: 2.5rem; }
+  .how-pax .hiw-doctor-track { display: grid; width: auto; grid-template-columns: 1fr 1fr; gap: 1.5rem; animation: none; }
+  .how-pax .hiw-portrait { width: 15.3rem; }
+  .how-pax .hiw-portrait .frame { aspect-ratio: 245 / 282; border-radius: 0; }
+  .how-pax .hiw-portrait.copy { display: none; }
+  .how-pax .hiw-quote { font-size: 2.8rem; line-height: 1.2; }
+}
+
+.how-pax .hiw-faq { position: relative; overflow: hidden; padding-block: 2.5rem; }
+.how-pax .hiw-faq-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.how-pax .hiw-faq-card { position: relative; max-width: 56rem; margin-inline: auto; border-radius: 1.25rem; background: rgba(255,255,255,0.85); padding: 1.5rem; backdrop-filter: blur(8px); }
+.how-pax .hiw-faq-card h2 { text-align: left; }
+@media (min-width: 768px) {
+  .how-pax .hiw-faq { padding-block: 4rem; }
+  .how-pax .hiw-faq-card { padding: 4rem; }
+}
+
+.how-pax .hiw-cta { position: relative; isolation: isolate; overflow: hidden; min-height: 28rem; color: #fff; }
+.how-pax .hiw-cta img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 22%; }
+.how-pax .hiw-cta .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.25), rgba(0,0,0,.2)); }
+.how-pax .hiw-cta .copy { position: relative; display: flex; min-height: 28rem; align-items: flex-end; padding-block: 4rem; }
+.how-pax .hiw-cta h2 { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.02; letter-spacing: -0.03em; color: #fff; text-align: left; }
+@media (min-width: 768px) {
+  .how-pax .hiw-cta .shade { background: linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.3) 40%, rgba(0,0,0,.1)); }
+  .how-pax .hiw-cta .copy { min-height: 38rem; align-items: center; }
+}
+
+.how-pax .hiw-check { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .how-pax .hiw-ticker,
+  .how-pax .hiw-doctor-track { animation: none; }
+}
+
+/* Utilities the compiled homepage stylesheet does not include. */
+.text-white { color: #fff; }
+.overflow-x-auto { overflow-x: auto; }
+.opacity-100 { opacity: 1; }
+.pb-6 { padding-bottom: 1.5rem; }
+.gap-2\.5 { gap: 0.625rem; }
+.w-\[34\%\] { width: 34%; }
+.tracking-\[0\.12em\] { letter-spacing: 0.12em; }
+.text-\[0\.9375rem\] { font-size: 0.9375rem; }
+.border-forest\/10 { border-color: color-mix(in srgb, #2d5338 10%, transparent); }
+.border-forest\/15 { border-color: color-mix(in srgb, #2d5338 15%, transparent); }
+@media (min-width: 640px) {
+  .sm\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .sm\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+}
+@media (min-width: 768px) {
+  .md\:mt-0 { margin-top: 0; }
+  .md\:py-7 { padding-block: 1.75rem; }
+  .md\:py-24 { padding-block: 6rem; }
+  .md\:text-left { text-align: left; }
+  .md\:inline { display: inline; }
+}
