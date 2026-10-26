@@ -28,7 +28,7 @@ const reasons = [
 
 const pillars = [
   { name: "Pax Protocol", desc: "The clinical playbook ? physician-designed longevity programs and prescribing standards." },
-  { name: "Pax Longevity", desc: "The telehealth practice delivering GLP-1s, hormones, peptides, and vitality protocols nationwide." },
+  { name: "Pax Longevity", desc: "The telehealth practice with live clinical intake for Semaglutide, Tirzepatide, and NAD+ nationwide." },
   { name: "Pax Labs", desc: "At-home diagnostics, biomarker testing, and longitudinal health tracking designed to transform data into personalized action. The intelligence layer powering modern longevity." },
   { name: "Pax Miami", desc: "The flagship concierge sanctuary ? in-person care, recovery, and longevity experiences." },
 ];

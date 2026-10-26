@@ -11,35 +11,19 @@ import "@/styles/footer-badges.css";
 const programs = [
   {
     slug: "weight",
-    tag: "Most demand",
-    title: "GLPs / Weight Loss",
-    description: "Physician-titrated Semaglutide & Tirzepatide protocols with monthly refills shipped to your door.",
-    highlights: ["Live intake: Semaglutide & Tirzepatide", "Personalized titration schedule", "Monthly check-ins & dose adjustments"],
-    price: "Semaglutide & Tirzepatide — clinical intake open",
+    tag: "Weight Loss",
+    title: "Semaglutide & Tirzepatide",
+    description: "Physician-titrated GLP-1 protocols with monthly refills after labs and a licensed visit.",
+    highlights: ["Semaglutide — live intake", "Tirzepatide — live intake", "Labs before treatment"],
+    price: "Clinical intake open",
   },
   {
-    slug: "hormones",
-    tag: "Controlled",
-    title: "Hormone Health & Longevity",
-    description: "TRT, HRT, and full metabolic panels with ongoing labs ? compounded or commercial pharmacy options.",
-    highlights: ["Testosterone & estrogen optimization", "Comprehensive baseline & follow-up labs", "Quarterly physician reviews"],
-    price: "Testosterone from $28/mo + membership",
-  },
-  {
-    slug: "peptides",
-    tag: "Premium",
-    title: "Peptides & Wellness",
-    description: "Custom peptide protocols ? BPC-157, Ipamorelin, GHK-Cu and more ? designed around recovery and longevity goals.",
-    highlights: ["Live intake: NAD+", "Cycled protocols with safety monitoring", "Premium compounding partners"],
-    price: "NAD+ live · other peptides by consult",
-  },
-  {
-    slug: "vitality",
-    tag: "Subscription",
-    title: "Vitality & Performance",
-    description: "Sildenafil, Tadalafil, PT-141, Tri-Mix. Discreet shipping, physician-supervised, refilled on autopilot.",
-    highlights: ["ED & libido protocols for men and women", "Discreet, unmarked packaging", "On-demand & daily dosing options"],
-    price: "PT-141 $75 + membership",
+    slug: "longevity",
+    tag: "Longevity",
+    title: "NAD+",
+    description: "Cellular energy and healthy aging support when a physician includes NAD+ in your plan.",
+    highlights: ["NAD+ — live intake", "Physician review", "Hosted clinical intake"],
+    price: "Clinical intake open",
   },
 ];
 
@@ -100,7 +84,7 @@ export default function Home() {
             {t("A modern telehealth clinic for the")} <em className="italic text-dune">{t("long life")}</em>.
           </h1>
           <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed text-sand/80 md:text-xl">
-            {t("Pax Health is a physician-led virtual practice ? GLP-1s, hormones, peptides, and vitality protocols prescribed by licensed U.S. doctors and shipped to your door.")}
+            {t("Pax Health is a physician-led virtual practice. Live clinical intake for Semaglutide, Tirzepatide, and NAD+ — prescribed by licensed U.S. doctors and shipped to your door.")}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a href="#membership" className="rounded-full bg-sand px-8 py-4 text-xs uppercase tracking-[0.22em] text-forest transition hover:bg-dune">{t("Membership")}</a>
@@ -162,7 +146,7 @@ export default function Home() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("? Programs")}</p>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.1] text-ink md:text-6xl">
-                {t("Multiple programs,")} <em className="italic">{t("one practice.")}</em>
+                {t("Three live treatments,")} <em className="italic">{t("one practice.")}</em>
               </h2>
             </div>
             <p className="max-w-sm font-serif text-lg leading-relaxed text-ink/70">

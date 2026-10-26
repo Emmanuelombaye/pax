@@ -168,7 +168,7 @@ export const DEFAULT_INTAKE_HREF = intakeHref("semaglutide");
 export function intakeHrefForProgram(programSlug) {
   const key = String(programSlug || "").toLowerCase();
   if (key === "weight") return intakeHref("semaglutide");
-  if (key === "peptides") return intakeHref("nad");
+  if (key === "longevity" || key === "peptides") return intakeHref("nad");
   return DEFAULT_INTAKE_HREF;
 }
 

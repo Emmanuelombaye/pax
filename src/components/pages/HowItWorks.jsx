@@ -97,12 +97,9 @@ const foundationSteps = [
 ];
 
 const inclusions = [
-  "Hormone optimization ? testosterone from $28/mo, testosterone cream from $60/mo, progesterone from $49/mo, progesterone cream from $79/mo, estradiol from $58/mo",
-  "Weight management (tirzepatide) ? from $299/mo",
-  "Longevity peptides and cellular health ? BPC-157 $149/mo, TB-500 $105/mo, Ipamorelin $179/mo, Tesamorelin $189/mo, KPV $179/mo, NAD+ $129/mo, glutathione $75/mo",
-  "Sexual wellness (PT-141) ? $75",
-  "Cognition and focus (Selank, Semax) ? $95/mo",
-  "Beauty and regeneration (GHK-Cu) ? $149/mo",
+  "Semaglutide — live clinical intake",
+  "Tirzepatide — live clinical intake",
+  "NAD+ — live clinical intake",
   "50+ biomarker testing ? $65",
 ];
 
@@ -218,7 +215,7 @@ export default function HowItWorks() {
               <div className="max-w-3xl text-center md:text-left">
                 <h1 className="hiw-display">How Pax Works</h1>
                 <p className="hiw-indigo mt-4 text-lg leading-relaxed md:text-xl">
-                  Comprehensive biomarker testing. Provider-led care. Personalized treatment for hormones, metabolism, and longevity.
+                  Comprehensive biomarker testing. Provider-led care. Live intake for Semaglutide, Tirzepatide, and NAD+.
                 </p>
               </div>
               <Cta clay className="block block-md shrink-0">Start Today</Cta>
