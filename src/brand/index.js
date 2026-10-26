@@ -6,6 +6,7 @@ export {
   beginIntake,
 } from "./storefront.js";
 export {
+  LIVE_TREATMENTS,
   TREATMENT_SKU,
   FALLBACK_CATALOG,
   mapCatalog,

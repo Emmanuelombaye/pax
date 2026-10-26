@@ -1,6 +1,38 @@
 /**
  * Presentational mapping for VCO storefront products → Pax UI.
+ * Live Pax catalog (Brand Storefront) is exactly these 3 treatments.
  */
+
+/** The only VCO-backed treatments for Pax right now */
+export const LIVE_TREATMENTS = [
+  {
+    id: "semaglutide",
+    sku: "STORE-SEMA",
+    name: "Semaglutide",
+    category: "Weight Loss",
+    vialSlug: "semaglutide",
+    intakeUrl:
+      "https://intake.paxlongevity.com/intake/8ae4edf9-d08b-46fa-b710-68caa7b24d51",
+  },
+  {
+    id: "tirzepatide",
+    sku: "STORE-TIRZ",
+    name: "Tirzepatide",
+    category: "Weight Loss",
+    vialSlug: "tirzepatide",
+    intakeUrl:
+      "https://intake.paxlongevity.com/intake/3d0e8ddf-1415-4f96-a43f-21b6c46ae48b",
+  },
+  {
+    id: "nad",
+    sku: "STORE-NAD",
+    name: "NAD+",
+    category: "Longevity & Wellness",
+    vialSlug: "nad-1000-mg",
+    intakeUrl:
+      "https://intake.paxlongevity.com/intake/338bbe76-dbb9-42ff-ab1c-7bf687cad1b5",
+  },
+];
 
 /** Local treatment id / vial slug → VCO SKU */
 export const TREATMENT_SKU = {

@@ -37,12 +37,43 @@ function vial(item) {
 
 const vials = [
   vial({
+    slug: "semaglutide",
+    program: "weight",
+    title: "Semaglutide",
+    price: "From $399/mo + membership",
+    image: "/images/pax-card-tirzepatide-v2.webp",
+    alt: "Pax semaglutide vial",
+    vcoSku: "STORE-SEMA",
+    summary:
+      "Physician-prescribed once-weekly GLP-1 for weight and metabolic care. Dose and refills follow your labs — never a cart checkout.",
+    benefits: ["From $399/mo", "Physician-titrated", "Labs before treatment", "Monthly check-ins"],
+    about: [
+      {
+        title: "What is semaglutide?",
+        body: "A once-weekly GLP-1 medicine used in Pax’s weight program when a physician includes it. Membership and medication are billed separately.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Weight care and metabolic health, when your history, goals, and labs support it.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "You start with bloodwork and a licensed visit. If semaglutide fits, the physician writes the dose and adjusts it as you check in.",
+      },
+      {
+        title: "What to expect",
+        body: "Appetite often changes before the scale does. Follow-ups are part of the plan so the dose can move with you.",
+      },
+    ],
+  }),
+  vial({
     slug: "tirzepatide",
     program: "weight",
     title: "Tirzepatide",
     price: "From $299/mo + membership",
     image: "/images/pax-card-tirzepatide-v2.webp",
     alt: "Pax tirzepatide vial",
+    vcoSku: "STORE-TIRZ",
     summary: "Pax’s weight management option. Your physician chooses the dose after labs, and refills follow the plan — never a cart checkout.",
     benefits: ["From $299/mo", "Physician-titrated", "Labs before treatment", "Monthly check-ins"],
     about: [
@@ -147,6 +178,7 @@ const vials = [
     price: "$129/mo + membership",
     image: "/images/pax-card-nad-v3.webp",
     alt: "Pax NAD+ vials",
+    vcoSku: "STORE-NAD",
     summary: "NAD+ 1000 mg for cellular energy and healthy aging support. Added only when a physician includes it in your longevity plan.",
     benefits: ["$129/mo", "Cellular energy", "Physician review"],
   }),

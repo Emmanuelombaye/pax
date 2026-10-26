@@ -152,7 +152,7 @@ function CellView({ value, light }) {
 
 function Cta({ children, clay, outline, block, className = "" }) {
   return (
-    <Link href="/intake" className={`hiw-btn ${clay ? "clay" : ""} ${outline ? "outline" : ""} ${block ? "block block-md" : ""} ${className}`}>
+    <Link href="/intake?treatment=semaglutide" className={`hiw-btn ${clay ? "clay" : ""} ${outline ? "outline" : ""} ${block ? "block block-md" : ""} ${className}`}>
       {children}
     </Link>
   );
@@ -206,7 +206,7 @@ export default function HowItWorks() {
             <Link href="/" className="inline-flex items-center gap-3 font-serif text-2xl tracking-tight"><BrandSeal /><span>Pax<span className="italic text-dune"> Health</span></span></Link>
             <div className="flex items-center gap-3">
               <LanguageToggle className="text-sand" />
-              <Link href="/intake" className="rounded-full bg-sand px-4 py-2 text-xs uppercase tracking-[0.16em] text-forest">{t("Take Assessment")}</Link>
+              <Link href="/intake?treatment=semaglutide" className="rounded-full bg-sand px-4 py-2 text-xs uppercase tracking-[0.16em] text-forest">{t("Take Assessment")}</Link>
             </div>
           </nav>
         </header>

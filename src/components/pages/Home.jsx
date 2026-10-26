@@ -273,7 +273,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <Link href="/intake" className="inline-flex w-full items-center justify-center rounded-full bg-forest px-7 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-forest/90 sm:w-auto sm:self-start">
+              <Link href="/intake?treatment=semaglutide" className="inline-flex w-full items-center justify-center rounded-full bg-forest px-7 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-forest/90 sm:w-auto sm:self-start">
                 {t("Begin intake assessment ?")}
               </Link>
             </div>

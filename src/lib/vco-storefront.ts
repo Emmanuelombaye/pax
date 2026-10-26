@@ -7,6 +7,7 @@ export {
   beginIntake as beginHostedIntake,
 } from "@/brand/storefront.js";
 export {
+  LIVE_TREATMENTS,
   TREATMENT_SKU,
   findProductForTreatment,
   fallbackProducts,
