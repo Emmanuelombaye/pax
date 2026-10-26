@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BrandSeal, LanguageToggle } from "@/components/Chrome";
+import LiveTreatments from "@/components/LiveTreatments";
+import { DEFAULT_INTAKE_HREF } from "@/brand/productMap.js";
 import { useLang } from "@/i18n";
 import "@/styles/how-it-works.css";
 
@@ -152,7 +154,7 @@ function CellView({ value, light }) {
 
 function Cta({ children, clay, outline, block, className = "" }) {
   return (
-    <Link href="/intake?treatment=semaglutide" className={`hiw-btn ${clay ? "clay" : ""} ${outline ? "outline" : ""} ${block ? "block block-md" : ""} ${className}`}>
+    <Link href={DEFAULT_INTAKE_HREF} className={`hiw-btn ${clay ? "clay" : ""} ${outline ? "outline" : ""} ${block ? "block block-md" : ""} ${className}`}>
       {children}
     </Link>
   );
@@ -206,7 +208,7 @@ export default function HowItWorks() {
             <Link href="/" className="inline-flex items-center gap-3 font-serif text-2xl tracking-tight"><BrandSeal /><span>Pax<span className="italic text-dune"> Health</span></span></Link>
             <div className="flex items-center gap-3">
               <LanguageToggle className="text-sand" />
-              <Link href="/intake?treatment=semaglutide" className="rounded-full bg-sand px-4 py-2 text-xs uppercase tracking-[0.16em] text-forest">{t("Take Assessment")}</Link>
+              <Link href={DEFAULT_INTAKE_HREF} className="rounded-full bg-sand px-4 py-2 text-xs uppercase tracking-[0.16em] text-forest">{t("Take Assessment")}</Link>
             </div>
           </nav>
         </header>
@@ -224,6 +226,8 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+
+      <LiveTreatments />
 
       <div className="hiw-marquee">
         <div className="hiw-marquee-desktop">

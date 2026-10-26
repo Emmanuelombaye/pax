@@ -320,7 +320,9 @@ export function findVial(slug) {
 }
 
 export function vialsForProgram(slug) {
-  return vials.filter((item) => item.program === slug);
+  return vials
+    .filter((item) => item.program === slug)
+    .sort((a, b) => Number(!!b.vcoSku) - Number(!!a.vcoSku));
 }
 
 export function relatedVials(item) {

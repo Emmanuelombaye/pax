@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useLang } from "@/i18n";
 import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
 import Vials from "@/components/Vials";
+import LiveTreatments from "@/components/LiveTreatments";
+import { DEFAULT_INTAKE_HREF, intakeHrefForProgram } from "@/brand/productMap.js";
 import "@/styles/footer-badges.css";
 
 const programs = [
@@ -12,8 +14,8 @@ const programs = [
     tag: "Most demand",
     title: "GLPs / Weight Loss",
     description: "Physician-titrated Semaglutide & Tirzepatide protocols with monthly refills shipped to your door.",
-    highlights: ["Compounded Semaglutide & Tirzepatide", "Personalized titration schedule", "Monthly check-ins & dose adjustments"],
-    price: "Tirzepatide from $299/mo + membership",
+    highlights: ["Live intake: Semaglutide & Tirzepatide", "Personalized titration schedule", "Monthly check-ins & dose adjustments"],
+    price: "Semaglutide & Tirzepatide — clinical intake open",
   },
   {
     slug: "hormones",
@@ -28,8 +30,8 @@ const programs = [
     tag: "Premium",
     title: "Peptides & Wellness",
     description: "Custom peptide protocols ? BPC-157, Ipamorelin, GHK-Cu and more ? designed around recovery and longevity goals.",
-    highlights: ["Recovery, growth, and longevity peptides", "Cycled protocols with safety monitoring", "Premium compounding partners"],
-    price: "BPC-157 $149/mo ? Ipamorelin $179/mo + membership",
+    highlights: ["Live intake: NAD+", "Cycled protocols with safety monitoring", "Premium compounding partners"],
+    price: "NAD+ live · other peptides by consult",
   },
   {
     slug: "vitality",
@@ -74,7 +76,7 @@ export default function Home() {
             <div className="hidden shrink-0 items-center gap-2 md:flex">
               <LanguageToggle className="text-sand" />
               <a href="#waitlist" className="whitespace-nowrap rounded-full border border-sand/60 px-3 py-2 text-xs uppercase tracking-[0.16em] transition hover:border-sand hover:bg-sand hover:text-forest">{t("Join")}</a>
-              <a href="#concierge" className="whitespace-nowrap rounded-full bg-sand px-3 py-2 text-xs uppercase tracking-[0.16em] text-forest transition hover:bg-dune">{t("Take Assessment")}</a>
+              <Link href={DEFAULT_INTAKE_HREF} className="whitespace-nowrap rounded-full bg-sand px-3 py-2 text-xs uppercase tracking-[0.16em] text-forest transition hover:bg-dune">{t("Take Assessment")}</Link>
             </div>
             <div className="md:hidden">
               <LanguageToggle className="text-sand" />
@@ -88,7 +90,7 @@ export default function Home() {
             </ul>
             <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 pb-4 text-[11px] uppercase tracking-[0.16em]">
               <a href="#waitlist" aria-label={t("Join the Pax Health waitlist")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-sand/60 px-4 py-2 text-sand transition hover:border-sand hover:bg-sand hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Join")}</a>
-              <a href="#concierge" aria-label={t("Take the intake assessment")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-sand px-4 py-2 text-forest transition hover:bg-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Take Assessment")}</a>
+              <Link href={DEFAULT_INTAKE_HREF} aria-label={t("Take the intake assessment")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-sand px-4 py-2 text-forest transition hover:bg-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Take Assessment")}</Link>
             </div>
           </nav>
         </header>
@@ -184,13 +186,15 @@ export default function Home() {
                 </ul>
                 <div className="mt-8 flex flex-col items-start gap-4">
                   <Link href={`/programs/${program.slug}`} className="inline-block text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">{t("Learn More")}</Link>
-                  <a href="#concierge" className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation ?")}</a>
+                  <Link href={intakeHrefForProgram(program.slug)} className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation ?")}</Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <LiveTreatments />
 
       <Vials />
 
@@ -210,8 +214,8 @@ export default function Home() {
                 {t("At-home blood testing and biomarker tracking, built into the Pax experience. Actionable results in less than 72 hours ? reviewed by your Pax physician.")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a href="#concierge" className="rounded-full bg-terracotta px-8 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-terracotta/90">{t("Order your kit")}</a>
-                <a href="#concierge" className="rounded-full border border-ink/30 px-8 py-4 text-xs uppercase tracking-[0.22em] text-ink transition hover:border-ink hover:bg-ink hover:text-sand">{t("Subscribe & track")}</a>
+                <Link href={DEFAULT_INTAKE_HREF} className="rounded-full bg-terracotta px-8 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-terracotta/90">{t("Order your kit")}</Link>
+                <Link href={DEFAULT_INTAKE_HREF} className="rounded-full border border-ink/30 px-8 py-4 text-xs uppercase tracking-[0.22em] text-ink transition hover:border-ink hover:bg-ink hover:text-sand">{t("Subscribe & track")}</Link>
               </div>
               <ul className="mt-10 space-y-2 font-serif text-sm text-ink/75">
                 <li>? {t("HSA / FSA Eligible")}</li>
@@ -273,7 +277,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <Link href="/intake?treatment=semaglutide" className="inline-flex w-full items-center justify-center rounded-full bg-forest px-7 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-forest/90 sm:w-auto sm:self-start">
+              <Link href={DEFAULT_INTAKE_HREF} className="inline-flex w-full items-center justify-center rounded-full bg-forest px-7 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-forest/90 sm:w-auto sm:self-start">
                 {t("Begin intake assessment ?")}
               </Link>
             </div>

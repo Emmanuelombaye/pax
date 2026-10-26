@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLang } from "@/i18n";
 import { findProgram, findVial, relatedVials } from "@/data/vial-programs";
-import { intakeHref } from "@/brand/productMap.js";
+import { intakeHref, isLiveTreatment } from "@/brand/productMap.js";
 import NotFound from "@/components/pages/NotFound";
 import "@/styles/vial-page.css";
 
@@ -20,6 +20,7 @@ export default function VialDetail() {
   if (!item) return <NotFound />;
   const program = findProgram(item.program);
   const others = relatedVials(item);
+  const live = isLiveTreatment(item.slug);
 
   return (
     <main className="vial-scope">
@@ -33,6 +34,7 @@ export default function VialDetail() {
             <span>{t(item.title)}</span>
           </p>
           <h1>{t(item.title)}</h1>
+          {live ? <p className="vial-price">{t("Live clinical intake")}</p> : null}
           <p className="vial-price">{t(item.price)}</p>
           <p className="vial-summary">{t(item.summary)}</p>
           <ul className="vial-chips">

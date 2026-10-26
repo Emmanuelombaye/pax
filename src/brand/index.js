@@ -14,6 +14,9 @@ export {
   resolveTreatmentId,
   findProductForTreatment,
   intakeHref,
+  DEFAULT_INTAKE_HREF,
+  intakeHrefForProgram,
+  isLiveTreatment,
 } from "./productMap.js";
 export {
   listStorefrontProducts,

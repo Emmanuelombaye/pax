@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
+import { DEFAULT_INTAKE_HREF } from "@/brand/productMap.js";
 import "@/styles/vials.css";
 
 const men = [
@@ -19,21 +20,21 @@ const men = [
     title: "Weight & Metabolism",
     label: "Weight",
     detail:
-      "Weight care is a clinical plan, not a cart. Appetite, energy, glucose, and metabolic markers are reviewed before tirzepatide from $299/mo plus membership. Your provider sets dosing and follow-up only when it fits your labs, history, and goals.",
+      "Weight care is a clinical plan, not a cart. Semaglutide and Tirzepatide are live for clinical intake after labs and a provider visit. Your provider sets dosing and follow-up only when it fits your history and goals.",
     src: "/images/pax-formula-weight-v2.webp",
     alt: "Pax tirzepatide pen on warm limestone",
-    price: "From $299/mo + membership",
+    price: "Semaglutide & Tirzepatide — live intake",
     href: "/programs/weight",
   },
   {
     title: "Longevity",
     label: "Peptides",
     detail:
-      "Healthspan comes from measurement and follow-up ? recovery, inflammation, hormones, and metabolic signals over time. Peptides and cellular support such as BPC-157, TB-500, GHK-Cu, NAD+, or glutathione are included only when a provider says they belong in your plan, with safety monitoring.",
+      "Healthspan comes from measurement and follow-up. NAD+ is live for clinical intake; other peptides such as BPC-157, TB-500, or GHK-Cu are discussed in consult when a provider says they belong.",
     src: "/images/pax-formula-peptides.webp",
     alt: "Pax vials labeled BPC-157, Ipamorelin, and GHK-Cu on linen",
-    price: "BPC-157 $149/mo ? TB-500 $105/mo ? Ipamorelin $179/mo ? NAD+ $129/mo ? glutathione $75/mo",
-    href: "/programs/peptides",
+    price: "NAD+ live intake · other peptides by consult",
+    href: "/treatments/nad-1000-mg",
   },
   {
     title: "Sexual Wellness",
@@ -81,21 +82,21 @@ const women = [
     title: "Weight & Metabolism",
     label: "Weight",
     detail:
-      "Weight care is a clinical plan built around appetite, energy, and metabolic health ? especially when hormones are shifting. Tirzepatide from $299/mo plus membership is considered only after labs and a provider visit, with dosing and follow-up set for you.",
+      "Weight care is a clinical plan built around appetite, energy, and metabolic health — especially when hormones are shifting. Semaglutide and Tirzepatide are live for intake after labs and a provider visit.",
     src: "/images/pax-formula-weight-v2.webp",
     alt: "Pax tirzepatide pen on warm limestone",
-    price: "From $299/mo + membership",
+    price: "Semaglutide & Tirzepatide — live intake",
     href: "/programs/weight",
   },
   {
     title: "Longevity",
     label: "Peptides",
     detail:
-      "Longer healthspan means measuring what matters over time: hormones, metabolism, inflammation, and recovery. Peptides or other adjuncts are added only when a provider says they fit, with monitoring ? not as a longevity shopping list.",
+      "Longer healthspan means measuring what matters over time. NAD+ is live for clinical intake; other adjuncts are added only when a provider says they fit.",
     src: "/images/pax-formula-peptides.webp",
     alt: "Pax vials labeled BPC-157, Ipamorelin, and GHK-Cu on linen",
-    price: "BPC-157 $149/mo ? KPV $179/mo ? Tesamorelin $189/mo ? NAD+ $129/mo",
-    href: "/programs/peptides",
+    price: "NAD+ live intake · other peptides by consult",
+    href: "/treatments/nad-1000-mg",
   },
   {
     title: "Sexual Wellness",
@@ -193,7 +194,7 @@ export default function Vials() {
                     </div>
                     <div className="vials-copy bottom">
                       <p className="vials-detail">{t(slide.detail)}</p>
-                      <Link href={slide.href || "/intake"} className="vials-btn">{t("Learn More")}</Link>
+                      <Link href={slide.href || DEFAULT_INTAKE_HREF} className="vials-btn">{t("Learn More")}</Link>
                     </div>
                   </div>
                   <div className="vials-desktop">
@@ -203,7 +204,7 @@ export default function Vials() {
                       <p className="vials-price">{t(slide.price)}</p>
                       <p className="vials-detail">{t(slide.detail)}</p>
                       <div>
-                        <Link href={slide.href || "/intake"} className="vials-btn">{t("Learn More")}</Link>
+                        <Link href={slide.href || DEFAULT_INTAKE_HREF} className="vials-btn">{t("Learn More")}</Link>
                       </div>
                     </div>
                     <div className="vials-photo">

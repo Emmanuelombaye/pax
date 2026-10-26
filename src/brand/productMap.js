@@ -160,3 +160,19 @@ export function intakeHref(treatmentId) {
   const id = resolveTreatmentId(treatmentId);
   return `/intake?treatment=${encodeURIComponent(id)}`;
 }
+
+/** Default live handoff when a page has no specific treatment */
+export const DEFAULT_INTAKE_HREF = intakeHref("semaglutide");
+
+/** Map marketing program slugs → a live VCO treatment */
+export function intakeHrefForProgram(programSlug) {
+  const key = String(programSlug || "").toLowerCase();
+  if (key === "weight") return intakeHref("semaglutide");
+  if (key === "peptides") return intakeHref("nad");
+  return DEFAULT_INTAKE_HREF;
+}
+
+export function isLiveTreatment(slugOrId) {
+  const id = resolveTreatmentId(slugOrId);
+  return LIVE_TREATMENTS.some((t) => t.id === id || t.vialSlug === slugOrId);
+}
