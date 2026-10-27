@@ -327,11 +327,12 @@ export default function Home() {
             </span>
             <div className="footer-trust__badge footer-trust__badge--flag">
               <span className="footer-trust__icon footer-trust__icon--flag">
-                <img alt="" width="38" height="26" src="/brand/badge-usa-flag.svg" />
+                <img alt="" width="80" height="56" src="/brand/badge-usa-flag.svg" />
               </span>
               <span className="footer-trust__copy">
-                <span className="footer-trust__kicker">{t("Compounded by")}</span>
-                <span className="footer-trust__title">{t("Licensed Pharmacies in the USA")}</span>
+                <span className="footer-trust__kicker">{t("Compounded by Licensed")}</span>
+                <span className="footer-trust__kicker">{t("Pharmacies in the")}</span>
+                <span className="footer-trust__usa-title">★&nbsp;USA</span>
               </span>
             </div>
             <div className="footer-trust__badge footer-trust__badge--seal">

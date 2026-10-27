@@ -116,6 +116,16 @@
   line-height: 1.15;
 }
 
+.home-footer .footer-trust__usa-title {
+  font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fdf5e9;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
 @media (max-width: 767px) {
   .home-footer .footer-trust {
     flex-direction: column;
