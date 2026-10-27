@@ -62,16 +62,16 @@
 }
 
 .home-footer .footer-trust__icon--flag {
-  width: 2.85rem;
-  height: 1.95rem;
-  border-radius: 0.45rem;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px color-mix(in srgb, #fdf5e9 14%, transparent);
+  width: 3.8rem;
+  height: 2.6rem;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
 }
 
 .home-footer .footer-trust__icon--flag img {
-  width: 2.85rem;
-  height: 1.95rem;
+  width: 3.8rem;
+  height: 2.6rem;
 }
 
 .home-footer .footer-trust__copy {

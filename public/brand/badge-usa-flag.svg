@@ -1,56 +1,99 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 26" role="img" aria-labelledby="pax-usa-flag-title">
-  <title id="pax-usa-flag-title">United States</title>
-  <defs>
-    <clipPath id="pax-usa-flag-clip">
-      <rect width="38" height="26" rx="4.5" ry="4.5"/>
-    </clipPath>
-  </defs>
-  <g clip-path="url(#pax-usa-flag-clip)">
-    <rect width="38" height="26" fill="#B31942"/>
-    <path
-      fill="none"
-      stroke="#FFFFFF"
-      stroke-width="2"
-      d="M0 2h38M0 6h38M0 10h38M0 14h38M0 18h38M0 22h38"
-    />
-    <rect width="15.2" height="14" fill="#0A3161"/>
-    <g fill="#FFFFFF">
-      <circle cx="2.2" cy="1.55" r="0.55"/>
-      <circle cx="4.85" cy="1.55" r="0.55"/>
-      <circle cx="7.5" cy="1.55" r="0.55"/>
-      <circle cx="10.15" cy="1.55" r="0.55"/>
-      <circle cx="12.8" cy="1.55" r="0.55"/>
-      <circle cx="3.5" cy="3.1" r="0.55"/>
-      <circle cx="6.15" cy="3.1" r="0.55"/>
-      <circle cx="8.8" cy="3.1" r="0.55"/>
-      <circle cx="11.45" cy="3.1" r="0.55"/>
-      <circle cx="2.2" cy="4.65" r="0.55"/>
-      <circle cx="4.85" cy="4.65" r="0.55"/>
-      <circle cx="7.5" cy="4.65" r="0.55"/>
-      <circle cx="10.15" cy="4.65" r="0.55"/>
-      <circle cx="12.8" cy="4.65" r="0.55"/>
-      <circle cx="3.5" cy="6.2" r="0.55"/>
-      <circle cx="6.15" cy="6.2" r="0.55"/>
-      <circle cx="8.8" cy="6.2" r="0.55"/>
-      <circle cx="11.45" cy="6.2" r="0.55"/>
-      <circle cx="2.2" cy="7.75" r="0.55"/>
-      <circle cx="4.85" cy="7.75" r="0.55"/>
-      <circle cx="7.5" cy="7.75" r="0.55"/>
-      <circle cx="10.15" cy="7.75" r="0.55"/>
-      <circle cx="12.8" cy="7.75" r="0.55"/>
-      <circle cx="3.5" cy="9.3" r="0.55"/>
-      <circle cx="6.15" cy="9.3" r="0.55"/>
-      <circle cx="8.8" cy="9.3" r="0.55"/>
-      <circle cx="11.45" cy="9.3" r="0.55"/>
-      <circle cx="2.2" cy="10.85" r="0.55"/>
-      <circle cx="4.85" cy="10.85" r="0.55"/>
-      <circle cx="7.5" cy="10.85" r="0.55"/>
-      <circle cx="10.15" cy="10.85" r="0.55"/>
-      <circle cx="12.8" cy="10.85" r="0.55"/>
-      <circle cx="3.5" cy="12.4" r="0.55"/>
-      <circle cx="6.15" cy="12.4" r="0.55"/>
-      <circle cx="8.8" cy="12.4" r="0.55"/>
-      <circle cx="11.45" cy="12.4" r="0.55"/>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 54" role="img" aria-labelledby="pax-usa-map-title">
+  <title id="pax-usa-map-title">Compounded in the USA</title>
+  <!--
+    Simplified continental USA silhouette, beige/cream fill.
+    Viewbox: 80×54 to give a landscape map shape.
+  -->
+  <path
+    fill="#F4EAE0"
+    stroke="#E8C5A0"
+    stroke-width="1"
+    stroke-linejoin="round"
+    d="
+      M 8,16
+      L 8,12
+      L 12,10
+      L 16,10
+      L 18,8
+      L 22,7
+      L 26,8
+      L 28,10
+      L 32,10
+      L 34,8
+      L 36,8
+      L 38,10
+      L 40,10
+      L 42,9
+      L 44,10
+      L 46,9
+      L 48,10
+      L 50,9
+      L 52,10
+      L 54,10
+      L 56,9
+      L 58,10
+      L 60,10
+      L 62,12
+      L 64,12
+      L 66,14
+      L 68,16
+      L 70,18
+      L 72,20
+      L 72,24
+      L 70,26
+      L 68,28
+      L 66,30
+      L 64,32
+      L 62,34
+      L 60,36
+      L 58,38
+      L 56,40
+      L 54,42
+      L 52,42
+      L 50,44
+      L 48,44
+      L 46,42
+      L 44,40
+      L 42,40
+      L 40,42
+      L 38,42
+      L 36,40
+      L 34,40
+      L 32,42
+      L 30,44
+      L 28,44
+      L 26,42
+      L 24,40
+      L 22,38
+      L 20,36
+      L 18,34
+      L 16,32
+      L 14,30
+      L 12,28
+      L 10,26
+      L 8,24
+      L 8,20
+      Z
+    "
+  />
+  <!-- Florida peninsula -->
+  <path
+    fill="#F4EAE0"
+    stroke="#E8C5A0"
+    stroke-width="1"
+    stroke-linejoin="round"
+    d="M 52,42 L 54,44 L 54,48 L 52,50 L 50,48 L 50,44 Z"
+  />
+  <!-- Alaska (small, bottom-left) -->
+  <path
+    fill="#F4EAE0"
+    stroke="#E8C5A0"
+    stroke-width="0.8"
+    stroke-linejoin="round"
+    d="M 6,44 L 4,42 L 6,40 L 10,40 L 12,42 L 10,44 Z"
+  />
+  <!-- Hawaii (small dots, bottom-left area) -->
+  <circle cx="16" cy="48" r="2" fill="#F4EAE0" stroke="#E8C5A0" stroke-width="0.8"/>
+  <circle cx="21" cy="47" r="1.5" fill="#F4EAE0" stroke="#E8C5A0" stroke-width="0.8"/>
+  <circle cx="25" cy="48" r="1.2" fill="#F4EAE0" stroke="#E8C5A0" stroke-width="0.8"/>
 </svg>
