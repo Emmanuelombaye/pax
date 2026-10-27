@@ -1,67 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" role="img" aria-labelledby="pax-usa-map-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70" role="img" aria-labelledby="pax-usa-map-title">
   <title id="pax-usa-map-title">Compounded in the USA</title>
 
-  <!-- Continental USA outline - recognizable shape -->
+  <!-- Continental USA – solid white silhouette, recognisable outline -->
   <path
-    fill="#EEC6A0"
-    stroke="#FAF6F0"
-    stroke-width="1.2"
-    stroke-linejoin="round"
+    fill="#FFFFFF"
     d="
-      M 14,18
-      L 14,14 L 16,12 L 20,11 L 24,12 L 26,10 L 30,9
-      L 34,10 L 36,9 L 40,9 L 44,10 L 46,9 L 50,9
-      L 54,10 L 58,9 L 62,10 L 66,11 L 70,10 L 74,12
-      L 78,13 L 82,15 L 84,17 L 86,18
-      L 88,20 L 90,22 L 90,26 L 88,28
-      L 86,30 L 84,32 L 82,34 L 80,36
-      L 78,38 L 76,40 L 74,42 L 72,44
-      L 70,46 L 68,48 L 66,50
-      L 64,52 L 62,52 L 60,54
-      L 58,54 L 56,52 L 54,50
-      L 52,50 L 50,52 L 48,52
-      L 46,50 L 44,48 L 42,46
-      L 40,44 L 36,42 L 32,42
-      L 28,40 L 24,38 L 20,36
-      L 18,34 L 16,30 L 14,26
+      M 8,18
+      C 8,14 11,11 16,10
+      L 24,9 34,9 44,9 54,9 64,9 73,10 82,12
+      C 88,13 94,16 97,21
+      L 97,25
+      C 96,29 93,32 91,34
+      L 88,37 85,39 83,41 81,43 79,45 77,47
+      C 77,49 77,52 78,55
+      C 79,58 81,63 82,63
+      C 83,62 84,59 83,56
+      L 81,52 79,50
+      L 74,51 68,53 62,54 56,54 50,53 44,52 40,52
+      L 38,55 36,58 33,59 30,57 30,54 32,51
+      L 26,49 20,46 14,43
+      C 10,40 8,36 8,31
       Z
     "
   />
 
-  <!-- Florida peninsula -->
+  <!-- Alaska – solid white, bottom left -->
   <path
-    fill="#EEC6A0"
-    stroke="#FAF6F0"
-    stroke-width="1.2"
-    stroke-linejoin="round"
-    d="M 68,48 L 70,50 L 71,54 L 70,60 L 68,62 L 66,60 L 65,56 L 65,52 L 66,50 Z"
+    fill="#FFFFFF"
+    d="M 4,58 C 3,56 4,53 7,52 L 11,52 14,53 15,56 13,59 9,60 Z"
   />
 
-  <!-- Key state border lines to make it clearly a map of states -->
-  <!-- East coast / Appalachian rough divider -->
-  <line x1="80" y1="16" x2="72" y2="44" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-  <!-- Mississippi River approx -->
-  <line x1="58" y1="10" x2="54" y2="50" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-  <!-- Rockies approx -->
-  <line x1="44" y1="10" x2="36" y2="42" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-  <!-- Texas south border -->
-  <line x1="36" y1="42" x2="54" y2="50" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-  <!-- Great Lakes / northern horizontal -->
-  <line x1="50" y1="18" x2="86" y2="18" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-  <!-- Mason-Dixon / mid horizontal -->
-  <line x1="54" y1="28" x2="84" y2="28" stroke="#FAF6F0" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.7"/>
-
-  <!-- Alaska (bottom-left, small) -->
-  <path
-    fill="#EEC6A0"
-    stroke="#FAF6F0"
-    stroke-width="0.9"
-    stroke-linejoin="round"
-    d="M 8,60 L 6,58 L 7,55 L 10,54 L 14,55 L 16,57 L 15,60 L 12,62 Z"
-  />
-
-  <!-- Hawaii (3 dots, bottom center-left) -->
-  <ellipse cx="28" cy="66" rx="4" ry="2.5" fill="#EEC6A0" stroke="#FAF6F0" stroke-width="0.9"/>
-  <ellipse cx="36" cy="65" rx="3" ry="2" fill="#EEC6A0" stroke="#FAF6F0" stroke-width="0.9"/>
-  <ellipse cx="43" cy="66" rx="2.2" ry="1.6" fill="#EEC6A0" stroke="#FAF6F0" stroke-width="0.9"/>
+  <!-- Hawaii – 3 island shapes, bottom center -->
+  <ellipse cx="30" cy="64" rx="4.5" ry="2.5" fill="#FFFFFF"/>
+  <ellipse cx="39" cy="63" rx="3.2" ry="2" fill="#FFFFFF"/>
+  <ellipse cx="46" cy="64" rx="2.2" ry="1.6" fill="#FFFFFF"/>
 </svg>
