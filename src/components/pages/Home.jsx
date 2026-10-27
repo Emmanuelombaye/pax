@@ -5,7 +5,9 @@ import { useLang } from "@/i18n";
 import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
 import Vials from "@/components/Vials";
 import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
+import { LEGAL_LINKS } from "@/data/legalContent.js";
 import "@/styles/footer-badges.css";
+import "@/styles/legal.css";
 
 const treatments = LIVE_TREATMENTS.map((item) => ({
   ...item,
@@ -14,7 +16,7 @@ const treatments = LIVE_TREATMENTS.map((item) => ({
   blurb:
     item.id === "nad"
       ? "Cellular energy and healthy aging support when a physician includes it in your plan."
-      : "Physician-titrated weight care after labs and a licensed visit ? never a cart checkout.",
+      : "Physician-titrated weight care after labs and a licensed visit — never a cart checkout.",
 }));
 
 const panels = [
@@ -310,7 +312,14 @@ export default function Home() {
               <p className="mt-3 max-w-xs font-serif text-base leading-relaxed">{t("A modern telehealth clinic for longevity, recovery, and the long life.")}</p>
             </div>
             <Link href="/how-pax-works" className="text-xs uppercase tracking-[0.22em] text-sand transition hover:text-dune">{t("How it works")}</Link>
-            <p className="text-xs uppercase tracking-[0.22em] text-sand/50">© {new Date().getFullYear()} Pax Health. {t("All rights reserved.")}</p>
+            <div className="footer-links-col footer-links-col--legal">
+              <span className="footer-col-title">Legal</span>
+              {LEGAL_LINKS.map((link) => (
+                <Link key={link.id} href={link.href} className="footer-link">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
             <span className="footer-trust__legitscript">
@@ -345,6 +354,40 @@ export default function Home() {
                 <span className="footer-trust__sub">{t("Compliant")}</span>
               </span>
             </div>
+          </div>
+          <p className="footer-disclaimer">
+            Pax Longevity® is a telehealth platform that connects eligible patients with independent US-licensed providers and
+            licensed pharmacy partners. Pax Longevity® is not a pharmacy and does not itself practice medicine. Prescription
+            products are provided only if clinically appropriate after review by a US-licensed provider. Individual results
+            may vary.
+          </p>
+          <p className="footer-disclaimer">
+            <strong>Service availability:</strong> Services may not be available in all states. Availability may vary by
+            treatment, provider licensure, pharmacy fulfillment, and patient eligibility.
+          </p>
+          <p className="footer-disclaimer">
+            <strong>Pharmacy &amp; fulfillment:</strong> Pax Longevity® is not a pharmacy, drug manufacturer, outsourcing
+            facility, or compounding facility, and does not compound, manufacture, dispense, or physically fulfill
+            medications. If prescription treatment is clinically appropriate, medication may be fulfilled through a
+            licensed dispensing pharmacy pursuant to a patient-specific prescription. Compounded medications are not
+            FDA-approved as finished branded products. *Timing not guaranteed.
+          </p>
+          <p className="footer-disclaimer">
+            <strong>Product imagery:</strong> Displayed product imagery is intended solely for illustrative purposes and
+            is not intended to imply that Pax Longevity® compounds, manufactures, dispenses, or physically fulfills
+            medications. Actual medication packaging and pharmacy labeling may differ.
+          </p>
+          <div className="footer-bottom">
+            <p className="footer-copy">
+              Pax Longevity LLC d/b/a Pax Longevity® · © {new Date().getFullYear()} Pax Longevity®. {t("All rights reserved.")}
+            </p>
+            <nav className="footer-legal-links" aria-label="Legal">
+              {LEGAL_LINKS.map((link) => (
+                <Link key={`bottom-${link.id}`} href={link.href} className="footer-legal-link">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </footer>
