@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
 import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
+import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
 import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
@@ -31,7 +32,15 @@ export default function Home() {
   return (
     <main className="bg-sand">
       <section id="top" className="relative min-h-screen w-full overflow-hidden bg-forest">
-        <img src="/assets/hero-BUD68560.jpg" alt="Warm, sunlit Pax Health brand imagery evoking calm and vitality" width="1600" height="1200" className="absolute inset-0 h-full w-full object-cover opacity-90" />
+        <MediaImage
+          src="/assets/hero.webp"
+          alt="Warm, sunlit Pax Health brand imagery evoking calm and vitality"
+          fill
+          priority
+          sizes="100vw"
+          quality={70}
+          className="object-cover opacity-90"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/80" />
         <header className="absolute inset-x-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl flex-nowrap items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
@@ -188,7 +197,15 @@ export default function Home() {
               </ul>
             </div>
             <div className="relative">
-              <img src="/assets/diagnostics-abstract-BZ02QBZF.jpg" alt={t("Pax at-home blood collection device")} width="1024" height="1280" loading="lazy" className="w-full rounded-3xl object-cover shadow-xl" />
+              <MediaImage
+                src="/assets/diagnostics-abstract.webp"
+                alt={t("Pax at-home blood collection device")}
+                width={1024}
+                height={1280}
+                sizes="(max-width: 768px) 100vw, 40vw"
+                quality={68}
+                className="h-auto w-full rounded-3xl object-cover shadow-xl"
+              />
               <div className="absolute bottom-6 right-6 rounded-2xl border border-ink/10 bg-sand/95 px-5 py-3 font-serif text-sm text-ink shadow-md">{t("Results in < 72 hours")}</div>
             </div>
           </div>
@@ -254,7 +271,14 @@ export default function Home() {
       </section>
 
       <section id="location" className="relative w-full overflow-hidden bg-forest text-sand">
-        <img src="/assets/miami-g2PmITGi.jpg" alt="Aerial view of Miami coastline at golden hour" width="1600" height="900" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <MediaImage
+          src="/assets/miami.webp"
+          alt="Aerial view of Miami coastline at golden hour"
+          fill
+          sizes="100vw"
+          quality={65}
+          className="object-cover opacity-25"
+        />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-28 md:grid-cols-12 md:px-10 md:py-40">
           <div className="md:col-span-7">
             <p className="text-xs uppercase tracking-[0.3em] text-dune">{t("— Nationwide")}</p>

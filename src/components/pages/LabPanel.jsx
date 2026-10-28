@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { BrandSeal, LanguageToggle } from "@/components/Chrome";
+import MediaImage from "@/components/MediaImage";
 import { useLang } from "@/i18n";
 import { DEFAULT_INTAKE_HREF } from "@/brand/productMap.js";
 import { LAB_PANELS, findLabPanel } from "@/data/labPanels.js";
@@ -57,9 +58,13 @@ export default function LabPanel() {
               {t("Back to panels")}
             </Link>
           </div>
-          <img
+          <MediaImage
             src="/images/pax-bloodwork-page-v4-hq.webp"
             alt={t("Quiet focus before the plan — Pax diagnostics")}
+            width={900}
+            height={1125}
+            sizes="(max-width: 768px) 0px, 40vw"
+            quality={68}
             className="mt-12 hidden w-full rounded-3xl object-cover shadow-lg md:block"
           />
         </div>

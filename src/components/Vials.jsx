@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
 import { LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
+import MediaImage from "@/components/MediaImage";
 import "@/styles/vials.css";
 
 const slides = [
@@ -94,7 +95,11 @@ export default function Vials() {
                       <h3 className="vials-title">{t(slide.title)}</h3>
                       <p className="vials-price">{t(slide.price)}</p>
                     </div>
-                    <div className="vials-well">{showImage ? <img src={slide.src} alt={slide.alt} /> : null}</div>
+                    <div className="vials-well">
+                      {showImage ? (
+                        <MediaImage src={slide.src} alt={slide.alt} width={900} height={900} sizes="(max-width: 768px) 90vw, 40vw" quality={68} className="h-full w-full object-cover" />
+                      ) : null}
+                    </div>
                     <div className="vials-copy bottom">
                       <p className="vials-detail">{t(slide.detail)}</p>
                       <Link href={slide.href} className="vials-btn">
@@ -120,7 +125,11 @@ export default function Vials() {
                         </Link>
                       </div>
                     </div>
-                    <div className="vials-photo">{showImage ? <img src={slide.src} alt="" /> : null}</div>
+                    <div className="vials-photo">
+                      {showImage ? (
+                        <MediaImage src={slide.src} alt="" width={1000} height={1000} sizes="(max-width: 960px) 50vw, 40vw" quality={68} className="h-full w-full object-cover" />
+                      ) : null}
+                    </div>
                   </div>
                 </article>
               );

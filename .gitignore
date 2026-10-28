@@ -10,7 +10,6 @@ dist
 dist-ssr
 
 # env
-.env
 .env*.local
 
 # logs / editor
@@ -19,8 +18,8 @@ logs
 npm-debug.log*
 .DS_Store
 .idea
-.vscode/*
 !.vscode/extensions.json
 *.tsbuildinfo
 .vercel
 tmp-*
+config.bat

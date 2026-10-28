@@ -161,7 +161,7 @@ function StepRow({ step, cta }) {
   return (
     <article className="hiw-step">
       <div className="hiw-photo">
-        <img src={step.image.src} alt={step.image.alt} />
+        <img loading="lazy" decoding="async" src={step.image.src} alt={step.image.alt} />
       </div>
       <div>
         <p className="hiw-kicker">Step {step.num}</p>
@@ -199,7 +199,7 @@ export default function HowItWorks() {
   return (
     <div className="how-pax">
       <section className="hiw-hero">
-        <img className="hiw-hero-photo" src={images.howItWorks.src} alt={images.howItWorks.alt} />
+        <img loading="eager" fetchPriority="high" decoding="async" className="hiw-hero-photo" src={images.howItWorks.src} alt={images.howItWorks.alt} />
         <header className="absolute inset-x-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
             <Link href="/" className="inline-flex items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl"><BrandSeal /><span>Pax<span className="italic text-dune"> Health</span></span></Link>
@@ -327,13 +327,13 @@ export default function HowItWorks() {
           <div className="hiw-doctor-track">
             {portraits.map((photo) => (
               <figure key={photo.src} className="hiw-portrait">
-                <div className="frame"><img src={photo.src} alt={photo.alt} /></div>
+                <div className="frame"><img loading="lazy" decoding="async" src={photo.src} alt={photo.alt} /></div>
                 <figcaption className="hiw-indigo mt-2 text-center text-sm">Licensed provider</figcaption>
               </figure>
             ))}
             {portraits.map((photo) => (
               <figure key={`${photo.src}-copy`} className="hiw-portrait copy" aria-hidden="true">
-                <div className="frame"><img src={photo.src} alt="" /></div>
+                <div className="frame"><img loading="lazy" decoding="async" src={photo.src} alt="" /></div>
                 <figcaption className="hiw-indigo mt-2 text-center text-sm">Licensed provider</figcaption>
               </figure>
             ))}
@@ -368,7 +368,7 @@ export default function HowItWorks() {
       </section>
 
       <section className="hiw-faq">
-        <img className="hiw-faq-bg" src={images.howItWorks.src} alt="" />
+        <img loading="lazy" decoding="async" className="hiw-faq-bg" src={images.howItWorks.src} alt="" />
         <div className="hiw-wrap">
           <div className="hiw-faq-card">
             <h2 className="hiw-section-title">FAQs</h2>
@@ -389,7 +389,7 @@ export default function HowItWorks() {
       </section>
 
       <section className="hiw-cta">
-        <img className="bg" src={images.longevity.src} alt={images.longevity.alt} />
+        <img loading="lazy" decoding="async" className="bg" src={images.longevity.src} alt={images.longevity.alt} />
         <div className="shade" />
         <div className="hiw-wrap copy">
           <div className="max-w-2xl">
@@ -410,3 +410,4 @@ export default function HowItWorks() {
     </div>
   );
 }
+
