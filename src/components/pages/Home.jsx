@@ -9,6 +9,7 @@ import { LEGAL_LINKS } from "@/data/legalContent.js";
 import { LAB_PANELS } from "@/data/labPanels.js";
 import "@/styles/footer-badges.css";
 import "@/styles/legal.css";
+import "@/styles/lab-cards.css";
 
 const treatments = LIVE_TREATMENTS.map((item) => ({
   ...item,
@@ -198,18 +199,18 @@ export default function Home() {
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {panels.map((panel) => (
-                <Link
-                  key={panel.slug}
-                  href={`/labs/${panel.slug}`}
-                  className="rounded-2xl border border-ink/10 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
-                >
-                  <p className="text-xs uppercase tracking-[0.22em] text-terracotta">{t(panel.title)}</p>
-                  <ul className="mt-5 space-y-2 font-serif text-base text-ink/80">
+                <article key={panel.slug} className="lab-card">
+                  <p className="lab-card__title">{t(panel.title)}</p>
+                  <ul className="lab-card__list">
                     {panel.markers.map((marker) => (
-                      <li key={marker.name} className="flex gap-3"><span className="text-terracotta">•</span><span>{t(marker.name)}</span></li>
+                      <li key={marker.name}>{t(marker.name)}</li>
                     ))}
                   </ul>
-                </Link>
+                  <Link href={`/labs/${panel.slug}`} className="lab-card__btn">
+                    <span>{t("Explore panel")}</span>
+                    <span className="lab-card__btn-arrow" aria-hidden="true">→</span>
+                  </Link>
+                </article>
               ))}
             </div>
           </div>
