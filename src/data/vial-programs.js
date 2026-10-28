@@ -42,8 +42,8 @@ const vials = [
     program: "weight",
     title: "Semaglutide",
     price: "From $399/mo + membership",
-    image: "/images/pax-card-tirzepatide-v2.webp",
-    alt: "Pax semaglutide vial",
+    image: "/images/pax-formula-weight-v2.webp",
+    alt: "Pax semaglutide weight-care formula",
     vcoSku: "STORE-SEMA",
     summary:
       "Physician-prescribed once-weekly GLP-1 for weight and metabolic care. Dose and refills follow your labs — never a cart checkout.",

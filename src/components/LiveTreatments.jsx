@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useLang } from "@/i18n";
-import { LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
+import { intakeHref } from "@/brand/productMap.js";
+import { LIVE_PRODUCT_CARDS } from "@/data/designCatalog.js";
 
 /**
- * Site-wide strip for the 3 live VCO treatments.
- * Keeps marketing catalog elsewhere; this is the only start-care catalog.
+ * Site-wide strip for the 3 live VCO treatments with designed card imagery.
  */
 export default function LiveTreatments({ className = "" }) {
   const { t } = useLang();
@@ -26,33 +26,43 @@ export default function LiveTreatments({ className = "" }) {
         </h2>
         <p className="mt-4 max-w-xl font-serif text-base leading-relaxed text-ink/70 md:text-lg">
           {t(
-            "Semaglutide, Tirzepatide, and NAD+ are connected to VirtualClinicOS. Choose one to open secure clinical intake.",
+            "Semaglutide, Tirzepatide, and NAD+ — designed product cards with secure clinical intake.",
           )}
         </p>
         <ul className="mt-10 grid gap-6 md:grid-cols-3">
-          {LIVE_TREATMENTS.map((item) => (
-            <li key={item.sku} className="flex flex-col border-t border-ink/15 pt-6">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
-                {t(item.category)}
-              </p>
-              <h3 className="mt-2 font-serif text-2xl text-ink md:text-3xl">{t(item.name)}</h3>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <Link
-                  href={intakeHref(item.id)}
-                  className="text-xs uppercase tracking-[0.22em] text-forest transition hover:text-terracotta"
-                >
-                  {t("Start intake →")}
-                </Link>
-                <Link
-                  href={`/treatments/${item.vialSlug}`}
-                  className="text-xs uppercase tracking-[0.22em] text-ink/55 transition hover:text-terracotta"
-                >
-                  {t("Learn more")}
-                </Link>
+          {LIVE_PRODUCT_CARDS.map((item) => (
+            <li key={item.id} className="overflow-hidden rounded-2xl border border-ink/10 bg-sand">
+              <Link href={item.href} className="block aspect-square overflow-hidden bg-[#ece4d8]">
+                <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+              </Link>
+              <div className="p-5">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
+                  {t(item.category)}
+                </p>
+                <h3 className="mt-2 font-serif text-2xl text-ink md:text-3xl">{t(item.name)}</h3>
+                <div className="mt-5 flex flex-wrap gap-4">
+                  <Link
+                    href={intakeHref(item.intakeId)}
+                    className="text-xs uppercase tracking-[0.22em] text-forest transition hover:text-terracotta"
+                  >
+                    {t("Start intake →")}
+                  </Link>
+                  <Link
+                    href={item.href}
+                    className="text-xs uppercase tracking-[0.22em] text-ink/55 transition hover:text-terracotta"
+                  >
+                    {t("Learn more")}
+                  </Link>
+                </div>
               </div>
             </li>
           ))}
         </ul>
+        <div className="mt-8">
+          <Link href="/treatments" className="text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">
+            {t("Browse all designed cards →")}
+          </Link>
+        </div>
       </div>
     </section>
   );
