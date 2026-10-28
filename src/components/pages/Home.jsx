@@ -4,26 +4,23 @@ import Link from "next/link";
 import { useLang } from "@/i18n";
 import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
 import Vials from "@/components/Vials";
-import { DEFAULT_INTAKE_HREF, intakeHref } from "@/brand/productMap.js";
+import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
-import { LIVE_PRODUCT_CARDS, LIFESTYLE_PILLARS } from "@/data/designCatalog.js";
+import { LAB_PANELS } from "@/data/labPanels.js";
 import "@/styles/footer-badges.css";
 import "@/styles/legal.css";
-import "@/styles/design-pages.css";
 
-const treatments = LIVE_PRODUCT_CARDS.map((item) => ({
+const treatments = LIVE_TREATMENTS.map((item) => ({
   ...item,
-  intake: intakeHref(item.intakeId),
+  href: `/treatments/${item.vialSlug}`,
+  intake: intakeHref(item.id),
+  blurb:
+    item.id === "nad"
+      ? "Cellular energy and healthy aging support when a physician includes it in your plan."
+      : "Physician-titrated weight care after labs and a licensed visit — never a cart checkout.",
 }));
 
-const panels = [
-  { title: "Hormones", markers: ["Total Testosterone", "Free Testosterone", "Estradiol (E2)", "Progesterone", "SHBG"] },
-  { title: "Cardiovascular Health", markers: ["ApoB", "LDL", "HDL", "Triglycerides", "hs-CRP"] },
-  { title: "Metabolic Health", markers: ["Fasting Insulin", "Hemoglobin A1C", "Glucose"] },
-  { title: "Thyroid Health", markers: ["TSH", "Free T3", "Free T4"] },
-  { title: "Nutrient Status", markers: ["Vitamin D", "Vitamin B12", "Ferritin", "Iron Studies"] },
-  { title: "General Health", markers: ["CBC", "CMP", "Kidney Function", "Liver Function"] },
-];
+const panels = LAB_PANELS;
 
 export default function Home() {
   const { t } = useLang();
@@ -41,11 +38,9 @@ export default function Home() {
               <BrandSeal />
               <span>Pax<span className="italic text-dune"> Health</span></span>
             </a>
-            <ul className="ml-auto hidden flex-nowrap gap-5 pr-4 text-xs uppercase tracking-[0.18em] md:flex lg:gap-6">
-              <li><Link href="/treatments" className="hover:text-dune">{t("Treatments")}</Link></li>
-              <li><Link href="/membership" className="hover:text-dune">{t("Membership")}</Link></li>
-              <li><Link href="/lifestyle" className="hover:text-dune">{t("Lifestyle")}</Link></li>
-              <li><Link href="/care" className="hover:text-dune">{t("Care")}</Link></li>
+            <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
+              <li><a href="#membership" className="hover:text-dune">{t("Membership")}</a></li>
+              <li><a href="#philosophy" className="hover:text-dune">{t("Philosophy")}</a></li>
               <li><Link href="/network" className="hover:text-dune">{t("Partners")}</Link></li>
             </ul>
             <div className="hidden shrink-0 items-center gap-2 md:flex">
@@ -58,11 +53,10 @@ export default function Home() {
             </div>
           </nav>
           <nav aria-label={t("Mobile primary")} className="md:hidden">
-            <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-6 pb-3 text-[11px] uppercase tracking-[0.18em] text-sand">
-              <li><Link href="/treatments" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune">{t("Treatments")}</Link></li>
-              <li><Link href="/membership" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune">{t("Membership")}</Link></li>
-              <li><Link href="/lifestyle" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune">{t("Lifestyle")}</Link></li>
-              <li><Link href="/care" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune">{t("Care")}</Link></li>
+            <ul className="mx-auto flex max-w-7xl items-center justify-center gap-6 px-6 pb-3 text-[11px] uppercase tracking-[0.18em] text-sand">
+              <li><a href="#membership" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Membership")}</a></li>
+              <li><a href="#philosophy" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Philosophy")}</a></li>
+              <li><Link href="/network" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Partners")}</Link></li>
             </ul>
             <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 pb-4 text-[11px] uppercase tracking-[0.16em]">
               <a href="#waitlist" aria-label={t("Join the Pax Health waitlist")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-sand/60 px-4 py-2 text-sand transition hover:border-sand hover:bg-sand hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Join")}</a>
@@ -79,8 +73,8 @@ export default function Home() {
             {t("Pax Health is a physician-led virtual practice. Live clinical intake for Semaglutide, Tirzepatide, and NAD+ — prescribed by licensed U.S. doctors and shipped to your door.")}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
-            <Link href="/treatments" className="rounded-full bg-sand px-8 py-4 text-xs uppercase tracking-[0.22em] text-forest transition hover:bg-dune">{t("View treatments")}</Link>
-            <Link href="/lifestyle" className="text-xs uppercase tracking-[0.22em] text-sand/80 hover:text-sand">{t("Discover the lifestyle →")}</Link>
+            <a href="#membership" className="rounded-full bg-sand px-8 py-4 text-xs uppercase tracking-[0.22em] text-forest transition hover:bg-dune">{t("Membership")}</a>
+            <a href="#philosophy" className="text-xs uppercase tracking-[0.22em] text-sand/80 hover:text-sand">{t("Discover the practice →")}</a>
           </div>
         </div>
       </section>
@@ -147,55 +141,25 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {treatments.map((item) => (
-              <div key={item.id} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-5 transition hover:border-terracotta hover:shadow-lg md:p-6">
-                <div className="home-treat-img">
-                  <img src={item.image} alt={item.name} />
-                </div>
-                <div className="flex items-center justify-between gap-4 px-2">
+              <div key={item.sku} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg md:p-10">
+                <div className="flex items-center justify-between gap-4">
                   <span className="rounded-full border border-ink/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-ink/60">{t(item.category)}</span>
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-terracotta">{t(item.badge)}</span>
+                  <span className="text-xs uppercase tracking-[0.25em] text-terracotta">{t("Available now")}</span>
                 </div>
-                <h3 className="mt-4 px-2 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(item.name)}</h3>
-                <p className="mt-3 px-2 font-serif text-base leading-relaxed text-ink/70">{t(item.blurb)}</p>
-                <p className="mt-2 px-2 font-serif text-base italic text-terracotta">{t(item.price)}</p>
-                <div className="mt-6 flex flex-col items-start gap-3 px-2 pb-2">
+                <h3 className="mt-6 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(item.name)}</h3>
+                <p className="mt-4 font-serif text-base leading-relaxed text-ink/70">{t(item.blurb)}</p>
+                <p className="mt-3 font-serif text-base text-terracotta">{t("Clinical intake open")}</p>
+                <div className="mt-8 flex flex-col items-start gap-4">
                   <Link href={item.href} className="inline-block text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">{t("Learn More")}</Link>
                   <Link href={item.intake} className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation →")}</Link>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
-            <Link href="/treatments" className="text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">
-              {t("See all designed cards →")}
-            </Link>
-          </div>
         </div>
       </section>
 
       <Vials />
-
-      <section className="home-lifestyle" aria-labelledby="lifestyle-heading">
-        <div className="home-lifestyle__inner">
-          <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("— Lifestyle")}</p>
-          <div className="mt-4 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-            <h2 id="lifestyle-heading" className="max-w-xl font-serif text-4xl leading-tight text-ink md:text-5xl">
-              {t("Four coastal rituals,")} <em className="italic text-terracotta">{t("designed.")}</em>
-            </h2>
-            <Link href="/lifestyle" className="text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">
-              {t("Explore lifestyle →")}
-            </Link>
-          </div>
-          <div className="home-lifestyle__grid">
-            {LIFESTYLE_PILLARS.map((pillar) => (
-              <Link key={pillar.id} href="/lifestyle" className="home-lifestyle__card">
-                <img src={pillar.image} alt={pillar.alt} loading="lazy" />
-                <span>{t(pillar.title)}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section id="blood-testing" className="w-full bg-dune/30 py-28 md:py-40">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -234,14 +198,18 @@ export default function Home() {
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {panels.map((panel) => (
-                <div key={panel.title} className="rounded-2xl border border-ink/10 bg-sand p-8">
+                <Link
+                  key={panel.slug}
+                  href={`/labs/${panel.slug}`}
+                  className="rounded-2xl border border-ink/10 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+                >
                   <p className="text-xs uppercase tracking-[0.22em] text-terracotta">{t(panel.title)}</p>
                   <ul className="mt-5 space-y-2 font-serif text-base text-ink/80">
                     {panel.markers.map((marker) => (
-                      <li key={marker} className="flex gap-3"><span className="text-terracotta">•</span><span>{t(marker)}</span></li>
+                      <li key={marker.name} className="flex gap-3"><span className="text-terracotta">•</span><span>{t(marker.name)}</span></li>
                     ))}
                   </ul>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -341,14 +309,7 @@ export default function Home() {
               <p className="flex items-center gap-3 font-serif text-2xl text-sand"><BrandSeal className="h-12 w-12 md:h-12 md:w-12" /><span>Pax<span className="italic text-dune"> Health</span></span></p>
               <p className="mt-3 max-w-xs font-serif text-base leading-relaxed">{t("A modern telehealth clinic for longevity, recovery, and the long life.")}</p>
             </div>
-            <div className="footer-links-col">
-              <span className="footer-col-title">{t("Explore")}</span>
-              <Link href="/treatments" className="footer-link">{t("Treatments")}</Link>
-              <Link href="/lifestyle" className="footer-link">{t("Lifestyle")}</Link>
-              <Link href="/membership" className="footer-link">{t("Membership")}</Link>
-              <Link href="/care" className="footer-link">{t("Care")}</Link>
-              <Link href="/how-pax-works" className="footer-link">{t("How it works")}</Link>
-            </div>
+            <Link href="/how-pax-works" className="text-xs uppercase tracking-[0.22em] text-sand transition hover:text-dune">{t("How it works")}</Link>
             <div className="footer-links-col footer-links-col--legal">
               <span className="footer-col-title">Legal</span>
               {LEGAL_LINKS.map((link) => (
