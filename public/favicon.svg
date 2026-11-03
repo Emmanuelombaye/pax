@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#faf6f0"/>
-  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
-        font-family="'Instrument Serif', Georgia, serif"
-        font-style="italic" font-size="52" fill="#c17c74">P</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pax">
+  <rect width="64" height="64" rx="14" fill="#faf6f0"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#1C3F34" stroke-width="1.5"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#1C3F34">PAX</text>
+  <circle cx="32" cy="44" r="1.6" fill="#C17C74"/>
 </svg>

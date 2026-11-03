@@ -24,11 +24,24 @@ export function LanguageToggle({ className = "" }) {
 export function BrandSeal({ className = "" }) {
   return (
     <img
-      src="/brand/pax-circular-seal-header.webp"
-      alt=""
+      src="/brand/pax-seal.svg"
+      alt="Pax Longevity"
       width={96}
       height={96}
-      className={`h-16 w-16 shrink-0 rounded-full bg-sand object-contain md:h-24 md:w-24 ${className}`}
+      className={`h-16 w-16 shrink-0 object-contain md:h-24 md:w-24 ${className}`}
+    />
+  );
+}
+
+/** Horizontal lockup for checkout / dark bars / wide headers */
+export function BrandLogo({ className = "", onDark = false }) {
+  return (
+    <img
+      src={onDark ? "/brand/pax-horizontal-on-dark.svg" : "/brand/pax-horizontal.svg"}
+      alt="Pax Longevity"
+      width={200}
+      height={112}
+      className={`h-10 w-auto object-contain md:h-12 ${className}`}
     />
   );
 }
