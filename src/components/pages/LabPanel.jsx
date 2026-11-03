@@ -49,7 +49,7 @@ export default function LabPanel() {
               href={DEFAULT_INTAKE_HREF}
               className="rounded-full bg-terracotta px-7 py-3 text-xs uppercase tracking-[0.2em] text-sand transition hover:bg-terracotta/90"
             >
-              {t("Order your kit")}
+              {t("Begin intake")}
             </Link>
             <Link
               href="/#blood-testing"
