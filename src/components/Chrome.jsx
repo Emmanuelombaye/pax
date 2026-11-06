@@ -154,24 +154,19 @@ export function SiteHeader({
         <button
           ref={closeRef}
           type="button"
-          className={`inline-flex h-11 shrink-0 items-center gap-2.5 rounded-full px-3.5 transition lg:hidden ${
+          className={`inline-flex h-12 shrink-0 items-center justify-center rounded-full px-6 text-xs uppercase tracking-[0.22em] transition lg:hidden ${
             open
               ? "bg-forest text-sand"
               : onDark
-                ? "bg-sand text-forest shadow-sm"
-                : "border border-ink/15 bg-white text-ink shadow-sm"
+                ? "bg-sand text-forest hover:bg-dune"
+                : "bg-forest text-sand hover:bg-ink"
           }`}
           aria-expanded={open}
           aria-controls={panelId}
           aria-label={open ? t("Close menu") : t("Open menu")}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="text-[10px] uppercase tracking-[0.22em]">{open ? t("Close") : t("Menu")}</span>
-          <span className="relative h-3.5 w-4" aria-hidden="true">
-            <span className={`absolute inset-x-0 top-0 h-px bg-current transition duration-300 ${open ? "top-[7px] rotate-45" : ""}`} />
-            <span className={`absolute inset-x-0 top-[7px] h-px bg-current transition duration-300 ${open ? "opacity-0" : ""}`} />
-            <span className={`absolute inset-x-0 top-[14px] h-px bg-current transition duration-300 ${open ? "top-[7px] -rotate-45" : ""}`} />
-          </span>
+          {open ? t("Close") : t("Menu")}
         </button>
       </nav>
 
