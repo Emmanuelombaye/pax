@@ -24,11 +24,11 @@ export function LanguageToggle({ className = "" }) {
 export function BrandSeal({ className = "" }) {
   return (
     <img
-      src="/brand/pax-seal.svg"
+      src="/brand/pax-circular-seal-header.webp"
       alt="Pax Longevity"
       width={96}
       height={96}
-      className={`h-16 w-16 shrink-0 object-contain md:h-24 md:w-24 ${className}`}
+      className={`h-16 w-16 shrink-0 rounded-full bg-sand object-contain md:h-24 md:w-24 ${className}`}
     />
   );
 }
