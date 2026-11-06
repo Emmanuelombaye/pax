@@ -114,7 +114,7 @@ export function enrichProduct(raw) {
     name,
     description: raw.description || "",
     price: typeof raw.price === "number" ? raw.price : null,
-    intakeUrl: raw.intake_url || null,
+    intakeUrl: raw.intake_url || raw.intakeUrl || null,
     requiresPrescription: !!raw.requires_prescription,
     requiresIntake: raw.requires_intake !== false,
     status: raw.status || "active",
@@ -142,18 +142,40 @@ export function resolveTreatmentId(raw) {
     .toLowerCase()
     .replace(/\s+/g, "-");
   if (!key) return "semaglutide";
-  if (TREATMENT_SKU[key]) return key;
+  const live =
+    LIVE_TREATMENTS.find((item) => item.id === key) ||
+    LIVE_TREATMENTS.find((item) => item.vialSlug === key) ||
+    LIVE_TREATMENTS.find((item) => item.sku === key) ||
+    LIVE_TREATMENTS.find((item) => TREATMENT_SKU[key] && item.sku === TREATMENT_SKU[key]);
+  if (live) return live.id;
   if (key.includes("tirz")) return "tirzepatide";
   if (key.includes("nad")) return "nad";
   if (key.includes("sema") || key.includes("weight")) return "semaglutide";
   return "semaglutide";
 }
 
+export function hostedIntakeUrl(treatmentId) {
+  const id = resolveTreatmentId(treatmentId);
+  return LIVE_TREATMENTS.find((item) => item.id === id)?.intakeUrl || null;
+}
+
 export function findProductForTreatment(products, treatmentId) {
   const id = resolveTreatmentId(treatmentId);
   const sku = TREATMENT_SKU[id];
   if (!sku) return null;
-  return (products || []).find((p) => p.sku === sku) || null;
+  const match = (products || []).find((p) => p.sku === sku) || null;
+  const knownUrl = hostedIntakeUrl(id);
+  if (match) {
+    return { ...match, intakeUrl: match.intakeUrl || knownUrl };
+  }
+  if (!knownUrl) return null;
+  const live = LIVE_TREATMENTS.find((item) => item.id === id);
+  return {
+    id,
+    sku,
+    name: live?.name || id,
+    intakeUrl: knownUrl,
+  };
 }
 
 export function intakeHref(treatmentId) {

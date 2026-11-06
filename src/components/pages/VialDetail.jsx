@@ -45,7 +45,7 @@ export default function VialDetail() {
           <p className="vial-note">
             {t("Prescription products require an online consultation with a healthcare provider who will determine if a prescription is appropriate.")}
           </p>
-          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Request to discuss")}</Link>
+          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Start intake")}</Link>
         </div>
         <div className="vial-photo">
           <img src={item.image} alt={item.alt} />
@@ -99,7 +99,7 @@ export default function VialDetail() {
               </li>
             ))}
           </ul>
-          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Request to discuss")}</Link>
+          <Link href={intakeHref(item.slug)} className="vial-cta">{t("Start intake")}</Link>
         </div>
       </section>
 

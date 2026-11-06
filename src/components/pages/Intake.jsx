@@ -12,6 +12,8 @@ import {
 import {
   fallbackProducts,
   findProductForTreatment,
+  hostedIntakeUrl,
+  LIVE_TREATMENTS,
   resolveTreatmentId,
 } from "@/brand/productMap.js";
 
@@ -42,6 +44,19 @@ function HostedIntakeRedirect() {
 
     (async () => {
       try {
+        const knownUrl = hostedIntakeUrl(treatmentId);
+        if (knownUrl) {
+          const liveName = LIVE_TREATMENTS.find((item) => item.id === treatmentId)?.name || null;
+          if (cancelled) return;
+          setState({
+            status: "redirecting",
+            error: null,
+            productName: liveName,
+          });
+          startProductIntake(knownUrl);
+          return;
+        }
+
         let products;
         try {
           products = await listStorefrontProducts();

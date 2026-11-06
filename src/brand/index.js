@@ -13,6 +13,7 @@ export {
   fallbackProducts,
   resolveTreatmentId,
   findProductForTreatment,
+  hostedIntakeUrl,
   intakeHref,
   DEFAULT_INTAKE_HREF,
   intakeHrefForProgram,
