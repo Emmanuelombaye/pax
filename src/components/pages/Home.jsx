@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
-import { Icon, LanguageToggle, icons } from "@/components/Chrome";
+import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
 import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
@@ -44,8 +44,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/80" />
         <header className="absolute inset-x-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl flex-nowrap items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
-            <a href="#top" className="shrink-0 font-serif text-2xl tracking-tight">
-              Pax<span className="italic text-dune"> Health</span>
+            <a href="#top" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl">
+              <BrandSeal />
+              <span>Pax<span className="italic text-dune"> Health</span></span>
             </a>
             <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
               <li><a href="#membership" className="hover:text-dune">{t("Membership")}</a></li>
@@ -330,7 +331,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div>
-              <p className="font-serif text-2xl text-sand">Pax<span className="italic text-dune"> Health</span></p>
+              <p className="flex items-center gap-3 font-serif text-2xl text-sand"><BrandSeal className="h-12 w-12 md:h-12 md:w-12" /><span>Pax<span className="italic text-dune"> Health</span></span></p>
               <p className="mt-3 max-w-xs font-serif text-base leading-relaxed">{t("A modern telehealth clinic for longevity, recovery, and the long life.")}</p>
             </div>
             <Link href="/how-pax-works" className="text-xs uppercase tracking-[0.22em] text-sand transition hover:text-dune">{t("How it works")}</Link>
