@@ -85,7 +85,7 @@ export function SiteHeader({
   }, [open]);
 
   useEffect(() => {
-    const media = window.matchMedia("(min-width: 1024px)");
+    const media = window.matchMedia("(min-width: 768px)");
     const onChange = () => {
       if (media.matches) setOpen(false);
     };
@@ -99,10 +99,10 @@ export function SiteHeader({
 
   return (
     <header className={`absolute inset-x-0 top-0 z-50 ${open ? "bg-sand/95 text-forest shadow-sm backdrop-blur-md" : barText}`}>
-      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-5 sm:px-8 lg:px-10 lg:py-6">
+      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-5 md:gap-4 md:px-10 md:py-6">
         <HeaderLink
           href={brandHref}
-          className="inline-flex min-w-0 shrink-0 items-center gap-3 font-serif text-2xl tracking-tight sm:gap-4 sm:text-3xl lg:gap-5 lg:text-4xl"
+          className="inline-flex min-w-0 shrink-0 items-center gap-3 font-serif text-2xl tracking-tight md:gap-5 md:text-4xl"
           onClick={close}
         >
           <BrandSeal />
@@ -111,7 +111,7 @@ export function SiteHeader({
           </span>
         </HeaderLink>
 
-        <ul className="ml-auto hidden items-center gap-7 pr-2 text-xs uppercase tracking-[0.18em] lg:flex">
+        <ul className="ml-auto hidden items-center gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
           {items.map((item) => (
             <li key={item.href + item.label}>
               <HeaderLink
@@ -125,7 +125,7 @@ export function SiteHeader({
           ))}
         </ul>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 md:flex">
           <LanguageToggle className={onDark ? "text-sand" : "text-ink"} />
           {joinHref ? (
             <HeaderLink
@@ -154,7 +154,7 @@ export function SiteHeader({
         <button
           ref={closeRef}
           type="button"
-          className={`inline-flex h-12 shrink-0 items-center justify-center rounded-full px-6 text-xs uppercase tracking-[0.22em] transition lg:hidden ${
+          className={`inline-flex h-12 shrink-0 items-center justify-center rounded-full px-6 text-xs uppercase tracking-[0.22em] transition md:hidden ${
             open
               ? "bg-forest text-sand"
               : onDark
@@ -172,7 +172,7 @@ export function SiteHeader({
 
       <div
         id={panelId}
-        className={`lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
         hidden={!open}
       >
         <button
