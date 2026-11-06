@@ -28,7 +28,7 @@ export const LIVE_TREATMENTS = [
     sku: "STORE-NAD",
     name: "NAD+",
     category: "Longevity & Wellness",
-    vialSlug: "nad-1000-mg",
+    vialSlug: "nad",
     intakeUrl:
       "https://intake.paxlongevity.com/intake/338bbe76-dbb9-42ff-ab1c-7bf687cad1b5",
   },

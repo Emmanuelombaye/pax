@@ -98,7 +98,7 @@ const vials = [
     ],
   }),
   vial({
-    slug: "nad-1000-mg",
+    slug: "nad",
     program: "longevity",
     title: "NAD+",
     price: "From $199 + membership",
@@ -147,7 +147,22 @@ export function findProgram(slug) {
 }
 
 export function findVial(slug) {
-  return vials.find((item) => item.slug === slug);
+  const key = String(slug || "")
+    .trim()
+    .toLowerCase();
+  const aliases = {
+    nad: "nad",
+    "nad-1000-mg": "nad",
+    "nad-1000mg": "nad",
+    "nad+": "nad",
+    "store-nad": "nad",
+    semaglutide: "semaglutide",
+    "store-sema": "semaglutide",
+    tirzepatide: "tirzepatide",
+    "store-tirz": "tirzepatide",
+  };
+  const resolved = aliases[key] || key;
+  return vials.find((item) => item.slug === resolved);
 }
 
 export function vialsForProgram(slug) {
@@ -160,4 +175,8 @@ export function relatedVials(item) {
 
 export function allVials() {
   return vials;
+}
+
+export function allVialSlugs() {
+  return vials.map((item) => item.slug);
 }

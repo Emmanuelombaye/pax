@@ -39,7 +39,7 @@ const slides = [
     src: "/images/pax-card-nad-v3.webp",
     alt: "Pax NAD+ vials",
     price: "From $199 + membership",
-    href: "/treatments/nad-1000-mg",
+    href: "/treatments/nad",
   },
 ];
 

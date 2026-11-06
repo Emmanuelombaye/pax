@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
     imageSizes: [64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  redirects: async () => [
+    {
+      source: "/treatments/nad-1000-mg",
+      destination: "/treatments/nad",
+      permanent: true,
+    },
+  ],
   headers: async () => [
     {
       source: "/assets/:path*",
