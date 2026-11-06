@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
-import { BrandSeal, Icon, LanguageToggle, icons } from "@/components/Chrome";
+import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
 import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
@@ -42,39 +42,20 @@ export default function Home() {
           className="object-cover opacity-90"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/80" />
-        <header className="absolute inset-x-0 top-0 z-20">
-          <nav className="mx-auto flex max-w-7xl flex-nowrap items-center justify-between gap-4 px-6 py-6 text-sand md:px-10">
-            <a href="#top" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl">
-              <BrandSeal />
-              <span>Pax<span className="italic text-dune"> Health</span></span>
-            </a>
-            <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
-              <li><a href="#membership" className="hover:text-dune">{t("Membership")}</a></li>
-              <li><a href="#philosophy" className="hover:text-dune">{t("Philosophy")}</a></li>
-              <li><Link href="/network" className="hover:text-dune">{t("Partners")}</Link></li>
-            </ul>
-            <div className="hidden shrink-0 items-center gap-2 md:flex">
-              <LanguageToggle className="text-sand" />
-              <a href="#waitlist" className="whitespace-nowrap rounded-full border border-sand/60 px-3 py-2 text-xs uppercase tracking-[0.16em] transition hover:border-sand hover:bg-sand hover:text-forest">{t("Join")}</a>
-              <Link href={DEFAULT_INTAKE_HREF} className="whitespace-nowrap rounded-full bg-sand px-3 py-2 text-xs uppercase tracking-[0.16em] text-forest transition hover:bg-dune">{t("Take Assessment")}</Link>
-            </div>
-            <div className="md:hidden">
-              <LanguageToggle className="text-sand" />
-            </div>
-          </nav>
-          <nav aria-label={t("Mobile primary")} className="md:hidden">
-            <ul className="mx-auto flex max-w-7xl items-center justify-center gap-6 px-6 pb-3 text-[11px] uppercase tracking-[0.18em] text-sand">
-              <li><a href="#membership" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Membership")}</a></li>
-              <li><a href="#philosophy" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Philosophy")}</a></li>
-              <li><Link href="/network" className="inline-flex min-h-11 items-center rounded-sm px-1 transition hover:text-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Partners")}</Link></li>
-            </ul>
-            <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 pb-4 text-[11px] uppercase tracking-[0.16em]">
-              <a href="#waitlist" aria-label={t("Join the Pax Health waitlist")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-sand/60 px-4 py-2 text-sand transition hover:border-sand hover:bg-sand hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Join")}</a>
-              <Link href={DEFAULT_INTAKE_HREF} aria-label={t("Take the intake assessment")} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-sand px-4 py-2 text-forest transition hover:bg-dune focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t("Take Assessment")}</Link>
-            </div>
-          </nav>
-        </header>
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-40 md:px-10 md:pb-28">
+        <SiteHeader
+          tone="onDark"
+          brandHref="#top"
+          links={[
+            { href: "#membership", label: t("Membership") },
+            { href: "#philosophy", label: t("Philosophy") },
+            { href: "/network", label: t("Partners") },
+          ]}
+          joinHref="#waitlist"
+          joinLabel={t("Join")}
+          primaryHref={DEFAULT_INTAKE_HREF}
+          primaryLabel={t("Take Assessment")}
+        />
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-28 sm:pt-32 md:px-10 md:pb-28 lg:pt-40">
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-dune">{t("Telehealth · Longevity · Performance")}</p>
           <h1 className="max-w-5xl font-serif text-5xl leading-[1.02] text-sand md:text-7xl lg:text-[6.5rem]">
             {t("A modern telehealth clinic for the")} <em className="italic text-dune">{t("long life")}</em>.

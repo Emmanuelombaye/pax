@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { BrandSeal, Icon, icons } from "@/components/Chrome";
+import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 
 const pathways = [
   { label: "Refer", audience: "For coaches, creators, and wellness professionals.", desc: "Introduce clients to physician-guided longevity programs and earn recurring revenue.", icon: icons.share },
@@ -86,16 +86,16 @@ export default function Network() {
 
   return (
     <div className="network-page min-h-screen bg-sand text-ink">
-      <header className="absolute inset-x-0 top-0 z-20">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 text-ink md:px-10">
-          <Link href="/" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl"><BrandSeal /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
-          <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
-            <li><Link href="/" className="hover:text-terracotta">Home</Link></li>
-            <li><Link href="/network" className="text-terracotta active" aria-current="page">Network</Link></li>
-          </ul>
-          <a href="#assessment" className="hidden whitespace-nowrap rounded-full bg-forest px-4 py-2 text-xs uppercase tracking-[0.16em] text-sand transition hover:bg-ink md:inline-block">Apply</a>
-        </nav>
-      </header>
+      <SiteHeader
+        tone="onLight"
+        brandHref="/"
+        links={[
+          { href: "/", label: "Home" },
+          { href: "/network", label: "Network", current: true },
+        ]}
+        primaryHref="#assessment"
+        primaryLabel="Apply"
+      />
 
       <section className="relative overflow-hidden bg-gradient-to-b from-white via-sand to-sand pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-terracotta/15 blur-3xl" />

@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
 
@@ -30,6 +31,213 @@ export function BrandSeal({ className = "" }) {
       height={96}
       className={`h-16 w-16 shrink-0 rounded-full bg-sand object-contain md:h-24 md:w-24 ${className}`}
     />
+  );
+}
+
+function HeaderLink({ href, className, onClick, children, ...rest }) {
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={className} onClick={onClick} {...rest}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} onClick={onClick} {...rest}>
+      {children}
+    </Link>
+  );
+}
+
+export function SiteHeader({
+  tone = "onDark",
+  brandHref = "/",
+  links,
+  joinHref,
+  joinLabel,
+  primaryHref,
+  primaryLabel,
+}) {
+  const { t } = useLang();
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+  const closeRef = useRef(null);
+  const onDark = tone === "onDark";
+  const items = links ?? [
+    { href: "/#membership", label: t("Membership") },
+    { href: "/#philosophy", label: t("Philosophy") },
+    { href: "/network", label: t("Partners") },
+  ];
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (media.matches) setOpen(false);
+    };
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
+  const close = () => setOpen(false);
+  const accent = onDark && !open ? "text-dune" : "text-terracotta";
+  const barText = open ? "text-forest" : onDark ? "text-sand" : "text-ink";
+
+  return (
+    <header className={`absolute inset-x-0 top-0 z-50 ${open ? "bg-sand/95 text-forest shadow-sm backdrop-blur-md" : barText}`}>
+      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-5 sm:px-8 lg:px-10 lg:py-6">
+        <HeaderLink
+          href={brandHref}
+          className="inline-flex min-w-0 shrink-0 items-center gap-3 font-serif text-2xl tracking-tight sm:gap-4 sm:text-3xl lg:gap-5 lg:text-4xl"
+          onClick={close}
+        >
+          <BrandSeal />
+          <span className="truncate">
+            Pax<span className={`italic ${accent}`}> Health</span>
+          </span>
+        </HeaderLink>
+
+        <ul className="ml-auto hidden items-center gap-7 pr-2 text-xs uppercase tracking-[0.18em] lg:flex">
+          {items.map((item) => (
+            <li key={item.href + item.label}>
+              <HeaderLink
+                href={item.href}
+                aria-current={item.current ? "page" : undefined}
+                className={`transition hover:opacity-80 ${item.current ? (onDark ? "text-dune" : "text-terracotta") : ""}`}
+              >
+                {item.label}
+              </HeaderLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+          <LanguageToggle className={onDark ? "text-sand" : "text-ink"} />
+          {joinHref ? (
+            <HeaderLink
+              href={joinHref}
+              className={`whitespace-nowrap rounded-full border px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
+                onDark
+                  ? "border-sand/60 hover:border-sand hover:bg-sand hover:text-forest"
+                  : "border-ink/20 hover:border-forest hover:bg-forest hover:text-sand"
+              }`}
+            >
+              {joinLabel}
+            </HeaderLink>
+          ) : null}
+          {primaryHref ? (
+            <HeaderLink
+              href={primaryHref}
+              className={`whitespace-nowrap rounded-full px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
+                onDark ? "bg-sand text-forest hover:bg-dune" : "bg-forest text-sand hover:bg-ink"
+              }`}
+            >
+              {primaryLabel}
+            </HeaderLink>
+          ) : null}
+        </div>
+
+        <button
+          ref={closeRef}
+          type="button"
+          className={`inline-flex h-11 shrink-0 items-center gap-2.5 rounded-full px-3.5 transition lg:hidden ${
+            open
+              ? "bg-forest text-sand"
+              : onDark
+                ? "bg-sand text-forest shadow-sm"
+                : "border border-ink/15 bg-white text-ink shadow-sm"
+          }`}
+          aria-expanded={open}
+          aria-controls={panelId}
+          aria-label={open ? t("Close menu") : t("Open menu")}
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span className="text-[10px] uppercase tracking-[0.22em]">{open ? t("Close") : t("Menu")}</span>
+          <span className="relative h-3.5 w-4" aria-hidden="true">
+            <span className={`absolute inset-x-0 top-0 h-px bg-current transition duration-300 ${open ? "top-[7px] rotate-45" : ""}`} />
+            <span className={`absolute inset-x-0 top-[7px] h-px bg-current transition duration-300 ${open ? "opacity-0" : ""}`} />
+            <span className={`absolute inset-x-0 top-[14px] h-px bg-current transition duration-300 ${open ? "top-[7px] -rotate-45" : ""}`} />
+          </span>
+        </button>
+      </nav>
+
+      <div
+        id={panelId}
+        className={`lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        hidden={!open}
+      >
+        <button
+          type="button"
+          tabIndex={open ? 0 : -1}
+          className={`fixed inset-0 z-40 bg-ink/45 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
+          aria-label={t("Close menu")}
+          onClick={close}
+        />
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("Menu")}
+          className={`fixed inset-y-0 right-0 z-40 flex w-full flex-col overflow-y-auto border-l border-dune/40 bg-sand pt-40 text-forest shadow-[-24px_0_80px_rgba(29,23,19,0.18)] transition-transform duration-300 ease-out sm:max-w-md ${
+            open ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <nav className="flex min-h-full flex-1 flex-col px-7 pb-10 sm:px-10">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-terracotta">{t("Navigate")}</p>
+            <ul className="mt-5 flex flex-col gap-1">
+              {items.map((item) => (
+                <li key={`sheet-${item.href}-${item.label}`}>
+                  <HeaderLink
+                    href={item.href}
+                    aria-current={item.current ? "page" : undefined}
+                    className="flex min-h-12 items-center border-b border-forest/10 font-serif text-3xl tracking-tight text-ink transition hover:text-terracotta"
+                    onClick={close}
+                  >
+                    {item.label}
+                  </HeaderLink>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-auto flex flex-col gap-4 pt-8">
+              <LanguageToggle className="self-start text-forest" />
+              <div className="flex flex-col gap-3">
+                {joinHref ? (
+                  <HeaderLink
+                    href={joinHref}
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-forest/25 px-5 text-xs uppercase tracking-[0.18em] text-forest transition hover:border-forest hover:bg-forest hover:text-sand"
+                    onClick={close}
+                  >
+                    {joinLabel}
+                  </HeaderLink>
+                ) : null}
+                {primaryHref ? (
+                  <HeaderLink
+                    href={primaryHref}
+                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-forest px-5 text-xs uppercase tracking-[0.18em] text-sand transition hover:bg-ink"
+                    onClick={close}
+                  >
+                    {primaryLabel}
+                  </HeaderLink>
+                ) : null}
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
   );
 }
 
