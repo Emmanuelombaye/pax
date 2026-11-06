@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { BrandSeal, LanguageToggle } from "@/components/Chrome";
+import { LanguageToggle } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import { useLang } from "@/i18n";
 import { DEFAULT_INTAKE_HREF } from "@/brand/productMap.js";
@@ -21,11 +21,8 @@ export default function LabPanel() {
     <main className="min-h-screen bg-sand text-ink">
       <header className="border-b border-ink/10 bg-[oklch(0.93_0.022_72)]">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 md:px-10">
-          <Link href="/" className="inline-flex items-center gap-3 font-serif text-2xl tracking-tight">
-            <BrandSeal className="h-12 w-12 md:h-16 md:w-16" />
-            <span>
-              Pax<span className="italic text-terracotta"> Health</span>
-            </span>
+          <Link href="/" className="font-serif text-2xl tracking-tight">
+            Pax<span className="italic text-terracotta"> Health</span>
           </Link>
           <div className="flex items-center gap-3">
             <LanguageToggle />

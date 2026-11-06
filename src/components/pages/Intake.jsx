@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { BrandSeal, LanguageToggle } from "@/components/Chrome";
+import { LanguageToggle } from "@/components/Chrome";
 import { useLang } from "@/i18n";
 import {
   listStorefrontProducts,
@@ -21,8 +21,8 @@ function Header() {
   const { t } = useLang();
   return (
     <header className="flex items-center justify-between px-6 py-5 md:px-10">
-      <Link href="/" aria-label={t("Pax Longevity home")}>
-        <BrandSeal className="h-10 w-10" />
+      <Link href="/" aria-label={t("Pax Longevity home")} className="font-serif text-2xl tracking-tight text-ink">
+        Pax<span className="italic text-terracotta"> Health</span>
       </Link>
       <LanguageToggle />
     </header>

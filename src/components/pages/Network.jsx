@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { BrandSeal, Icon, icons } from "@/components/Chrome";
+import { Icon, icons } from "@/components/Chrome";
 
 const pathways = [
   { label: "Refer", audience: "For coaches, creators, and wellness professionals.", desc: "Introduce clients to physician-guided longevity programs and earn recurring revenue.", icon: icons.share },
@@ -88,7 +88,7 @@ export default function Network() {
     <div className="network-page min-h-screen bg-sand text-ink">
       <header className="absolute inset-x-0 top-0 z-20">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 text-ink md:px-10">
-          <Link href="/" className="inline-flex shrink-0 items-center gap-4 font-serif text-3xl tracking-tight md:gap-5 md:text-4xl"><BrandSeal /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
+          <Link href="/" className="shrink-0 font-serif text-2xl tracking-tight">Pax<span className="italic text-terracotta"> Health</span></Link>
           <ul className="ml-auto hidden flex-nowrap gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
             <li><Link href="/" className="hover:text-terracotta">Home</Link></li>
             <li><Link href="/network" className="text-terracotta active" aria-current="page">Network</Link></li>
@@ -278,7 +278,7 @@ export default function Network() {
 
       <footer className="border-t border-dune/40 bg-sand py-10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.18em] text-ink/60 md:px-10">
-          <Link href="/" className="inline-flex items-center gap-3 font-serif text-lg normal-case tracking-tight text-ink"><BrandSeal className="h-10 w-10 md:h-10 md:w-10" /><span>Pax<span className="italic text-terracotta"> Health</span></span></Link>
+          <Link href="/" className="font-serif text-lg normal-case tracking-tight text-ink">Pax<span className="italic text-terracotta"> Health</span></Link>
           <p>© {new Date().getFullYear()} Pax Health</p>
         </div>
       </footer>
