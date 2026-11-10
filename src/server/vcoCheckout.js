@@ -69,7 +69,7 @@ function getVcoConfig(env = process.env) {
   )
   const brandId =
     env.VCO_BRAND_ID || env.NEXT_PUBLIC_VCO_BRAND_ID || '4065c369-9a3c-47af-8d6f-07cc7238d329'
-  const apiKey = env.VCO_API_KEY || ''
+  const apiKey = String(env.VCO_API_KEY || '').split(/\s+/).find((part) => /^[\w.-]{16,}$/.test(part)) || ''
   return { baseUrl, brandId, apiKey }
 }
 

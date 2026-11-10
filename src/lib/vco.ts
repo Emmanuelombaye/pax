@@ -22,21 +22,31 @@ type RawCategory = { id: string; name: string; slug: string; sort_order?: number
 type RawProduct = Record<string, any>;
 export type Treatment = ReturnType<typeof toTreatment>;
 
+/** Env values pasted from the VCO dashboard can carry labels, line breaks, or a second key; keep only key-shaped tokens. */
+function storefrontKeys(): string[] {
+  const raw = `${process.env.VCO_STOREFRONT_KEY || ""} ${process.env.VCO_API_KEY || ""}`;
+  return [...new Set(raw.split(/\s+/).filter((part) => /^[\w.-]{16,}$/.test(part)))];
+}
+
 async function vco<T>(path: string): Promise<T | null> {
-  const key = process.env.VCO_STOREFRONT_KEY || process.env.VCO_API_KEY;
-  const url = new URL(`${BASE}${path}`);
-  const headers: Record<string, string> = { Accept: "application/json" };
-  if (key) {
-    headers.Authorization = `Bearer ${key}`;
-  } else {
-    url.searchParams.set("brandId", BRAND_ID);
-    headers["X-Brand-Id"] = BRAND_ID;
+  const next = { tags: [VCO_TAG], revalidate: SAFETY_REVALIDATE_SECONDS };
+  let res: Response | null = null;
+
+  for (const key of storefrontKeys()) {
+    res = await fetch(`${BASE}${path}`, {
+      headers: { Accept: "application/json", Authorization: `Bearer ${key}` },
+      next,
+    });
+    if (res.status !== 401 && res.status !== 403) break;
+    res = null;
   }
 
-  const res = await fetch(url, {
-    headers,
-    next: { tags: [VCO_TAG], revalidate: SAFETY_REVALIDATE_SECONDS },
-  });
+  if (!res) {
+    const url = new URL(`${BASE}${path}`);
+    url.searchParams.set("brandId", BRAND_ID);
+    res = await fetch(url, { headers: { Accept: "application/json", "X-Brand-Id": BRAND_ID }, next });
+  }
+
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`VCO ${path} answered ${res.status}`);
   return res.json();
