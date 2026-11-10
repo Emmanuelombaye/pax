@@ -2,6 +2,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/i18n";
+import "@/styles/site-header.css";
 
 export function LanguageToggle({ className = "" }) {
   const { lang, setLang } = useLang();
@@ -22,14 +23,14 @@ export function LanguageToggle({ className = "" }) {
   );
 }
 
-export function BrandSeal({ className = "" }) {
+export function BrandSeal({ className = "", size = "h-16 w-16 md:h-24 md:w-24" }) {
   return (
     <img
       src="/brand/pax-circular-seal-header.webp"
       alt="Pax Longevity"
       width={96}
       height={96}
-      className={`h-16 w-16 shrink-0 rounded-full bg-sand object-contain md:h-24 md:w-24 ${className}`}
+      className={`${size} shrink-0 rounded-full bg-sand object-contain ${className}`}
     />
   );
 }
@@ -99,56 +100,57 @@ export function SiteHeader({
 
   return (
     <header className={`absolute inset-x-0 top-0 z-50 ${open ? "bg-sand/95 text-forest shadow-sm backdrop-blur-md" : barText}`}>
-      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-5 md:gap-4 md:px-10 md:py-6">
+      <nav className="site-nav relative z-50 mx-auto flex max-w-7xl items-center justify-between">
         <HeaderLink
           href={brandHref}
-          className="inline-flex min-w-0 shrink-0 items-center gap-3 font-serif text-2xl tracking-tight md:gap-5 md:text-4xl"
+          className="site-brand inline-flex shrink-0 items-center font-serif tracking-tight"
           onClick={close}
         >
-          <BrandSeal />
-          <span className="truncate">
+          <BrandSeal size="site-seal" />
+          <span className="site-wordmark whitespace-nowrap">
             Pax<span className={`italic ${accent}`}> Health</span>
           </span>
         </HeaderLink>
 
-        <ul className="ml-auto hidden items-center gap-6 pr-4 text-xs uppercase tracking-[0.18em] md:flex">
-          {items.map((item) => (
-            <li key={item.href + item.label}>
+        <div className="site-desktop hidden min-w-0 flex-1 items-center justify-end md:flex">
+          <ul className="site-links flex flex-nowrap items-center text-xs uppercase">
+            {items.map((item) => (
+              <li key={item.href + item.label} className="shrink-0">
+                <HeaderLink
+                  href={item.href}
+                  aria-current={item.current ? "page" : undefined}
+                  className={`whitespace-nowrap transition hover:opacity-80 ${item.current ? (onDark ? "text-dune" : "text-terracotta") : ""}`}
+                >
+                  {item.label}
+                </HeaderLink>
+              </li>
+            ))}
+          </ul>
+          <div className="flex shrink-0 items-center gap-2">
+            <LanguageToggle className={onDark ? "text-sand" : "text-ink"} />
+            {joinHref ? (
               <HeaderLink
-                href={item.href}
-                aria-current={item.current ? "page" : undefined}
-                className={`transition hover:opacity-80 ${item.current ? (onDark ? "text-dune" : "text-terracotta") : ""}`}
+                href={joinHref}
+                className={`whitespace-nowrap rounded-full border px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
+                  onDark
+                    ? "border-sand/60 hover:border-sand hover:bg-sand hover:text-forest"
+                    : "border-ink/20 hover:border-forest hover:bg-forest hover:text-sand"
+                }`}
               >
-                {item.label}
+                {joinLabel}
               </HeaderLink>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden shrink-0 items-center gap-2 md:flex">
-          <LanguageToggle className={onDark ? "text-sand" : "text-ink"} />
-          {joinHref ? (
-            <HeaderLink
-              href={joinHref}
-              className={`whitespace-nowrap rounded-full border px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
-                onDark
-                  ? "border-sand/60 hover:border-sand hover:bg-sand hover:text-forest"
-                  : "border-ink/20 hover:border-forest hover:bg-forest hover:text-sand"
-              }`}
-            >
-              {joinLabel}
-            </HeaderLink>
-          ) : null}
-          {primaryHref ? (
-            <HeaderLink
-              href={primaryHref}
-              className={`whitespace-nowrap rounded-full px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
-                onDark ? "bg-sand text-forest hover:bg-dune" : "bg-forest text-sand hover:bg-ink"
-              }`}
-            >
-              {primaryLabel}
-            </HeaderLink>
-          ) : null}
+            ) : null}
+            {primaryHref ? (
+              <HeaderLink
+                href={primaryHref}
+                className={`whitespace-nowrap rounded-full px-3 py-2 text-xs uppercase tracking-[0.16em] transition ${
+                  onDark ? "bg-sand text-forest hover:bg-dune" : "bg-forest text-sand hover:bg-ink"
+                }`}
+              >
+                {primaryLabel}
+              </HeaderLink>
+            ) : null}
+          </div>
         </div>
 
         <button

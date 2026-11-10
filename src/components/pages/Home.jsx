@@ -55,7 +55,7 @@ export default function Home() {
           primaryHref={DEFAULT_INTAKE_HREF}
           primaryLabel={t("Take Assessment")}
         />
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-28 sm:pt-32 md:px-10 md:pb-28 lg:pt-40">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-40 md:px-10 md:pb-28">
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-dune">{t("Telehealth · Longevity · Performance")}</p>
           <h1 className="max-w-5xl font-serif text-5xl leading-[1.02] text-sand md:text-7xl lg:text-[6.5rem]">
             {t("A modern telehealth clinic for the")} <em className="italic text-dune">{t("long life")}</em>.

@@ -97,7 +97,7 @@ export default function Network() {
         primaryLabel="Apply"
       />
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-sand to-sand pt-32 pb-24 md:pt-40 md:pb-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-sand to-sand pt-40 pb-24 md:pb-32">
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-terracotta/15 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-forest/15 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-6 text-center md:px-10">
