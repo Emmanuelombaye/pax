@@ -33,6 +33,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=STIX+Two+Text&display=swap"
+          rel="stylesheet"
+        />
         <link rel="preload" as="image" href="/assets/hero-BUD68560.jpg" type="image/jpeg" fetchPriority="high" />
       </head>
       <body>
