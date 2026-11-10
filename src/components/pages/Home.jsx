@@ -5,14 +5,13 @@ import { useLang } from "@/i18n";
 import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
-import { DEFAULT_INTAKE_HREF, canStartIntake, joinCategories, priceLabel } from "@/brand/productMap.js";
+import TreatmentLineup from "@/components/TreatmentLineup";
+import { DEFAULT_INTAKE_HREF, joinCategories } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
 import { LAB_PANELS } from "@/data/labPanels.js";
 import "@/styles/footer-badges.css";
 import "@/styles/legal.css";
 import "@/styles/lab-cards.css";
-import "@/styles/catalog-cards.css";
-
 const panels = LAB_PANELS;
 
 export default function Home({ treatments = [] }) {
@@ -114,43 +113,7 @@ export default function Home({ treatments = [] }) {
 
       <section id="membership" className="w-full bg-[oklch(0.93_0.022_72)] py-28 md:py-40">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="flex flex-col items-start justify-between gap-8 border-b border-ink/15 pb-12 md:flex-row md:items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("Live catalog")}</p>
-              <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.1] text-ink md:text-6xl">
-                {t("Live treatments,")} <em className="italic">{t("one practice.")}</em>
-              </h2>
-            </div>
-            <p className="max-w-sm font-serif text-lg leading-relaxed text-ink/70">
-              {t("Every treatment below is open for clinical intake right now — fulfilled by vetted pharmacy partners after a licensed review.")}
-            </p>
-          </div>
-          <div className="catalog-cards">
-            {treatments.map((item) => (
-              <article key={item.slug} className="catalog-card">
-                <Link href={`/treatments/${item.slug}`} className="catalog-card__media" tabIndex={-1} aria-hidden="true">
-                  <MediaImage src={item.image} alt="" width={640} height={640} sizes="(max-width: 768px) 90vw, 30vw" quality={68} />
-                </Link>
-                <div className="catalog-card__body">
-                  <div className="catalog-card__meta">
-                    <span className="catalog-card__chip">{t(item.category)}</span>
-                    <span className="catalog-card__status">{item.inStock ? t("Available now") : t("Currently unavailable")}</span>
-                  </div>
-                  <h3 className="catalog-card__title">
-                    <Link href={`/treatments/${item.slug}`}>{t(item.name)}</Link>
-                  </h3>
-                  <p className="catalog-card__price">{priceLabel(item, t)}</p>
-                  <p className="catalog-card__summary">{t(item.summary)}</p>
-                  <div className="catalog-card__actions">
-                    <Link href={`/treatments/${item.slug}`} className="catalog-card__link">{t("Learn More")}</Link>
-                    {canStartIntake(item) ? (
-                      <a href={item.intakeUrl} className="catalog-card__link is-muted">{t("Begin consultation →")}</a>
-                    ) : null}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <TreatmentLineup treatments={treatments} />
         </div>
       </section>
 

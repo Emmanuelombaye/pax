@@ -9,9 +9,25 @@ export const FALLBACK_IMAGE = "/brand/pax-seal-512.png";
 /** Generic Pax CTAs send patients to the live catalog so they pick a listed product. */
 export const DEFAULT_INTAKE_HREF = "/treatments";
 
+/** Hims-style homepage lineups, keyed by VCO category slug. Unknown categories use their VCO name. */
+export const CATEGORY_COPY = {
+  "weight-management": {
+    title: "Your weight care,",
+    accent: "physician-led.",
+    lead: "Once-weekly options, prescribed only after a licensed review.",
+  },
+  "hormone-optimization": {
+    title: "Hormones,",
+    accent: "built for you.",
+    lead: "Hormone therapy dosed by a licensed provider around your history and labs.",
+  },
+};
+
 const PRESENTATION = {
   semaglutide: {
     label: "Semaglutide",
+    badge: "Once weekly",
+    subtitle: "Semaglutide injection",
     image: "/images/pax-card-semaglutide-v1.webp",
     alt: "Pax semaglutide vial",
     about: [
@@ -35,6 +51,8 @@ const PRESENTATION = {
   },
   tirzepatide: {
     label: "Tirzepatide",
+    badge: "Dual action",
+    subtitle: "Tirzepatide injection",
     image: "/images/pax-card-tirzepatide-v2.webp",
     alt: "Pax tirzepatide vial",
     about: [
@@ -58,6 +76,8 @@ const PRESENTATION = {
   },
   "testosterone-cypionate-10ml": {
     label: "Testosterone",
+    badge: "Video visit",
+    subtitle: "Testosterone cypionate 200 mg/mL",
     image: "/images/pax-card-testosterone-v4.webp",
     alt: "Pax testosterone cypionate vial",
     summary:
@@ -83,16 +103,22 @@ const PRESENTATION = {
   },
   "estradiol-patch-0-05mg-1-per-week-box-of-4": {
     label: "Estradiol patch 0.05 mg",
+    badge: "Once weekly",
+    subtitle: "Estradiol transdermal patch",
     image: "/images/pax-card-estradiol-patch-v1.webp",
     alt: "Pax estradiol transdermal patch box",
   },
   "estradiol-patch-0-1mg-1-per-week-box-of-4": {
     label: "Estradiol patch 0.1 mg",
+    badge: "Once weekly",
+    subtitle: "Estradiol transdermal patch",
     image: "/images/pax-card-estradiol-patch-v1.webp",
     alt: "Pax estradiol transdermal patch box",
   },
   "estradiol-vaginal-cream-0-01-42-5-g-tube": {
     label: "Estradiol cream",
+    badge: "Local relief",
+    subtitle: "Estradiol 0.01% vaginal cream",
     image: "/images/pax-card-estradiol-cream-v1.webp",
     alt: "Pax estradiol vaginal cream tube",
     summary:
@@ -118,6 +144,8 @@ const PRESENTATION = {
   },
   "progesterone-capsules-100mg": {
     label: "Progesterone",
+    badge: "Bedtime capsule",
+    subtitle: "Oral progesterone 100 mg",
     image: "/images/pax-card-prog-v3.webp",
     alt: "Pax progesterone 100 mg capsules",
     summary:
@@ -224,6 +252,8 @@ export function toTreatment(raw, categories = []) {
     sku: raw.sku || null,
     name,
     label: extra.label || name,
+    badge: extra.badge || (raw.requires_video_consult ? "Video visit" : null),
+    subtitle: extra.subtitle || raw.dosage_form || null,
     summary,
     description: raw.description || null,
     price: typeof raw.price === "number" ? raw.price : null,
