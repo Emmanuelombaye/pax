@@ -5,7 +5,7 @@ import { useLang } from "@/i18n";
 import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
-import TreatmentLineup from "@/components/TreatmentLineup";
+import ProgramCards from "@/components/ProgramCards";
 import { DEFAULT_INTAKE_HREF, joinCategories } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
 import { LAB_PANELS } from "@/data/labPanels.js";
@@ -113,7 +113,7 @@ export default function Home({ treatments = [] }) {
 
       <section id="membership" className="w-full bg-[oklch(0.93_0.022_72)] py-28 md:py-40">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <TreatmentLineup treatments={treatments} />
+          <ProgramCards />
         </div>
       </section>
 
