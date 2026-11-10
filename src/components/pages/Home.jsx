@@ -5,27 +5,19 @@ import { useLang } from "@/i18n";
 import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
-import { DEFAULT_INTAKE_HREF, LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
+import { DEFAULT_INTAKE_HREF, canStartIntake, joinCategories, priceLabel } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
 import { LAB_PANELS } from "@/data/labPanels.js";
 import "@/styles/footer-badges.css";
 import "@/styles/legal.css";
 import "@/styles/lab-cards.css";
-
-const treatments = LIVE_TREATMENTS.map((item) => ({
-  ...item,
-  href: `/treatments/${item.vialSlug}`,
-  intake: intakeHref(item.id),
-  blurb:
-    item.id === "nad"
-      ? "Cellular energy and healthy aging support when a physician includes it in your plan."
-      : "Physician-titrated weight care after labs and a licensed visit — never a cart checkout.",
-}));
+import "@/styles/catalog-cards.css";
 
 const panels = LAB_PANELS;
 
-export default function Home() {
+export default function Home({ treatments = [] }) {
   const { t } = useLang();
+  const careAreas = joinCategories(treatments, t);
   const [email, setEmail] = useState("");
   const [joined, setJoined] = useState(false);
 
@@ -61,7 +53,10 @@ export default function Home() {
             {t("A modern telehealth clinic for the")} <em className="italic text-dune">{t("long life")}</em>.
           </h1>
           <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed text-sand/80 md:text-xl">
-            {t("Pax Health is a physician-led virtual practice. Live clinical intake for Semaglutide, Tirzepatide, and NAD+ — prescribed by licensed U.S. doctors and shipped to your door.")}
+            {t("Pax Health is a physician-led virtual practice.")}{" "}
+            {careAreas
+              ? `${t("Live clinical intake for")} ${careAreas} — ${t("prescribed by licensed U.S. doctors and shipped to your door.")}`
+              : t("Treatments prescribed by licensed U.S. doctors and shipped to your door.")}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a href="#membership" className="rounded-full bg-sand px-8 py-4 text-xs uppercase tracking-[0.22em] text-forest transition hover:bg-dune">{t("Membership")}</a>
@@ -104,7 +99,7 @@ export default function Home() {
               {[
                 ["01", "Physician-led", "Licensed U.S. doctors guiding every protocol from intake to refill."],
                 ["02", "Guided by data", "Bloodwork, biomarkers, and ongoing labs translated into clear practice."],
-                ["03", "Built for life", "Semaglutide, Tirzepatide, and NAD+ — shipped after a licensed visit."],
+                ["03", "Built for life", "Treatments prescribed after a licensed review and shipped to your door."],
               ].map(([n, title, desc]) => (
                 <div key={n}>
                   <p className="font-serif text-2xl text-terracotta">{n}</p>
@@ -123,34 +118,43 @@ export default function Home() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-terracotta">{t("Live catalog")}</p>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.1] text-ink md:text-6xl">
-                {t("Three live treatments,")} <em className="italic">{t("one practice.")}</em>
+                {t("Live treatments,")} <em className="italic">{t("one practice.")}</em>
               </h2>
             </div>
             <p className="max-w-sm font-serif text-lg leading-relaxed text-ink/70">
-              {t("Only Semaglutide, Tirzepatide, and NAD+ are open for clinical intake right now — fulfilled by vetted pharmacy partners after a licensed visit.")}
+              {t("Every treatment below is open for clinical intake right now — fulfilled by vetted pharmacy partners after a licensed review.")}
             </p>
           </div>
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="catalog-cards">
             {treatments.map((item) => (
-              <div key={item.sku} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg md:p-10">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-ink/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-ink/60">{t(item.category)}</span>
-                  <span className="text-xs uppercase tracking-[0.25em] text-terracotta">{t("Available now")}</span>
+              <article key={item.slug} className="catalog-card">
+                <Link href={`/treatments/${item.slug}`} className="catalog-card__media" tabIndex={-1} aria-hidden="true">
+                  <MediaImage src={item.image} alt="" width={640} height={640} sizes="(max-width: 768px) 90vw, 30vw" quality={68} />
+                </Link>
+                <div className="catalog-card__body">
+                  <div className="catalog-card__meta">
+                    <span className="catalog-card__chip">{t(item.category)}</span>
+                    <span className="catalog-card__status">{item.inStock ? t("Available now") : t("Currently unavailable")}</span>
+                  </div>
+                  <h3 className="catalog-card__title">
+                    <Link href={`/treatments/${item.slug}`}>{t(item.name)}</Link>
+                  </h3>
+                  <p className="catalog-card__price">{priceLabel(item, t)}</p>
+                  <p className="catalog-card__summary">{t(item.summary)}</p>
+                  <div className="catalog-card__actions">
+                    <Link href={`/treatments/${item.slug}`} className="catalog-card__link">{t("Learn More")}</Link>
+                    {canStartIntake(item) ? (
+                      <a href={item.intakeUrl} className="catalog-card__link is-muted">{t("Begin consultation →")}</a>
+                    ) : null}
+                  </div>
                 </div>
-                <h3 className="mt-6 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(item.name)}</h3>
-                <p className="mt-4 font-serif text-base leading-relaxed text-ink/70">{t(item.blurb)}</p>
-                <p className="mt-3 font-serif text-base text-terracotta">{t("Clinical intake open")}</p>
-                <div className="mt-8 flex flex-col items-start gap-4">
-                  <Link href={item.href} className="inline-block text-xs uppercase tracking-[0.22em] text-terracotta transition hover:text-ink">{t("Learn More")}</Link>
-                  <Link href={item.intake} className="inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation →")}</Link>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <Vials />
+      <Vials treatments={treatments} />
 
       <section id="blood-testing" className="w-full bg-dune/30 py-28 md:py-40">
         <div className="mx-auto max-w-7xl px-6 md:px-10">

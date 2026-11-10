@@ -4,6 +4,7 @@ import { RouteChrome } from "@/components/RouteChrome";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.paxlongevity.com"),
   title: "Pax Health — Longevity & Concierge Wellness",
   description:
     "Pax Health is a longevity and concierge wellness sanctuary in Miami. Begin your intake assessment for personalized prescription programs.",

@@ -1,200 +1,292 @@
 /**
- * Presentational mapping for VCO storefront products → Pax UI.
- * Live Pax catalog (Brand Storefront) is exactly these 3 treatments.
+ * Pax presentation for VirtualClinicOS storefront products, keyed by VCO `slug`.
+ * Names, prices, supply, availability and intake links always come from the API;
+ * this file only adds Pax imagery and marketing copy for slugs the API returns.
  */
 
-/** The only VCO-backed treatments for Pax right now */
-export const LIVE_TREATMENTS = [
+export const FALLBACK_IMAGE = "/brand/pax-seal-512.png";
+
+/** Generic Pax CTAs send patients to the live catalog so they pick a listed product. */
+export const DEFAULT_INTAKE_HREF = "/treatments";
+
+const PRESENTATION = {
+  semaglutide: {
+    label: "Semaglutide",
+    image: "/images/pax-card-semaglutide-v1.webp",
+    alt: "Pax semaglutide vial",
+    about: [
+      {
+        title: "What is semaglutide?",
+        body: "A once-weekly GLP-1 medicine used in Pax’s weight program when a physician includes it. Membership and medication are billed separately.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Weight care and metabolic health, when your history, goals, and labs support it.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "You start with a licensed review. If semaglutide fits, the physician writes the dose and adjusts it as you check in.",
+      },
+      {
+        title: "What to expect",
+        body: "Appetite often changes before the scale does. Follow-ups are part of the plan so the dose can move with you.",
+      },
+    ],
+  },
+  tirzepatide: {
+    label: "Tirzepatide",
+    image: "/images/pax-card-tirzepatide-v2.webp",
+    alt: "Pax tirzepatide vial",
+    about: [
+      {
+        title: "What is tirzepatide?",
+        body: "A once-weekly dual GIP/GLP-1 medicine used in Pax’s weight program when a physician includes it. Membership and medication are billed separately.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Weight care, when your history, goals, and labs support it.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "You start with a licensed review. If tirzepatide fits, the physician writes the dose and adjusts it as you check in.",
+      },
+      {
+        title: "What to expect",
+        body: "Appetite often changes before the scale does. Follow-ups are part of the plan so the dose can move with you.",
+      },
+    ],
+  },
+  "testosterone-cypionate-10ml": {
+    label: "Testosterone",
+    image: "/images/pax-card-testosterone-v4.webp",
+    alt: "Pax testosterone cypionate vial",
+    summary:
+      "Testosterone cypionate injection for men with clinically low testosterone, prescribed only after labs and a video visit with a licensed provider.",
+    about: [
+      {
+        title: "What is testosterone cypionate?",
+        body: "An injectable form of testosterone. Your provider decides whether it fits, and sets the dose and schedule.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Low testosterone confirmed by labs, when your symptoms and history support treatment.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "Labs and a video visit come first. If it fits, your provider prescribes it and checks your levels at follow-ups.",
+      },
+      {
+        title: "What to expect",
+        body: "Changes build over weeks, not days. Follow-up labs let your provider adjust the plan safely.",
+      },
+    ],
+  },
+  "estradiol-patch-0-05mg-1-per-week-box-of-4": {
+    label: "Estradiol patch 0.05 mg",
+    image: "/images/pax-card-estradiol-patch-v1.webp",
+    alt: "Pax estradiol transdermal patch box",
+  },
+  "estradiol-patch-0-1mg-1-per-week-box-of-4": {
+    label: "Estradiol patch 0.1 mg",
+    image: "/images/pax-card-estradiol-patch-v1.webp",
+    alt: "Pax estradiol transdermal patch box",
+  },
+  "estradiol-vaginal-cream-0-01-42-5-g-tube": {
+    label: "Estradiol cream",
+    image: "/images/pax-card-estradiol-cream-v1.webp",
+    alt: "Pax estradiol vaginal cream tube",
+    summary:
+      "Estradiol 0.01% vaginal cream for local menopause symptoms, prescribed only after a licensed provider reviews your history.",
+    about: [
+      {
+        title: "What is estradiol vaginal cream?",
+        body: "A low-dose estrogen cream applied locally. Your provider decides whether it fits and how often to use it.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Vaginal dryness and related menopause symptoms, when your history supports it.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "Complete the intake and a provider reviews it. If it fits, they prescribe it and follow up on how you feel.",
+      },
+      {
+        title: "What to expect",
+        body: "Comfort often improves over a few weeks. Your provider can adjust the plan at check-ins.",
+      },
+    ],
+  },
+  "progesterone-capsules-100mg": {
+    label: "Progesterone",
+    image: "/images/pax-card-prog-v3.webp",
+    alt: "Pax progesterone 100 mg capsules",
+    summary:
+      "Oral progesterone 100 mg capsules for menopause hormone therapy, prescribed only after a licensed provider reviews your history.",
+    about: [
+      {
+        title: "What is progesterone?",
+        body: "An oral hormone often paired with estrogen in menopause hormone therapy. Your provider decides whether it fits.",
+      },
+      {
+        title: "What is it prescribed for?",
+        body: "Menopause hormone therapy, including protecting the uterus when estrogen is part of the plan.",
+      },
+      {
+        title: "How does the plan work?",
+        body: "Complete the intake and a provider reviews it. If it fits, they prescribe the dose and follow up with you.",
+      },
+      {
+        title: "What to expect",
+        body: "Many people take it at bedtime. Your provider will check in on sleep, mood, and symptoms.",
+      },
+    ],
+  },
+};
+
+const PATCH_COPY = {
+  summary:
+    "A once-weekly estradiol patch for menopause symptoms, prescribed only after a licensed provider reviews your history.",
+  about: [
+    {
+      title: "What is an estradiol patch?",
+      body: "A skin patch that releases estradiol steadily. You change it once a week; a box of 4 lasts 28 days.",
+    },
+    {
+      title: "What is it prescribed for?",
+      body: "Hot flashes, night sweats, and other menopause symptoms, when your history supports hormone therapy.",
+    },
+    {
+      title: "How does the plan work?",
+      body: "Complete the intake and a provider reviews it. If it fits, they choose the strength and follow up with you.",
+    },
+    {
+      title: "What to expect",
+      body: "Symptoms often ease over a few weeks. Your provider can change the strength at check-ins.",
+    },
+  ],
+};
+
+export const SAFETY = [
   {
-    id: "semaglutide",
-    sku: "STORE-SEMA",
-    name: "Semaglutide",
-    category: "Weight Loss",
-    vialSlug: "semaglutide",
-    intakeUrl:
-      "https://intake.paxlongevity.com/intake/8ae4edf9-d08b-46fa-b710-68caa7b24d51",
+    title: "Contraindications",
+    body: "A licensed provider decides whether this belongs in your plan. It is not appropriate for every person, and some histories rule it out.",
   },
   {
-    id: "tirzepatide",
-    sku: "STORE-TIRZ",
-    name: "Tirzepatide",
-    category: "Weight Loss",
-    vialSlug: "tirzepatide",
-    intakeUrl:
-      "https://intake.paxlongevity.com/intake/3d0e8ddf-1415-4f96-a43f-21b6c46ae48b",
+    title: "Possible side effects",
+    body: "Your provider reviews what to watch for before anything is prescribed, and stays available if the response is not what you expected.",
   },
   {
-    id: "nad",
-    sku: "STORE-NAD",
-    name: "NAD+",
-    category: "Longevity & Wellness",
-    vialSlug: "nad",
-    intakeUrl:
-      "https://intake.paxlongevity.com/intake/338bbe76-dbb9-42ff-ab1c-7bf687cad1b5",
+    title: "Warnings",
+    body: "Tell your provider about other medications and conditions. Nothing here is a prescription, and nothing ships until a clinician says it should.",
   },
 ];
 
-/** Local treatment id / vial slug → VCO SKU */
-export const TREATMENT_SKU = {
-  semaglutide: "STORE-SEMA",
-  tirzepatide: "STORE-TIRZ",
-  nad: "STORE-NAD",
-  "nad-1000-mg": "STORE-NAD",
-  weight: "STORE-SEMA",
-};
+export function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, " ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
-export const PRODUCT_PRESENTATION = {
-  "STORE-SEMA": {
-    badge: "Weekly",
-    frequency: "Once weekly subcutaneous",
-    sort: 1,
-  },
-  "STORE-TIRZ": {
-    badge: "Dual pathway",
-    frequency: "Once weekly subcutaneous",
-    sort: 2,
-  },
-  "STORE-NAD": {
-    badge: "NAD+",
-    frequency: "Provider-guided protocol",
-    sort: 3,
-  },
-};
+function standardAbout(name, summary) {
+  return [
+    { title: `What is ${name} prescribed for?`, body: summary },
+    {
+      title: "How does the plan work?",
+      body: "A licensed provider reviews your intake and history before this is added to a plan. The dose and whether it belongs are decided in that review.",
+    },
+    {
+      title: "What to expect",
+      body: "Nothing ships until a clinician approves it. If it is prescribed, follow-up is part of the plan so the response can be checked.",
+    },
+  ];
+}
 
-/** Offline / API-down catalog using known Pax storefront rows (public intake URLs). */
-export const FALLBACK_CATALOG = [
-  {
-    id: "8ae4edf9-d08b-46fa-b710-68caa7b24d51",
-    name: "Semaglutide",
-    sku: "STORE-SEMA",
-    description:
-      "Physician-prescribed once-weekly subcutaneous GLP-1 therapy for safe, sustained weight management and metabolic health.",
-    price: 399,
-    intake_url: "https://intake.paxlongevity.com/intake/8ae4edf9-d08b-46fa-b710-68caa7b24d51",
-    requires_prescription: true,
-    status: "active",
-  },
-  {
-    id: "3d0e8ddf-1415-4f96-a43f-21b6c46ae48b",
-    name: "Tirzepatide",
-    sku: "STORE-TIRZ",
-    description:
-      "Dual GIP/GLP-1 receptor agonist treatment formulated for maximum clinical efficacy and metabolic optimization.",
-    price: 499,
-    intake_url: "https://intake.paxlongevity.com/intake/3d0e8ddf-1415-4f96-a43f-21b6c46ae48b",
-    requires_prescription: true,
-    status: "active",
-  },
-  {
-    id: "338bbe76-dbb9-42ff-ab1c-7bf687cad1b5",
-    name: "NAD+",
-    sku: "STORE-NAD",
-    description:
-      "High-potency cellular coenzyme therapy designed to boost ATP energy production, repair DNA, and enhance cognitive longevity.",
-    price: 199,
-    intake_url: "https://intake.paxlongevity.com/intake/338bbe76-dbb9-42ff-ab1c-7bf687cad1b5",
-    requires_prescription: false,
-    status: "active",
-  },
-];
-
-export function enrichProduct(raw) {
-  const meta = PRODUCT_PRESENTATION[raw.sku] || {
-    badge: "Treatment",
-    frequency: "Provider-guided",
-    sort: 99,
-  };
-
+/** Turn a raw VCO storefront product into the serializable shape the Pax UI renders. */
+export function toTreatment(raw, categories = []) {
+  const slug = raw.slug || slugify(raw.sku || raw.id);
+  const extra = PRESENTATION[slug] || {};
+  const patchCopy = slug.startsWith("estradiol-patch") ? PATCH_COPY : {};
   const name = raw.public_display_name || raw.name || "Treatment";
-  const image = raw.image_url || (Array.isArray(raw.images) && raw.images[0]) || null;
+  const category = categories.find((c) => c.id === raw.category);
+  const categoryName = raw.category_name || category?.name || "Treatments";
+  const summary =
+    raw.short_description ||
+    extra.summary ||
+    patchCopy.summary ||
+    raw.description ||
+    "Prescribed only after a licensed provider reviews your intake.";
 
   return {
     id: raw.id,
-    sku: raw.sku || raw.id,
+    slug,
+    sku: raw.sku || null,
     name,
-    description: raw.description || "",
+    label: extra.label || name,
+    summary,
+    description: raw.description || null,
     price: typeof raw.price === "number" ? raw.price : null,
-    intakeUrl: raw.intake_url || raw.intakeUrl || null,
-    requiresPrescription: !!raw.requires_prescription,
-    requiresIntake: raw.requires_intake !== false,
-    status: raw.status || "active",
-    image,
-    badge: meta.badge,
-    frequency: meta.frequency,
-    sort: meta.sort,
+    supply: raw.supply || null,
+    plan: raw.plan || null,
+    shippingPrice: typeof raw.shipping_price === "number" ? raw.shipping_price : null,
+    blockedStates: Array.isArray(raw.ships_to_blocked_states) ? raw.ships_to_blocked_states : [],
+    requiresVideoConsult: !!raw.requires_video_consult,
+    inStock: (raw.availability || "in_stock") === "in_stock",
+    intakeUrl: raw.intake_url || null,
+    category: categoryName,
+    categorySlug: category?.slug || slugify(categoryName),
+    image: extra.image || raw.image_url || (Array.isArray(raw.images) && raw.images[0]) || FALLBACK_IMAGE,
+    imageAlt: extra.alt || name,
+    about: extra.about || patchCopy.about || standardAbout(name, summary),
+    seo: raw.seo || { title: name, description: summary, image: null },
   };
 }
 
-export function mapCatalog(rawProducts) {
-  return (rawProducts || [])
-    .filter((p) => p && p.status !== "inactive")
-    .map(enrichProduct)
-    .sort((a, b) => a.sort - b.sort || a.name.localeCompare(b.name));
+export function canStartIntake(treatment) {
+  return !!(treatment && treatment.inStock && treatment.intakeUrl);
 }
 
-export function fallbackProducts() {
-  return mapCatalog(FALLBACK_CATALOG);
-}
-
-export function resolveTreatmentId(raw) {
-  const key = String(raw || "")
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, "-");
-  if (!key) return "semaglutide";
-  const live =
-    LIVE_TREATMENTS.find((item) => item.id === key) ||
-    LIVE_TREATMENTS.find((item) => item.vialSlug === key) ||
-    LIVE_TREATMENTS.find((item) => item.sku === key) ||
-    LIVE_TREATMENTS.find((item) => TREATMENT_SKU[key] && item.sku === TREATMENT_SKU[key]);
-  if (live) return live.id;
-  if (key.includes("tirz")) return "tirzepatide";
-  if (key.includes("nad")) return "nad";
-  if (key.includes("sema") || key.includes("weight")) return "semaglutide";
-  return "semaglutide";
-}
-
-export function hostedIntakeUrl(treatmentId) {
-  const id = resolveTreatmentId(treatmentId);
-  return LIVE_TREATMENTS.find((item) => item.id === id)?.intakeUrl || null;
-}
-
-export function findProductForTreatment(products, treatmentId) {
-  const id = resolveTreatmentId(treatmentId);
-  const sku = TREATMENT_SKU[id];
-  if (!sku) return null;
-  const match = (products || []).find((p) => p.sku === sku) || null;
-  const knownUrl = hostedIntakeUrl(id);
-  if (match) {
-    return { ...match, intakeUrl: match.intakeUrl || knownUrl };
+/** "$199/mo", "$120 · 3-month supply", or a plan's per-charge terms. */
+export function priceLabel(treatment, t = (s) => s) {
+  if (!treatment || treatment.price == null) return "";
+  const plan = treatment.plan;
+  if (plan && plan.price_per_charge != null) {
+    const every = plan.bill_every_months || 1;
+    return every === 1
+      ? `$${plan.price_per_charge}${t("/mo")}`
+      : `$${plan.price_per_charge} ${t("every")} ${every} ${t("months")}`;
   }
-  if (!knownUrl) return null;
-  const live = LIVE_TREATMENTS.find((item) => item.id === id);
-  return {
-    id,
-    sku,
-    name: live?.name || id,
-    intakeUrl: knownUrl,
-  };
+  const months = treatment.supply?.months;
+  if (months === 1) return `$${treatment.price}${t("/mo")}`;
+  if (months && months > 1) return `$${treatment.price} · ${months}-${t("month supply")}`;
+  return `$${treatment.price}`;
 }
 
-export function intakeHref(treatmentId) {
-  const id = resolveTreatmentId(treatmentId);
-  return `/intake?treatment=${encodeURIComponent(id)}`;
+export function supplyLabel(treatment, t = (s) => s) {
+  const supply = treatment?.supply;
+  if (!supply) return null;
+  if (supply.months && supply.months > 1) return `${supply.months}-${t("month supply")}`;
+  if (supply.days) return `${supply.days}-${t("day supply")}`;
+  if (supply.months === 1) return t("1-month supply");
+  return null;
 }
 
-/** Default live handoff when a page has no specific treatment */
-export const DEFAULT_INTAKE_HREF = intakeHref("semaglutide");
-
-/** Map marketing program slugs → a live VCO treatment */
-export function intakeHrefForProgram(programSlug) {
-  const key = String(programSlug || "").toLowerCase();
-  if (key === "weight") return intakeHref("semaglutide");
-  if (key === "longevity" || key === "peptides") return intakeHref("nad");
-  return DEFAULT_INTAKE_HREF;
+export function groupByCategory(treatments) {
+  const groups = [];
+  for (const item of treatments) {
+    let group = groups.find((g) => g.slug === item.categorySlug);
+    if (!group) {
+      group = { slug: item.categorySlug, name: item.category, items: [] };
+      groups.push(group);
+    }
+    group.items.push(item);
+  }
+  return groups;
 }
 
-export function isLiveTreatment(slugOrId) {
-  const id = resolveTreatmentId(slugOrId);
-  return LIVE_TREATMENTS.some((t) => t.id === id || t.vialSlug === slugOrId);
+export function joinCategories(treatments, t = (s) => s) {
+  const names = groupByCategory(treatments).map((g) => t(g.name).toLowerCase());
+  if (names.length <= 1) return names[0] || "";
+  return `${names.slice(0, -1).join(", ")} ${t("and")} ${names[names.length - 1]}`;
 }

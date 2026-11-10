@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SiteHeader } from "@/components/Chrome";
 import LiveTreatments from "@/components/LiveTreatments";
-import { DEFAULT_INTAKE_HREF } from "@/brand/productMap.js";
+import { DEFAULT_INTAKE_HREF, joinCategories } from "@/brand/productMap.js";
 import { useLang } from "@/i18n";
 import "@/styles/how-it-works.css";
 
@@ -96,12 +96,7 @@ const foundationSteps = [
   },
 ];
 
-const inclusions = [
-  "Semaglutide — live clinical intake",
-  "Tirzepatide — live clinical intake",
-  "NAD+ — live clinical intake",
-  "50+ biomarker testing — $65",
-];
+const testingInclusion = "50+ biomarker testing — $65";
 
 const tableRows = [
   { label: "Initial testing", guided: "In your plan", foundation: "In your plan" },
@@ -181,8 +176,9 @@ function StepRow({ step, cta }) {
   );
 }
 
-export default function HowItWorks() {
+export default function HowItWorks({ treatments = [] }) {
   const { t } = useLang();
+  const careAreas = joinCategories(treatments, t);
   const [tier, setTier] = useState("guided");
   const [openFaq, setOpenFaq] = useState(0);
   const [story, setStory] = useState(0);
@@ -217,7 +213,8 @@ export default function HowItWorks() {
               <div className="max-w-3xl text-center md:text-left">
                 <h1 className="hiw-display">How Pax Works</h1>
                 <p className="hiw-indigo mt-4 text-lg leading-relaxed md:text-xl">
-                  Comprehensive biomarker testing. Provider-led care. Live intake for Semaglutide, Tirzepatide, and NAD+.
+                  {t("Comprehensive biomarker testing. Provider-led care.")}
+                  {careAreas ? ` ${t("Live intake for")} ${careAreas}.` : null}
                 </p>
               </div>
               <Cta clay className="block block-md shrink-0">Start Today</Cta>
@@ -226,7 +223,7 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <LiveTreatments />
+      <LiveTreatments treatments={treatments} />
 
       <div className="hiw-marquee">
         <div className="hiw-marquee-desktop">
@@ -316,9 +313,12 @@ export default function HowItWorks() {
         <div className="hiw-wrap">
           <h2 className="hiw-section-title">Pax includes care and follow-up for</h2>
           <ul className="mt-10 grid gap-3 sm:grid-cols-2">
-            {inclusions.map((item) => (
-              <li key={item}><span className="hiw-include">{t(item)}</span></li>
+            {treatments.map((item) => (
+              <li key={item.slug}>
+                <span className="hiw-include">{t(item.name)} — {t("live clinical intake")}</span>
+              </li>
             ))}
+            <li><span className="hiw-include">{t(testingInclusion)}</span></li>
           </ul>
           <div className="mt-10"><Cta>Get Started Now</Cta></div>
         </div>

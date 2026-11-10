@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { useLang } from "@/i18n";
-import { LIVE_TREATMENTS, intakeHref } from "@/brand/productMap.js";
+import { canStartIntake, joinCategories, priceLabel } from "@/brand/productMap.js";
 
-/**
- * Site-wide strip for the 3 live VCO treatments.
- * Keeps marketing catalog elsewhere; this is the only start-care catalog.
- */
-export default function LiveTreatments({ className = "" }) {
+/** Site-wide strip for every treatment VCO lists on the Pax website. */
+export default function LiveTreatments({ treatments = [], className = "" }) {
   const { t } = useLang();
+  if (treatments.length === 0) return null;
 
   return (
     <section
@@ -21,30 +19,32 @@ export default function LiveTreatments({ className = "" }) {
           {t("Available for clinical intake")}
         </p>
         <h2 className="mt-4 max-w-2xl font-serif text-3xl leading-tight text-ink md:text-5xl">
-          {t("Three live treatments.")}{" "}
+          {t("Live treatments.")}{" "}
           <em className="italic text-terracotta">{t("Hosted intake.")}</em>
         </h2>
         <p className="mt-4 max-w-xl font-serif text-base leading-relaxed text-ink/70 md:text-lg">
-          {t(
-            "Semaglutide, Tirzepatide, and NAD+ are connected to VirtualClinicOS. Choose one to open secure clinical intake.",
-          )}
+          {t("Connected to VirtualClinicOS for")} {joinCategories(treatments, t)}.{" "}
+          {t("Choose one to open secure clinical intake.")}
         </p>
         <ul className="mt-10 grid gap-6 md:grid-cols-3">
-          {LIVE_TREATMENTS.map((item) => (
-            <li key={item.sku} className="flex flex-col border-t border-ink/15 pt-6">
+          {treatments.map((item) => (
+            <li key={item.slug} className="flex flex-col border-t border-ink/15 pt-6">
               <p className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 {t(item.category)}
               </p>
               <h3 className="mt-2 font-serif text-2xl text-ink md:text-3xl">{t(item.name)}</h3>
+              <p className="mt-2 font-serif text-base text-terracotta">{priceLabel(item, t)}</p>
               <div className="mt-6 flex flex-wrap gap-4">
+                {canStartIntake(item) ? (
+                  <a
+                    href={item.intakeUrl}
+                    className="text-xs uppercase tracking-[0.22em] text-forest transition hover:text-terracotta"
+                  >
+                    {t("Start intake →")}
+                  </a>
+                ) : null}
                 <Link
-                  href={intakeHref(item.id)}
-                  className="text-xs uppercase tracking-[0.22em] text-forest transition hover:text-terracotta"
-                >
-                  {t("Start intake →")}
-                </Link>
-                <Link
-                  href={`/treatments/${item.vialSlug}`}
+                  href={`/treatments/${item.slug}`}
                   className="text-xs uppercase tracking-[0.22em] text-ink/55 transition hover:text-terracotta"
                 >
                   {t("Learn more")}
