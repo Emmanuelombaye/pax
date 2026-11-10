@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useLang } from "@/i18n";
 import { SAFETY, canStartIntake, priceLabel, supplyLabel } from "@/brand/productMap.js";
+import MediaImage from "@/components/MediaImage";
 import "@/styles/vial-page.css";
 
 const consult = [
@@ -62,7 +63,7 @@ export default function VialDetail({ item, others = [] }) {
           <IntakeButton item={item} t={t} />
         </div>
         <div className="vial-photo">
-          <img src={item.image} alt={item.imageAlt} />
+          <MediaImage priority src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
         </div>
       </section>
 
@@ -137,7 +138,7 @@ export default function VialDetail({ item, others = [] }) {
                   <Link href={`/treatments/${other.slug}`} className="pax-product-more">{t("Learn More")}</Link>
                 </div>
                 <Link href={`/treatments/${other.slug}`} className="pax-product-image">
-                  <img src={other.image} alt={other.imageAlt} loading="lazy" />
+                  <MediaImage src={other.image} alt={other.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" />
                 </Link>
               </article>
             ))}

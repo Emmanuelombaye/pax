@@ -1,11 +1,11 @@
 "use client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import es from "./es.json";
 
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState("en");
+  const [es, setEs] = useState(null);
 
   useEffect(() => {
     try {
@@ -23,15 +23,18 @@ export function LanguageProvider({ children }) {
       /* ignore */
     }
     document.documentElement.lang = lang === "es" ? "es" : "en";
-  }, [lang]);
+    if (lang === "es" && !es) {
+      import("./es.json").then((mod) => setEs(mod.default));
+    }
+  }, [lang, es]);
 
   const value = useMemo(
     () => ({
       lang,
       setLang,
-      t: (text) => (lang === "es" && es[text] ? es[text] : text),
+      t: (text) => (lang === "es" && es && es[text] ? es[text] : text),
     }),
-    [lang]
+    [lang, es]
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

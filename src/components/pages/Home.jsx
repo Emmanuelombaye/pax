@@ -294,7 +294,7 @@ export default function Home({ treatments = [] }) {
           </div>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
             <span className="footer-trust__legitscript">
-              <img alt="LegitScript" width="73" height="79" src="/brand/legitscript-seal.png" />
+              <MediaImage alt="LegitScript" width={73} height={79} src="/brand/legitscript-seal.png" sizes="73px" />
             </span>
             <div className="footer-trust__badge footer-trust__badge--flag">
               <span className="footer-trust__icon footer-trust__icon--flag">

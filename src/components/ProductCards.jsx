@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useLang } from "@/i18n";
 import { canStartIntake, priceLabel } from "@/brand/productMap.js";
+import MediaImage from "@/components/MediaImage";
 import "@/styles/vial-page.css";
 
 export default function ProductCards({ treatments }) {
@@ -25,7 +26,7 @@ export default function ProductCards({ treatments }) {
             </div>
           </div>
           <Link href={`/treatments/${item.slug}`} className="pax-product-image">
-            <img src={item.image} alt={item.imageAlt} loading="lazy" />
+            <MediaImage src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" />
           </Link>
         </article>
       ))}

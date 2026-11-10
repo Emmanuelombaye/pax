@@ -7,7 +7,6 @@ import MediaImage from "@/components/MediaImage";
 import "@/styles/vials.css";
 
 const SLIDE_SECONDS = 10;
-const RING = 157;
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
@@ -60,7 +59,9 @@ export default function Vials({ treatments = [] }) {
   const [index, setIndex] = useState(0);
   const [cycle, setCycle] = useState(0);
   const [navShift, setNavShift] = useState(0);
-  const hovered = useRef(false);
+  const [hovered, setHovered] = useState(false);
+  const [onScreen, setOnScreen] = useState(false);
+  const sectionRef = useRef(null);
   const ringRef = useRef(null);
   const countRef = useRef(null);
   const navRef = useRef(null);
@@ -76,34 +77,25 @@ export default function Vials({ treatments = [] }) {
   };
 
   useEffect(() => {
-    if (count === 0) return undefined;
+    const node = sectionRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return undefined;
+    const observer = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting), { rootMargin: "100px" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const ring = ringRef.current;
     const label = countRef.current;
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let elapsed = 0;
-    let last = performance.now();
-    let frame;
-    const paint = () => {
-      const progress = Math.min(1, elapsed / (SLIDE_SECONDS * 1000));
-      if (ring) ring.style.strokeDashoffset = String(RING * (1 - progress));
-      if (label) label.textContent = String(Math.max(0, SLIDE_SECONDS - Math.round(progress * SLIDE_SECONDS))).padStart(2, "0");
-      return progress;
-    };
-    paint();
-    if (still) return undefined;
-    const tick = (now) => {
-      if (!hovered.current) elapsed += now - last;
-      last = now;
-      if (paint() >= 1) {
-        setIndex((prev) => (prev + 1) % count);
-        setCycle((c) => c + 1);
-        return;
-      }
-      frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [cycle, tab, count]);
+    if (!ring || !label) return undefined;
+    const id = window.setInterval(() => {
+      const anim = ring.getAnimations?.()[0];
+      const ms = anim ? Number(anim.currentTime) || 0 : 0;
+      const left = String(Math.max(0, SLIDE_SECONDS - Math.round(ms / 1000))).padStart(2, "0");
+      if (label.textContent !== left) label.textContent = left;
+    }, 250);
+    return () => window.clearInterval(id);
+  }, [cycle, tab]);
 
   useIsoLayoutEffect(() => {
     const nav = navRef.current;
@@ -135,7 +127,7 @@ export default function Vials({ treatments = [] }) {
   };
 
   return (
-    <section className="formula" id="vials" aria-labelledby="formula-title">
+    <section className="formula" id="vials" aria-labelledby="formula-title" ref={sectionRef}>
       <div className="formula-inner">
         <h2 id="formula-title" className="formula-title">
           {t("Find the Right")} <em>{t("Formula")}</em>
@@ -158,11 +150,11 @@ export default function Vials({ treatments = [] }) {
             </div>
           </div>
 
-          <div className="formula-show" role="tabpanel" aria-label={t(current.label)}>
+          <div className={`formula-show${hovered || !onScreen ? " is-paused" : ""}`} role="tabpanel" aria-label={t(current.label)}>
             <div
               className="formula-slides"
-              onMouseEnter={() => { hovered.current = true; }}
-              onMouseLeave={() => { hovered.current = false; }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
               onPointerDown={(e) => { swipeX.current = e.clientX; }}
               onPointerUp={(e) => {
                 if (swipeX.current == null) return;
@@ -239,7 +231,15 @@ export default function Vials({ treatments = [] }) {
             <div className="formula-progress" aria-hidden="true">
               <svg width="60" height="60">
                 <circle cx="30" cy="30" r="25" className="formula-progress__track" />
-                <circle cx="30" cy="30" r="25" className="formula-progress__ring" ref={ringRef} />
+                <circle
+                  key={`${tab}-${cycle}`}
+                  cx="30"
+                  cy="30"
+                  r="25"
+                  className="formula-progress__ring"
+                  ref={ringRef}
+                  onAnimationEnd={() => go(index + 1)}
+                />
               </svg>
               <span className="formula-progress__text" ref={countRef}>{String(SLIDE_SECONDS).padStart(2, "0")}</span>
             </div>

@@ -261,6 +261,12 @@
   stroke-linecap: round;
   stroke-dasharray: 157;
   stroke-dashoffset: 157;
+  animation: formula-ring 10s linear forwards;
+}
+.formula .formula-show.is-paused .formula-progress__ring { animation-play-state: paused; }
+@keyframes formula-ring {
+  from { stroke-dashoffset: 157; }
+  to { stroke-dashoffset: 0; }
 }
 .formula .formula-progress__text {
   position: absolute;
@@ -333,7 +339,7 @@
     color: var(--formula-forest);
   }
   .formula .formula-nav { display: none; }
-  .formula .formula-progress { display: none; }
+  .formula .formula-progress { visibility: hidden; }
   .formula .formula-dots { display: block; }
 }
 
@@ -364,4 +370,5 @@
   .formula .formula-slide,
   .formula .formula-dot,
   .formula .formula-nav__track { transition: none; }
+  .formula .formula-progress__ring { animation: none; }
 }

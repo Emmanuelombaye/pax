@@ -27,6 +27,7 @@ export default function MediaImage({
     priority,
     decoding: "async",
     style,
+    unoptimized: /^https?:\/\//.test(src) && !/\.supabase\.co\//.test(src),
   };
 
   if (fill) {

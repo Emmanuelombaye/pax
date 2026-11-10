@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SiteHeader } from "@/components/Chrome";
+import MediaImage from "@/components/MediaImage";
 import LiveTreatments from "@/components/LiveTreatments";
 import { DEFAULT_INTAKE_HREF, joinCategories } from "@/brand/productMap.js";
 import { useLang } from "@/i18n";
@@ -156,7 +157,7 @@ function StepRow({ step, cta }) {
   return (
     <article className="hiw-step">
       <div className="hiw-photo">
-        <img loading="lazy" decoding="async" src={step.image.src} alt={step.image.alt} />
+        <MediaImage src={step.image.src} alt={step.image.alt} width={1400} height={1050} sizes="(max-width: 768px) 100vw, 50vw" />
       </div>
       <div>
         <p className="hiw-kicker">Step {step.num}</p>
@@ -195,7 +196,7 @@ export default function HowItWorks({ treatments = [] }) {
   return (
     <div className="how-pax">
       <section className="hiw-hero">
-        <img loading="eager" fetchPriority="high" decoding="async" className="hiw-hero-photo" src={images.howItWorks.src} alt={images.howItWorks.alt} />
+        <MediaImage priority className="hiw-hero-photo" src={images.howItWorks.src} alt={images.howItWorks.alt} width={1400} height={788} sizes="100vw" quality={75} />
         <SiteHeader
           tone="onDark"
           brandHref="/"
@@ -329,13 +330,13 @@ export default function HowItWorks({ treatments = [] }) {
           <div className="hiw-doctor-track">
             {portraits.map((photo) => (
               <figure key={photo.src} className="hiw-portrait">
-                <div className="frame"><img loading="lazy" decoding="async" src={photo.src} alt={photo.alt} /></div>
+                <div className="frame"><MediaImage src={photo.src} alt={photo.alt} width={1400} height={1866} sizes="(max-width: 768px) 50vw, 25vw" /></div>
                 <figcaption className="hiw-indigo mt-2 text-center text-sm">Licensed provider</figcaption>
               </figure>
             ))}
             {portraits.map((photo) => (
               <figure key={`${photo.src}-copy`} className="hiw-portrait copy" aria-hidden="true">
-                <div className="frame"><img loading="lazy" decoding="async" src={photo.src} alt="" /></div>
+                <div className="frame"><MediaImage src={photo.src} alt="" width={1400} height={1866} sizes="(max-width: 768px) 50vw, 25vw" /></div>
                 <figcaption className="hiw-indigo mt-2 text-center text-sm">Licensed provider</figcaption>
               </figure>
             ))}
@@ -370,7 +371,7 @@ export default function HowItWorks({ treatments = [] }) {
       </section>
 
       <section className="hiw-faq">
-        <img loading="lazy" decoding="async" className="hiw-faq-bg" src={images.howItWorks.src} alt="" />
+        <MediaImage className="hiw-faq-bg" src={images.howItWorks.src} alt="" width={1400} height={788} sizes="100vw" />
         <div className="hiw-wrap">
           <div className="hiw-faq-card">
             <h2 className="hiw-section-title">FAQs</h2>
@@ -391,7 +392,7 @@ export default function HowItWorks({ treatments = [] }) {
       </section>
 
       <section className="hiw-cta">
-        <img loading="lazy" decoding="async" className="bg" src={images.longevity.src} alt={images.longevity.alt} />
+        <MediaImage className="bg" src={images.longevity.src} alt={images.longevity.alt} width={1400} height={788} sizes="100vw" />
         <div className="shade" />
         <div className="hiw-wrap copy">
           <div className="max-w-2xl">
