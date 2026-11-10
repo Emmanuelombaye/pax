@@ -96,7 +96,9 @@ export default function Vials({ treatments = [] }) {
   return (
     <section className="formula" id="vials" aria-labelledby="formula-title">
       <div className="formula-inner">
-        <h2 id="formula-title" className="formula-title">{t("Find the Right Formula")}</h2>
+        <h2 id="formula-title" className="formula-title">
+          {t("Find your")} <em>{t("protocol.")}</em>
+        </h2>
         <div className="formula-tabbed">
           <div className="formula-tabs">
             <div className="formula-tabs__inner" role="tablist" aria-label={t("Treatment categories")}>
