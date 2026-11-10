@@ -17,20 +17,6 @@ const PROGRAMS = [
     highlights: ["Testosterone & estrogen optimization", "Comprehensive baseline & follow-up labs", "Quarterly physician reviews"],
     href: "/programs/hormone-optimization",
   },
-  {
-    tag: "Premium",
-    title: "Peptides & Wellness",
-    description: "Custom peptide protocols — BPC-157, Ipamorelin, GHK-Cu and more — designed around recovery and longevity goals.",
-    highlights: ["Recovery, growth, and longevity peptides", "Cycled protocols with safety monitoring", "Premium compounding partners"],
-    comingSoon: true,
-  },
-  {
-    tag: "Subscription",
-    title: "Vitality & Performance",
-    description: "Sildenafil, Tadalafil, PT-141, Tri-Mix. Discreet shipping, physician-supervised, refilled on autopilot.",
-    highlights: ["ED & libido protocols for men and women", "Discreet, unmarked packaging", "On-demand & daily dosing options"],
-    comingSoon: true,
-  },
 ];
 
 export default function ProgramCards() {
@@ -54,7 +40,7 @@ export default function ProgramCards() {
           <div key={program.title} className="group flex flex-col rounded-2xl border border-ink/15 bg-sand p-8 transition hover:border-terracotta hover:shadow-lg md:p-10">
             <div className="flex items-center justify-between gap-4">
               <span className="rounded-full border border-ink/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-ink/60">{t(program.tag)}</span>
-              <span className="text-xs uppercase tracking-[0.25em] text-terracotta">{t(program.comingSoon ? "Coming soon" : "Available now")}</span>
+              <span className="text-xs uppercase tracking-[0.25em] text-terracotta">{t("Available now")}</span>
             </div>
             <h3 className="mt-6 font-serif text-3xl leading-tight text-ink md:text-4xl">{t(program.title)}</h3>
             <p className="mt-4 font-serif text-base leading-relaxed text-ink/70">{t(program.description)}</p>
@@ -63,11 +49,7 @@ export default function ProgramCards() {
                 <li key={item} className="flex gap-3"><span className="text-terracotta">—</span><span>{t(item)}</span></li>
               ))}
             </ul>
-            {program.comingSoon ? (
-              <a href="#waitlist" className="mt-8 inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Join the waitlist →")}</a>
-            ) : (
-              <Link href={program.href} className="mt-8 inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation →")}</Link>
-            )}
+            <Link href={program.href} className="mt-8 inline-block text-xs uppercase tracking-[0.22em] text-ink/70 transition hover:text-terracotta">{t("Begin consultation →")}</Link>
           </div>
         ))}
       </div>
