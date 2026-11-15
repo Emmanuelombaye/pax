@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node init && next dev",
-    "build": "node init && next build",
-    "start": "node init && next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.5.4",
-    "node-fetch": "^3.3.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sharp": "^0.35.5"
