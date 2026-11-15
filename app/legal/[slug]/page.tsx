@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${page.title} — Pax Health`,
     description: String(page.intro || "").slice(0, 160),
+    alternates: { canonical: `/legal/${slug}` },
   };
 }
 

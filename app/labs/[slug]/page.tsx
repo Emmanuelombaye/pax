@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${panel.title} — Pax Health`,
     description: panel.summary,
+    alternates: { canonical: `/labs/${slug}` },
   };
 }
 

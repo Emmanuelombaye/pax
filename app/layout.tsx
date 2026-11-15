@@ -50,7 +50,26 @@ const orgJsonLd = {
       logo: "https://www.paxlongevity.com/icon-512.png",
       description:
         "Pax Health is a telehealth clinic for longevity, hormone, recovery, and weight care based in Miami. Independent U.S.-licensed clinicians review each member; Pax is not a pharmacy.",
-      areaServed: "US",
+      areaServed: { "@type": "Country", name: "United States" },
+      email: "support@paxlongevity.com",
+      telephone: "+16154342927",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "382 NE 191st St, Num 931099",
+        addressLocality: "Miami",
+        addressRegion: "FL",
+        postalCode: "33179",
+        addressCountry: "US",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "support@paxlongevity.com",
+        telephone: "+16154342927",
+        areaServed: "US",
+        availableLanguage: ["English", "Spanish"],
+      },
+      legalName: "Pax Longevity LLC",
       medicalSpecialty: ["Endocrine", "PreventiveMedicine"],
     },
     {
