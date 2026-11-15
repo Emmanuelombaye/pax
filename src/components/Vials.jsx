@@ -46,7 +46,7 @@ function buildTabs(treatments) {
         const items = treatments.filter(area.match);
         if (items.length === 0) return null;
         const href = items.length === 1 ? `/treatments/${items[0].slug}` : `/programs/${items[0].categorySlug}`;
-        return { key, ...area, href, image: items[0].image, imageAlt: items[0].imageAlt };
+        return { key, ...area, href, image: items[0].image, imageAlt: items[0].imageAlt, imageStyle: items[0].imageStyle };
       })
       .filter(Boolean),
   })).filter((tab) => tab.slides.length > 0);
@@ -175,7 +175,7 @@ export default function Vials({ treatments = [] }) {
                   >
                     <div className="formula-slide__media">
                       {showImage ? (
-                        <MediaImage src={slide.image} alt={slide.imageAlt} fill sizes="(max-width: 960px) 100vw, 50vw" quality={72} className="formula-slide__img" />
+                        <MediaImage src={slide.image} alt={slide.imageAlt} fill sizes="(max-width: 960px) 100vw, 50vw" quality={70} className="formula-slide__img" style={slide.imageStyle || undefined} />
                       ) : null}
                     </div>
                     <div className="formula-slide__content">

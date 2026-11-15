@@ -29,8 +29,10 @@ const PRESENTATION = {
     title: "Semaglutide Injections",
     badge: "Once weekly",
     subtitle: "Injection · once weekly",
-    image: "/images/pax-card-semaglutide-v1.webp",
-    alt: "Pax semaglutide vial",
+    image: "/newvialimages/semaglutide.jpg",
+    // Source photo is portrait with the vial right of center: show it whole and nudge it toward center.
+    imageStyle: { objectFit: "contain", objectPosition: "0% 50%" },
+    alt: "Pax semaglutide injection vial",
     about: [
       {
         title: "What is semaglutide?",
@@ -55,8 +57,8 @@ const PRESENTATION = {
     title: "Tirzepatide Injections",
     badge: "Dual action",
     subtitle: "Injection · once weekly",
-    image: "/images/pax-card-tirzepatide-v2.webp",
-    alt: "Pax tirzepatide vial",
+    image: "/newvialimages/tirzepatide.jpg",
+    alt: "Pax tirzepatide injection vial",
     about: [
       {
         title: "What is tirzepatide?",
@@ -81,8 +83,8 @@ const PRESENTATION = {
     title: "Testosterone Cypionate Injections",
     badge: "Video visit",
     subtitle: "Injection · 200 mg/mL",
-    image: "/images/pax-card-testosterone-v4.webp",
-    alt: "Pax testosterone cypionate vial",
+    image: "/newvialimages/testosterone.jpg",
+    alt: "Pax testosterone cypionate injection vial",
     summary:
       "Testosterone cypionate injection for men with clinically low testosterone, prescribed only after labs and a video visit with a licensed provider.",
     about: [
@@ -277,6 +279,7 @@ export function toTreatment(raw, categories = []) {
     categorySlug: category?.slug || slugify(categoryName),
     image: extra.image || raw.image_url || (Array.isArray(raw.images) && raw.images[0]) || FALLBACK_IMAGE,
     imageAlt: extra.alt || name,
+    imageStyle: extra.imageStyle || null,
     about: extra.about || patchCopy.about || standardAbout(name, summary),
     seo: raw.seo || { title: name, description: summary, image: null },
   };

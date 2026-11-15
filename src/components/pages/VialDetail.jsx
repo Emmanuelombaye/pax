@@ -64,7 +64,7 @@ export default function VialDetail({ item, others = [] }) {
           <IntakeButton item={item} t={t} />
         </div>
         <div className="vial-photo">
-          <MediaImage priority src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
+          <MediaImage priority src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 768px) 100vw, 50vw" quality={75} style={item.imageStyle || undefined} />
         </div>
       </section>
 
@@ -139,7 +139,7 @@ export default function VialDetail({ item, others = [] }) {
                   <Link href={`/treatments/${other.slug}`} className="pax-product-more">{t("Learn More")}</Link>
                 </div>
                 <Link href={`/treatments/${other.slug}`} className="pax-product-image">
-                  <MediaImage src={other.image} alt={other.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" />
+                  <MediaImage src={other.image} alt={other.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" quality={70} style={other.imageStyle || undefined} />
                 </Link>
               </article>
             ))}

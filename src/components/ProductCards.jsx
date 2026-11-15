@@ -27,7 +27,7 @@ export default function ProductCards({ treatments }) {
             </div>
           </div>
           <Link href={`/treatments/${item.slug}`} className="pax-product-image">
-            <MediaImage src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" />
+            <MediaImage src={item.image} alt={item.imageAlt} width={960} height={960} sizes="(max-width: 640px) 100vw, 400px" quality={70} style={item.imageStyle || undefined} />
           </Link>
         </article>
       ))}
