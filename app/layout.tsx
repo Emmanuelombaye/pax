@@ -21,12 +21,55 @@ export const metadata: Metadata = {
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   manifest: "/site.webmanifest",
+  applicationName: "Pax Health",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: {
+    type: "website",
+    siteName: "Pax Health",
+    title: "Pax Health — Longevity & Concierge Wellness",
+    description:
+      "Physician-guided longevity, hormone, and recovery programs from Miami. Begin your intake assessment.",
+    url: "https://www.paxlongevity.com",
+    images: [{ url: "/Gemini_Generated_Image_8yg7dm8yg7dm8yg7.jpg", width: 928, height: 1152, alt: "Cycling on Ocean Drive, Miami Beach" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pax Health — Longevity & Concierge Wellness",
+    description: "Physician-guided longevity, hormone, and recovery programs from Miami.",
+    images: ["/Gemini_Generated_Image_8yg7dm8yg7dm8yg7.jpg"],
+  },
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://www.paxlongevity.com/#organization",
+      name: "Pax Health",
+      url: "https://www.paxlongevity.com",
+      logo: "https://www.paxlongevity.com/icon-512.png",
+      description:
+        "Pax Health is a telehealth clinic for longevity, hormone, recovery, and weight care based in Miami. Independent U.S.-licensed clinicians review each member; Pax is not a pharmacy.",
+      areaServed: "US",
+      medicalSpecialty: ["Endocrine", "PreventiveMedicine"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.paxlongevity.com/#website",
+      url: "https://www.paxlongevity.com",
+      name: "Pax Health",
+      publisher: { "@id": "https://www.paxlongevity.com/#organization" },
+      inLanguage: "en",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-latin.woff2" crossOrigin="anonymous" />
         <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-italic-latin.woff2" crossOrigin="anonymous" />
         <link rel="preload" as="font" type="font/woff2" href="/fonts/work-sans-latin.woff2" crossOrigin="anonymous" />

@@ -6,12 +6,14 @@ import { BrandSeal, Icon, SiteHeader, icons } from "@/components/Chrome";
 import MediaImage from "@/components/MediaImage";
 import Vials from "@/components/Vials";
 import ProgramCards from "@/components/ProgramCards";
+import HomeFaq from "@/components/HomeFaq";
 import { DEFAULT_INTAKE_HREF, joinCategories } from "@/brand/productMap.js";
 import { LEGAL_LINKS } from "@/data/legalContent.js";
 import { LAB_PANELS } from "@/data/labPanels.js";
 import "@/styles/footer-badges.css";
 import "@/styles/legal.css";
 import "@/styles/lab-cards.css";
+import "@/styles/footer-layout.css";
 const panels = LAB_PANELS;
 
 export default function Home({ treatments = [] }) {
@@ -273,22 +275,55 @@ export default function Home({ treatments = [] }) {
         </div>
       </section>
 
+      <HomeFaq />
+
       <footer className="home-footer w-full bg-forest py-16 text-sand/80">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+          <div className="footer-cta">
             <div>
-              <p className="flex items-center gap-3 font-serif text-2xl text-sand"><BrandSeal className="h-12 w-12 md:h-12 md:w-12" /><span>Pax<span className="italic text-dune"> Health</span></span></p>
-              <p className="mt-3 max-w-xs font-serif text-base leading-relaxed">{t("A modern telehealth clinic for longevity, recovery, and the long life.")}</p>
+              <p className="footer-cta__kicker">Start today</p>
+              <h2 className="footer-cta__title">Your health, by design</h2>
+              <p className="footer-cta__text">Start with a full panel of biomarkers across your hormones, metabolism, heart, thyroid, and more. Then work with a licensed provider to build a personalized plan.</p>
             </div>
-            <Link href="/how-pax-works" className="text-xs uppercase tracking-[0.22em] text-sand transition hover:text-dune">{t("How it works")}</Link>
-            <div className="footer-links-col footer-links-col--legal">
+            <Link href={DEFAULT_INTAKE_HREF} className="footer-cta__button">Get started</Link>
+          </div>
+          <div className="footer-contact">
+            <div>
+              <span className="footer-col-title">Contact us</span>
+              <a href="mailto:support@paxlongevity.com" className="footer-link">support@paxlongevity.com</a>
+            </div>
+            <div>
+              <span className="footer-col-title">Find us</span>
+              <address className="footer-link footer-address">382 NE 191st St, Num 931099<br />Miami, FL 33179</address>
+            </div>
+          </div>
+          <div className="footer-grid">
+            <nav className="footer-links-col" aria-label="Why Pax">
+              <span className="footer-col-title">Why Pax</span>
+              <Link href="/how-pax-works" className="footer-link">How It Works</Link>
+              <a href="#what-we-measure" className="footer-link">Pax Biomarkers</a>
+              <Link href="/treatments" className="footer-link">Treatments</Link>
+              <Link href="/legal/providernetwork" className="footer-link">Physicians</Link>
+              <Link href="/legal/medical-disclaimer" className="footer-link">Clinical</Link>
+            </nav>
+            <nav className="footer-links-col" aria-label="Our company">
+              <span className="footer-col-title">Our Company</span>
+              <Link href="/network" className="footer-link">About Us</Link>
+              <a href="mailto:support@paxlongevity.com" className="footer-link">Help Center</a>
+              <a href="#faqs" className="footer-link">FAQs</a>
+            </nav>
+            <nav className="footer-links-col footer-links-col--wide" aria-label="Legal">
               <span className="footer-col-title">Legal</span>
               {LEGAL_LINKS.map((link) => (
-                <Link key={link.id} href={link.href} className="footer-link">
-                  {link.label}
-                </Link>
+                <Link key={link.id} href={link.href} className="footer-link">{link.label}</Link>
               ))}
-            </div>
+            </nav>
+          </div>
+          <div className="footer-brandrow">
+            <p className="flex items-center gap-3 font-serif text-2xl text-sand"><BrandSeal className="h-12 w-12 md:h-12 md:w-12" /><span>Pax<span className="italic text-dune"> Health</span></span></p>
+            <p className="footer-about">
+              Pax is an online clinic that helps men and women manage their health. As part of your membership and as medically indicated, independent U.S.-licensed providers prescribe medications and recommend supplements, with fulfillment through licensed pharmacy partners. Pax-affiliated medical practices are independently owned and operated by licensed providers who deliver services using the Pax telehealth platform. <Link href="/legal/providernetwork" className="footer-inline-link">Learn more</Link>.
+            </p>
           </div>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
             <span className="footer-trust__legitscript">
@@ -351,13 +386,6 @@ export default function Home({ treatments = [] }) {
             <p className="footer-copy">
               Pax Longevity LLC d/b/a Pax Longevity® · © {new Date().getFullYear()} Pax Longevity®. {t("All rights reserved.")}
             </p>
-            <nav className="footer-legal-links" aria-label="Legal">
-              {LEGAL_LINKS.map((link) => (
-                <Link key={`bottom-${link.id}`} href={link.href} className="footer-legal-link">
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
           </div>
         </div>
       </footer>

@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  images: {
+  compiler: { removeConsole: { exclude: ["error", "warn"] } },  images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920],
     imageSizes: [64, 96, 128, 256, 384],

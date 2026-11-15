@@ -1,0 +1,220 @@
+.pfaq {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  width: 100%;
+  background: var(--sand);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* Desktop: photo stays pinned while the accordion scrolls */
+.pfaq__media {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+  height: calc(100svh - 72px);
+  min-height: 540px;
+  max-height: 920px;
+  overflow: hidden;
+  background: var(--dune);
+}
+
+/* Tablet: equal-height columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pfaq__media {
+    position: relative;
+    top: auto;
+    align-self: stretch;
+    height: auto;
+    min-height: 560px;
+    max-height: none;
+  }
+}
+
+.pfaq__img {
+  object-fit: cover;
+}
+
+.pfaq__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(20, 30, 24, 0.78) 100%);
+  pointer-events: none;
+}
+
+.pfaq__title {
+  position: absolute;
+  left: clamp(20px, 3.2vw, 48px);
+  right: clamp(20px, 3.2vw, 48px);
+  bottom: clamp(24px, 4vw, 56px);
+  margin: 0;
+  color: var(--sand);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(2.3rem, 4.6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.pfaq__title span {
+  display: block;
+}
+
+.pfaq__list {
+  border-left: 1px solid var(--ink);
+  background: var(--sand);
+}
+
+.pfaq__item {
+  border-bottom: 1px solid var(--ink);
+  transition: background-color 0.45s ease;
+}
+
+.pfaq__item:not(.is-open):hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.pfaq__item.is-open {
+  background: var(--dune);
+}
+
+.pfaq__heading {
+  margin: 0;
+}
+
+.pfaq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: clamp(26px, 3.2vw, 40px) clamp(20px, 3.4vw, 48px);
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(1.35rem, 2.3vw, 2.05rem);
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pfaq__trigger:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: -6px;
+}
+
+.pfaq__icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.45s ease;
+}
+
+.pfaq__icon::before,
+.pfaq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+}
+
+.pfaq__icon::after {
+  transform: rotate(90deg);
+}
+
+.pfaq__item.is-open .pfaq__icon {
+  transform: rotate(45deg);
+}
+
+.pfaq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
+}
+
+.pfaq__item.is-open .pfaq__panel {
+  grid-template-rows: 1fr;
+}
+
+.pfaq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pfaq__panel-body {
+  padding: 0 clamp(20px, 3.4vw, 48px) clamp(28px, 3.2vw, 40px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pfaq__item.is-open .pfaq__panel-body {
+  opacity: 1;
+  transition-delay: 0.12s;
+}
+
+.pfaq__question {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pfaq__answer {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.pfaq__more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(22px, 2.6vw, 32px) clamp(20px, 3.4vw, 48px);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pfaq__more:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 767px) {
+  .pfaq {
+    grid-template-columns: 1fr;
+  }
+
+  .pfaq__media {
+    position: relative;
+    top: auto;
+    height: min(118vw, 560px);
+    min-height: 0;
+    max-height: none;
+  }
+
+  .pfaq__list {
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .pfaq__title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pfaq__item,
+  .pfaq__icon,
+  .pfaq__panel,
+  .pfaq__panel-body {
+    transition: none !important;
+  }
+}

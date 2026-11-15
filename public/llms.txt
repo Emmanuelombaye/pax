@@ -1,0 +1,15 @@
+# Pax Health
+
+> Pax Health is a Miami-based telehealth clinic for longevity, hormone, recovery, and weight care. Independent U.S.-licensed clinicians review each member's intake and bloodwork. Pax is not a pharmacy; fulfillment occurs through licensed pharmacy partners only when a provider prescribes.
+
+## Key facts
+- Membership: Basic $25/month, Premium $155/month. Medication, when prescribed, is a separate charge.
+- Bloodwork is arranged through mobile phlebotomy or partner draw sites (no mail-order kit) and analyzed in CLIA-certified labs.
+- Completing an assessment does not guarantee treatment; a licensed provider decides.
+- Compounded medications are not FDA-approved.
+
+## Pages
+- [Home](https://www.paxlongevity.com/): overview, lab panels, FAQ
+- [How Pax works](https://www.paxlongevity.com/how-pax-works): intake, labs, provider review, plan
+- [Treatments](https://www.paxlongevity.com/treatments): available programs and medications
+- [Network](https://www.paxlongevity.com/network): partners and clinical network
