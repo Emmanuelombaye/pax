@@ -333,10 +333,16 @@ export default function Home({ treatments = [] }) {
               Pax is an online clinic that helps men and women manage their health. As part of your membership and as medically indicated, independent U.S.-licensed providers prescribe medications and recommend supplements, with fulfillment through licensed pharmacy partners. Pax-affiliated medical practices are independently owned and operated by licensed providers who deliver services using the Pax telehealth platform. <Link href="/legal/providernetwork" className="footer-inline-link">Learn more</Link>.
             </p>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
-            <span className="footer-trust__legitscript">
+            <a
+              className="footer-trust__legitscript"
+              href="https://www.legitscript.com/websites/?checker_keywords=paxlongevity.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify Pax Health on LegitScript (opens in a new tab)"
+            >
               <MediaImage alt="LegitScript" width={73} height={79} src="/brand/legitscript-seal.png" sizes="73px" />
-            </span>
-            <div className="footer-trust__badge footer-trust__badge--flag">
+            </a>
+            <Link href="/legal/shipping" className="footer-trust__badge footer-trust__badge--flag" aria-label="Pharmacy and fulfillment policy">
               <span className="footer-trust__icon footer-trust__icon--flag">
                 <img alt="" width="80" height="56" src="/brand/badge-usa-flag.svg" />
               </span>
@@ -345,8 +351,8 @@ export default function Home({ treatments = [] }) {
                 <span className="footer-trust__kicker">{t("Pharmacies in the")}</span>
                 <span className="footer-trust__usa-title">★&nbsp;USA</span>
               </span>
-            </div>
-            <div className="footer-trust__badge footer-trust__badge--seal">
+            </Link>
+            <Link href="/legal/providernetwork" className="footer-trust__badge footer-trust__badge--seal" aria-label="Provider network">
               <span className="footer-trust__seal">
                 <img alt="" width="64" height="64" src="/brand/badge-licensed-provider.svg" />
               </span>
@@ -355,8 +361,8 @@ export default function Home({ treatments = [] }) {
                 <span className="footer-trust__title">{t("Licensed U.S. Providers")}</span>
                 <span className="footer-trust__sub">{t("Verified")}</span>
               </span>
-            </div>
-            <div className="footer-trust__badge footer-trust__badge--seal">
+            </Link>
+            <Link href="/legal/hipaa" className="footer-trust__badge footer-trust__badge--seal" aria-label="HIPAA notice">
               <span className="footer-trust__seal">
                 <img alt="" width="64" height="64" src="/brand/badge-hipaa-caduceus.svg" />
               </span>
@@ -365,7 +371,7 @@ export default function Home({ treatments = [] }) {
                 <span className="footer-trust__title footer-trust__title--hipaa">HIPAA</span>
                 <span className="footer-trust__sub">{t("Compliant")}</span>
               </span>
-            </div>
+            </Link>
           </div>
           <p className="footer-disclaimer">
             Pax Longevity® is a telehealth platform that connects eligible patients with independent US-licensed providers and

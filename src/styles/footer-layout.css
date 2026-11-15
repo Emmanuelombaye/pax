@@ -188,6 +188,27 @@
   color: var(--ft-ink);
 }
 
+/* Badges are links: keep text color, add a hover/focus cue */
+.home-footer a.footer-trust__badge,
+.home-footer a.footer-trust__legitscript {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.home-footer a.footer-trust__badge:hover,
+.home-footer a.footer-trust__legitscript:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.home-footer a.footer-trust__badge:focus-visible,
+.home-footer a.footer-trust__legitscript:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 /* Giant wordmark, cropped at the bottom */
 .home-footer .site-footer__wordmark {
   margin: 56px 0 -0.12em;
