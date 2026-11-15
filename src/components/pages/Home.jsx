@@ -277,54 +277,61 @@ export default function Home({ treatments = [] }) {
 
       <HomeFaq />
 
-      <footer className="home-footer w-full bg-forest py-16 text-sand/80">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="footer-cta">
-            <div>
-              <p className="footer-cta__kicker">Start today</p>
-              <h2 className="footer-cta__title">Your health, by design</h2>
-              <p className="footer-cta__text">Start with a full panel of biomarkers across your hormones, metabolism, heart, thyroid, and more. Then work with a licensed provider to build a personalized plan.</p>
+      <footer className="home-footer site-footer w-full">
+        <div className="site-footer__panel">
+        <div className="site-footer__inner">
+          <div className="site-footer__top">
+            <div className="site-footer__contact">
+              <p className="site-footer__label">Contact us</p>
+              <a className="site-footer__email" href="mailto:support@paxlongevity.com">support@paxlongevity.com</a>
             </div>
-            <Link href={DEFAULT_INTAKE_HREF} className="footer-cta__button">Get started</Link>
-          </div>
-          <div className="footer-contact">
-            <div>
-              <span className="footer-col-title">Contact us</span>
-              <a href="mailto:support@paxlongevity.com" className="footer-link">support@paxlongevity.com</a>
-            </div>
-            <div>
-              <span className="footer-col-title">Find us</span>
-              <address className="footer-link footer-address">382 NE 191st St, Num 931099<br />Miami, FL 33179</address>
+            <div className="site-footer__address">
+              <p className="site-footer__label">Find us</p>
+              <p className="site-footer__address-text">382 NE 191st St, Num 931099<br />Miami, FL 33179</p>
             </div>
           </div>
-          <div className="footer-grid">
-            <nav className="footer-links-col" aria-label="Why Pax">
-              <span className="footer-col-title">Why Pax</span>
-              <Link href="/how-pax-works" className="footer-link">How It Works</Link>
-              <a href="#what-we-measure" className="footer-link">Pax Biomarkers</a>
-              <Link href="/treatments" className="footer-link">Treatments</Link>
-              <Link href="/legal/providernetwork" className="footer-link">Physicians</Link>
-              <Link href="/legal/medical-disclaimer" className="footer-link">Clinical</Link>
-            </nav>
-            <nav className="footer-links-col" aria-label="Our company">
-              <span className="footer-col-title">Our Company</span>
-              <Link href="/network" className="footer-link">About Us</Link>
-              <a href="mailto:support@paxlongevity.com" className="footer-link">Help Center</a>
-              <a href="#faqs" className="footer-link">FAQs</a>
-            </nav>
-            <nav className="footer-links-col footer-links-col--wide" aria-label="Legal">
-              <span className="footer-col-title">Legal</span>
-              {LEGAL_LINKS.map((link) => (
-                <Link key={link.id} href={link.href} className="footer-link">{link.label}</Link>
-              ))}
-            </nav>
-          </div>
-          <div className="footer-brandrow">
-            <p className="flex items-center gap-3 font-serif text-2xl text-sand"><BrandSeal className="h-12 w-12 md:h-12 md:w-12" /><span>Pax<span className="italic text-dune"> Health</span></span></p>
-            <p className="footer-about">
+          <nav className="footer-nav" aria-label="Footer">
+            <div className="footer-nav__col">
+              <h3 className="footer-nav__heading">Why Pax</h3>
+              <ul>
+                <li><Link href="/how-pax-works">How It Works</Link></li>
+                <li><a href="#what-we-measure">Pax Biomarkers</a></li>
+                <li><Link href="/treatments">Treatments</Link></li>
+                <li><Link href="/legal/providernetwork">Physicians</Link></li>
+                <li><Link href="/legal/medical-disclaimer">Clinical</Link></li>
+              </ul>
+            </div>
+            <div className="footer-nav__col">
+              <h3 className="footer-nav__heading">Our Company</h3>
+              <ul>
+                <li><Link href="/network">About Us</Link></li>
+                <li><a href="mailto:support@paxlongevity.com">Help Center</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+              </ul>
+            </div>
+            <div className="footer-nav__col">
+              <h3 className="footer-nav__heading">Get Started</h3>
+              <ul>
+                <li><Link href={DEFAULT_INTAKE_HREF}>Begin Intake</Link></li>
+                <li><a href="#waitlist">Join the Waitlist</a></li>
+              </ul>
+            </div>
+            <div className="footer-nav__col footer-nav__col--legal">
+              <h3 className="footer-nav__heading">Legal</h3>
+              <ul>
+                {LEGAL_LINKS.map((link) => (
+                  <li key={link.id}><Link href={link.href}>{link.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+          <div className="footer-notice">
+            <p className="footer-notice__copyright">
+              © {new Date().getFullYear()} Pax Health
+            </p>
+            <p className="footer-disclaimer">
               Pax is an online clinic that helps men and women manage their health. As part of your membership and as medically indicated, independent U.S.-licensed providers prescribe medications and recommend supplements, with fulfillment through licensed pharmacy partners. Pax-affiliated medical practices are independently owned and operated by licensed providers who deliver services using the Pax telehealth platform. <Link href="/legal/providernetwork" className="footer-inline-link">Learn more</Link>.
             </p>
-          </div>
           <div className="footer-trust" role="group" aria-label={t("Pharmacy compounding, licensed provider review, and data protection")}>
             <span className="footer-trust__legitscript">
               <MediaImage alt="LegitScript" width={73} height={79} src="/brand/legitscript-seal.png" sizes="73px" />
@@ -382,11 +389,12 @@ export default function Home({ treatments = [] }) {
             is not intended to imply that Pax Longevity® compounds, manufactures, dispenses, or physically fulfills
             medications. Actual medication packaging and pharmacy labeling may differ.
           </p>
-          <div className="footer-bottom">
-            <p className="footer-copy">
-              Pax Longevity LLC d/b/a Pax Longevity® · © {new Date().getFullYear()} Pax Longevity®. {t("All rights reserved.")}
-            </p>
+          <p className="footer-disclaimer">
+            Pax Longevity LLC d/b/a Pax Longevity® · © {new Date().getFullYear()} Pax Longevity®. {t("All rights reserved.")}
+          </p>
           </div>
+          <div className="site-footer__wordmark" aria-hidden="true">PAX</div>
+        </div>
         </div>
       </footer>
     </main>
