@@ -40,9 +40,9 @@ const guidedSteps = [
   {
     num: "02",
     title: "Measure",
-    lead: "Complete comprehensive bloodwork through GetLabs or Brandons.",
+    lead: "Complete comprehensive bloodwork through mobile phlebotomy or partner draw sites.",
     points: [
-      "Blood draws arranged via GetLabs or Brandons — no Pax mail-order kit",
+      "Blood draws arranged for you — no Pax mail-order kit",
       "Mobile phlebotomy or partner draw sites, then CLIA-certified analysis",
       "DEXA $59.95 and Prenuvo MRI $2,099 as membership add-ons",
     ],
@@ -398,9 +398,9 @@ export default function HowItWorks({ treatments = [] }) {
           <div className="max-w-2xl">
             <h2>Begin your <em className="text-terracotta">assessment</em></h2>
             <p className="mt-5 text-base leading-relaxed text-white sm:text-lg">
-              Tell us your goals in a few minutes. Bloodwork is arranged through GetLabs or Brandons — not a Pax mail-order kit. A licensed provider reviews your results and builds a plan. Basic membership is $25/month; Premium is $155/month. Medication, when prescribed, is always a separate charge — and completing an assessment does not guarantee treatment.
+              Tell us your goals in a few minutes. Bloodwork is arranged through mobile phlebotomy or partner draw sites — not a Pax mail-order kit. A licensed provider reviews your results and builds a plan. Basic membership is $25/month; Premium is $155/month. Medication, when prescribed, is always a separate charge — and completing an assessment does not guarantee treatment.
             </p>
-            <p className="mt-6 font-serif text-xl text-white sm:text-2xl">Bloodwork via GetLabs or Brandons — membership is separate</p>
+            <p className="mt-6 font-serif text-xl text-white sm:text-2xl">Bloodwork is arranged separately — membership is separate</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Cta clay>Get Started</Cta>
               <a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="inline-flex items-center gap-2 font-serif text-lg text-white">

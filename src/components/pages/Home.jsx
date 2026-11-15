@@ -132,14 +132,14 @@ export default function Home({ treatments = [] }) {
                 {t("Labs when you need them,")} <em className="italic text-terracotta">{t("without a kit.")}</em>
               </h2>
               <p className="mt-6 max-w-lg font-serif text-lg leading-relaxed text-ink/70">
-                {t("Bloodwork is arranged through GetLabs or Brandons — mobile phlebotomy or partner draw sites. Results feed your Pax physician for review; no Pax mail-order kit.")}
+                {t("Bloodwork is arranged through mobile phlebotomy or partner draw sites. Results feed your Pax physician for review; no Pax mail-order kit.")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link href={DEFAULT_INTAKE_HREF} className="rounded-full bg-terracotta px-8 py-4 text-xs uppercase tracking-[0.22em] text-sand transition hover:bg-terracotta/90">{t("Begin intake")}</Link>
                 <a href="#what-we-measure" className="rounded-full border border-ink/30 px-8 py-4 text-xs uppercase tracking-[0.22em] text-ink transition hover:border-ink hover:bg-ink hover:text-sand">{t("See what we measure")}</a>
               </div>
               <ul className="mt-10 space-y-2 font-serif text-sm text-ink/75">
-                <li>• {t("Drawn via GetLabs or Brandons")}</li>
+                <li>• {t("Mobile or partner site blood draw")}</li>
                 <li>• {t("CLIA-certified partner labs")}</li>
                 <li>• {t("Reviewed by your Pax physician")}</li>
               </ul>
@@ -153,14 +153,12 @@ export default function Home({ treatments = [] }) {
                 sizes="(max-width: 768px) 100vw, 40vw"
                 quality={68}
                 className="h-auto w-full rounded-3xl object-cover shadow-xl"
-              />
-              <div className="absolute bottom-6 right-6 rounded-2xl border border-ink/10 bg-sand/95 px-5 py-3 font-serif text-sm text-ink shadow-md">{t("GetLabs · Brandons")}</div>
-            </div>
+              />            </div>
           </div>
           <div className="mt-20 border-t border-ink/15 pt-12">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
               <h3 id="what-we-measure" className="font-serif text-3xl leading-tight text-ink md:text-4xl">{t("What we measure.")}</h3>
-              <p className="max-w-md font-serif text-base text-ink/70">{t("A comprehensive longevity panel spanning every major system — drawn through GetLabs or Brandons, analyzed in CLIA-certified labs.")}</p>
+              <p className="max-w-md font-serif text-base text-ink/70">{t("A comprehensive longevity panel spanning every major system, analyzed in CLIA-certified labs.")}</p>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {panels.map((panel) => (
