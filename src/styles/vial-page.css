@@ -27,6 +27,14 @@
   font-family: "Instrument Serif", Georgia, serif;
 }
 
+.pax-product-form,
+.vial-form {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, #1d1713 58%, transparent);
+}
+
 .vial-hero {
   display: flex;
   flex-direction: column-reverse;

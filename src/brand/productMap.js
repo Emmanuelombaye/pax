@@ -26,8 +26,9 @@ export const CATEGORY_COPY = {
 const PRESENTATION = {
   semaglutide: {
     label: "Semaglutide",
+    title: "Semaglutide Injections",
     badge: "Once weekly",
-    subtitle: "Semaglutide injection",
+    subtitle: "Injection · once weekly",
     image: "/images/pax-card-semaglutide-v1.webp",
     alt: "Pax semaglutide vial",
     about: [
@@ -51,8 +52,9 @@ const PRESENTATION = {
   },
   tirzepatide: {
     label: "Tirzepatide",
+    title: "Tirzepatide Injections",
     badge: "Dual action",
-    subtitle: "Tirzepatide injection",
+    subtitle: "Injection · once weekly",
     image: "/images/pax-card-tirzepatide-v2.webp",
     alt: "Pax tirzepatide vial",
     about: [
@@ -76,8 +78,9 @@ const PRESENTATION = {
   },
   "testosterone-cypionate-10ml": {
     label: "Testosterone",
+    title: "Testosterone Cypionate Injections",
     badge: "Video visit",
-    subtitle: "Testosterone cypionate 200 mg/mL",
+    subtitle: "Injection · 200 mg/mL",
     image: "/images/pax-card-testosterone-v4.webp",
     alt: "Pax testosterone cypionate vial",
     summary:
@@ -103,22 +106,25 @@ const PRESENTATION = {
   },
   "estradiol-patch-0-05mg-1-per-week-box-of-4": {
     label: "Estradiol patch 0.05 mg",
+    title: "Estradiol Patch 0.05 mg",
     badge: "Once weekly",
-    subtitle: "Estradiol transdermal patch",
+    subtitle: "Transdermal patch · box of 4",
     image: "/images/pax-card-estradiol-patch-v1.webp",
     alt: "Pax estradiol transdermal patch box",
   },
   "estradiol-patch-0-1mg-1-per-week-box-of-4": {
     label: "Estradiol patch 0.1 mg",
+    title: "Estradiol Patch 0.1 mg",
     badge: "Once weekly",
-    subtitle: "Estradiol transdermal patch",
+    subtitle: "Transdermal patch · box of 4",
     image: "/images/pax-card-estradiol-patch-v1.webp",
     alt: "Pax estradiol transdermal patch box",
   },
   "estradiol-vaginal-cream-0-01-42-5-g-tube": {
     label: "Estradiol cream",
+    title: "Estradiol Vaginal Cream",
     badge: "Local relief",
-    subtitle: "Estradiol 0.01% vaginal cream",
+    subtitle: "Cream · 0.01%",
     image: "/images/pax-card-estradiol-cream-v1.webp",
     alt: "Pax estradiol vaginal cream tube",
     summary:
@@ -144,8 +150,9 @@ const PRESENTATION = {
   },
   "progesterone-capsules-100mg": {
     label: "Progesterone",
+    title: "Progesterone Capsules",
     badge: "Bedtime capsule",
-    subtitle: "Oral progesterone 100 mg",
+    subtitle: "Capsule · 100 mg",
     image: "/images/pax-card-prog-v3.webp",
     alt: "Pax progesterone 100 mg capsules",
     summary:
@@ -251,6 +258,8 @@ export function toTreatment(raw, categories = []) {
     slug,
     sku: raw.sku || null,
     name,
+    /** Display title (Hone-style "Generic Name + Form"); `name` stays the API value for checkout/intake. */
+    title: extra.title || name,
     label: extra.label || name,
     badge: extra.badge || (raw.requires_video_consult ? "Video visit" : null),
     subtitle: extra.subtitle || raw.dosage_form || null,

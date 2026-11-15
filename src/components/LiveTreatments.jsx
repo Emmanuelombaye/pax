@@ -32,7 +32,8 @@ export default function LiveTreatments({ treatments = [], className = "" }) {
               <p className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 {t(item.category)}
               </p>
-              <h3 className="mt-2 font-serif text-2xl text-ink md:text-3xl">{t(item.name)}</h3>
+              <h3 className="mt-2 font-serif text-2xl text-ink md:text-3xl">{t(item.title)}</h3>
+              {item.subtitle ? <p className="mt-1 text-sm text-ink/55">{t(item.subtitle)}</p> : null}
               <p className="mt-2 font-serif text-base text-terracotta">{priceLabel(item, t)}</p>
               <div className="mt-6 flex flex-wrap gap-4">
                 {canStartIntake(item) ? (

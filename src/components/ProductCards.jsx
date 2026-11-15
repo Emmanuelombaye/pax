@@ -14,8 +14,9 @@ export default function ProductCards({ treatments }) {
         <article key={item.slug} className="pax-product">
           <div className="pax-product-content">
             <h3>
-              <Link href={`/treatments/${item.slug}`}>{t(item.name)}</Link>
+              <Link href={`/treatments/${item.slug}`}>{t(item.title)}</Link>
             </h3>
+            {item.subtitle ? <p className="pax-product-form">{t(item.subtitle)}</p> : null}
             <p className="pax-product-price">{priceLabel(item, t)}</p>
             <p className="pax-product-body">{t(item.summary)}</p>
             <div className="pax-product-actions">

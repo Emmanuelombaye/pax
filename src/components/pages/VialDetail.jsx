@@ -43,7 +43,8 @@ export default function VialDetail({ item, others = [] }) {
             <span>/</span>
             <span>{t(item.label)}</span>
           </p>
-          <h1>{t(item.name)}</h1>
+          <h1>{t(item.title)}</h1>
+          {item.subtitle ? <p className="vial-form">{t(item.subtitle)}</p> : null}
           <p className="vial-price">{item.inStock ? t("Live clinical intake") : t("Currently unavailable")}</p>
           {price ? <p className="vial-price">{price}</p> : null}
           <p className="vial-summary">{t(item.summary)}</p>
@@ -132,7 +133,7 @@ export default function VialDetail({ item, others = [] }) {
             {others.map((other) => (
               <article key={other.slug} className="pax-product">
                 <div className="pax-product-content">
-                  <h3><Link href={`/treatments/${other.slug}`}>{t(other.name)}</Link></h3>
+                  <h3><Link href={`/treatments/${other.slug}`}>{t(other.title)}</Link></h3>
                   <p className="pax-product-price">{priceLabel(other, t)}</p>
                   <p className="pax-product-body">{t(other.summary)}</p>
                   <Link href={`/treatments/${other.slug}`} className="pax-product-more">{t("Learn More")}</Link>
