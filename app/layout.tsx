@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { RouteChrome } from "@/components/RouteChrome";
-import "@/styles/fonts.css";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -70,9 +69,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-latin.woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-italic-latin.woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/work-sans-latin.woff2" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..600&display=swap"
+        />
       </head>
       <body>
         <Providers>
